@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 技术 | Lucida]]></title>
+  <link href="http://yoursite.com/blog/categories/ji-zhu/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-01-05T23:31:22+00:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Lucida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[第一篇博文]]></title>
+    <link href="http://yoursite.com/blog/my-first-article/"/>
+    <updated>2014-01-05T17:03:00+00:00</updated>
+    <id>http://yoursite.com/blog/my-first-article</id>
+    <content type="html"><![CDATA[<h2>为什么要使用Octopress写博客</h2>
+
+<p>之前用过不少博客，其中最长的一个<a href="http://www.cnblogs.com/figure9/">博客园博客</a>用了五年，写了不少文章，也不乏不少关注者，但我始终觉得不太爽：</p>
+
+<ul>
+<li>博客园上的文章水平太低：
+
+<ul>
+<li>倒不是装x，我并不否认博客园在国内的程序社区的地位，但这仅限于国内，一个首页上充满python入门教程或是常用排序算法的站点更适合初学者。</li>
+<li>所以可以理解一些用户在"成名"之后反而选择离开。</li>
+</ul>
+</li>
+<li>提供的编辑器不好用，尤其是代码样式难看的一B。</li>
+<li>缺乏对站点的控制，尽管有一些主题但可塑性不强，自己想放一些脚本进去也不方便。</li>
+<li>缺乏Mobile Readability，无论在我的iPhone 5还是Nexus 5上，精心设计的文章排版都会变成翔。</li>
+</ul>
+
+
+<p>直到前天和<a href="http://contributors.rubyonrails.org/contributors/oscar-del-ben/commits">Oscar</a>打桌球，我提到一直打算做一个独立博客，但由于不清楚uk这边申请域名和空间的流程而一直拖到现在，Oscar很疑惑的说如果只是一个静态博客那么用Github做host不就成了么。</p>
+
+<p>于是这个周末做了下调研，最后目标锁定在<a href="http://octopress.org/">Octopress</a>。</p>
+
+<h3>免费的空间</h3>
+
+<p>Octopress是一个静态博客生成系统，使用<a href="http://jekyllrb.com/">Jekyll</a>生成静态站点，而Jekyll是Github默认的<a href="http://pages.github.com">pages</a>生成系统，因此Octopress生成的静态站点可以很方便的部署到Github Pages上。而Github提供了免费的空间，因此申请空间这步就轻松的跳过了。</p>
+
+<h3>接近完美的样式</h3>
+
+<p>Octopress默认的样式已经很不错，尤其是在<code>code</code>的展现和对<strong>Markdown</strong>的支持上，除此之外对<code>Markdown</code>做了一系列扩展，使得排版更加精致。
+下面的代码效果令我十分满意：</p>
+
+<p>``` java Hello world in java
+package org.java.fun;</p>
+
+<p>public class Sample{</p>
+
+<pre><code>public static void main(String[] args) {
+    System.out.println("Hello world!"); 
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>Mobile Readablity</h3>
+
+<p>无论是在iPad Air，还是在iPhone 5和NEXUS 5上面，Octopress的表现都堪称完美。</p>
+
+<h3>新技术的训练</h3>
+
+<p>很惭愧的承认自己并没有用过git，也没有用过Markdown。以至于Basia在得知我没用过git时十分惊讶</p>
+
+<blockquote><p>How could a programmer never use git before?</p></blockquote>
+
+<p>使用Octopress写博客可以强制自己使用git，此外如果想要对站点做一点tweak，还需要html5+css3+js+ror这一系列web开发前后端的知识，考虑到自己有做full stack developer的打算，用这个博客练手不失为一个好办法。</p>
+
+<h2>接下来会写些什么</h2>
+
+<ul>
+<li>读过的书</li>
+<li>写的代码</li>
+<li>以及在london的生活感受</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
