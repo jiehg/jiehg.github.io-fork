@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://yoursite.com/blog/my-first-article/</loc>
-        <lastmod>2014-01-05T23:29:11+00:00</lastmod>
+        <loc>http://lucida.github.io/blog/my-first-article/</loc>
+        <lastmod>2014-01-05T23:43:04+00:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/about/</loc>
+        <loc>http://lucida.github.io/about/</loc>
         <lastmod>2014-01-05T18:35:14+00:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/blog/archives/</loc>
-        <lastmod>2014-01-05T23:29:11+00:00</lastmod>
+        <loc>http://lucida.github.io/blog/archives/</loc>
+        <lastmod>2014-01-05T23:43:04+00:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/</loc>
-        <lastmod>2014-01-05T23:29:11+00:00</lastmod>
+        <loc>http://lucida.github.io/</loc>
+        <lastmod>2014-01-05T23:43:04+00:00</lastmod>
     </url>
     <url>
-        <loc>http://yoursite.com/robots.txt</loc>
+        <loc>http://lucida.github.io/robots.txt</loc>
         <lastmod>2014-01-05T17:01:35+00:00</lastmod>
     </url>
 </urlset>

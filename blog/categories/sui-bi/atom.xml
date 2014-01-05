@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 随笔 | Lucida]]></title>
-  <link href="http://yoursite.com/blog/categories/sui-bi/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2014-01-05T23:31:22+00:00</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://lucida.github.io/blog/categories/sui-bi/atom.xml" rel="self"/>
+  <link href="http://lucida.github.io/"/>
+  <updated>2014-01-05T23:43:12+00:00</updated>
+  <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[第一篇博文]]></title>
-    <link href="http://yoursite.com/blog/my-first-article/"/>
+    <link href="http://lucida.github.io/blog/my-first-article/"/>
     <updated>2014-01-05T17:03:00+00:00</updated>
-    <id>http://yoursite.com/blog/my-first-article</id>
-    <content type="html"><![CDATA[<h2>为什么要使用Octopress写博客</h2>
+    <id>http://lucida.github.io/blog/my-first-article</id>
+    <content type="html"><![CDATA[<h2>为什么要使用Octopress</h2>
 
 <p>之前用过不少博客，其中最长的一个<a href="http://www.cnblogs.com/figure9/">博客园博客</a>用了五年，写了不少文章，也不乏不少关注者，但我始终觉得不太爽：</p>
 
