@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://lucida.github.io/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-09T17:33:16+00:00</updated>
+  <updated>2014-03-15T20:22:35+00:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,283 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何阅读书籍]]></title>
+    <link href="http://lucida.github.io/blog/on-reading-books/"/>
+    <updated>2014-03-15T20:05:35+00:00</updated>
+    <id>http://lucida.github.io/blog/on-reading-books</id>
+    <content type="html"><![CDATA[<h1>如何阅读书籍</h1>
+
+<h1>摘要</h1>
+
+<p>这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。</p>
+
+<h1>注意</h1>
+
+<ol>
+<li>“如何阅读”指“What to read”而非“How to read”，Mortimer J. Adler的<a href="http://book.douban.com/subject/1013208/">怎样阅读一本书</a>对How to read有着精彩的描述。</li>
+<li>“书籍”指非小说（Non-fiction）类书籍。</li>
+</ol>
+
+
+<h1>目标</h1>
+
+<p>我是一个功利主义者（<a href="http://en.wikipedia.org/wiki/Utilitarianism">Utilitarianism</a>），因此我认为阅读的目标在于为自己创造实际价值，所以：</p>
+
+<ol>
+<li>我不会因为某本书看起来很有趣就去阅读（机会成本）。</li>
+<li>也不会因为很多人推荐某本书就去阅读（从众）。</li>
+<li>更不会因为某本书难就去阅读（追求智商优越感）</li>
+</ol>
+
+
+<p>一本书值得阅读，当且仅当：</p>
+
+<ol>
+<li>它可以直接为我创造价值。</li>
+<li>它可以间接为我创造价值。</li>
+</ol>
+
+
+<p>我的阅读目标：</p>
+
+<blockquote><p>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。</p></blockquote>
+
+<h1>如何选择？</h1>
+
+<h2>本专业书籍</h2>
+
+<blockquote><p>专业知识尽可能深入。</p></blockquote>
+
+<p>我是一个软件开发者（Software Developer），因此这里的专业书籍均和软件开发有关。</p>
+
+<p>这里介绍我自己用的两种方法：</p>
+
+<h3>根据引用列表</h3>
+
+<p>从一本经典书籍出发，深度优先遍历它的引用列表，通过书评和摘要了解这些引用书籍，再根据自己的实际情况决定自己的阅读次序。</p>
+
+<p>这里以<a href="http://book.douban.com/subject/1477390/">代码大全</a>为例（为了方便和一致性，这里使用英文书名）：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Code Complete：软件构建全程最佳实践指南。
+</span><span class='line'>|
+</span><span class='line'>|----How to Solve it：系统解决问题。
+</span><span class='line'>|
+</span><span class='line'>|----Conceptual Blockbusting：跳出思维的壁垒。
+</span><span class='line'>|
+</span><span class='line'>|----Mythical Man Month：软件工程不能做什么。
+</span><span class='line'>|
+</span><span class='line'>|----Programming Pearls：极简算法手册。
+</span><span class='line'>     |
+</span><span class='line'>     |----The Science of Programming：编写正确的程序。
+</span><span class='line'>     |
+</span><span class='line'>     |----Writing Efficient Programs：编写高效的程序。
+</span><span class='line'>|
+</span><span class='line'>|----Pragmatic Programmer：高效程序员的实践。
+</span><span class='line'>|
+</span><span class='line'>|----Refactoring：如何改进自己的代码。
+</span><span class='line'>|
+</span><span class='line'>|----Programming on Purposes：用正确的编程模式处理问题。
+</span><span class='line'>|
+</span><span class='line'>|----Software Tools：用合适的抽象封装复杂度。
+</span><span class='line'>     |
+</span><span class='line'>     |----The Practice of Programming：极简编程风格指南。
+</span><span class='line'>          |
+</span><span class='line'>          |---- Writing Solid Code：减少调试的时间。
+</span><span class='line'>          |
+</span><span class='line'>          |---- Elements of Programming Style：极简编程风格指南。</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以发现，通过<a href="http://book.douban.com/subject/1477390/">代码大全</a>一本书，经过短短两层引用联系，几乎可以找到2004年以前所有软件开发的经典书籍。事实上，我阅读的80%以上的软件开发经典书籍，都源自于<a href="http://book.douban.com/subject/1477390/">代码大全</a>的引用列表。</p>
+
+<p>这种方法的好处：</p>
+
+<ul>
+<li>简单直接：相对于从茫茫书海里找出10本经典书籍，找1本经典书籍再从它的引用列表里面找到20本经典书籍要容易的多。</li>
+<li>质量保证：靠谱书籍的引用书籍的质量一般都很高。</li>
+<li>发现一些被忽视的经典：相当一部分的书籍随着时间的流逝而淡出人们的视野，但这并不代表它们本身没有价值，例如：
+
+<ul>
+<li><a href="http://book.douban.com/subject/1989284/">Programming on Purposes</a></li>
+<li><a href="http://book.douban.com/subject/1815459/">Software Tools</a></li>
+<li><a href="http://book.douban.com/subject/2350559/">The Science of Programming</a></li>
+<li><a href="http://book.douban.com/subject/1456967/">Writing Solid Code</a></li>
+<li><a href="http://book.douban.com/subject/1768600/">Writing Efficient Programs</a></li>
+<li>等等&hellip; 这些书或者绝版，但它们都对我的软件开发理念产生了巨大影响。</li>
+</ul>
+</li>
+<li>形成知识体系：引用书籍彼此具有天然的联系，这使得创建知识体系更加容易。</li>
+</ul>
+
+
+<p>我认为这种方法适用于任何需要严肃阅读的领域：</p>
+
+<ol>
+<li>锚点：找到一本经典书籍。</li>
+<li>撒网：了解该书引用列表中的书籍。</li>
+<li>收网：根据自己实际需要，精读相关书籍。</li>
+</ol>
+
+
+<h3>根据作者</h3>
+
+<p>这里以计算机书籍为例（以下仅代表个人口味）：</p>
+
+<ol>
+<li>Richard Stevens：善。</li>
+<li>Brian Kernighan：极善。</li>
+<li>Deitel Series：翔。</li>
+<li>Bruce Eckel：废话连篇。</li>
+<li>Jon Bentley：善。</li>
+<li>Andrew S Tanenbaum：大善。</li>
+<li>Jeffrey D Ullman：善。</li>
+<li>P.J. Plauger：大善。</li>
+<li>Robert C Martin：善。</li>
+<li>Bjarne Stroustrup：善，但略神叨（神侃世界观方法论有点顶不住）。</li>
+<li>Martin Fowler：善，但略唠叨。</li>
+<li>Ron Jeffries：翔（好吧我是故意来黑的，尼玛连个<a href="http://devgrind.com/2007/04/25/how-to-not-solve-a-sudoku/">Sudoku</a>都解不出来写毛程序）</li>
+</ol>
+
+
+<p>这种方法的问题在于需要一定阅读经验，但是它非常有效——以至于不用看内容就对书的质量有七八成把握。</p>
+
+<h2>非本专业书籍</h2>
+
+<blockquote><p>专业周边知识尽可能精炼。</p></blockquote>
+
+<ol>
+<li>对于专业周边知识，了解关键概念及指导思想即可。</li>
+<li>不需要，也没有必要对专业周边知识进行深入了解。</li>
+<li>&ldquo;Know what&rdquo; is enough, &ldquo;Know how&rdquo; is expensive.</li>
+</ol>
+
+
+<p>以我2年前编写手机应用，学习用户体验为例：</p>
+
+<ol>
+<li>分别在现实中（身边有几个很不错的交互设计师）和线上（Quora和知乎）进行提问和搜索，得到一个书单。</li>
+<li>按照下面的原则过滤书单：
+
+<ul>
+<li>去掉教科书和大部头。</li>
+<li>去掉包含大量原理或论证的书籍。</li>
+<li>保留结论型书籍。</li>
+<li>保留指南型书籍。</li>
+</ul>
+</li>
+<li>总结出书单，迅速的阅读并找到关键点。
+
+<ul>
+<li><a href="http://book.douban.com/subject/3323633/">给大家看的设计书</a>：CRAP原则，字体与配色。</li>
+<li><a href="http://book.douban.com/subject/4606471/">设计心理学</a>：心智模型，心智摩擦，最小惊讶。</li>
+<li><a href="http://book.douban.com/subject/1493316/">交互设计之路</a>：为什么需要交互，交互有哪些坑。</li>
+<li><a href="http://book.douban.com/subject/4254166/">Tapworthy</a>：具有实际操作性的移动平台交互设计指南。</li>
+</ul>
+</li>
+</ol>
+
+
+<p>了解设计的人可能认为上面的书单过于初级——没错，它们都是结论型或指南型书籍，没有原理，也没有论证——但这正是对于我这样的非专业者所需要的书籍：我不需要知道这些知识是怎么来的，知道怎么用足矣。</p>
+
+<p>此外，受价值驱动，而非兴趣——大多数情况下兴趣只是把自己脱离当前困境的接口。</p>
+
+<h2>学习型书籍</h2>
+
+<p>学习型书籍是一种元（Meta）方法书籍：这类书籍用于提升学习能力，换句话说，就是缩短吸收知识所需要的时间。</p>
+
+<p>这类书籍我只读过下面的几本，效果有但不明显：</p>
+
+<ul>
+<li><a href="http://book.douban.com/subject/2345548/">学习之道</a>：冥想，体会。</li>
+<li><a href="http://book.douban.com/subject/1013208/">如何阅读一本书</a>：检视阅读，主题阅读。</li>
+<li><a href="http://www.scotthyoung.com/learnmorestudyless/">Learn more, study less</a>：建立知识体系及联系。</li>
+</ul>
+
+
+<p>需要注意的是，不要陷入到寻求最优学习方法的误区——Best is the worthest enemy of better。</p>
+
+<h1>阅读原版？</h1>
+
+<h2>如何在翻译版和原版做选择？</h2>
+
+<ol>
+<li>优先选择翻译版。计算机书籍这种描述精确知识的书籍更是如此。</li>
+<li>此外，如果阅读中出现难以理解的问题，不要下意识的把其归咎于翻译问题——多数情况是理解问题。</li>
+</ol>
+
+
+<h2>那为什么还有那么多人阅读原版？</h2>
+
+<ol>
+<li>因为翻译版还没出版。</li>
+<li>知识的价值有其时效性。</li>
+<li>逼格。</li>
+</ol>
+
+
+<h1>越多越好？</h1>
+
+<p>我经常逛豆瓣，豆瓣有一个很有意思的现象就是人们喜欢去比较自己每年读书的数量，或者是截图炫耀自己读过几千本书云云。</p>
+
+<p>我在这里酸一下：书的数量并没有什么参考价值，就好比无法用盖一栋大楼的砖数评价这栋大楼的质量；换个说法，Effort不等于Progress。</p>
+
+<blockquote><p>关键在于读过书的质量，吸收的程度，以及创造的价值。</p></blockquote>
+
+<p>此外，盲目追求读书的数量会带来另一个问题——浅尝辄止。本应花在专业书籍上的时间被分配到其它无关紧要的事情上，导致该学好的没学好，没必要的学了一滩但用不上。</p>
+
+<h1>总结</h1>
+
+<ol>
+<li>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。
+
+<ul>
+<li>按照引用列表和作者深入阅读专业书籍。</li>
+<li>利用结论型/指南型书籍精炼阅读专业周边书籍。</li>
+<li>不断强化自己的按需学习能力。</li>
+</ul>
+</li>
+<li>不一定非要阅读原版。</li>
+<li>读书并非多多益善。</li>
+<li>读书之前回答下面几个问题：
+
+<ul>
+<li>这本书能给自己带来什么改变？</li>
+<li>自己是否需要这种改变？</li>
+<li>如果均为Yes，继续；如果有一个No，砍掉。</li>
+</ul>
+</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
