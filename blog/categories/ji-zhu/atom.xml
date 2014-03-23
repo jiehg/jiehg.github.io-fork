@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-15T23:01:18+00:00</updated>
+  <updated>2014-03-23T19:50:47+00:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,1719 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
+    <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
+    <updated>2014-03-23T19:08:35+00:00</updated>
+    <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
+    <content type="html"><![CDATA[<h1>90分钟实现一门编程语言——极简解释器教程</h1>
+
+<h2>关键字</h2>
+
+<p>解释器, C#, Scheme, 函数式编程</p>
+
+<p>本文链接：<a href="http://zh.lucida.me/how-to-implement-an-intepreter-in-csharp/">http://zh.lucida.me/how-to-implement-an-intepreter-in-csharp/</a></p>
+
+<h2>关于</h2>
+
+<p>本文介绍了如何使用C#实现一个简化Scheme——iScheme及其解释器。</p>
+
+<p>如果你对下面的内容感兴趣：</p>
+
+<ul>
+<li>实现基本的词法分析，语法分析并生成抽象语法树。</li>
+<li>实现嵌套作用域和函数调用。</li>
+<li>解释器的基本原理。</li>
+<li>以及一些C#编程技巧。</li>
+</ul>
+
+
+<p>那么请继续阅读。</p>
+
+<p>如果你对以下内容感兴趣：</p>
+
+<ul>
+<li>高级的词法/语法分析技术。</li>
+<li>类型推导/分析。</li>
+<li>目标代码优化。</li>
+</ul>
+
+
+<p>本文则过于初级，你可以跳过本文，但欢迎指出本文的错误 :&ndash;)</p>
+
+<h2>代码样例</h2>
+
+<p>```csharp 代码示例
+public static int Add(int a, int b) {</p>
+
+<pre><code>return a + b;
+</code></pre>
+
+<p>}</p>
+
+<blockquote><blockquote><p>Add(3, 4)
+7</p>
+
+<p>Add(5, 5)
+10
+```</p></blockquote></blockquote>
+
+<p>这段代码定义了<code>Add</code>函数，接下来的<code>&gt;&gt;</code>符号表示对<code>Add(3, 4)</code>进行求值，再下一行的<code>&gt;&gt; 7</code>表示上一行的求值结果，不同的求值用换行分开。可以把这里的<code>&gt;&gt;</code>理解成控制台提示符（即Terminal中的PS）。</p>
+
+<h2>什么是解释器</h2>
+
+<p><img src="http://i.imgur.com/C8lxHfr.jpg" alt="解释器图示" /></p>
+
+<p><a href="http://zh.wikipedia.org/wiki/%E8%A7%A3%E9%87%8A%E5%99%A8">解释器</a>（Interpreter）是一种程序，能够读入程序并直接输出结果，如上图。相对于<a href="http://zh.wikipedia.org/wiki/%E7%BC%96%E8%AF%91%E5%99%A8">编译器</a>（Compiler），<a href="http://zh.wikipedia.org/wiki/%E8%A7%A3%E9%87%8A%E5%99%A8">解释器</a>并不会生成目标机器代码，而是直接运行源程序，简单来说：</p>
+
+<blockquote><p><a href="http://zh.wikipedia.org/wiki/%E8%A7%A3%E9%87%8A%E5%99%A8">解释器</a>是运行程序的程序。</p></blockquote>
+
+<p>计算器就是一个典型的解释器，我们把数学公式（源程序）给它，它通过运行它内部的"解释器"给我们答案。</p>
+
+<p><img src="http://i.imgur.com/FC1nqko.jpg" alt="CASIO 计算器" /></p>
+
+<h2>iScheme编程语言</h2>
+
+<p>iScheme是什么？</p>
+
+<ul>
+<li>Scheme语言的一个极简子集。</li>
+<li>虽然小，但变量，算术|比较|逻辑运算，列表，函数和递归这些编程语言元素一应俱全。</li>
+<li>非常非常慢——可以说它只是为演示本文的概念而存在。</li>
+</ul>
+
+
+<p>OK，那么Scheme是什么？</p>
+
+<ul>
+<li>一种函数式程序设计语言。</li>
+<li>一种Lisp方言。</li>
+<li>麻省理工学院程序设计入门课程使用的语言（参见<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/">MIT 6.001</a>和《<a href="http://book.douban.com/subject/1148282/">计算机程序的构造与解释</a>》）。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/66TdRMD.jpg" alt="计算机程序的构造与解释" /></p>
+
+<ul>
+<li>使用<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E5%85%B0%E8%A1%A8%E7%A4%BA%E6%B3%95">波兰表达式</a>（Polish Notation）。</li>
+<li>更多的介绍参见<a href="http://zh.wikipedia.org/wiki/Scheme">Scheme编程语言</a>。</li>
+</ul>
+
+
+<p>以计算阶乘为例：</p>
+
+<p>```csharp C#版阶乘
+public static int Factorial(int n) {</p>
+
+<pre><code>if (n == 1) {
+    return 1;
+} else {
+    return n * Factorial(n - 1);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>```scm iScheme版阶乘
+(def factorial (lambda (n) (</p>
+
+<pre><code>if (= n 1)
+   1
+   (* n (factorial (- n 1))))))
+</code></pre>
+
+<p>```</p>
+
+<h3>数值类型</h3>
+
+<p>由于iScheme只是一个用于演示的语言，所以目前只提供对整数的支持。iScheme使用C#的<code>Int64</code>类型作为其内部的数值表示方法。</p>
+
+<h3>定义变量</h3>
+
+<p><code>``scm iScheme使用</code>def`关键字定义变量</p>
+
+<blockquote><blockquote><p>(def a 3)
+3</p>
+
+<p>a
+3
+```</p></blockquote></blockquote>
+
+<h3>算术|逻辑|比较操作</h3>
+
+<p>与常见的编程语言（C#, Java, C++, C）不同，Scheme使用<a href="http://zh.wikipedia.org/wiki/%E6%B3%A2%E5%85%B0%E8%A1%A8%E7%A4%BA%E6%B3%95">波兰表达式</a>，即前缀表示法。例如：</p>
+
+<p>```csharp C#中的算术|逻辑|比较操作
+// Arithmetic ops
+a + b * c
+a / (b + c + d)
+// Logical ops
+(cond1 &amp;&amp; cond2) || cond3
+// Comparing ops
+a == b
+1 &lt; a &amp;&amp; a &lt; 3</p>
+
+<p>```</p>
+
+<p><code>scm 对应的iScheme代码
+; Arithmetic ops
+(+ a (* b c))
+(/ a (+ b c d))
+; Logical ops
+(or (and cond1 cond2) cond3)
+; Comparing ops
+(= a b)
+(&lt; 1 a 3)
+</code></p>
+
+<p>需要注意的几点：</p>
+
+<ol>
+<li>iScheme中的操作符可以接受不止两个参数——这在一定程度上控制了括号的数量。</li>
+<li>iScheme逻辑操作使用<code>and</code>, <code>or</code>和<code>not</code>代替了常见的<code>&amp;&amp;</code>, <code>||</code>和<code>!</code>——这在一定程度上增强了程序的可读性。</li>
+</ol>
+
+
+<h3>顺序语句</h3>
+
+<p>iScheme使用<code>begin</code>关键字标识顺序语句，并以最后一条语句的值作为返回结果。以求两个数的平均值为例：</p>
+
+<p><code>csharp C#的顺序语句
+int a = 3;
+int b = 5;
+int c = (a + b) / 2;
+</code></p>
+
+<p>```scm iScheme的顺序语句
+(def c (begin</p>
+
+<pre><code>(def a 3)
+(def b 5)
+(/ (+ a b) 2)))
+</code></pre>
+
+<p>```</p>
+
+<h3>控制流操作</h3>
+
+<p>iScheme中的控制流操作只包含<code>if</code>。</p>
+
+<p>```scm if语句示例</p>
+
+<blockquote><blockquote><p>(define a (if (> 3 2) 1 2))
+1</p>
+
+<p>a
+1
+```</p></blockquote></blockquote>
+
+<h3>列表类型</h3>
+
+<p>iScheme使用<code>list</code>关键字定义列表，并提供<code>first</code>关键字获取列表的第一个元素；提供<code>rest</code>关键字获取列表除第一个元素外的元素。</p>
+
+<p>```scm iScheme的列表示例</p>
+
+<blockquote><blockquote><p>(define alist (list 1 2 3 4))
+(list 1 2 3 4)</p>
+
+<p>(first alist)
+1</p>
+
+<p>(rest alist)
+(2 3 4)
+```</p></blockquote></blockquote>
+
+<h3>定义函数</h3>
+
+<p>iScheme使用<code>func</code>关键字定义函数：</p>
+
+<p>```scm iScheme的函数定义
+(def square (func (x) (* x x)))</p>
+
+<p>(def sum_square (func (a b) (+ (square a) (square b))))
+```</p>
+
+<p>```csharp 对应的C#代码
+public static int Square (int x) {</p>
+
+<pre><code>return x * x;
+</code></pre>
+
+<p>}</p>
+
+<p>public static int SumSquare(int a, int b) {</p>
+
+<pre><code>return Square(a) + Square(b);
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>递归</h3>
+
+<p>由于iScheme中没有<code>for</code>或<code>while</code>这种命令式语言（Imperative Programming Language）的循环结构，递归成了重复操作的唯一选择。</p>
+
+<p>以计算最大公约数为例：</p>
+
+<p>```scm iScheme计算最大公约数
+(def gcd (func (a b)</p>
+
+<pre><code>(if (= b 0)
+    a
+    (func (b (% a b))))))
+</code></pre>
+
+<p>```</p>
+
+<p>```csharp 对应的C#代码
+public static int GCD (int a, int b) {</p>
+
+<pre><code>if (b == 0) {
+    return a;
+} else {
+    return GCD(b, a % b);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>高阶函数</h3>
+
+<p>和Scheme一样，函数在iScheme中是头等对象，这意味着：</p>
+
+<ul>
+<li>可以定义一个变量为函数。</li>
+<li>函数可以接受一个函数作为参数。</li>
+<li>函数返回一个函数。</li>
+</ul>
+
+
+<p>```scm iScheme的高阶函数示例
+; Defines a multiply function.
+(def mul (func (a b) (* a b)))
+; Defines a list map function.
+(def map (func (f alist)</p>
+
+<pre><code>(if (empty? alist)
+    (list )
+    (append (list (f (first alist))) (map f (rest alist)))
+    )))
+</code></pre>
+
+<p>; Doubles a list using map and mul.</p>
+
+<blockquote><blockquote><p>(map (mul 2) (list 1 2 3))
+(list 2 4 6)
+```</p></blockquote></blockquote>
+
+<h3>小结</h3>
+
+<p>对iScheme的介绍就到这里——事实上这就是iScheme的所有元素，会不会太简单了？ &ndash;_&ndash;</p>
+
+<p>接下来进入正题——从头开始构造iScheme的解释程序。</p>
+
+<h2>解释器构造</h2>
+
+<p>iScheme解释器主要分为两部分，解析（Parse）和求值（Evaluation）：</p>
+
+<ul>
+<li>解析（Parse）：解析源程序，并生成解释器可以理解的中间（Intermediate）结构。这部分包含词法分析，语法分析，语义分析，生成语法树。</li>
+<li>求值（Evaluation）：执行解析阶段得到的中介结构然后得到运行结果。这部分包含作用域，类型系统设计和语法树遍历。</li>
+</ul>
+
+
+<h3>词法分析</h3>
+
+<p>词法分析负责把源程序解析成一个个词法单元（Lex），以便之后的处理。</p>
+
+<p>iScheme的词法分析极其简单——由于iScheme的词法元素只包含括号，空白，数字和变量名，因此C#自带的<code>String#Split</code>就足够。</p>
+
+<p>```csharp iScheme的词法分析及测试
+public static String[] Tokenize(String text) {</p>
+
+<pre><code>String[] tokens = text.Replace("(", " ( ").Replace(")", " ) ").Split(" \t\r\n".ToArray(), StringSplitOptions.RemoveEmptyEntries);
+return tokens;
+</code></pre>
+
+<p>}</p>
+
+<p>// Extends String.Join for a smooth API.
+public static String Join(this String separator, IEnumerable<Object> values) {</p>
+
+<pre><code>return string.Join(separator, values);
+</code></pre>
+
+<p>}</p>
+
+<p>// Displays the lexes in a readable form.
+public static String PrettyPrint(String[] lexes) {</p>
+
+<pre><code>return "[" + ", ".Join(lexes.Select(s =&gt; "'" + s + "'") + "]";
+</code></pre>
+
+<p>}</p>
+
+<p>// Some tests</p>
+
+<blockquote><blockquote><p>PrettyPrint(Tokenize(&ldquo;a&rdquo;))
+[&lsquo;a&rsquo;]</p>
+
+<p>PrettyPrint(Tokenize(&ldquo;(def a 3)&rdquo;))
+[&lsquo;(&rsquo;, &lsquo;def&rsquo;, &lsquo;a&rsquo;, &lsquo;3&rsquo;, &lsquo;)&rsquo;]</p>
+
+<p>PrettyPrint(Tokenize(&ldquo;(begin (def a 3) (<em> a a))&rdquo;))
+[&lsquo;begin&rsquo;, &lsquo;(&rsquo;, &lsquo;def&rsquo;, &lsquo;a&rsquo;, &lsquo;3&rsquo;, &lsquo;)&rsquo;, &lsquo;(&rsquo;, &lsquo;</em>&rsquo;, &lsquo;a&rsquo;, &lsquo;a&rsquo;, &lsquo;)&rsquo;, &lsquo;)&rsquo;]
+```</p></blockquote></blockquote>
+
+<h4>注意</h4>
+
+<ul>
+<li>个人不喜欢<code>String.Join</code>这个静态方法，所以这里使用C#的<a href="http://msdn.microsoft.com/zh-cn/library/bb383977.aspx">扩展方法</a>（Extension Methods）对String类型做了一个扩展。</li>
+<li>相对于LINQ Syntax，我个人更喜欢LINQ Extension Methods，接下来的代码也都会是这种风格。</li>
+<li>不要以为词法分析都是这么离谱般简单！vczh的<a href="http://www.cnblogs.com/geniusvczh/p/3577561.html">词法分析教程</a>给出了一个完整编程语言的词法分析教程。</li>
+</ul>
+
+
+<h3>语法树生成</h3>
+
+<p>得到了词素之后，接下来就是进行语法分析。不过由于Lisp类语言的程序即是语法树，所以语法分析可以直接跳过。</p>
+
+<p>以下面的程序为例：</p>
+
+<p>```scm 程序即语法树
+;
+(def x (if (> a 1) a 1))
+; 换一个角度看的话：
+(</p>
+
+<pre><code>def
+x
+(
+    if
+    (
+        &gt;
+        a
+        1
+    )
+    a
+    1
+)
+</code></pre>
+
+<p>)
+```</p>
+
+<p>更加直观的图片：</p>
+
+<p><img src="http://i.imgur.com/NVolNQE.png" alt="抽象语法树" /></p>
+
+<p>这使得<a href="http://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E8%AA%9E%E6%B3%95%E6%A8%B9">抽象语法树</a>（Abstract Syntax Tree）的构建变得极其简单（无需考虑操作符优先级等问题），我们使用<code>SExpression</code>类型定义iScheme的语法树（事实上<a href="http://en.wikipedia.org/wiki/S-expression">S Expression</a>也是Lisp表达式的名字）。</p>
+
+<p>```csharp 抽象语法树的定义
+public class SExpression {</p>
+
+<pre><code>public String Value { get; private set; }
+public List&lt;SExpression&gt; Children { get; private set; }
+public SExpression Parent { get; private set; }
+
+public SExpression(String value, SExpression parent) {
+    this.Value = value;
+    this.Children = new List&lt;SExpression&gt;();
+    this.Parent = parent;
+}
+
+public override String ToString() {
+    if (this.Value == "(") {
+        return "(" + " ".Join(Children) + ")";
+    } else {
+        return this.Value;
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>然后用下面的步骤构建语法树：</p>
+
+<ol>
+<li>碰到左括号，创建一个新的节点到当前节点（<code>current</code>），然后重设当前节点。</li>
+<li>碰到右括号，回退到当前节点的父节点。</li>
+<li>否则把为当前词素创建节点，添加到当前节点中。</li>
+</ol>
+
+
+<p>```csharp 抽象语法树的构建过程
+public static SExpression ParseAsIScheme(this String code) {</p>
+
+<pre><code>SExpression program = new SExpression(value: "", parent: null);
+SExpression current = program;
+foreach (var lex in Tokenize(code)) {
+    if (lex == "(") {
+        SExpression newNode = new SExpression(value: "(", parent: current);
+        current.Children.Add(newNode);
+        current = newNode;
+    } else if (lex == ")") {
+        current = current.Parent;
+    } else {
+        current.Children.Add(new SExpression(value: lex, parent: current));
+    }
+}
+return program.Children[0];
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>注意</h4>
+
+<ul>
+<li>使用<a href="http://msdn.microsoft.com/zh-cn/library/bb384054.aspx">自动属性</a>（Auto Property），从而避免重复编写样版代码（Boilerplate Code）。</li>
+<li>使用<a href="http://msdn.microsoft.com/zh-cn/library/dd264739.aspx">命名参数</a>（Named Parameters）提高代码可读性：<code>new SExpression(value: "", parent: null)</code>比<code>new SExpression("", null)</code>可读。</li>
+<li>使用<a href="http://msdn.microsoft.com/zh-cn/library/bb383977.aspx">扩展方法</a>提高代码流畅性：<code>code.Tokenize().ParseAsIScheme</code>比<code>ParseAsIScheme(Tokenize(code))</code>流畅。</li>
+<li>大多数编程语言的语法分析不会这么简单！如果打算实现一个类似C#的编程语言，你需要更强大的语法分析技术：
+
+<ul>
+<li>如果打算手写语法分析器，可以参考LL(k), Precedence Climbing和Top Down Operator Precedence。</li>
+<li>如果打算生成语法分析器，可以参考ANTLR或Bison。</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>作用域</h3>
+
+<p><a href="http://zh.wikipedia.org/wiki/%E4%BD%9C%E7%94%A8%E5%9F%9F">作用域</a>决定程序的运行环境。iScheme使用嵌套作用域。</p>
+
+<p>以下面的程序为例</p>
+
+<p>```scm</p>
+
+<blockquote><blockquote><p>(def x 1)
+1</p>
+
+<p>(def y (begin (def x 2) (* x x)))
+4</p>
+
+<p>x
+1
+```</p></blockquote></blockquote>
+
+<p><img src="http://i.imgur.com/TzBY0vd.jpg" alt="作用域示例" /></p>
+
+<p>利用C#提供的<code>Dictionary&lt;TKey, TValue&gt;</code>类型，我们可以很容易的实现iScheme的作用域<code>SScope</code>：</p>
+
+<p>```csharp iScheme的作用域实现
+public class SScope {</p>
+
+<pre><code>public SScope Parent { get; private set; }
+private Dictionary&lt;String, SObject&gt; variableTable;
+
+public SScope(SScope parent) {
+    this.Parent = parent;
+    this.variableTable = new Dictionary&lt;string, SObject&gt;();
+}
+
+public SObject Find(string name) {
+    SScope current = this;
+    while (current != null) {
+        if (current.variableTable.ContainsKey(name)) {
+            return current.variableTable[name];
+        }
+        current = current.Parent;
+    }
+    throw new Exception(name + " is not defined.");
+}
+
+public SObject Define(string name, SObject value) {
+    this.variableTable.Add(name, value);
+    return value;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>类型实现</h3>
+
+<p>iScheme的类型系统极其简单——只有数值，Bool，列表和函数，考虑到他们都是iScheme里面的值对象（Value Object），为了便于对它们进行统一处理，这里为它们设置一个统一的父类型<code>SObject</code>：</p>
+
+<p><code>csharp
+public class SObject { }
+</code></p>
+
+<h4>数值类型</h4>
+
+<p>iScheme的数值类型只是对.Net中<code>Int64</code>（即C#里的<code>long</code>）的简单封装：</p>
+
+<p>```csharp
+public class SNumber : SObject {</p>
+
+<pre><code>private readonly Int64 value;
+public SNumber(Int64 value) {
+    this.value = value;
+}
+public override String ToString() {
+    return this.value.ToString();
+}
+public static implicit operator Int64(SNumber number) {
+    return number.value;
+}
+public static implicit operator SNumber(Int64 value) {
+    return new SNumber(value);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>注意这里使用了C#的<a href="http://msdn.microsoft.com/zh-cn/library/z5z9kes2.aspx">隐式操作符重载</a>，这使得我们可以：</p>
+
+<p><code>csharp
+SNumber foo = 30;
+SNumber bar = 40;
+SNumber foobar = foo * bar;
+</code></p>
+
+<p>而不必：</p>
+
+<p><code>csharp
+SNumber foo = new SNumber(value: 30);
+SNumber bar = new SNumber(value: 40);
+SNumber foobar = new SNumber(value: foo.Value * bar.Value);
+</code></p>
+
+<p>为了方便，这里也为SObject增加了<a href="http://msdn.microsoft.com/zh-cn/library/z5z9kes2.aspx">隐式操作符重载</a>（尽管<code>Int64</code>可以被转换为<code>SNumber</code>且<code>SNumber</code>继承自<code>SObject</code>，但.Net无法直接把<code>Int64</code>转化为<code>SObject</code>）：</p>
+
+<p>```csharp
+public class SObject {</p>
+
+<pre><code>...
+public static implicit operator SObject(Int64 value) {
+    return (SNumber)value;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>Bool类型</h4>
+
+<p>由于Bool类型只有True和False，所以使用静态对象就足矣。</p>
+
+<p>```csharp
+public class SBool : SObject {</p>
+
+<pre><code>public static readonly SBool False = new SBool();
+public static readonly SBool True = new SBool();
+public override string ToString() {
+    return ((Boolean)this).ToString();
+}
+public static implicit operator Boolean(SBool value) {
+    return value == SBool.True;
+}
+public static implicit operator SBool(Boolean value) {
+    return value ? True : False;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>这里同样使用了C#的<a href="http://msdn.microsoft.com/zh-cn/library/z5z9kes2.aspx">隐式操作符重载</a>，这使得我们可以：</p>
+
+<p>```csharp
+SBool foo = a > 1;
+if (foo) {</p>
+
+<pre><code>// Do something...
+</code></pre>
+
+<p>}
+```</p>
+
+<p>而不用</p>
+
+<p>```csharp
+SBool foo = a > 1 ? SBool.True: SBool.False;
+if (foo == SBool.True) {</p>
+
+<pre><code>// Do something...
+</code></pre>
+
+<p>}
+```</p>
+
+<p>同样，为<code>SObject</code>增加<a href="http://msdn.microsoft.com/zh-cn/library/z5z9kes2.aspx">隐式操作符重载</a>：</p>
+
+<p>```csharp
+public class SObject {</p>
+
+<pre><code>...
+public static implicit operator SObject(Boolean value) {
+    return (SBool)value;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>列表类型</h4>
+
+<p>iScheme使用.Net中的<code>IEnumberable&lt;T&gt;</code>实现列表类型<code>SList</code>：</p>
+
+<p>```csharp
+public class SList : SObject, IEnumerable<SObject> {</p>
+
+<pre><code>private readonly IEnumerable&lt;SObject&gt; values;
+public SList(IEnumerable&lt;SObject&gt; values) {
+    this.values = values;
+}
+public override String ToString() {
+    return "(list " + " ".Join(this.values) + ")";
+}
+public IEnumerator&lt;SObject&gt; GetEnumerator() {
+    return this.values.GetEnumerator();
+}
+IEnumerator IEnumerable.GetEnumerator() {
+    return this.values.GetEnumerator();
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>实现<code>IEnumerable&lt;SObject&gt;</code>后，就可以直接使用LINQ的一系列扩展方法，十分方便。</p>
+
+<h4>函数类型</h4>
+
+<p>iScheme的函数类型（<code>SFunction</code>）由三部分组成：</p>
+
+<ul>
+<li>函数体：即对应的<code>SExpression</code>。</li>
+<li>参数列表。</li>
+<li>作用域：函数拥有自己的作用域</li>
+</ul>
+
+
+<p>```csharp SFunction的实现
+public class SFunction : SObject {</p>
+
+<pre><code>public SExpression Body { get; private set; }
+public String[] Parameters { get; private set; }
+public SScope Scope { get; private set; }
+public Boolean IsPartial {
+    get {
+        return this.ComputeFilledParameters().Length.InBetween(1, this.Parameters.Length);
+    }
+}
+
+public SFunction(SExpression body, String[] parameters, SScope scope) {
+    this.Body = body;
+    this.Parameters = parameters;
+    this.Scope = scope;
+}
+
+public SObject Evaluate() {
+    String[] filledParameters = this.ComputeFilledParameters();
+    if (filledParameters.Length &lt; Parameters.Length) {
+        return this;
+    } else {
+        return this.Body.Evaluate(this.Scope);
+    }
+}
+
+public override String ToString() {
+    return String.Format("(func ({0}) {1})",
+        " ".Join(this.Parameters.Select(p =&gt; {
+            SObject value = null;
+            if ((value = this.Scope.FindInTop(p)) != null) {
+                return p + ":" + value;
+            }
+            return p;
+        })), this.Body);
+}
+
+private String[] ComputeFilledParameters() {
+    return this.Parameters.Where(p =&gt; Scope.FindInTop(p) != null).ToArray();
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h5>需要注意的几点</h5>
+
+<ul>
+<li>iScheme支持部分求值（Partial Evaluation），这意味着：</li>
+</ul>
+
+
+<p>```scm 部分求值</p>
+
+<blockquote><blockquote><p>(def mul (func (a b) (<em> a b)))
+(func (a b) (</em> a b))</p>
+
+<p>(mul 3 4)
+12</p>
+
+<p>(mul 3)
+(func (a:3 b) (* a b))</p>
+
+<p>((mul 3) 4)
+12
+```</p></blockquote></blockquote>
+
+<p>也就是说，当<code>SFunction</code>的实际参数（Argument）数量小于其形式参数（Parameter）的数量时，它依然是一个函数，无法被求值。</p>
+
+<p>这个功能有什么用呢？生成高阶函数。有了部分求值，我们就可以使用</p>
+
+<p>```scm
+(def mul (func (a b) (* a b)))
+(def mul3 (mul 3))</p>
+
+<blockquote><blockquote><p>(mul3 3)
+9
+```</p></blockquote></blockquote>
+
+<p>而不用专门定义一个生成函数：</p>
+
+<p>```scm
+(def times (func (n) (func (n x) (* n x)) ) )
+(def mul3 (times 3))</p>
+
+<blockquote><blockquote><p>(mul3 3)
+9
+```</p></blockquote></blockquote>
+
+<ul>
+<li><code>SFunction#ToString</code>可以将其自身还原为源代码——从而大大简化了iScheme的理解和测试。</li>
+</ul>
+
+
+<h3>内置操作</h3>
+
+<p>iScheme的内置操作有四种：算术|逻辑|比较|列表操作。</p>
+
+<p>我选择了表达力（Expressiveness）强的lambda方法表来定义内置操作：</p>
+
+<p>首先在<code>SScope</code>中添加静态字段<code>builtinFunctions</code>，以及对应的访问属性<code>BuiltinFunctions</code>和操作方法<code>BuildIn</code>。</p>
+
+<p>```csharp
+public class SScope {</p>
+
+<pre><code>private static Dictionary&lt;String, Func&lt;SExpression[], SScope, SObject&gt;&gt; builtinFunctions =
+    new Dictionary&lt;String, Func&lt;SExpression[], SScope, SObject&gt;&gt;();
+public static Dictionary&lt;String, Func&lt;SExpression[], SScope, SObject&gt;&gt; BuiltinFunctions {
+    get { return builtinFunctions; }
+}
+// Dirty HACK for fluent API.
+public SScope BuildIn(String name, Func&lt;SExpression[], SScope, SObject&gt; builtinFuntion) {
+    SScope.builtinFunctions.Add(name, builtinFuntion);
+    return this;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>注意：</p>
+
+<ol>
+<li><code>Func&lt;T1, T2, TRESULT&gt;</code>是C#提供的委托类型，表示一个接受<code>T1</code>和<code>T2</code>，返回<code>TRESULT</code></li>
+<li>这里有一个小HACK，使用实例方法（Instance Method）修改静态成员（Static Member），从而实现一套流畅的API（参见<a href="http://en.wikipedia.org/wiki/Fluent_interface">Fluent Interface</a>）。</li>
+</ol>
+
+
+<p>接下来就可以这样定义内置操作：</p>
+
+<p>```csharp
+new SScope(parent: null)</p>
+
+<pre><code>.BuildIn("+", addMethod)
+.BuildIn("-", subMethod)
+.BuildIn("*", mulMethod)
+.BuildIn("/", divMethod);
+</code></pre>
+
+<p>```</p>
+
+<p>一目了然。</p>
+
+<h4>断言（Assertion）扩展</h4>
+
+<p>为了便于进行<a href="http://zh.wikipedia.org/wiki/%E6%96%B7%E8%A8%80_(%E7%A8%8B%E5%BC%8F)">断言</a>，我对<code>Boolean</code>类型做了一点点扩展。</p>
+
+<p>```csharp
+public static void OrThrows(this Boolean condition, String message = null) {</p>
+
+<pre><code>if (!condition) { throw new Exception(message ?? "WTF"); }
+</code></pre>
+
+<p>}
+```</p>
+
+<p>从而可以写出流畅的断言：</p>
+
+<p><code>csharp
+(a &lt; 3).OrThrows("Value must be less than 3.");
+</code></p>
+
+<p>而不用</p>
+
+<p>```csharp
+if (a &lt; 3) {</p>
+
+<pre><code>    throw new Exception("Value must be less than 3.");
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>算术操作</h4>
+
+<p>iScheme算术操作包含<code>+ - * / %</code>五个操作，它们仅应用于数值类型（也就是<code>SNumber</code>）。</p>
+
+<p>从加减法开始：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;+&rdquo;, (args, scope) => {</p>
+
+<pre><code>var numbers = args.Select(obj =&gt; obj.Evaluate(scope)).Cast&lt;SNumber&gt;();
+return numbers.Sum(n =&gt; n);
+</code></pre>
+
+<p>})
+.BuildIn(&ldquo;&ndash;&rdquo;, (args, scope) => {</p>
+
+<pre><code>var numbers = args.Select(obj =&gt; obj.Evaluate(scope)).Cast&lt;SNumber&gt;().ToArray();
+Int64 firstValue = numbers[0];
+if (numbers.Length == 1) {
+    return -firstValue;
+}
+return firstValue - numbers.Skip(1).Sum(s =&gt; s);
+</code></pre>
+
+<p>})
+```</p>
+
+<p>注意到这里有一段重复逻辑负责转型求值（Cast then Evaluation），考虑到接下来还有不少地方要用这个逻辑，我把这段逻辑抽象成扩展方法：</p>
+
+<p>```csharp
+public static IEnumerable<T> Evaluate<T>(this IEnumerable<SExpression> expressions, SScope scope)
+where T : SObject {</p>
+
+<pre><code>return expressions.Evaluate(scope).Cast&lt;T&gt;();
+</code></pre>
+
+<p>}
+public static IEnumerable<SObject> Evaluate(this IEnumerable<SExpression> expressions, SScope scope) {</p>
+
+<pre><code>return expressions.Select(exp =&gt; exp.Evaluate(scope));
+</code></pre>
+
+<p>}
+```</p>
+
+<p>然后加减法就可以如此定义：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;+&rdquo;, (args, scope) => (args.Evaluate<SNumber>(scope).Sum(s => s)))
+.BuildIn(&ldquo;&ndash;&rdquo;, (args, scope) => {</p>
+
+<pre><code>var numbers = args.Evaluate&lt;SNumber&gt;(scope).ToArray();
+Int64 firstValue = numbers[0];
+if (numbers.Length == 1) {
+    return -firstValue;
+}
+return firstValue - numbers.Skip(1).Sum(s =&gt; s);
+</code></pre>
+
+<p>})
+```</p>
+
+<p>乘法，除法和求模定义如下：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;*&rdquo;, (args, scope) => args.Evaluate<SNumber>(scope).Aggregate((a, b) => a * b))
+.BuildIn(&ldquo;/&rdquo;, (args, scope) => {</p>
+
+<pre><code>var numbers = args.Evaluate&lt;SNumber&gt;(scope).ToArray();
+Int64 firstValue = numbers[0];
+return firstValue / numbers.Skip(1).Aggregate((a, b) =&gt; a * b);
+</code></pre>
+
+<p>})
+.BuildIn(&ldquo;%&rdquo;, (args, scope) => {</p>
+
+<pre><code>(args.Length == 2).OrThrows("Parameters count in mod should be 2");
+var numbers = args.Evaluate&lt;SNumber&gt;(scope).ToArray();
+return numbers[0] % numbers[1];
+</code></pre>
+
+<p>})
+```</p>
+
+<h4>逻辑操作</h4>
+
+<p>iScheme逻辑操作包括<code>and</code>，<code>or</code>和<code>not</code>，即与，或和非。</p>
+
+<p>需要注意的是iScheme逻辑操作是<a href="http://zh.wikipedia.org/wiki/%E7%9F%AD%E8%B7%AF%E6%B1%82%E5%80%BC">短路求值</a>（Short-circuit evaluation），也就是说：</p>
+
+<ul>
+<li><code>(and condA condB)</code>，如果<code>condA</code>为假，那么整个表达式为假，无需对<code>condB</code>求值。</li>
+<li><code>(or condA condB)</code>，如果<code>condA</code>为真，那么整个表达式为真，无需对<code>condB</code>求值。</li>
+</ul>
+
+
+<p>此外和<code>+ - * /</code>一样，<code>and</code>和<code>or</code>也可以接收任意数量的参数。</p>
+
+<p>需求明确了接下来就是实现，iScheme的逻辑操作实现如下：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;and&rdquo;, (args, scope) => {</p>
+
+<pre><code>(args.Length &gt; 0).OrThrows();
+return !args.Any(arg =&gt; !(SBool)arg.Evaluate(scope));
+</code></pre>
+
+<p>})
+.BuildIn(&ldquo;or&rdquo;, (args, scope) => {</p>
+
+<pre><code>(args.Length &gt; 0).OrThrows();
+return args.Any(arg =&gt; (SBool)arg.Evaluate(scope));
+</code></pre>
+
+<p>})
+.BuildIn(&ldquo;not&rdquo;, (args, scope) => {</p>
+
+<pre><code>(args.Length == 1).OrThrows();
+return args[0].Evaluate(scope);
+</code></pre>
+
+<p>})
+```</p>
+
+<h4>比较操作</h4>
+
+<p>iScheme的比较操作包括<code>= &lt; &gt; &gt;= &lt;=</code>，需要注意下面几点：</p>
+
+<ul>
+<li><code>=</code>是比较操作而非赋值操作。</li>
+<li>同算术操作一样，它们应用于数值类型，并支持任意数量的参数。</li>
+</ul>
+
+
+<p><code>=</code>的实现如下：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;=&rdquo;, (args, scope) => {</p>
+
+<pre><code>(args.Length &gt; 1).OrThrows("Must have more than 1 argument in relation operation.");
+SNumber current = (SNumber)args[0].Evaluate(scope);
+foreach (var arg in args.Skip(1)) {
+    SNumber next = (SNumber)arg.Evaluate(scope);
+    if (current == next) {
+        current = next;
+    } else {
+        return false;
+    }
+}
+return true;
+</code></pre>
+
+<p>})
+```</p>
+
+<p>可以预见所有的比较操作都将使用这段逻辑，因此把这段比较逻辑抽象成一个扩展方法：</p>
+
+<p>```csharp
+public static SBool ChainRelation(this SExpression[] expressions, SScope scope, Func&lt;SNumber, SNumber, Boolean> relation) {</p>
+
+<pre><code>(expressions.Length &gt; 1).OrThrows("Must have more than 1 parameter in relation operation.");
+SNumber current = (SNumber)expressions[0].Evaluate(scope);
+foreach (var obj in expressions.Skip(1)) {
+    SNumber next = (SNumber)obj.Evaluate(scope);
+    if (relation(current, next)) {
+        current = next;
+    } else {
+        return SBool.False;
+    }
+}
+return SBool.True;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>接下来就可以很方便的定义比较操作：</p>
+
+<p><code>csharp
+.BuildIn("=", (args, scope) =&gt; args.ChainRelation(scope, (s1, s2) =&gt; (Int64)s1 == (Int64)s2))
+.BuildIn("&gt;", (args, scope) =&gt; args.ChainRelation(scope, (s1, s2) =&gt; s1 &gt; s2))
+.BuildIn("&lt;", (args, scope) =&gt; args.ChainRelation(scope, (s1, s2) =&gt; s1 &lt; s2))
+.BuildIn("&gt;=", (args, scope) =&gt; args.ChainRelation(scope, (s1, s2) =&gt; s1 &gt;= s2))
+.BuildIn("&lt;=", (args, scope) =&gt; args.ChainRelation(scope, (s1, s2) =&gt; s1 &lt;= s2))
+</code></p>
+
+<p>注意<code>=</code>操作的实现里面有<code>Int64</code>强制转型——因为我们没有重载<code>SNumber#Equals</code>，所以无法直接通过<code>==</code>来比较两个<code>SNumber</code>。</p>
+
+<h4>列表操作</h4>
+
+<p>iScheme的列表操作包括<code>first</code>，<code>rest</code>，<code>empty?</code>和<code>append</code>，分别用来取列表的第一个元素，除第一个以外的部分，判断列表是否为空和拼接列表。</p>
+
+<p><code>first</code>和<code>rest</code>操作如下：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;first&rdquo;, (args, scope) => {</p>
+
+<pre><code>SList list = null;
+(args.Length == 1 &amp;&amp; (list = (args[0].Evaluate(scope) as SList)) != null).OrThrows("&lt;first&gt; must apply to a list.");
+return list.First();
+</code></pre>
+
+<p>})
+.BuildIn(&ldquo;rest&rdquo;, (args, scope) => {</p>
+
+<pre><code>SList list = null;
+(args.Length == 1 &amp;&amp; (list = (args[0].Evaluate(scope) as SList)) != null).OrThrows("&lt;rest&gt; must apply to a list.");
+return new SList(list.Skip(1));
+</code></pre>
+
+<p>})
+```</p>
+
+<p>又发现相当的重复逻辑——判断参数是否是一个合法的列表，重复代码很邪恶，所以这里把这段逻辑抽象为扩展方法：</p>
+
+<p>```csharp
+public static SList RetrieveSList(this SExpression[] expressions, SScope scope, String operationName) {</p>
+
+<pre><code>SList list = null;
+(expressions.Length == 1 &amp;&amp; (list = (expressions[0].Evaluate(scope) as SList)) != null)
+    .OrThrows("&lt;" + operationName + "&gt; must apply to a list");
+return list;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>有了这个扩展方法，接下来的列表操作就很容易实现：</p>
+
+<p>```csharp
+.BuildIn(&ldquo;first&rdquo;, (args, scope) => args.RetrieveSList(scope, &ldquo;first&rdquo;).First())
+.BuildIn(&ldquo;rest&rdquo;, (args, scope) => new SList(args.RetrieveSList(scope, &ldquo;rest&rdquo;).Skip(1)))
+.BuildIn(&ldquo;append&rdquo;, (args, scope) => {</p>
+
+<pre><code>SList list0 = null, list1 = null;
+(args.Length == 2
+    &amp;&amp; (list0 = (args[0].Evaluate(scope) as SList)) != null
+    &amp;&amp; (list1 = (args[1].Evaluate(scope) as SList)) != null).OrThrows("Input must be two lists");
+return new SList(list0.Concat(list1));
+</code></pre>
+
+<p>})
+.BuildIn(&ldquo;empty?&rdquo;, (args, scope) => args.RetrieveSList(scope, &ldquo;empty?&rdquo;).Count() == 0)
+```</p>
+
+<h4>测试</h4>
+
+<p>iScheme的内置操作完成之后，就可以测试下初步成果了。</p>
+
+<p>首先添加基于控制台的分析/求值（Parse/Evaluation）循环：</p>
+
+<p>```csharp
+public static void KeepInterpretingInConsole(this SScope scope, Func&lt;String, SScope, SObject> evaluate) {</p>
+
+<pre><code>while (true) {
+    try {
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.Write("&gt;&gt; ");
+        String code;
+        if (!String.IsNullOrWhiteSpace(code = Console.ReadLine())) {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("&gt;&gt; " + evaluate(code, scope));
+        }
+    } catch (Exception ex) {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("&gt;&gt; " + ex.Message);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>然后在<code>SExpression#Evaluate</code>中补充调用代码：</p>
+
+<p>```csharp
+public override SObject Evaluate(SScope scope) {</p>
+
+<pre><code>if (this.Children.Count == 0) {
+    Int64 number;
+    if (Int64.TryParse(this.Value, out number)) {
+        return number;
+    }
+} else {
+    SExpression first = this.Children[0];
+    if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {
+        var arguments = this.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+        return SScope.BuiltinFunctions[first.Value](arguments, scope);
+    }
+}
+throw new Exception("THIS IS JUST TEMPORARY!");
+</code></pre>
+
+<p>}
+```</p>
+
+<p>最后在<code>Main</code>中调用该解释/求值循环：</p>
+
+<p>```csharp
+static void Main(string[] cmdArgs) {</p>
+
+<pre><code>new SScope(parent: null)
+    .BuildIn("+", (args, scope) =&gt; (args.Evaluate&lt;SNumber&gt;(scope).Sum(s =&gt; s)))
+    // 省略若干内置函数
+    .BuildIn("empty?", (args, scope) =&gt; args.RetrieveSList("empty?").Count() == 0)
+    .KeepInterpretingInConsole((code, scope) =&gt; code.ParseAsScheme().Evaluate(scope));
+</code></pre>
+
+<p>}
+```</p>
+
+<p>运行程序，输入一些简单的表达式：</p>
+
+<p><img src="http://i.imgur.com/FEVEVGW.jpg" alt="运行结果" /></p>
+
+<p>看样子还不错 :&ndash;)</p>
+
+<p>接下来开始实现iScheme的执行（Evaluation）逻辑。</p>
+
+<h3>执行逻辑</h3>
+
+<p>iScheme的执行就是把语句（SExpression）在作用域（SScope）转化成对象（SObject）并对作用域（SScope）产生作用的过程，如下图所示。</p>
+
+<p><img src="http://i.imgur.com/2j4ztfF.png" alt="编程语言的实质" /></p>
+
+<p>iScheme的执行逻辑就在<code>SExpression#Evaluate</code>里面：</p>
+
+<p>```csharp
+public class SExpression {</p>
+
+<pre><code>// ...
+public override SObject Evaluate(SScope scope) {
+    // TODO: Todo your ass.
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>首先明确输入和输出：</p>
+
+<ol>
+<li>处理字面量（Literals）：<code>3</code>；和具名量（Named Values）：<code>x</code></li>
+<li>处理<code>if</code>：<code>(if (&lt; a 3) 3 a)</code></li>
+<li>处理<code>def</code>：<code>(def pi 3.14)</code></li>
+<li>处理<code>begin</code>：<code>(begin (def a 3) (* a a))</code></li>
+<li>处理<code>func</code>：<code>(func (x) (* x x))</code></li>
+<li>处理内置函数调用：<code>(+ 1 2 3 (first (list 1 2)))</code></li>
+<li>处理自定义函数调用：<code>(map (func (x) (* x x)) (list 1 2 3))</code></li>
+</ol>
+
+
+<p>此外，情况1和2中的<code>SExpression</code>没有子节点，可以直接读取其<code>Value</code>进行求值，余下的情况需要读取其<code>Children</code>进行求值。</p>
+
+<p>首先处理没有子节点的情况：</p>
+
+<h4>处理字面量和具名量</h4>
+
+<p>```csharp
+if (this.Children.Count == 0) {</p>
+
+<pre><code>Int64 number;
+if (Int64.TryParse(this.Value, out number)) {
+    return number;
+} else {
+    return scope.Find(this.Value);
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>接下来处理带有子节点的情况：</p>
+
+<p>首先获得当前节点的第一个节点：</p>
+
+<p><code>csharp
+SExpression first = this.Children[0];
+</code></p>
+
+<p>然后根据该节点的<code>Value</code>决定下一步操作：</p>
+
+<h4>处理<code>if</code></h4>
+
+<p><code>if</code>语句的处理方法很直接——根据判断条件（condition）的值判断执行哪条语句即可：</p>
+
+<p>```csharp
+if (first.Value == &ldquo;if&rdquo;) {</p>
+
+<pre><code>SBool condition = (SBool)(this.Children[1].Evaluate(scope));
+return condition ? this.Children[2].Evaluate(scope) : this.Children[3].Evaluate(scope);
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>处理<code>def</code></h4>
+
+<p>直接定义即可：</p>
+
+<p>```csharp
+else if (first.Value == &ldquo;def&rdquo;) {</p>
+
+<pre><code>return scope.Define(this.Children[1].Value, this.Children[2].Evaluate(new SScope(scope)));
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>处理<code>begin</code></h4>
+
+<p>遍历语句，然后返回最后一条语句的值：</p>
+
+<p>```csharp
+else if (first.Value == &ldquo;begin&rdquo;) {</p>
+
+<pre><code>SObject result = null;
+foreach (SExpression statement in this.Children.Skip(1)) {
+    result = statement.Evaluate(scope);
+}
+return result;
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>处理<code>func</code></h4>
+
+<p>利用<code>SExpression</code>构建<code>SFunction</code>，然后返回：</p>
+
+<p>```csharp
+else if (first.Value == &ldquo;func&rdquo;) {</p>
+
+<pre><code>SExpression body = this.Children[2];
+String[] parameters = this.Children[1].Children.Select(exp =&gt; exp.Value).ToArray();
+SScope newScope = new SScope(scope);
+return new SFunction(body, parameters, newScope);
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>处理<code>list</code></h4>
+
+<p>首先把获得<code>list</code>里元素的值，然后创建<code>SList</code>：</p>
+
+<p>```csharp
+else if (first.Value == &ldquo;list&rdquo;) {</p>
+
+<pre><code>return new SList(this.Children.Skip(1).Select(exp =&gt; exp.Evaluate(scope)));
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>处理内置操作</h4>
+
+<p>首先对参数求值，然后调用对应的内置函数：</p>
+
+<p>```csharp
+else if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {</p>
+
+<pre><code>var arguments = this.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+return SScope.BuiltinFunctions[first.Value](arguments, scope);
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>处理自定义函数调用</h4>
+
+<p>自定义函数调用有两种情况：</p>
+
+<ol>
+<li>非具名函数调用：<code>((func (x) (* x x)) 3)</code></li>
+<li>具名函数调用：<code>(square 3)</code></li>
+</ol>
+
+
+<p>调用自定义函数时应使用新的作用域，所以为<code>SFunction</code>增加<code>Update</code>方法：</p>
+
+<p>```csharp
+public SFunction Update(SObject[] arguments) {</p>
+
+<pre><code>var existingArguments = this.Parameters.Select(p =&gt; this.Scope.FindInTop(p)).Where(obj =&gt; obj != null);
+var newArguments = existingArguments.Concat(arguments).ToArray();
+SScope newScope = this.Scope.Parent.SpawnScopeWith(this.Parameters, newArguments);
+return new SFunction(this.Body, this.Parameters, newScope);
+</code></pre>
+
+<p>}
+```</p>
+
+<p>为了便于创建自定义作用域，并判断函数的参数是否被赋值，为<code>SScope</code>增加<code>SpawnScopeWith</code>和<code>FindInTop</code>方法：</p>
+
+<p>```csharp
+public SScope SpawnScopeWith(String[] names, SObject[] values) {</p>
+
+<pre><code>(names.Length &gt;= values.Length).OrThrows("Too many arguments.");
+SScope scope = new SScope(this);
+for (Int32 i = 0; i &lt; values.Length; i++) {
+    scope.variableTable.Add(names[i], values[i]);
+}
+return scope;
+</code></pre>
+
+<p>}
+public SObject FindInTop(String name) {</p>
+
+<pre><code>if (variableTable.ContainsKey(name)) {
+    return variableTable[name];
+}
+return null;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>下面是函数调用的实现：</p>
+
+<p>```csharp
+else {</p>
+
+<pre><code>SFunction function = first.Value == "(" ? (SFunction)first.Evaluate(scope) : (SFunction)scope.Find(first.Value);
+var arguments = this.Children.Skip(1).Select(s =&gt; s.Evaluate(scope)).ToArray();
+return function.Update(arguments).Evaluate();
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>完整的求值代码</h4>
+
+<p>综上所述，求值代码如下</p>
+
+<p>```csharp
+public SObject Evaluate(SScope scope) {</p>
+
+<pre><code>if (this.Children.Count == 0) {
+    Int64 number;
+    if (Int64.TryParse(this.Value, out number)) {
+        return number;
+    } else {
+        return scope.Find(this.Value);
+    }
+} else {
+    SExpression first = this.Children[0];
+    if (first.Value == "if") {
+        SBool condition = (SBool)(this.Children[1].Evaluate(scope));
+        return condition ? this.Children[2].Evaluate(scope) : this.Children[3].Evaluate(scope);
+    } else if (first.Value == "def") {
+        return scope.Define(this.Children[1].Value, this.Children[2].Evaluate(new SScope(scope)));
+    } else if (first.Value == "begin") {
+        SObject result = null;
+        foreach (SExpression statement in this.Children.Skip(1)) {
+            result = statement.Evaluate(scope);
+        }
+        return result;
+    } else if (first.Value == "func") {
+        SExpression body = this.Children[2];
+        String[] parameters = this.Children[1].Children.Select(exp =&gt; exp.Value).ToArray();
+        SScope newScope = new SScope(scope);
+        return new SFunction(body, parameters, newScope);
+    } else if (first.Value == "list") {
+        return new SList(this.Children.Skip(1).Select(exp =&gt; exp.Evaluate(scope)));
+    } else if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {
+        var arguments = this.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+        return SScope.BuiltinFunctions[first.Value](arguments, scope);
+    } else {
+        SFunction function = first.Value == "(" ? (SFunction)first.Evaluate(scope) : (SFunction)scope.Find(first.Value);
+        var arguments = this.Children.Skip(1).Select(s =&gt; s.Evaluate(scope)).ToArray();
+        return function.Update(arguments).Evaluate();
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>去除尾递归</h4>
+
+<p>到了这里iScheme解释器就算完成了。但仔细观察求值过程还是有一个很大的问题，尾递归调用：</p>
+
+<ul>
+<li>处理<code>if</code>的尾递归调用。</li>
+<li>处理函数调用中的尾递归调用。</li>
+</ul>
+
+
+<p>Alex Stepanov曾在<a href="http://www.amazon.co.uk/Elements-Programming-Alexander-Stepanov/dp/032163537X/">Elements of Programming</a>中介绍了一种将严格尾递归调用（Strict tail-recursive call）转化为迭代的方法，细节恕不赘述，以阶乘为例：</p>
+
+<p>```c
+// Recursive factorial.
+int fact (int n) {</p>
+
+<pre><code>if (n == 1)
+    return result;
+return n * fact(n - 1);
+</code></pre>
+
+<p>}
+// First tranform to tail recursive version.
+int fact (int n, int result) {</p>
+
+<pre><code>if (n == 1)
+    return result;
+else {
+    n -= 1;
+    result *= 1;
+    return fact(n, result);// This is a strict tail-recursive call which can be omitted
+}
+</code></pre>
+
+<p>}
+// Then transform to iterative version.
+int fact (int n, int result) {</p>
+
+<pre><code>while (true) {
+    if (n == 1)
+        return result;
+    else {
+        n -= 1;
+        result *= 1;
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>应用这种方法到<code>SExpression#Evaluate</code>，得到转换后的版本：</p>
+
+<p>```csharp
+public SObject Evaluate(SScope scope) {</p>
+
+<pre><code>SExpression current = this;
+while (true) {
+    if (current.Children.Count == 0) {
+        Int64 number;
+        if (Int64.TryParse(current.Value, out number)) {
+            return number;
+        } else {
+            return scope.Find(current.Value);
+        }
+    } else {
+        SExpression first = current.Children[0];
+        if (first.Value == "if") {
+            SBool condition = (SBool)(current.Children[1].Evaluate(scope));
+            current = condition ? current.Children[2] : current.Children[3];
+        } else if (first.Value == "def") {
+            return scope.Define(current.Children[1].Value, current.Children[2].Evaluate(new SScope(scope)));
+        } else if (first.Value == "begin") {
+            SObject result = null;
+            foreach (SExpression statement in current.Children.Skip(1)) {
+                result = statement.Evaluate(scope);
+            }
+            return result;
+        } else if (first.Value == "func") {
+            SExpression body = current.Children[2];
+            String[] parameters = current.Children[1].Children.Select(exp =&gt; exp.Value).ToArray();
+            SScope newScope = new SScope(scope);
+            return new SFunction(body, parameters, newScope);
+        } else if (first.Value == "list") {
+            return new SList(current.Children.Skip(1).Select(exp =&gt; exp.Evaluate(scope)));
+        } else if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {
+            var arguments = current.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+            return SScope.BuiltinFunctions[first.Value](arguments, scope);
+        } else {
+            SFunction function = first.Value == "(" ? (SFunction)first.Evaluate(scope) : (SFunction)scope.Find(first.Value);
+            var arguments = current.Children.Skip(1).Select(s =&gt; s.Evaluate(scope)).ToArray();
+            SFunction newFunction = function.Update(arguments);
+            if (newFunction.IsPartial) {
+                return newFunction.Evaluate();
+            } else {
+                current = newFunction.Body;
+                scope = newFunction.Scope;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h4>一些演示</h4>
+
+<p>基本的运算</p>
+
+<p><img src="http://i.imgur.com/3417GE2.jpg" alt="基本的运算" /></p>
+
+<p>高阶函数</p>
+
+<p><img src="http://i.imgur.com/47a7jhf.jpg" alt="高阶函数" /></p>
+
+<h2>回顾</h2>
+
+<h3>小结</h3>
+
+<p>除去注释（貌似没有注释-_-），iScheme的解释器的实现代码一共333行——包括空行，括号等元素。</p>
+
+<p>在这300余行代码里，实现了函数式编程语言的大部分功能：算术|逻辑|运算，嵌套作用域，顺序语句，控制语句，递归，<a href="http://zh.wikipedia.org/wiki/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0">高阶函数</a>，<a href="http://zh.wikipedia.org/wiki/%E9%83%A8%E5%88%86%E6%B1%82%E5%80%BC">部分求值</a>。</p>
+
+<p>与我两年之前实现的Scheme方言<a href="http://www.cnblogs.com/figure9/archive/2011/07/10/2102613.html">Lucida</a>相比，iScheme除了没有字符串类型，其它功能和Lucida相同，而代码量只是前者的八分之一，编写时间是前者的十分之一（Lucida用了两天，iScheme用了一个半小时），可扩展性和易读性均秒杀前者。这说明了：</p>
+
+<ol>
+<li>代码量不能说明问题。</li>
+<li>不同开发者生产效率的差别会非常巨大。</li>
+<li>这两年我还是学到了一点东西的。-_&ndash;</li>
+</ol>
+
+
+<h3>一些设计决策</h3>
+
+<h4>使用扩展方法提高可读性</h4>
+
+<p>例如，通过定义<code>OrThrows</code></p>
+
+<p>```csharp
+public static void OrThrows(this Boolean condition, String message = null) {</p>
+
+<pre><code>if (!condition) { throw new Exception(message ?? "WTF"); }
+</code></pre>
+
+<p>}
+```</p>
+
+<p>写出流畅的断言：</p>
+
+<p><code>csharp
+(a &lt; 3).OrThrows("Value must be less than 3.");
+</code></p>
+
+<h4>声明式编程风格</h4>
+
+<p>以<code>Main</code>函数为例：</p>
+
+<p>```csharp
+static void Main(String[] cmdArgs) {</p>
+
+<pre><code>new SScope(parent: null)
+    .BuildIn("+", (args, scope) =&gt; (args.Evaluate&lt;SNumber&gt;(scope).Sum(s =&gt; s)))
+    // Other build
+    .BuildIn("empty?", (args, scope) =&gt; args.RetrieveSList("empty?").Count() == 0)
+    .KeepInterpretingInConsole((code, scope) =&gt; code.ParseAsIScheme().Evaluate(scope));
+</code></pre>
+
+<p>}
+```</p>
+
+<p>非常直观，而且</p>
+
+<ul>
+<li>如果需要添加新的操作，添加写一行<code>BuildIn</code>即可。</li>
+<li>如果需要使用其它语法，替换解析函数<code>ParseAsIScheme</code>即可。</li>
+<li>如果需要从文件读取代码，替换执行函数<code>KeepInterpretingInConsole</code>即可。</li>
+</ul>
+
+
+<h3>不足</h3>
+
+<p>当然iScheme还是有很多不足：</p>
+
+<p>语言特性方面：</p>
+
+<ol>
+<li>缺乏实用类型：没有<code>Double</code>和<code>String</code>这两个关键类型，更不用说复合类型（Compound Type）。</li>
+<li>没有IO操作，更不要说网络通信。</li>
+<li>效率低下：尽管去除尾递归挽回了一点效率，但iScheme的执行效率依然惨不忍睹。</li>
+<li>错误信息：错误信息基本不可读，往往出错了都不知道从哪里找起。</li>
+<li>不支持延续调用（Call with current continuation，即call/cc）。</li>
+<li>没有并发。</li>
+<li>各种bug：比如可以定义文本量，无法重载默认操作，空括号被识别等等。</li>
+</ol>
+
+
+<p>设计实现方面：</p>
+
+<ol>
+<li>使用了可变（Mutable）类型。</li>
+<li>没有任何注释（因为觉得没有必要 &ndash;_-）。</li>
+<li>糟糕的类型系统：Lisp类语言中的数据和程序可以不分彼此，而iScheme的实现中确把数据和程序分成了<code>SObject</code>和<code>SExpression</code>，现在我依然没有找到一个融合他们的好办法。</li>
+</ol>
+
+
+<p>这些就留到以后慢慢处理了 &ndash;_-（TODO YOUR ASS）</p>
+
+<h2>延伸阅读</h2>
+
+<h3>书籍</h3>
+
+<ol>
+<li>Compilers: Priciples, Techniques and Tools Principles: <a href="http://www.amazon.co.uk/Compilers-Principles-Techniques-V-Aho/dp/1292024348/">http://www.amazon.co.uk/Compilers-Principles-Techniques-V-Aho/dp/1292024348/</a></li>
+<li>Language Implementation Patterns: <a href="http://www.amazon.co.uk/Language-Implementation-Patterns-Domain-Specific-Programming/dp/193435645X/">http://www.amazon.co.uk/Language-Implementation-Patterns-Domain-Specific-Programming/dp/193435645X/</a></li>
+<li>*The Definitive ANTLR4 Reference: <a href="http://www.amazon.co.uk/Definitive-ANTLR-4-Reference/dp/1934356999/">http://www.amazon.co.uk/Definitive-ANTLR-4-Reference/dp/1934356999/</a></li>
+<li>Engineering a compiler: <a href="http://www.amazon.co.uk/Engineering-Compiler-Keith-Cooper/dp/012088478X/">http://www.amazon.co.uk/Engineering-Compiler-Keith-Cooper/dp/012088478X/</a></li>
+<li>Flex &amp; Bison: <a href="http://www.amazon.co.uk/flex-bison-John-Levine/dp/0596155972/">http://www.amazon.co.uk/flex-bison-John-Levine/dp/0596155972/</a></li>
+<li>*Writing Compilers and Interpreters: <a href="http://www.amazon.co.uk/Writing-Compilers-Interpreters-Software-Engineering/dp/0470177071/">http://www.amazon.co.uk/Writing-Compilers-Interpreters-Software-Engineering/dp/0470177071/</a></li>
+<li>Elements of Programming: <a href="http://www.amazon.co.uk/Elements-Programming-Alexander-Stepanov/dp/032163537X/">http://www.amazon.co.uk/Elements-Programming-Alexander-Stepanov/dp/032163537X/</a></li>
+</ol>
+
+
+<p>注：带*号的没有中译本。</p>
+
+<h3>文章</h3>
+
+<p>大多和编译前端相关，自己没时间也没能力研究后端。-_&ndash;</p>
+
+<p>为什么编译技术很重要？看看Steve Yegge（没错，就是被王垠黑过的Google高级技术工程师）是怎么说的（需要翻墙）。</p>
+
+<p><a href="http://steve-yegge.blogspot.co.uk/2007/06/rich-programmer-food.html">http://steve-yegge.blogspot.co.uk/2007/06/rich-programmer-food.html</a></p>
+
+<p>本文重点参考的Peter Norvig的两篇文章：</p>
+
+<ol>
+<li>How to write a lisp interpreter in Python: <a href="http://norvig.com/lispy.html">http://norvig.com/lispy.html</a></li>
+<li>An even better lisp interpreter in Python: <a href="http://norvig.com/lispy2.html">http://norvig.com/lispy2.html</a></li>
+</ol>
+
+
+<p>几种简单实用的语法分析技术：</p>
+
+<ol>
+<li>LL(k) Parsing：</li>
+<li><a href="http://eli.thegreenplace.net/2008/09/26/recursive-descent-ll-and-predictive-parsers/">http://eli.thegreenplace.net/2008/09/26/recursive-descent-ll-and-predictive-parsers/</a></li>
+<li><a href="http://eli.thegreenplace.net/2009/03/20/a-recursive-descent-parser-with-an-infix-expression-evaluator/">http://eli.thegreenplace.net/2009/03/20/a-recursive-descent-parser-with-an-infix-expression-evaluator/</a></li>
+<li><a href="http://eli.thegreenplace.net/2009/03/14/some-problems-of-recursive-descent-parsers/">http://eli.thegreenplace.net/2009/03/14/some-problems-of-recursive-descent-parsers/</a></li>
+<li>Top Down Operator Precendence：<a href="http://javascript.crockford.com/tdop/tdop.html">http://javascript.crockford.com/tdop/tdop.html</a></li>
+<li>Precendence Climbing Parsing：<a href="http://en.wikipedia.org/wiki/Operator-precedence_parser">http://en.wikipedia.org/wiki/Operator-precedence_parser</a></li>
+</ol>
+
+
+<h2>关于本文作者</h2>
+
+<p>曾经的Windows/.Net/C#程序员，研究生毕业后糊里糊涂变成Linux/Java开发者。所谓一入Java深似海，现在无比怀念使用C#的岁月。</p>
+
+<p>对解释器/编译器感兴趣，现在正在自学Coursera的<a href="https://class.coursera.org/compilers-004">Compiler课程</a>。</p>
+
+<p>欢迎来信交流技术：lunageek#gmail#com</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[第一篇博文]]></title>
