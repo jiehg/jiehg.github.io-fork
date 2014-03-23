@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-23T19:50:47+00:00</updated>
+  <updated>2014-03-23T19:55:33+00:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -24,7 +24,7 @@
 
 <p>解释器, C#, Scheme, 函数式编程</p>
 
-<p>本文链接：<a href="http://zh.lucida.me/how-to-implement-an-intepreter-in-csharp/">http://zh.lucida.me/how-to-implement-an-intepreter-in-csharp/</a></p>
+<p>本文链接：<a href="http://zh.lucida.me/blog/how-to-implement-an-intepreter-in-csharp/">http://zh.lucida.me/blog/how-to-implement-an-intepreter-in-csharp/</a></p>
 
 <h2>关于</h2>
 
@@ -1707,10 +1707,14 @@ static void Main(String[] cmdArgs) {</p>
 <p>几种简单实用的语法分析技术：</p>
 
 <ol>
-<li>LL(k) Parsing：</li>
+<li>LL(k) Parsing：
+
+<ul>
 <li><a href="http://eli.thegreenplace.net/2008/09/26/recursive-descent-ll-and-predictive-parsers/">http://eli.thegreenplace.net/2008/09/26/recursive-descent-ll-and-predictive-parsers/</a></li>
 <li><a href="http://eli.thegreenplace.net/2009/03/20/a-recursive-descent-parser-with-an-infix-expression-evaluator/">http://eli.thegreenplace.net/2009/03/20/a-recursive-descent-parser-with-an-infix-expression-evaluator/</a></li>
 <li><a href="http://eli.thegreenplace.net/2009/03/14/some-problems-of-recursive-descent-parsers/">http://eli.thegreenplace.net/2009/03/14/some-problems-of-recursive-descent-parsers/</a></li>
+</ul>
+</li>
 <li>Top Down Operator Precendence：<a href="http://javascript.crockford.com/tdop/tdop.html">http://javascript.crockford.com/tdop/tdop.html</a></li>
 <li>Precendence Climbing Parsing：<a href="http://en.wikipedia.org/wiki/Operator-precedence_parser">http://en.wikipedia.org/wiki/Operator-precedence_parser</a></li>
 </ol>
