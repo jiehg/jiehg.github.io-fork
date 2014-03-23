@@ -522,7 +522,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="c1">// Extends String.Join for a smooth API.</span>
 </span><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">Join</span><span class="p">(</span><span class="k">this</span> <span class="n">String</span> <span class="n">separator</span><span class="p">,</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Object</span><span class="p">&gt;</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// Displays the lexes in a readable form.</span>
@@ -761,10 +761,10 @@
 </span><span class='line'>
 </span><span class='line'>    <span class="k">public</span> <span class="nf">SScope</span><span class="p">(</span><span class="n">SScope</span> <span class="n">parent</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">Parent</span> <span class="p">=</span> <span class="n">parent</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">variableTable</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">SObject</span><span class="p">&gt;();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">variableTable</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">SObject</span><span class="p">&gt;();</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Find</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Find</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="n">SScope</span> <span class="n">current</span> <span class="p">=</span> <span class="k">this</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">variableTable</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">{</span>
@@ -775,7 +775,7 @@
 </span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="p">(</span><span class="n">name</span> <span class="p">+</span> <span class="s">&quot; is not defined.&quot;</span><span class="p">);</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Define</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">SObject</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Define</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">SObject</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">variableTable</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
 </span><span class='line'>        <span class="k">return</span> <span class="k">value</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
@@ -888,7 +888,7 @@
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">SBool</span> <span class="p">:</span> <span class="n">SObject</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SBool</span> <span class="n">False</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SBool</span><span class="p">();</span>
 </span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SBool</span> <span class="n">True</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SBool</span><span class="p">();</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">override</span> <span class="n">String</span> <span class="nf">ToString</span><span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">return</span> <span class="p">((</span><span class="n">Boolean</span><span class="p">)</span><span class="k">this</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">implicit</span> <span class="k">operator</span> <span class="nf">Boolean</span><span class="p">(</span><span class="n">SBool</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
@@ -1627,7 +1627,7 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">cmdArgs</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">cmdArgs</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">new</span> <span class="nf">SScope</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="k">null</span><span class="p">)</span>
 </span><span class='line'>        <span class="p">.</span><span class="n">BuildIn</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">&lt;</span><span class="n">SNumber</span><span class="p">&gt;(</span><span class="n">scope</span><span class="p">).</span><span class="n">Sum</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">)))</span>
 </span><span class='line'>        <span class="c1">// 省略若干内置函数</span>
@@ -2371,9 +2371,10 @@
   <h1>About Me</h1>
   <img src="http://imgur.com/nZXZVhG.png" width="128px" height="128px">
   <p>学生生涯在<a href="http://www.dlut.edu.cn" target="_blank">大工</a>和<a href="http://www.buaa.edu.cn" target="_blank">北航</a>度过；</p>
-  <p><a href="http://www.windowsphone.com/zh-cn/store/publishers?publisherId=LucSoft&amp;appId=3e4f73b2-c70e-40dd-b3b8-1d2135e9af56" target="_blank">LucSoft</a>和<a href="http://www.windowsphone.com/zh-cn/store/publishers?publisherId=IdaSoft&amp;appId=7f06890c-60d6-4ec7-880d-24a9dd24a283" target="_blank">IdaSoft</a>的创建者，其下包含<a href="http://www.windowsphone.com/zh-cn/store/app/%E4%B8%AD%E6%96%87%E6%8B%A8%E5%8F%B7%E5%8A%A9%E6%89%8B/3e4f73b2-c70e-40dd-b3b8-1d2135e9af56" target="_blank">拨号助手</a>和<a href="http://www.windowsphone.com/zh-cn/store/app/%E9%87%91%E5%BA%B8%E5%85%A8%E9%9B%86/7f06890c-60d6-4ec7-880d-24a9dd24a283" target="_blank">金庸全集</a>等热门应用；</p>
-  <p><a href="http://book.douban.com/people/figure9/" target="_blank">读过的书</a>和<a href="http://book.douban.com/people/figure9/reviews" target="_blank">书评</a>；</p>
   <p>现在就职于<a href="http://www.google.co.uk/about/jobs/locations/london/" target="_blank">Google London</a>；</p>
+  <p><a href="http://www.windowsphone.com/zh-cn/store/publishers?publisherId=LucSoft&amp;appId=3e4f73b2-c70e-40dd-b3b8-1d2135e9af56" target="_blank">LucSoft</a>和<a href="http://www.windowsphone.com/zh-cn/store/publishers?publisherId=IdaSoft&amp;appId=7f06890c-60d6-4ec7-880d-24a9dd24a283" target="_blank">IdaSoft</a>的创建者，其下包含<a href="http://www.windowsphone.com/zh-cn/store/app/%E4%B8%AD%E6%96%87%E6%8B%A8%E5%8F%B7%E5%8A%A9%E6%89%8B/3e4f73b2-c70e-40dd-b3b8-1d2135e9af56" target="_blank">拨号助手</a>和<a href="http://www.windowsphone.com/zh-cn/store/app/%E9%87%91%E5%BA%B8%E5%85%A8%E9%9B%86/7f06890c-60d6-4ec7-880d-24a9dd24a283" target="_blank">金庸全集</a>等热门应用；</p>
+  <p><a href="http://book.douban.com/people/figure9/" target="_blank">读过的书</a>和<a href="http://book.douban.com/people/figure9/reviews" target="_blank">书评</a>；</p>  
+  <p><a href="http://www.weibo.com/pegong" target="_blank">新浪微博</a>；</p>
   <p>本站所有内容均属个人观点，和本人雇主及其他团体无关。</p>
 </section><section>
   <h1>Recent Posts</h1>

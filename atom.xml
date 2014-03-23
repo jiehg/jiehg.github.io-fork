@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://lucida.github.io/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-23T19:56:31+00:00</updated>
+  <updated>2014-03-23T23:35:34+00:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -444,7 +444,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="c1">// Extends String.Join for a smooth API.</span>
 </span><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">Join</span><span class="p">(</span><span class="k">this</span> <span class="n">String</span> <span class="n">separator</span><span class="p">,</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Object</span><span class="p">&gt;</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="n">separator</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// Displays the lexes in a readable form.</span>
@@ -683,10 +683,10 @@
 </span><span class='line'>
 </span><span class='line'>    <span class="k">public</span> <span class="nf">SScope</span><span class="p">(</span><span class="n">SScope</span> <span class="n">parent</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">Parent</span> <span class="p">=</span> <span class="n">parent</span><span class="p">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">variableTable</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">SObject</span><span class="p">&gt;();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">variableTable</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">SObject</span><span class="p">&gt;();</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Find</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Find</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="n">SScope</span> <span class="n">current</span> <span class="p">=</span> <span class="k">this</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="n">variableTable</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="p">{</span>
@@ -697,7 +697,7 @@
 </span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="p">(</span><span class="n">name</span> <span class="p">+</span> <span class="s">&quot; is not defined.&quot;</span><span class="p">);</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Define</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">SObject</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="n">SObject</span> <span class="nf">Define</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">SObject</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">variableTable</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
 </span><span class='line'>        <span class="k">return</span> <span class="k">value</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
@@ -810,7 +810,7 @@
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">SBool</span> <span class="p">:</span> <span class="n">SObject</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SBool</span> <span class="n">False</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SBool</span><span class="p">();</span>
 </span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SBool</span> <span class="n">True</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SBool</span><span class="p">();</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">override</span> <span class="n">String</span> <span class="nf">ToString</span><span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">return</span> <span class="p">((</span><span class="n">Boolean</span><span class="p">)</span><span class="k">this</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">implicit</span> <span class="k">operator</span> <span class="nf">Boolean</span><span class="p">(</span><span class="n">SBool</span> <span class="k">value</span><span class="p">)</span> <span class="p">{</span>
@@ -1549,7 +1549,7 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">cmdArgs</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">cmdArgs</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">new</span> <span class="nf">SScope</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="k">null</span><span class="p">)</span>
 </span><span class='line'>        <span class="p">.</span><span class="n">BuildIn</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">&lt;</span><span class="n">SNumber</span><span class="p">&gt;(</span><span class="n">scope</span><span class="p">).</span><span class="n">Sum</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">)))</span>
 </span><span class='line'>        <span class="c1">// 省略若干内置函数</span>

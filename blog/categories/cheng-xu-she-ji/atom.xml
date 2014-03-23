@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 程序设计 | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/cheng-xu-she-ji/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-23T19:56:31+00:00</updated>
+  <updated>2014-03-23T23:35:34+00:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -354,7 +354,7 @@ return tokens;
 <p>// Extends String.Join for a smooth API.
 public static String Join(this String separator, IEnumerable<Object> values) {</p>
 
-<pre><code>return string.Join(separator, values);
+<pre><code>return String.Join(separator, values);
 </code></pre>
 
 <p>}</p>
@@ -525,10 +525,10 @@ private Dictionary&lt;String, SObject&gt; variableTable;
 
 public SScope(SScope parent) {
     this.Parent = parent;
-    this.variableTable = new Dictionary&lt;string, SObject&gt;();
+    this.variableTable = new Dictionary&lt;String, SObject&gt;();
 }
 
-public SObject Find(string name) {
+public SObject Find(String name) {
     SScope current = this;
     while (current != null) {
         if (current.variableTable.ContainsKey(name)) {
@@ -539,7 +539,7 @@ public SObject Find(string name) {
     throw new Exception(name + " is not defined.");
 }
 
-public SObject Define(string name, SObject value) {
+public SObject Define(String name, SObject value) {
     this.variableTable.Add(name, value);
     return value;
 }
@@ -620,7 +620,7 @@ public class SBool : SObject {</p>
 
 <pre><code>public static readonly SBool False = new SBool();
 public static readonly SBool True = new SBool();
-public override string ToString() {
+public override String ToString() {
     return ((Boolean)this).ToString();
 }
 public static implicit operator Boolean(SBool value) {
@@ -1183,7 +1183,7 @@ throw new Exception("THIS IS JUST TEMPORARY!");
 <p>最后在<code>Main</code>中调用该解释/求值循环：</p>
 
 <p>```csharp
-static void Main(string[] cmdArgs) {</p>
+static void Main(String[] cmdArgs) {</p>
 
 <pre><code>new SScope(parent: null)
     .BuildIn("+", (args, scope) =&gt; (args.Evaluate&lt;SNumber&gt;(scope).Sum(s =&gt; s)))
