@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-04-06T23:47:02+01:00</updated>
+  <updated>2014-04-06T23:54:27+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -235,13 +235,13 @@
 <li>神奇的发现自己第一次实习时做的也是migration，尼玛难道是轮回？</li>
 </ul>
 </li>
-<li>利用业余时间构建了pyfmt——基于AST的代码格式化工具，生成符合Google Python Style的代码。
+<li>利用业余时间构建了pyfmt——基于AST的代码格式化工具，生成符合<a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">Google Python Style</a>的代码。
 
 <ul>
 <li>速度是公司工具的6倍到50倍不等（已验证）。</li>
-<li>速度是autopep8的3倍到30倍（已验证）。</li>
+<li>速度是<a href="https://github.com/hhatto/autopep8">autopep8</a>的3倍到30倍（已验证）。</li>
 <li>生成的代码质量基本等同（待验证）。</li>
-<li>代码量是autopep8的二分之一。</li>
+<li>代码量是<a href="https://github.com/hhatto/autopep8">autopep8</a>的二分之一。</li>
 <li>不依赖任何第三方库。</li>
 <li>不使用任何正则表达式——Never send a regex to do a parser&rsquo;s job.</li>
 </ul>
@@ -306,7 +306,7 @@
 <ol>
 <li>3月目标制定的过于宏大——尽管完成度不错，但代价也很大——工作时间从每天8小时增加到10小时，到了后期的阅读时间几乎被缩减到零，接下来会相应的缩小计划目标。</li>
 <li>除了工作就是学习，导致略抑郁——尽管做出的东西带来了一点成就感。总之接下来需要更多的娱乐。</li>
-<li>猛然反应过来所谓的TARQIE其实就是OKR（Objective-Key-Results）——所以接下来直接使用OKR制定计划，更加简洁。</li>
+<li>猛然反应过来所谓的TARQIE其实就是OKR（<a href="http://en.wikipedia.org/wiki/OKR">Objective-Key-Results</a>）——所以接下来直接使用<a href="http://en.wikipedia.org/wiki/OKR">OKR</a>制定计划，更加简洁。</li>
 </ol>
 
 
