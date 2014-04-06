@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Life | Lucida]]></title>
+  <link href="http://lucida.github.io/blog/categories/life/atom.xml" rel="self"/>
+  <link href="http://lucida.github.io/"/>
+  <updated>2014-04-06T23:47:02+01:00</updated>
+  <id>http://lucida.github.io/</id>
+  <author>
+    <name><![CDATA[Lucida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
+    <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
+    <updated>2014-04-06T23:24:33+01:00</updated>
+    <id>http://lucida.github.io/blog/summary-of-march-2014</id>
+    <content type="html"><![CDATA[<h1>三月小结（暨TARQIE——一种量化成长的方法（下））</h1>
+
+<h2>目标实际完成情况</h2>
+
+<h3>Tarqie-J</h3>
+
+<ol>
+<li>目标
+
+<ul>
+<li>高效完成Q1 OKR。 &ndash;> 1.0
+
+<ul>
+<li>搞定，超出Manager和Mentor的预期。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>量化
+
+<ul>
+<li>成功迁移124个Test。 &ndash;> 1.0
+
+<ul>
+<li>搞定，并且构建了持续测试环境。</li>
+</ul>
+</li>
+<li>为这些Test配置一个可稳定运行的环境。 &ndash;> 0.8
+
+<ul>
+<li>基本搞定，但仍存在少量（每天1~2次）的不稳定状况。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改进
+
+<ul>
+<li>恬着脸皮向不同的同事请教。 &ndash;> 1.0
+
+<ul>
+<li>达成——基本每个同事都被我骚扰了一遍 &ndash;_&ndash;</li>
+</ul>
+</li>
+<li>理解当前Test的架构和流程。 &ndash;> 1.0
+
+<ul>
+<li>重建测试框架的过程中了解</li>
+</ul>
+</li>
+<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。 &ndash;> 0.7
+
+<ul>
+<li>部分完成，阅读Google Guice Book，了解了Guice运作机制。</li>
+</ul>
+</li>
+<li>阅读Java Best Practices和Effective Java。 &ndash;> 0.8
+
+<ul>
+<li>部分完成，重新阅读了JBP，但Effective Java只看了一多半。</li>
+</ul>
+</li>
+<li>阅读Java Performance，了解JVM。 &ndash;> 0.7
+
+<ul>
+<li>部分完成，阅读了国产的<a href="http://book.douban.com/subject/24722612/">《深入理解Java虚拟机》</a>，了解Java内存管理/回收，字节码生成等内容。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>验证
+
+<ul>
+<li>每周与mentor交流，进行进度控制/难点求助。 &ndash;> 0.6
+
+<ul>
+<li>由于mentor结婚度蜜月所以没有达成。</li>
+</ul>
+</li>
+<li>Test的数量不断增加。 &ndash;> 1.0
+
+<ul>
+<li>达成——事实上全部搞定。</li>
+</ul>
+</li>
+<li>CL中review的数量持续降低。 &ndash;> 1.0
+
+<ul>
+<li>搞定，成功的从每次提交代码20余个review降至小于6个。</li>
+</ul>
+</li>
+<li>逐步理解项目代码背后的机理。 &ndash;> 0.6
+
+<ul>
+<li>部分搞定，对项目测试框架已经相当了解了（毕竟自己重新搭建了整个框架），但对整个项目的各个模块，交互流程还是一头雾水。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<p>综上所述，得分 0.85</p>
+
+<h3>Tarqie-L</h3>
+
+<ol>
+<li>目标
+
+<ul>
+<li>提高精力，理解Python。 &ndash;> 0.8
+
+<ul>
+<li>精力小有提高，至于Python——实现机制不太了解，但Python语法和编程风格我现在有足够自信——毕竟写了一个程序解析Python然后生成Google风格的Python，再加上身边有一个Python Readability Reviewer，说自己现在达到中级Python开发者的水准应该不为过。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>量化
+
+<ul>
+<li>精力提高（自然醒，不赖床）。 &ndash;> 0.6
+
+<ul>
+<li>自然醒但依然赖床——-_&ndash;</li>
+</ul>
+</li>
+<li>熟悉Python及其实现。 &ndash;> 0.8
+
+<ul>
+<li>部分搞定，见上文。</li>
+</ul>
+</li>
+<li>理解4个开源项目的架构。 &ndash;> 1.0
+
+<ul>
+<li>搞定，见下文。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改进
+
+<ul>
+<li>早睡早起（11:30 PM ~ 8:30 AM）+每天运动20分钟。 &ndash;> 0.7
+
+<ul>
+<li>早睡早起没做到，运动的频率两周一次。</li>
+</ul>
+</li>
+<li>阅读相关技术书籍（Python源码剖析，开源项目架构等）。 &ndash;> 0.6
+
+<ul>
+<li>部分完成，Python源码剖析只读了第一章，但开源项目架构每周一篇。</li>
+</ul>
+</li>
+<li>增强学习能力（阅读《Study Less, Learn More》） &ndash;> 1.0
+
+<ul>
+<li>完成。</li>
+</ul>
+</li>
+<li>控制手淫频率至两周一次。 &ndash;> 1.0 &ndash;_&ndash;
+
+<ul>
+<li>完成。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>验证
+
+<ul>
+<li>早睡早起+运动不间断。 &ndash;> 0.5
+
+<ul>
+<li>搞定一半。两天运动一次。</li>
+</ul>
+</li>
+<li>学习能力增强（+系统学习能力）。 &ndash;> 1.0
+
+<ul>
+<li>部分做到，但很难验证——不过用三天搞出了另外一个家伙搞了5个月的东西应该能说明部分问题。</li>
+</ul>
+</li>
+<li>逐步理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。 &ndash;> 1.0
+
+<ul>
+<li>没有阅读代码，但完成了一个Python Formatter——把Python代码转换成AST再以Google Python Style转换回代码。</li>
+</ul>
+</li>
+<li>每周理解1个开源项目的架构。 &ndash;> 1.0
+
+<ul>
+<li>完成——阅读了<a href="http://aosabook.org/en/bash.html">Bash</a>, <a href="http://aosabook.org/en/selenium.html">Selenium WebDriver</a>, <a href="http://aosabook.org/en/posa/high-performance-networking-in-chrome.html">Chrome</a>和<a href="http://aosabook.org/en/posa/parsing-xml-at-the-speed-of-light.html">puginxml</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<p>综上所述，得分 0.8</p>
+
+<h3>成就</h3>
+
+<h4>工作</h4>
+
+<ol>
+<li>构建新的测试环境并迁移原有的测试用例。
+
+<ul>
+<li>各种神坑，Team/MailList/Group/ReadTheFuckingSource。</li>
+<li>manager一度问我是否需要support——想了想还是撑下来了，还好搞定了。</li>
+<li>神奇的发现自己第一次实习时做的也是migration，尼玛难道是轮回？</li>
+</ul>
+</li>
+<li>利用业余时间构建了pyfmt——基于AST的代码格式化工具，生成符合Google Python Style的代码。
+
+<ul>
+<li>速度是公司工具的6倍到50倍不等（已验证）。</li>
+<li>速度是autopep8的3倍到30倍（已验证）。</li>
+<li>生成的代码质量基本等同（待验证）。</li>
+<li>代码量是autopep8的二分之一。</li>
+<li>不依赖任何第三方库。</li>
+<li>不使用任何正则表达式——Never send a regex to do a parser&rsquo;s job.</li>
+</ul>
+</li>
+</ol>
+
+
+<h4>学习生活</h4>
+
+<ol>
+<li>重新实现了自己两年前写的Lucida。
+
+<ul>
+<li>重新设计类型系统，进行尾递归优化。然后完成<a href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/">《90分钟实现一门编程语言——极简解释器教程》</a>，写作之余想通了之前很多迷惑的地方。</li>
+<li>功能基本等同，代码量是前一版的八分之一，运行速度是前一版的270倍（倒不是这一版效率有多高，主要是前一版写的太挫了）</li>
+</ul>
+</li>
+<li><a href="http://zh.lucida.me/blog/on-reading-books/">《如何阅读书籍》</a>和<a href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/">《网络上瘾及其解决方法》</a>两篇议论型博客。</li>
+<li>完整的完成一个引体向上。</li>
+</ol>
+
+
+<h3>阅读列表</h3>
+
+<ul>
+<li><a href="http://book.douban.com/subject/3814402/">The Quick Python Book</a></li>
+<li><a href="http://book.douban.com/subject/25710862/">Getting Started with Google Guava</a></li>
+<li><a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a></li>
+<li><a href="http://book.douban.com/subject/24383461/">网络素养</a></li>
+<li><a href="http://book.douban.com/subject/25783654/">如何高效学习</a></li>
+<li><a href="http://book.douban.com/subject/3009235/">Google Guice</a></li>
+<li><a href="http://aosabook.org/en/index.html">The Architecture of Open Source Applications</a></li>
+</ul>
+
+
+<h3>一些体会</h3>
+
+<ol>
+<li>慢读慎写——读书不是靠页数，代码不是拼行数。</li>
+<li>精益求精——严肃认真对待自己的任何一个项目/作品，每一行代码，每一个细节都应有其意义。</li>
+<li>Don&rsquo;t <a href="http://en.wikipedia.org/wiki/Satisfice">satisfice</a>—— 在时间充裕的情况下，尽力寻找最优解，而不是找到一个答案就满足。</li>
+<li>Have a mentor/coach——无论学习什么，身边要有一个大师级人物，不要盲目相信自学能力——坑大多都是自己挖出来的。</li>
+<li>在合适的抽象层工作（Working at a proper abstraction layer），包括下面几点：
+
+<ul>
+<li>找到与目标最契合的层次：
+
+<ul>
+<li>如果层级过高就会造成性能损失和功能缺失。</li>
+<li>如果层次过低就会变成重造轮子。</li>
+</ul>
+</li>
+<li>总是在同一个层次工作——以避免上下文切换。</li>
+<li>将复杂度封装到各自对应的层次——以避免进行交互——<a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a></li>
+</ul>
+</li>
+</ol>
+
+
+<h3>发现的问题</h3>
+
+<ol>
+<li>3月目标制定的过于宏大——尽管完成度不错，但代价也很大——工作时间从每天8小时增加到10小时，到了后期的阅读时间几乎被缩减到零，接下来会相应的缩小计划目标。</li>
+<li>除了工作就是学习，导致略抑郁——尽管做出的东西带来了一点成就感。总之接下来需要更多的娱乐。</li>
+<li>猛然反应过来所谓的TARQIE其实就是OKR（Objective-Key-Results）——所以接下来直接使用OKR制定计划，更加简洁。</li>
+</ol>
+
+
+<h3>4月计划</h3>
+
+<h3>OKR-J</h3>
+
+<ul>
+<li>目标
+
+<ol>
+<li>完整迁移测试到原项目中。</li>
+<li>稳定+推广pyfmt。</li>
+</ol>
+</li>
+<li>关键结果
+
+<ol>
+<li>成功迁移124个Test到原项目。</li>
+<li>将测试的不稳定性控制在每天3次以下。</li>
+<li>pyfmt通过Python Readability。</li>
+<li>pyfmt有10个以上的用户。</li>
+<li>pyfmt从experimental进入devtools（略激进，但值得一试）。</li>
+</ol>
+</li>
+</ul>
+
+
+<h3>OKR-L</h3>
+
+<ul>
+<li>目标
+
+<ol>
+<li>正常作息，提高精力。</li>
+<li>结合pyfmt，深度理解Python。</li>
+<li>加深对Java &amp; JVM的理解。</li>
+</ol>
+</li>
+<li>关键结果
+
+<ol>
+<li>理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。</li>
+<li>阅读并理解两个以上的开源项目架构。</li>
+<li>完成<a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a>，阅读<a href="http://www.amazon.co.uk/Java-Performance-Addison-Wesley-Charlie-Hunt/dp/0137142528/">《Java Performance》</a>至50%。</li>
+<li>迁移测试的同时完成<a href="http://www.amazon.co.uk/Effective-Unit-Testing-guide-developers/dp/1935182579/">Effective Unit Testing: A guide for Java developers</a>的阅读。</li>
+<li>早睡<em>晚</em>起（8:40 ~ 23:50）</li>
+<li>控制手淫频率至两周一次。</li>
+<li>至少两天一次20分钟的运动。</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[London的新玩具]]></title>
+    <link href="http://lucida.github.io/blog/new-toys-in-london/"/>
+    <updated>2014-02-15T21:16:16+00:00</updated>
+    <id>http://lucida.github.io/blog/new-toys-in-london</id>
+    <content type="html"><![CDATA[<h2>Bose Companion 20</h2>
+
+<p>之前一直用<a href="http://www.amazon.com/Ultimate-Ears-Wireless-Bluetooth-Speaker/dp/B00CM0XHNS/">UE Boom</a>，但用久了就感觉声音有些憋屈，考虑到每天至少有一个小时在听音乐，所以搞个不错的印象很有必要。</p>
+
+<p>要求如下：</p>
+
+<ol>
+<li>低音带感。</li>
+<li>体积小。</li>
+<li>外观拉风。</li>
+</ol>
+
+
+<p>Google了几篇Speaker的Review，初步锁定<a href="http://www.amazon.co.uk/Bose-Companion-Series-Multimedia-Speaker/dp/B00CL83JVQ/">Bose Companion2</a>和<a href="http://www.amazon.co.uk/Logitech-980-000659-Z600-Bluetooth-Speakers/dp/B00DUBIZ7G/">Logitech Z600</a>。</p>
+
+<p>不过观察实物时才发现，C2虽然体积合适，但非常丑；Z600虽然外观不错，但比想象的大了一圈。失望之余，意外发现了<a href="http://www.amazon.co.uk/Bose-Companion-Multimedia-Speaker-System/dp/B005EPOFTI/">Bose Companion20</a>。</p>
+
+<p><img src="http://ecx.images-amazon.com/images/I/71RYZKiBvCL._SL1500_.jpg" alt="Bose Companion20" /></p>
+
+<p>金属银的外观和声音都不错，就是价格比预计的多了一倍——199磅，不过还是买了下来，这种天天用的东西有必要好一点。</p>
+
+<h2>IRON GYM+</h2>
+
+<p>为了能够在家做引体向上，所以在Google了一圈Pull up bar，发现最快最稳的方法还是去Decathlon买，于是就从Islington坐Overground去，之后就找到这个<a href="http://www.decathlon.co.uk/iron-gym-chin-up-bar-id_8194140.html">IRON GYM+</a>，正好他们在做活动，20磅买下。</p>
+
+<p><img src="http://www.decathlon.co.uk/media/819/8194140/big_800PX_65269548.jpg" alt="Decathlon IRON GYM+" /></p>
+
+<p>试用了下，还是很结实的，不过现在一个引体向上也做不起来-_&ndash; 不过还好有凳子的辅助。</p>
+]]></content>
+  </entry>
+  
+</feed>

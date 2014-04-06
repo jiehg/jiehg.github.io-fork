@@ -2,35 +2,39 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://lucida.github.io/blog/my-first-article/</loc>
-        <lastmod>2014-01-05T23:43:04+00:00</lastmod>
+        <lastmod>2014-04-06T23:26:58+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/about-movie-chinese-dream/</loc>
-        <lastmod>2014-01-11T12:20:37+00:00</lastmod>
+        <lastmod>2014-04-06T23:26:44+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/new-toys-in-london/</loc>
-        <lastmod>2014-02-15T21:24:57+00:00</lastmod>
+        <lastmod>2014-04-06T23:29:05+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/memoirs-on-my-postgraduate-life/</loc>
-        <lastmod>2014-02-16T22:15:51+00:00</lastmod>
+        <lastmod>2014-04-06T23:28:51+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/tarqie-a-quantized-continous-growing-approach/</loc>
-        <lastmod>2014-03-23T19:11:58+00:00</lastmod>
+        <lastmod>2014-04-06T23:28:40+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/on-suppressing-the-internet-addiction/</loc>
-        <lastmod>2014-03-23T19:12:02+00:00</lastmod>
+        <lastmod>2014-04-06T23:28:26+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/on-reading-books/</loc>
-        <lastmod>2014-03-23T19:12:07+00:00</lastmod>
+        <lastmod>2014-04-06T23:29:18+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/</loc>
-        <lastmod>2014-03-23T23:27:54+00:00</lastmod>
+        <lastmod>2014-04-06T23:27:51+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://lucida.github.io/blog/summary-of-march-2014/</loc>
+        <lastmod>2014-04-06T23:46:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/about/</loc>
@@ -38,11 +42,11 @@
     </url>
     <url>
         <loc>http://lucida.github.io/blog/archives/</loc>
-        <lastmod>2014-03-23T23:27:54+00:00</lastmod>
+        <lastmod>2014-04-06T23:46:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/</loc>
-        <lastmod>2014-03-23T23:27:54+00:00</lastmod>
+        <lastmod>2014-04-06T23:46:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://lucida.github.io/robots.txt</loc>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 影评 | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/ying-ping/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Movie | Lucida]]></title>
+  <link href="http://lucida.github.io/blog/categories/movie/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-23T23:35:34+00:00</updated>
+  <updated>2014-04-06T23:47:02+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>

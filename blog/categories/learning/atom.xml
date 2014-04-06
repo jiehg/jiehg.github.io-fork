@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Learning | Lucida]]></title>
+  <link href="http://lucida.github.io/blog/categories/learning/atom.xml" rel="self"/>
+  <link href="http://lucida.github.io/"/>
+  <updated>2014-04-06T23:47:02+01:00</updated>
+  <id>http://lucida.github.io/</id>
+  <author>
+    <name><![CDATA[Lucida]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何阅读书籍]]></title>
+    <link href="http://lucida.github.io/blog/on-reading-books/"/>
+    <updated>2014-03-15T20:05:35+00:00</updated>
+    <id>http://lucida.github.io/blog/on-reading-books</id>
+    <content type="html"><![CDATA[<h1>如何阅读书籍</h1>
+
+<h2>摘要</h2>
+
+<p>这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。</p>
+
+<h2>注意</h2>
+
+<ol>
+<li>“如何阅读”指“What to read”而非“How to read”，Mortimer J. Adler的<a href="http://book.douban.com/subject/1013208/">怎样阅读一本书</a>对How to read有着精彩的描述。</li>
+<li>“书籍”指非小说（Non-fiction）类书籍。</li>
+</ol>
+
+
+<h2>目标</h2>
+
+<p>我是一个功利主义者（<a href="http://en.wikipedia.org/wiki/Utilitarianism">Utilitarianism</a>），因此我认为阅读的目标在于为自己创造实际价值，所以：</p>
+
+<ol>
+<li>我不会因为某本书看起来很有趣就去阅读（机会成本）。</li>
+<li>也不会因为很多人推荐某本书就去阅读（从众）。</li>
+<li>更不会因为某本书难就去阅读（追求智商优越感）</li>
+</ol>
+
+
+<p>一本书值得阅读，当且仅当：</p>
+
+<ol>
+<li>它可以直接为我创造价值。</li>
+<li>它可以间接为我创造价值。</li>
+</ol>
+
+
+<p>我的阅读目标：</p>
+
+<blockquote><p>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。</p></blockquote>
+
+<h2>如何选择？</h2>
+
+<h3>专业书籍</h3>
+
+<blockquote><p>专业知识尽可能深入。</p></blockquote>
+
+<p>我是一个软件开发者（Software Developer），因此这里的专业书籍均和软件开发有关。</p>
+
+<p>这里介绍我自己用的两种方法：</p>
+
+<h4>根据引用列表</h4>
+
+<p>从一本经典书籍出发，深度优先遍历它的引用列表，通过书评和摘要了解这些引用书籍，再根据自己的实际情况决定自己的阅读次序。</p>
+
+<p>这里以<a href="http://book.douban.com/subject/1477390/">代码大全</a>为例（为了方便和一致性，这里使用英文书名）：</p>
+
+<p>```
+Code Complete：软件构建全程最佳实践指南。
+|
+|&mdash;&mdash;How to Solve it：系统解决问题。
+|
+|&mdash;&mdash;Conceptual Blockbusting：跳出思维的壁垒。
+|
+|&mdash;&mdash;Mythical Man Month：软件工程不能做什么。
+|
+|&mdash;&mdash;Programming Pearls：极简算法手册。</p>
+
+<pre><code> |
+ |----The Science of Programming：编写正确的程序。
+ |
+ |----Writing Efficient Programs：编写高效的程序。
+</code></pre>
+
+<p>|
+|&mdash;&mdash;Pragmatic Programmer：高效程序员的实践。
+|
+|&mdash;&mdash;Refactoring：如何改进自己的代码。
+|
+|&mdash;&mdash;Programming on Purposes：用正确的编程模式处理问题。
+|
+|&mdash;&mdash;Software Tools：用合适的抽象封装复杂度。</p>
+
+<pre><code> |
+ |----The Practice of Programming：极简编程风格指南。
+      |
+      |---- Writing Solid Code：减少调试的时间。
+      |
+      |---- Elements of Programming Style：极简编程风格指南。
+</code></pre>
+
+<p>```</p>
+
+<p>可以发现，通过<a href="http://book.douban.com/subject/1477390/">代码大全</a>一本书，经过短短两层引用联系，几乎可以找到2004年以前所有软件开发的经典书籍。事实上，我阅读的80%以上的软件开发经典书籍，都源自于<a href="http://book.douban.com/subject/1477390/">代码大全</a>的引用列表。</p>
+
+<p>这种方法的好处：</p>
+
+<ul>
+<li>简单直接：相对于从茫茫书海里找出10本经典书籍，找1本经典书籍再从它的引用列表里面找到20本经典书籍要容易的多。</li>
+<li>质量保证：靠谱书籍的引用书籍的质量一般都很高。</li>
+<li>发现一些被忽视的经典：相当一部分的书籍随着时间的流逝而淡出人们的视野，但这并不代表它们本身没有价值，例如：
+
+<ul>
+<li><a href="http://book.douban.com/subject/1989284/">Programming on Purposes</a></li>
+<li><a href="http://book.douban.com/subject/1815459/">Software Tools</a></li>
+<li><a href="http://book.douban.com/subject/2350559/">The Science of Programming</a></li>
+<li><a href="http://book.douban.com/subject/1456967/">Writing Solid Code</a></li>
+<li><a href="http://book.douban.com/subject/1768600/">Writing Efficient Programs</a></li>
+<li>等等&hellip; 这些书或者绝版，但它们都对我的软件开发理念产生了巨大影响。</li>
+</ul>
+</li>
+<li>形成知识体系：引用书籍彼此具有天然的联系，这使得创建知识体系更加容易。</li>
+</ul>
+
+
+<p>我认为这种方法适用于任何需要严肃阅读的领域：</p>
+
+<ol>
+<li>锚点：找到一本经典书籍。</li>
+<li>撒网：了解该书引用列表中的书籍。</li>
+<li>收网：根据自己实际需要，精读相关书籍。</li>
+</ol>
+
+
+<h4>根据作者</h4>
+
+<p>这里以计算机书籍为例（以下仅代表个人口味）：</p>
+
+<ol>
+<li>Richard Stevens：善。</li>
+<li>Brian Kernighan：极善。</li>
+<li>Deitel Series：翔。</li>
+<li>Bruce Eckel：废话连篇。</li>
+<li>Jon Bentley：善。</li>
+<li>Andrew S Tanenbaum：大善。</li>
+<li>Jeffrey D Ullman：善。</li>
+<li>P.J. Plauger：大善。</li>
+<li>Robert C Martin：善。</li>
+<li>Bjarne Stroustrup：善，但略神叨（神侃世界观方法论有点顶不住）。</li>
+<li>Martin Fowler：善，但略唠叨。</li>
+<li>Ron Jeffries：翔（好吧我是故意来黑的，尼玛连个<a href="http://devgrind.com/2007/04/25/how-to-not-solve-a-sudoku/">Sudoku</a>都解不出来写毛程序）</li>
+</ol>
+
+
+<p>这种方法的问题在于需要一定阅读经验，但是它非常有效——以至于不用看内容就对书的质量有七八成把握。</p>
+
+<h3>非本专业书籍</h3>
+
+<blockquote><p>专业周边知识尽可能精炼。</p></blockquote>
+
+<ol>
+<li>对于专业周边知识，了解关键概念及指导思想即可。</li>
+<li>不需要，也没有必要对专业周边知识进行深入了解。</li>
+<li>&ldquo;Know what&rdquo; is enough, &ldquo;Know how&rdquo; is expensive.</li>
+</ol>
+
+
+<p>以我2年前编写手机应用，学习用户体验为例：</p>
+
+<ol>
+<li>分别在现实中（身边有几个很不错的交互设计师）和线上（Quora和知乎）进行提问和搜索，得到一个书单。</li>
+<li>按照下面的原则过滤书单：
+
+<ul>
+<li>去掉教科书和大部头。</li>
+<li>去掉包含大量原理或论证的书籍。</li>
+<li>保留结论型书籍。</li>
+<li>保留指南型书籍。</li>
+</ul>
+</li>
+<li>总结出书单，迅速的阅读并找到关键点。
+
+<ul>
+<li><a href="http://book.douban.com/subject/3323633/">给大家看的设计书</a>：CRAP原则，字体与配色。</li>
+<li><a href="http://book.douban.com/subject/4606471/">设计心理学</a>：心智模型，心智摩擦，最小惊讶。</li>
+<li><a href="http://book.douban.com/subject/1493316/">交互设计之路</a>：为什么需要交互，交互有哪些坑。</li>
+<li><a href="http://book.douban.com/subject/4254166/">Tapworthy</a>：具有实际操作性的移动平台交互设计指南。</li>
+</ul>
+</li>
+</ol>
+
+
+<p>了解设计的人可能认为上面的书单过于初级——没错，它们都是结论型或指南型书籍，没有原理，也没有论证——但这正是对于我这样的非专业者所需要的书籍：我不需要知道这些知识是怎么来的，知道怎么用足矣。</p>
+
+<p>此外，受价值驱动，而非兴趣——大多数情况下兴趣只是把自己脱离当前困境的接口。</p>
+
+<h3>学习型书籍</h3>
+
+<p>学习型书籍是一种元（Meta）方法书籍：这类书籍用于提升学习能力，换句话说，就是缩短吸收知识所需要的时间。</p>
+
+<p>这类书籍我只读过下面的几本，效果有但不明显：</p>
+
+<ul>
+<li><a href="http://book.douban.com/subject/2345548/">学习之道</a>：冥想，体会。</li>
+<li><a href="http://book.douban.com/subject/1013208/">如何阅读一本书</a>：检视阅读，主题阅读。</li>
+<li><a href="http://www.scotthyoung.com/learnmorestudyless/">Learn more, study less</a>：建立知识体系及联系。</li>
+</ul>
+
+
+<p>需要注意的是，不要陷入到寻求最优学习方法的误区——Best is the worthest enemy of better。</p>
+
+<h2>阅读原版？</h2>
+
+<h3>如何在翻译版和原版做选择？</h3>
+
+<ol>
+<li>优先选择翻译版。计算机书籍这种描述精确知识的书籍更是如此。</li>
+<li>此外，如果阅读中出现难以理解的问题，不要下意识的把其归咎于翻译问题——多数情况是理解问题。</li>
+</ol>
+
+
+<h3>为什么还有那么多人阅读原版？</h3>
+
+<ol>
+<li>因为翻译版还没出版。</li>
+<li>知识的价值有其时效性。</li>
+<li>逼格。</li>
+</ol>
+
+
+<h2>越多越好？</h2>
+
+<p>我经常逛豆瓣，豆瓣有一个很有意思的现象就是人们喜欢去比较自己每年读书的数量，或者是截图炫耀自己读过几千本书云云。</p>
+
+<p>我在这里酸一下：书的数量并没有什么参考价值，就好比无法用盖一栋大楼的砖数评价这栋大楼的质量；换个说法，Effort不等于Progress。</p>
+
+<blockquote><p>关键在于读过书的质量，吸收的程度，以及创造的价值。</p></blockquote>
+
+<p>此外，盲目追求读书的数量会带来另一个问题——浅尝辄止。本应花在专业书籍上的时间被分配到其它无关紧要的事情上，导致该学好的没学好，没必要的学了一滩但用不上。</p>
+
+<h2>总结</h2>
+
+<ol>
+<li>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。
+
+<ul>
+<li>按照引用列表和作者深入阅读专业书籍。</li>
+<li>利用结论型/指南型书籍精炼阅读专业周边书籍。</li>
+<li>不断强化自己的按需学习能力。</li>
+</ul>
+</li>
+<li>不一定非要阅读原版。</li>
+<li>读书并非多多益善。</li>
+<li>读书之前回答下面几个问题：
+
+<ul>
+<li>这本书能给自己带来什么改变？</li>
+<li>自己是否需要这种改变？</li>
+<li>如果均为Yes，继续；如果有一个No，砍掉。</li>
+</ul>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
+    <link href="http://lucida.github.io/blog/on-suppressing-the-internet-addiction/"/>
+    <updated>2014-03-09T17:14:28+00:00</updated>
+    <id>http://lucida.github.io/blog/on-suppressing-the-internet-addiction</id>
+    <content type="html"><![CDATA[<h1>网络上瘾及其解决方法</h1>
+
+<h2>症状</h2>
+
+<h3>起床后</h3>
+
+<p>拿起手机，微博->论坛A->论坛B->知乎->人人，大概20分钟。</p>
+
+<h3>工作中</h3>
+
+<p>大概每隔半小时刷一下微博或论坛，点进去看两分钟再切回来。</p>
+
+<h3>睡觉前</h3>
+
+<p>拿起手机，微博->论坛A->论坛B->知乎->人人->草榴（-_-），大概30分钟。</p>
+
+<h2>原因</h2>
+
+<h3>智能手机带来的极其便利的信息可访问性</h3>
+
+<p>平板和智能手机使互联网的可访问性（accessibility）提升了至少两个数量级——三年前我的NOKIA E51只能在WIFI环境下浏览简单的文字信息，而现在我的iPhone5可以无时无刻的阅读/观看互联网上几乎所有的信息，得益于4G，即便是包含大量图片甚至视频的信息也可以轻松阅读。</p>
+
+<h3>碎片化时间不知如何处理</h3>
+
+<p>无论是工作还是学习，都会有疲倦或无聊的时刻，大概10分钟左右。</p>
+
+<p>微博这种碎片化信息的出现正好填补了碎片化时间。但比较恶心的是这种东西会上瘾——慢慢的它会占据越来越多的时间：清晨，睡眠甚至路上和正常阅读的时间。</p>
+
+<h3>长时间从事同一种工作带来的无聊感</h3>
+
+<p>无论多么有激情有兴趣，长时间从事同一种工作总会无聊的，低智力门槛的社交网络就成了一个打发时间的好选择。</p>
+
+<p>然后时间就都耗里面了。-_&ndash;</p>
+
+<h2>现实 V.S. 虚拟</h2>
+
+<p>人是社会性动物，社会性动物通过与其他对象建立联系来确定自己的存在感，也就是交流（Communication），现实和虚拟中都是如此。交流包括一对一交流和一对多交流：现实中，一对一交流通过谈话/电话/信件，一对多交流通过电视/广播；虚拟中，一对一交流通过IM（Instant Messenger），一对多交流通过微博/论坛/博客。</p>
+
+<h3>一对一交流：</h3>
+
+<ol>
+<li>现实中，一对一交流通过谈话/电话/信件，一对一交流通过IM（Instant Messenger）。</li>
+<li>现实的一对一交流大多无状态——双方的交流同时开始，同时结束。虚拟的一对一交流大多有状态——双方的交流可以从某一方开始，然后若干小时后另一方看到消息回复，然后如此继续。</li>
+<li>现实中的一对一交流需要考虑对方的状态——也就是交流需要建立在双方都有时间的基础上；虚拟的一对一交流无需考虑对方的状态，有意交流的一方可以随时给对方发送信息。</li>
+</ol>
+
+
+<p>虚拟带来的问题：</p>
+
+<ol>
+<li>任何人都可以与你交流，无论你愿意与否。</li>
+<li>你可以与任何人交流，无论是否值得。</li>
+<li>可能会陷入一种等待交流的焦虑中。</li>
+</ol>
+
+
+<h3>一对多交流：</h3>
+
+<ol>
+<li>现实的一对多交流需要大量人力物力（广播/电视/报纸），虚拟的一对多交流几乎零成本（微博/博客/社交网络）。</li>
+<li>现实的一对多交流需要信息审核/证伪，虚拟的一对多交流几乎没有信息审核。</li>
+<li>现实的一对多交流中接收方是完全被动的，虚拟的一对多交流接收方和广播方之间可以有交互。</li>
+</ol>
+
+
+<p>虚拟带来的问题：</p>
+
+<ol>
+<li>没有审核带来的大量低质量无意义信息（通常会以一种很有趣或是令人热血沸腾的形式出现）。</li>
+<li><a href="http://book.douban.com/subject/1012611/">乌合之众</a>，最热门的信息不是最有价值的，而是吵的最响（或是争议最多）的。</li>
+<li>与广播方（例如名人）的交流会带来成就感，也会使自己陷入等待回复的焦虑中。</li>
+<li>可能会陷入一种不断查看新信息（尽管这些信息毫无意义）的焦虑中。</li>
+</ol>
+
+
+<h2>解决方法</h2>
+
+<p>为此在豆瓣阅读买了一本<a href="http://book.douban.com/subject/24383461/">网络素养</a>，原版：<a href="http://www.amazon.com/Net-Smart-How-Thrive-Online/dp/0262526131/">Net Smart: How to thrive online</a>。</p>
+
+<p><img src="http://img5.douban.com/lpic/s26842036.jpg" title="网络素养" alt="网络素养" /></p>
+
+<p><img src="http://ecx.images-amazon.com/images/I/41LRFD-SVlL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_SX385_SY500_CR,0,0,385,500_SH20_OU02_.jpg" title="Net Smart" alt="Net Smart" /></p>
+
+<p>这本书废话极多，关键的两点：控制注意力，鉴别垃圾信息。</p>
+
+<h3>控制注意力</h3>
+
+<ul>
+<li>下意识的控制注意力，可以通过关注自己的呼吸来调节。</li>
+<li>即便忽略几条微博几条信息，也不会对生活造成多大影响。</li>
+<li>此外可以使用冥想提升自己的集中力（Focus）。</li>
+<li>番茄工作法（没看明白要点，25分钟休息一次是什么原理，如果这样岂不是更不靠谱）。</li>
+</ul>
+
+
+<h3>鉴别垃圾信息</h3>
+
+<ul>
+<li>冷静面对夸张的标题，此类信息一般有意断章取义，或是掩盖上下文。</li>
+<li>恰当的使用三点式验证争议信息：使用三个不同可信来源验证信息的有效性。</li>
+<li>选取可信/有效/有价值的信息来源，屏蔽哗众取宠/断章取义的信息源。</li>
+</ul>
+
+
+<h3>集中时间处理社交网络</h3>
+
+<ul>
+<li>在固定的时间段（例：12:40 &ndash; 13:10, 20:20 &ndash; 21:00）处理社交网络信息，而非随时随地的查看状态。</li>
+<li>如有特别需求，可以编写Crawler来发送Reminder邮件，替代人工轮询。</li>
+</ul>
+
+
+<h2>用不上瘾的行为填充碎片化时间</h2>
+
+<p>碎片化时间可以进行其它益智或体育活动，包括但不限于：</p>
+
+<ul>
+<li>拆解/还原九连环。</li>
+<li>单手还原魔方。</li>
+<li>背诵单词。</li>
+<li>绘画。</li>
+<li>乒乓。</li>
+<li>桌球。</li>
+</ul>
+
+
+<h2>尝试其它活动</h2>
+
+<p>为了得到新鲜感，包括但不限于：</p>
+
+<ul>
+<li>学习自己感兴趣但不了解的技术（例如ANTLR）或学科（例如经济/心理学）。</li>
+<li>尝试集体运动（例如攀岩，射箭）。</li>
+<li>尝试旅行（例如在周末去荷兰、芬兰或瑞典进行两日游）。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TARQIE——一种量化成长的方法（上）]]></title>
+    <link href="http://lucida.github.io/blog/tarqie-a-quantized-continous-growing-approach/"/>
+    <updated>2014-03-02T23:31:27+00:00</updated>
+    <id>http://lucida.github.io/blog/tarqie-a-quantized-continous-growing-approach</id>
+    <content type="html"><![CDATA[<h1>TARQIE——一种量化成长的方法（上）</h1>
+
+<h2>问题</h2>
+
+<p>工作到现在大概三个多月，但始终感觉有些不对——没有之前高速成长的感觉，换句话说，就是感觉自己相比三个月之前没有多大进步。</p>
+
+<p>这是一个很危险的讯息——如果三个月还没感受到实质性的成长，那么就相当于倒退，尤其还是在Google这种奇人遍地的公司。</p>
+
+<p>反复思考后发现自己现在掉到几个怪圈里——</p>
+
+<h3>选择瘫痪（Analysis Paralysis）</h3>
+
+<ol>
+<li>想做事情A，做了一小半。</li>
+<li>想做事情B。</li>
+<li>发现事情C也有必要搞。</li>
+<li>结果A，B，C都没有搞定。</li>
+<li>陷入深深的自责。</li>
+<li>回到步骤A。</li>
+</ol>
+
+
+<h3>呆滞沉浸（Dumb Dump）</h3>
+
+<ol>
+<li>看着电脑屏幕发呆。</li>
+<li>或者不停的刷微博。</li>
+<li>或者开始看一部早已经看过的美剧。</li>
+<li>或者撸来撸去。</li>
+<li>总之就是一种知道不该继续但又停不下来的感觉。-_&ndash;</li>
+</ol>
+
+
+<h3>拖延（Procrastination）</h3>
+
+<ol>
+<li>无法持续一件事情。（比如看书或是锻炼）</li>
+<li>缺乏行动力，做事之前束手束脚。</li>
+</ol>
+
+
+<h2>分析</h2>
+
+<p>回想自己过去并不是这个样子——不断成长（Continuous Growing）是自己过去几年的关键字，某种上来所自己有一种强迫症，极端的说：</p>
+
+<blockquote><p>如果自己大脑里面一半都是半年以前的东西，那么证明自己这半年什么都没做。</p></blockquote>
+
+<p>但自己现在处于一个更好的环境，没有理由比之前做的差。于是我决定从之前的成功经历里找到答案，试着用简短的关键字回顾自己前10年的几个关键点：</p>
+
+<h3>关键点（Milestones）</h3>
+
+<h4>高考</h4>
+
+<ul>
+<li>目标
+
+<ol>
+<li>考上一个不错的大学。</li>
+</ol>
+</li>
+<li>量化
+
+<ol>
+<li>考到年级60名以内。</li>
+<li>或者是班级第一。</li>
+</ol>
+</li>
+<li>改进
+
+<ol>
+<li>海量习题练习。</li>
+<li>规律作息。</li>
+<li>每天至少踢腿二十分钟。</li>
+</ol>
+</li>
+<li>验证
+
+<ol>
+<li>月考成绩。</li>
+<li>模拟成绩。</li>
+</ol>
+</li>
+</ul>
+
+
+<h4>考研</h4>
+
+<ul>
+<li>目标
+
+<ol>
+<li>考上北航计算机系。</li>
+</ol>
+</li>
+<li>量化
+
+<ol>
+<li>超过提档线50分。</li>
+</ol>
+</li>
+<li>改进
+
+<ol>
+<li>海量习题练习。</li>
+<li>规律作息。</li>
+<li>禁欲（即停止手淫，保存精力）。</li>
+</ol>
+</li>
+<li>验证
+
+<ol>
+<li>前期：监测学习进度。</li>
+<li>后期：各种模拟试卷，给自己打分。</li>
+</ol>
+</li>
+</ul>
+
+
+<h4>找工作</h4>
+
+<ul>
+<li>目标
+
+<ol>
+<li>找到一个不错的外企工作。</li>
+</ol>
+</li>
+<li>量化
+
+<ol>
+<li>解答Top Coder D2L1和D1L2区段的题目。</li>
+<li>在纸上流畅写出可运行的算法C代码。</li>
+</ol>
+</li>
+<li>改进
+
+<ol>
+<li>每天练习Top Coder一道大题，若干道小题。</li>
+<li>用EOP的思路编写纸上代码。</li>
+</ol>
+</li>
+<li>验证
+
+<ol>
+<li>找到MS正式员工为自己做模拟面试+评估。</li>
+<li>独立解答CareerCup上7成以上的编程题目。</li>
+<li>不断拿到新的Offer。</li>
+</ol>
+</li>
+</ul>
+
+
+<h3>总结</h3>
+
+<p>我惊奇的发现自己找到了一个和《机器学习》里几乎雷同的模型：</p>
+
+<ul>
+<li>目标（TARget）：一个清晰的目标。</li>
+<li>量化（Quantization）：该目标可以被量化成具体数据。</li>
+<li>改进（Improvement）：有一种或几种改进途径不断接近目标。</li>
+<li>验证（Evaluation）：有一种或几种验证方法确认（Verify）自己正在接近目标。</li>
+</ul>
+
+
+<p>综合到一起——TARQIE，即标题里这个奇怪的词汇（很高兴这个词压根不存在）。</p>
+
+<h2>应用</h2>
+
+<p>根据自己的现状，对自己的工作和生活（或学习），分别创建对应的Tarqie模型，这里我称其为Tarqie-J（ob）和Tarqie-L（ife）。</p>
+
+<h3>Tarqie-J</h3>
+
+<ul>
+<li>目标
+
+<ol>
+<li>高效完成Q1 OKR。</li>
+</ol>
+</li>
+<li>量化
+
+<ol>
+<li>成功迁移124个Test。</li>
+<li>为这些Test配置一个可稳定运行的环境。</li>
+</ol>
+</li>
+<li>改进
+
+<ol>
+<li>恬着脸皮向不同的同事请教。</li>
+<li>理解当前Test的架构和流程。</li>
+<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。</li>
+<li>阅读Java Best Practices和Effective Java。</li>
+<li>阅读Java Performance，了解JVM。</li>
+</ol>
+</li>
+<li>验证
+
+<ol>
+<li>每周与mentor交流，进行进度控制/难点求助。</li>
+<li>Test的数量不断增加。</li>
+<li>CL中review的数量持续降低。</li>
+<li>逐步理解项目代码背后的机理。</li>
+</ol>
+</li>
+</ul>
+
+
+<h3>Tarqie-L</h3>
+
+<ul>
+<li>目标
+
+<ol>
+<li>提高精力，理解Python。</li>
+</ol>
+</li>
+<li>量化
+
+<ol>
+<li>精力提高（自然醒，不赖床）。</li>
+<li>熟悉Python及其实现。</li>
+<li>理解4个开源项目的架构。</li>
+</ol>
+</li>
+<li>改进
+
+<ol>
+<li>早睡早起（11:30 PM ~ 8:30 AM）+每天运动20分钟。</li>
+<li>阅读相关技术书籍（Python源码剖析，开源项目架构等）。</li>
+<li>增强学习能力（阅读《Study Less, Learn More》）</li>
+<li>控制手淫频率至两周一次。</li>
+</ol>
+</li>
+<li>验证
+
+<ol>
+<li>早睡早起+运动不间断。</li>
+<li>学习能力增强（+系统学习能力）。</li>
+<li>逐步理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。</li>
+<li>每周理解1个开源项目的架构。</li>
+</ol>
+</li>
+</ul>
+
+
+<h2>实验</h2>
+
+<h3>内容</h3>
+
+<p>在接下来的一个月（2014年3月），分别应用Tarqie-J和Tarqie-L到自己的工作和学习中。</p>
+
+<h3>假设</h3>
+
+<ol>
+<li>效率比之前提升50%。</li>
+<li>掌握两样新技能。</li>
+</ol>
+
+
+<h3>实验开始</h3>
+
+<h2>未完待续</h2>
+]]></content>
+  </entry>
+  
+</feed>

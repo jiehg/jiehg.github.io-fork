@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 随笔 | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/sui-bi/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Essay | Lucida]]></title>
+  <link href="http://lucida.github.io/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-03-23T23:35:34+00:00</updated>
+  <updated>2014-04-06T23:47:02+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,356 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
+    <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
+    <updated>2014-04-06T23:24:33+01:00</updated>
+    <id>http://lucida.github.io/blog/summary-of-march-2014</id>
+    <content type="html"><![CDATA[<h1>三月小结（暨TARQIE——一种量化成长的方法（下））</h1>
+
+<h2>目标实际完成情况</h2>
+
+<h3>Tarqie-J</h3>
+
+<ol>
+<li>目标
+
+<ul>
+<li>高效完成Q1 OKR。 &ndash;> 1.0
+
+<ul>
+<li>搞定，超出Manager和Mentor的预期。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>量化
+
+<ul>
+<li>成功迁移124个Test。 &ndash;> 1.0
+
+<ul>
+<li>搞定，并且构建了持续测试环境。</li>
+</ul>
+</li>
+<li>为这些Test配置一个可稳定运行的环境。 &ndash;> 0.8
+
+<ul>
+<li>基本搞定，但仍存在少量（每天1~2次）的不稳定状况。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改进
+
+<ul>
+<li>恬着脸皮向不同的同事请教。 &ndash;> 1.0
+
+<ul>
+<li>达成——基本每个同事都被我骚扰了一遍 &ndash;_&ndash;</li>
+</ul>
+</li>
+<li>理解当前Test的架构和流程。 &ndash;> 1.0
+
+<ul>
+<li>重建测试框架的过程中了解</li>
+</ul>
+</li>
+<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。 &ndash;> 0.7
+
+<ul>
+<li>部分完成，阅读Google Guice Book，了解了Guice运作机制。</li>
+</ul>
+</li>
+<li>阅读Java Best Practices和Effective Java。 &ndash;> 0.8
+
+<ul>
+<li>部分完成，重新阅读了JBP，但Effective Java只看了一多半。</li>
+</ul>
+</li>
+<li>阅读Java Performance，了解JVM。 &ndash;> 0.7
+
+<ul>
+<li>部分完成，阅读了国产的<a href="http://book.douban.com/subject/24722612/">《深入理解Java虚拟机》</a>，了解Java内存管理/回收，字节码生成等内容。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>验证
+
+<ul>
+<li>每周与mentor交流，进行进度控制/难点求助。 &ndash;> 0.6
+
+<ul>
+<li>由于mentor结婚度蜜月所以没有达成。</li>
+</ul>
+</li>
+<li>Test的数量不断增加。 &ndash;> 1.0
+
+<ul>
+<li>达成——事实上全部搞定。</li>
+</ul>
+</li>
+<li>CL中review的数量持续降低。 &ndash;> 1.0
+
+<ul>
+<li>搞定，成功的从每次提交代码20余个review降至小于6个。</li>
+</ul>
+</li>
+<li>逐步理解项目代码背后的机理。 &ndash;> 0.6
+
+<ul>
+<li>部分搞定，对项目测试框架已经相当了解了（毕竟自己重新搭建了整个框架），但对整个项目的各个模块，交互流程还是一头雾水。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<p>综上所述，得分 0.85</p>
+
+<h3>Tarqie-L</h3>
+
+<ol>
+<li>目标
+
+<ul>
+<li>提高精力，理解Python。 &ndash;> 0.8
+
+<ul>
+<li>精力小有提高，至于Python——实现机制不太了解，但Python语法和编程风格我现在有足够自信——毕竟写了一个程序解析Python然后生成Google风格的Python，再加上身边有一个Python Readability Reviewer，说自己现在达到中级Python开发者的水准应该不为过。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>量化
+
+<ul>
+<li>精力提高（自然醒，不赖床）。 &ndash;> 0.6
+
+<ul>
+<li>自然醒但依然赖床——-_&ndash;</li>
+</ul>
+</li>
+<li>熟悉Python及其实现。 &ndash;> 0.8
+
+<ul>
+<li>部分搞定，见上文。</li>
+</ul>
+</li>
+<li>理解4个开源项目的架构。 &ndash;> 1.0
+
+<ul>
+<li>搞定，见下文。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改进
+
+<ul>
+<li>早睡早起（11:30 PM ~ 8:30 AM）+每天运动20分钟。 &ndash;> 0.7
+
+<ul>
+<li>早睡早起没做到，运动的频率两周一次。</li>
+</ul>
+</li>
+<li>阅读相关技术书籍（Python源码剖析，开源项目架构等）。 &ndash;> 0.6
+
+<ul>
+<li>部分完成，Python源码剖析只读了第一章，但开源项目架构每周一篇。</li>
+</ul>
+</li>
+<li>增强学习能力（阅读《Study Less, Learn More》） &ndash;> 1.0
+
+<ul>
+<li>完成。</li>
+</ul>
+</li>
+<li>控制手淫频率至两周一次。 &ndash;> 1.0 &ndash;_&ndash;
+
+<ul>
+<li>完成。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>验证
+
+<ul>
+<li>早睡早起+运动不间断。 &ndash;> 0.5
+
+<ul>
+<li>搞定一半。两天运动一次。</li>
+</ul>
+</li>
+<li>学习能力增强（+系统学习能力）。 &ndash;> 1.0
+
+<ul>
+<li>部分做到，但很难验证——不过用三天搞出了另外一个家伙搞了5个月的东西应该能说明部分问题。</li>
+</ul>
+</li>
+<li>逐步理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。 &ndash;> 1.0
+
+<ul>
+<li>没有阅读代码，但完成了一个Python Formatter——把Python代码转换成AST再以Google Python Style转换回代码。</li>
+</ul>
+</li>
+<li>每周理解1个开源项目的架构。 &ndash;> 1.0
+
+<ul>
+<li>完成——阅读了<a href="http://aosabook.org/en/bash.html">Bash</a>, <a href="http://aosabook.org/en/selenium.html">Selenium WebDriver</a>, <a href="http://aosabook.org/en/posa/high-performance-networking-in-chrome.html">Chrome</a>和<a href="http://aosabook.org/en/posa/parsing-xml-at-the-speed-of-light.html">puginxml</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<p>综上所述，得分 0.8</p>
+
+<h3>成就</h3>
+
+<h4>工作</h4>
+
+<ol>
+<li>构建新的测试环境并迁移原有的测试用例。
+
+<ul>
+<li>各种神坑，Team/MailList/Group/ReadTheFuckingSource。</li>
+<li>manager一度问我是否需要support——想了想还是撑下来了，还好搞定了。</li>
+<li>神奇的发现自己第一次实习时做的也是migration，尼玛难道是轮回？</li>
+</ul>
+</li>
+<li>利用业余时间构建了pyfmt——基于AST的代码格式化工具，生成符合Google Python Style的代码。
+
+<ul>
+<li>速度是公司工具的6倍到50倍不等（已验证）。</li>
+<li>速度是autopep8的3倍到30倍（已验证）。</li>
+<li>生成的代码质量基本等同（待验证）。</li>
+<li>代码量是autopep8的二分之一。</li>
+<li>不依赖任何第三方库。</li>
+<li>不使用任何正则表达式——Never send a regex to do a parser&rsquo;s job.</li>
+</ul>
+</li>
+</ol>
+
+
+<h4>学习生活</h4>
+
+<ol>
+<li>重新实现了自己两年前写的Lucida。
+
+<ul>
+<li>重新设计类型系统，进行尾递归优化。然后完成<a href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/">《90分钟实现一门编程语言——极简解释器教程》</a>，写作之余想通了之前很多迷惑的地方。</li>
+<li>功能基本等同，代码量是前一版的八分之一，运行速度是前一版的270倍（倒不是这一版效率有多高，主要是前一版写的太挫了）</li>
+</ul>
+</li>
+<li><a href="http://zh.lucida.me/blog/on-reading-books/">《如何阅读书籍》</a>和<a href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/">《网络上瘾及其解决方法》</a>两篇议论型博客。</li>
+<li>完整的完成一个引体向上。</li>
+</ol>
+
+
+<h3>阅读列表</h3>
+
+<ul>
+<li><a href="http://book.douban.com/subject/3814402/">The Quick Python Book</a></li>
+<li><a href="http://book.douban.com/subject/25710862/">Getting Started with Google Guava</a></li>
+<li><a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a></li>
+<li><a href="http://book.douban.com/subject/24383461/">网络素养</a></li>
+<li><a href="http://book.douban.com/subject/25783654/">如何高效学习</a></li>
+<li><a href="http://book.douban.com/subject/3009235/">Google Guice</a></li>
+<li><a href="http://aosabook.org/en/index.html">The Architecture of Open Source Applications</a></li>
+</ul>
+
+
+<h3>一些体会</h3>
+
+<ol>
+<li>慢读慎写——读书不是靠页数，代码不是拼行数。</li>
+<li>精益求精——严肃认真对待自己的任何一个项目/作品，每一行代码，每一个细节都应有其意义。</li>
+<li>Don&rsquo;t <a href="http://en.wikipedia.org/wiki/Satisfice">satisfice</a>—— 在时间充裕的情况下，尽力寻找最优解，而不是找到一个答案就满足。</li>
+<li>Have a mentor/coach——无论学习什么，身边要有一个大师级人物，不要盲目相信自学能力——坑大多都是自己挖出来的。</li>
+<li>在合适的抽象层工作（Working at a proper abstraction layer），包括下面几点：
+
+<ul>
+<li>找到与目标最契合的层次：
+
+<ul>
+<li>如果层级过高就会造成性能损失和功能缺失。</li>
+<li>如果层次过低就会变成重造轮子。</li>
+</ul>
+</li>
+<li>总是在同一个层次工作——以避免上下文切换。</li>
+<li>将复杂度封装到各自对应的层次——以避免进行交互——<a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a></li>
+</ul>
+</li>
+</ol>
+
+
+<h3>发现的问题</h3>
+
+<ol>
+<li>3月目标制定的过于宏大——尽管完成度不错，但代价也很大——工作时间从每天8小时增加到10小时，到了后期的阅读时间几乎被缩减到零，接下来会相应的缩小计划目标。</li>
+<li>除了工作就是学习，导致略抑郁——尽管做出的东西带来了一点成就感。总之接下来需要更多的娱乐。</li>
+<li>猛然反应过来所谓的TARQIE其实就是OKR（Objective-Key-Results）——所以接下来直接使用OKR制定计划，更加简洁。</li>
+</ol>
+
+
+<h3>4月计划</h3>
+
+<h3>OKR-J</h3>
+
+<ul>
+<li>目标
+
+<ol>
+<li>完整迁移测试到原项目中。</li>
+<li>稳定+推广pyfmt。</li>
+</ol>
+</li>
+<li>关键结果
+
+<ol>
+<li>成功迁移124个Test到原项目。</li>
+<li>将测试的不稳定性控制在每天3次以下。</li>
+<li>pyfmt通过Python Readability。</li>
+<li>pyfmt有10个以上的用户。</li>
+<li>pyfmt从experimental进入devtools（略激进，但值得一试）。</li>
+</ol>
+</li>
+</ul>
+
+
+<h3>OKR-L</h3>
+
+<ul>
+<li>目标
+
+<ol>
+<li>正常作息，提高精力。</li>
+<li>结合pyfmt，深度理解Python。</li>
+<li>加深对Java &amp; JVM的理解。</li>
+</ol>
+</li>
+<li>关键结果
+
+<ol>
+<li>理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。</li>
+<li>阅读并理解两个以上的开源项目架构。</li>
+<li>完成<a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a>，阅读<a href="http://www.amazon.co.uk/Java-Performance-Addison-Wesley-Charlie-Hunt/dp/0137142528/">《Java Performance》</a>至50%。</li>
+<li>迁移测试的同时完成<a href="http://www.amazon.co.uk/Effective-Unit-Testing-guide-developers/dp/1935182579/">Effective Unit Testing: A guide for Java developers</a>的阅读。</li>
+<li>早睡<em>晚</em>起（8:40 ~ 23:50）</li>
+<li>控制手淫频率至两周一次。</li>
+<li>至少两天一次20分钟的运动。</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
@@ -1731,6 +2081,263 @@ static void Main(String[] cmdArgs) {</p>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[如何阅读书籍]]></title>
+    <link href="http://lucida.github.io/blog/on-reading-books/"/>
+    <updated>2014-03-15T20:05:35+00:00</updated>
+    <id>http://lucida.github.io/blog/on-reading-books</id>
+    <content type="html"><![CDATA[<h1>如何阅读书籍</h1>
+
+<h2>摘要</h2>
+
+<p>这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。</p>
+
+<h2>注意</h2>
+
+<ol>
+<li>“如何阅读”指“What to read”而非“How to read”，Mortimer J. Adler的<a href="http://book.douban.com/subject/1013208/">怎样阅读一本书</a>对How to read有着精彩的描述。</li>
+<li>“书籍”指非小说（Non-fiction）类书籍。</li>
+</ol>
+
+
+<h2>目标</h2>
+
+<p>我是一个功利主义者（<a href="http://en.wikipedia.org/wiki/Utilitarianism">Utilitarianism</a>），因此我认为阅读的目标在于为自己创造实际价值，所以：</p>
+
+<ol>
+<li>我不会因为某本书看起来很有趣就去阅读（机会成本）。</li>
+<li>也不会因为很多人推荐某本书就去阅读（从众）。</li>
+<li>更不会因为某本书难就去阅读（追求智商优越感）</li>
+</ol>
+
+
+<p>一本书值得阅读，当且仅当：</p>
+
+<ol>
+<li>它可以直接为我创造价值。</li>
+<li>它可以间接为我创造价值。</li>
+</ol>
+
+
+<p>我的阅读目标：</p>
+
+<blockquote><p>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。</p></blockquote>
+
+<h2>如何选择？</h2>
+
+<h3>专业书籍</h3>
+
+<blockquote><p>专业知识尽可能深入。</p></blockquote>
+
+<p>我是一个软件开发者（Software Developer），因此这里的专业书籍均和软件开发有关。</p>
+
+<p>这里介绍我自己用的两种方法：</p>
+
+<h4>根据引用列表</h4>
+
+<p>从一本经典书籍出发，深度优先遍历它的引用列表，通过书评和摘要了解这些引用书籍，再根据自己的实际情况决定自己的阅读次序。</p>
+
+<p>这里以<a href="http://book.douban.com/subject/1477390/">代码大全</a>为例（为了方便和一致性，这里使用英文书名）：</p>
+
+<p>```
+Code Complete：软件构建全程最佳实践指南。
+|
+|&mdash;&mdash;How to Solve it：系统解决问题。
+|
+|&mdash;&mdash;Conceptual Blockbusting：跳出思维的壁垒。
+|
+|&mdash;&mdash;Mythical Man Month：软件工程不能做什么。
+|
+|&mdash;&mdash;Programming Pearls：极简算法手册。</p>
+
+<pre><code> |
+ |----The Science of Programming：编写正确的程序。
+ |
+ |----Writing Efficient Programs：编写高效的程序。
+</code></pre>
+
+<p>|
+|&mdash;&mdash;Pragmatic Programmer：高效程序员的实践。
+|
+|&mdash;&mdash;Refactoring：如何改进自己的代码。
+|
+|&mdash;&mdash;Programming on Purposes：用正确的编程模式处理问题。
+|
+|&mdash;&mdash;Software Tools：用合适的抽象封装复杂度。</p>
+
+<pre><code> |
+ |----The Practice of Programming：极简编程风格指南。
+      |
+      |---- Writing Solid Code：减少调试的时间。
+      |
+      |---- Elements of Programming Style：极简编程风格指南。
+</code></pre>
+
+<p>```</p>
+
+<p>可以发现，通过<a href="http://book.douban.com/subject/1477390/">代码大全</a>一本书，经过短短两层引用联系，几乎可以找到2004年以前所有软件开发的经典书籍。事实上，我阅读的80%以上的软件开发经典书籍，都源自于<a href="http://book.douban.com/subject/1477390/">代码大全</a>的引用列表。</p>
+
+<p>这种方法的好处：</p>
+
+<ul>
+<li>简单直接：相对于从茫茫书海里找出10本经典书籍，找1本经典书籍再从它的引用列表里面找到20本经典书籍要容易的多。</li>
+<li>质量保证：靠谱书籍的引用书籍的质量一般都很高。</li>
+<li>发现一些被忽视的经典：相当一部分的书籍随着时间的流逝而淡出人们的视野，但这并不代表它们本身没有价值，例如：
+
+<ul>
+<li><a href="http://book.douban.com/subject/1989284/">Programming on Purposes</a></li>
+<li><a href="http://book.douban.com/subject/1815459/">Software Tools</a></li>
+<li><a href="http://book.douban.com/subject/2350559/">The Science of Programming</a></li>
+<li><a href="http://book.douban.com/subject/1456967/">Writing Solid Code</a></li>
+<li><a href="http://book.douban.com/subject/1768600/">Writing Efficient Programs</a></li>
+<li>等等&hellip; 这些书或者绝版，但它们都对我的软件开发理念产生了巨大影响。</li>
+</ul>
+</li>
+<li>形成知识体系：引用书籍彼此具有天然的联系，这使得创建知识体系更加容易。</li>
+</ul>
+
+
+<p>我认为这种方法适用于任何需要严肃阅读的领域：</p>
+
+<ol>
+<li>锚点：找到一本经典书籍。</li>
+<li>撒网：了解该书引用列表中的书籍。</li>
+<li>收网：根据自己实际需要，精读相关书籍。</li>
+</ol>
+
+
+<h4>根据作者</h4>
+
+<p>这里以计算机书籍为例（以下仅代表个人口味）：</p>
+
+<ol>
+<li>Richard Stevens：善。</li>
+<li>Brian Kernighan：极善。</li>
+<li>Deitel Series：翔。</li>
+<li>Bruce Eckel：废话连篇。</li>
+<li>Jon Bentley：善。</li>
+<li>Andrew S Tanenbaum：大善。</li>
+<li>Jeffrey D Ullman：善。</li>
+<li>P.J. Plauger：大善。</li>
+<li>Robert C Martin：善。</li>
+<li>Bjarne Stroustrup：善，但略神叨（神侃世界观方法论有点顶不住）。</li>
+<li>Martin Fowler：善，但略唠叨。</li>
+<li>Ron Jeffries：翔（好吧我是故意来黑的，尼玛连个<a href="http://devgrind.com/2007/04/25/how-to-not-solve-a-sudoku/">Sudoku</a>都解不出来写毛程序）</li>
+</ol>
+
+
+<p>这种方法的问题在于需要一定阅读经验，但是它非常有效——以至于不用看内容就对书的质量有七八成把握。</p>
+
+<h3>非本专业书籍</h3>
+
+<blockquote><p>专业周边知识尽可能精炼。</p></blockquote>
+
+<ol>
+<li>对于专业周边知识，了解关键概念及指导思想即可。</li>
+<li>不需要，也没有必要对专业周边知识进行深入了解。</li>
+<li>&ldquo;Know what&rdquo; is enough, &ldquo;Know how&rdquo; is expensive.</li>
+</ol>
+
+
+<p>以我2年前编写手机应用，学习用户体验为例：</p>
+
+<ol>
+<li>分别在现实中（身边有几个很不错的交互设计师）和线上（Quora和知乎）进行提问和搜索，得到一个书单。</li>
+<li>按照下面的原则过滤书单：
+
+<ul>
+<li>去掉教科书和大部头。</li>
+<li>去掉包含大量原理或论证的书籍。</li>
+<li>保留结论型书籍。</li>
+<li>保留指南型书籍。</li>
+</ul>
+</li>
+<li>总结出书单，迅速的阅读并找到关键点。
+
+<ul>
+<li><a href="http://book.douban.com/subject/3323633/">给大家看的设计书</a>：CRAP原则，字体与配色。</li>
+<li><a href="http://book.douban.com/subject/4606471/">设计心理学</a>：心智模型，心智摩擦，最小惊讶。</li>
+<li><a href="http://book.douban.com/subject/1493316/">交互设计之路</a>：为什么需要交互，交互有哪些坑。</li>
+<li><a href="http://book.douban.com/subject/4254166/">Tapworthy</a>：具有实际操作性的移动平台交互设计指南。</li>
+</ul>
+</li>
+</ol>
+
+
+<p>了解设计的人可能认为上面的书单过于初级——没错，它们都是结论型或指南型书籍，没有原理，也没有论证——但这正是对于我这样的非专业者所需要的书籍：我不需要知道这些知识是怎么来的，知道怎么用足矣。</p>
+
+<p>此外，受价值驱动，而非兴趣——大多数情况下兴趣只是把自己脱离当前困境的接口。</p>
+
+<h3>学习型书籍</h3>
+
+<p>学习型书籍是一种元（Meta）方法书籍：这类书籍用于提升学习能力，换句话说，就是缩短吸收知识所需要的时间。</p>
+
+<p>这类书籍我只读过下面的几本，效果有但不明显：</p>
+
+<ul>
+<li><a href="http://book.douban.com/subject/2345548/">学习之道</a>：冥想，体会。</li>
+<li><a href="http://book.douban.com/subject/1013208/">如何阅读一本书</a>：检视阅读，主题阅读。</li>
+<li><a href="http://www.scotthyoung.com/learnmorestudyless/">Learn more, study less</a>：建立知识体系及联系。</li>
+</ul>
+
+
+<p>需要注意的是，不要陷入到寻求最优学习方法的误区——Best is the worthest enemy of better。</p>
+
+<h2>阅读原版？</h2>
+
+<h3>如何在翻译版和原版做选择？</h3>
+
+<ol>
+<li>优先选择翻译版。计算机书籍这种描述精确知识的书籍更是如此。</li>
+<li>此外，如果阅读中出现难以理解的问题，不要下意识的把其归咎于翻译问题——多数情况是理解问题。</li>
+</ol>
+
+
+<h3>为什么还有那么多人阅读原版？</h3>
+
+<ol>
+<li>因为翻译版还没出版。</li>
+<li>知识的价值有其时效性。</li>
+<li>逼格。</li>
+</ol>
+
+
+<h2>越多越好？</h2>
+
+<p>我经常逛豆瓣，豆瓣有一个很有意思的现象就是人们喜欢去比较自己每年读书的数量，或者是截图炫耀自己读过几千本书云云。</p>
+
+<p>我在这里酸一下：书的数量并没有什么参考价值，就好比无法用盖一栋大楼的砖数评价这栋大楼的质量；换个说法，Effort不等于Progress。</p>
+
+<blockquote><p>关键在于读过书的质量，吸收的程度，以及创造的价值。</p></blockquote>
+
+<p>此外，盲目追求读书的数量会带来另一个问题——浅尝辄止。本应花在专业书籍上的时间被分配到其它无关紧要的事情上，导致该学好的没学好，没必要的学了一滩但用不上。</p>
+
+<h2>总结</h2>
+
+<ol>
+<li>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。
+
+<ul>
+<li>按照引用列表和作者深入阅读专业书籍。</li>
+<li>利用结论型/指南型书籍精炼阅读专业周边书籍。</li>
+<li>不断强化自己的按需学习能力。</li>
+</ul>
+</li>
+<li>不一定非要阅读原版。</li>
+<li>读书并非多多益善。</li>
+<li>读书之前回答下面几个问题：
+
+<ul>
+<li>这本书能给自己带来什么改变？</li>
+<li>自己是否需要这种改变？</li>
+<li>如果均为Yes，继续；如果有一个No，砍掉。</li>
+</ul>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
     <link href="http://lucida.github.io/blog/on-suppressing-the-internet-addiction/"/>
     <updated>2014-03-09T17:14:28+00:00</updated>
@@ -2142,522 +2749,6 @@ static void Main(String[] cmdArgs) {</p>
 <h3>实验开始</h3>
 
 <h2>未完待续</h2>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[从挣钱的角度回忆下自己的研究生三年]]></title>
-    <link href="http://lucida.github.io/blog/memoirs-on-my-postgraduate-life/"/>
-    <updated>2014-02-16T22:08:39+00:00</updated>
-    <id>http://lucida.github.io/blog/memoirs-on-my-postgraduate-life</id>
-    <content type="html"><![CDATA[<h2>2010年9月 &ndash; 2010年12月</h2>
-
-<h3>主要事项</h3>
-
-<ul>
-<li>09月：研究生入学。。</li>
-<li>10月：认真学习计算机专业基础。</li>
-<li>11月：认真学习计算机专业基础。</li>
-<li>12月：认真学习计算机专业基础。</li>
-</ul>
-
-
-<h3>收入来源</h3>
-
-<ul>
-<li>二等奖学金（￥270/月 * 3）</li>
-<li>学校研究生补贴（￥200/月 * 3）</li>
-</ul>
-
-
-<p>总计收入：￥1,410</p>
-
-<h2>2011年1月 &ndash; 2011年12月</h2>
-
-<h3>主要事项</h3>
-
-<ul>
-<li>01月：玩iPad。</li>
-<li>02月：玩iPad。</li>
-<li>03月：糊里糊涂参加了某.NET大师的技术演讲并成为现场口译，得到某司的实习机会和某社的译书机会。</li>
-<li>04月：听译某印度大师等访谈，痛不欲生。</li>
-<li>05月
-
-<ul>
-<li>实习（做Code Coverage Analysis）</li>
-<li>由于三周完成了原定三个月的项目，mentor表示你可以看看书调调研啥的，别捣乱就成。</li>
-<li>实习（看书）。</li>
-</ul>
-</li>
-<li>06月：实习（看书）。</li>
-<li>07月
-
-<ul>
-<li>实习（看书）。</li>
-<li>完成某js书籍的翻译。</li>
-</ul>
-</li>
-<li>08月：实习（看书）。</li>
-<li>09月：实习（看书）。</li>
-<li>10月
-
-<ul>
-<li>退出实习。</li>
-<li>玩iPod Touch。</li>
-</ul>
-</li>
-<li>11月：加入某创业团队。</li>
-<li>12月
-
-<ul>
-<li>开题，被老板黑出翔。</li>
-<li>撤出创业团队。</li>
-<li>开始自己编写手机应用，发布上线半月内进入市场排行TOP20。</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>收入来源</h3>
-
-<ul>
-<li>二等奖学金（￥270/月 * 10）</li>
-<li>学校研究生补贴（￥200/月 * 7 + ￥300/月 * 3）</li>
-<li>某司实习工资（￥4000/月 * 6）</li>
-<li>某社翻译图书一本（￥4200）</li>
-<li>听译文章两篇（￥2000）</li>
-<li>某创业公司兼职（￥4000 * 1）</li>
-<li>编写手机应用（￥0）</li>
-</ul>
-
-
-<p>总计收入：￥39,200</p>
-
-<h2>2012年11月 &ndash; 2012年12月</h2>
-
-<h3>主要事项</h3>
-
-<ul>
-<li>01月：编写手机应用。</li>
-<li>02月
-
-<ul>
-<li>重回某司继续实习（这次搞手机应用）。</li>
-<li>认识了两位天赋异禀的设计师，学到大量设计知识。</li>
-</ul>
-</li>
-<li>03月
-
-<ul>
-<li>实习。</li>
-<li>做成第一份手机应用私活A。</li>
-<li>教训惨痛，价值10k+的工作量只收了对方900，学会如何计价私活。</li>
-<li>开始制作自己的手机应用生产线。</li>
-</ul>
-</li>
-<li>04月
-
-<ul>
-<li>实习。</li>
-<li>制作某色情应用，当日收入￥600，但次日即被下架。</li>
-<li>完成手机应用生产线初版，在市场外试投放。</li>
-</ul>
-</li>
-<li>05月
-
-<ul>
-<li>实习。</li>
-<li>手机应用生产线搞定。
-
-<ul>
-<li>意味着我可以不用写代码，直接生成手机应用。</li>
-<li>也就是说我可以毫不费力的一天"写"50+个应用。</li>
-<li>投放应用到市场，利用数量+广告盈利。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>06月
-
-<ul>
-<li>实习。</li>
-<li>手机应用私活B。</li>
-<li>准备小论文。</li>
-</ul>
-</li>
-<li>07月
-
-<ul>
-<li>实习。</li>
-<li>发表小论文。</li>
-</ul>
-</li>
-<li>08月
-
-<ul>
-<li>实习（看书）。</li>
-<li>手机应用私活C。</li>
-<li>开始找工作。</li>
-</ul>
-</li>
-<li>09月
-
-<ul>
-<li>实习（看书）。</li>
-<li>找工作。</li>
-</ul>
-</li>
-<li>10月
-
-<ul>
-<li>实习（看书）。</li>
-<li>找工作。</li>
-<li>准备毕设。</li>
-</ul>
-</li>
-<li>11月
-
-<ul>
-<li>实习（看书）。</li>
-<li>找到工作。</li>
-<li>编写毕设项目。</li>
-</ul>
-</li>
-<li>12月
-
-<ul>
-<li>退出实习。</li>
-<li>毕业答辩。</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>收入来源</h3>
-
-<ul>
-<li>二等奖学金（￥270/月 * 10）</li>
-<li>学校研究生补贴（￥300/月 * 10）</li>
-<li>某司实习工资（￥4000/月 * 10）</li>
-<li>手机应用私活A（￥900）</li>
-<li>手机应用私活B（￥12000）</li>
-<li>手机应用私活C（￥15000）</li>
-<li>个人手机应用（￥4500 * 10 + ￥600）</li>
-</ul>
-
-
-<p>总计收入：￥119,200</p>
-
-<h2>2013年1月 &ndash; 2013年10月</h2>
-
-<h3>主要事项</h3>
-
-<ul>
-<li>01月
-
-<ul>
-<li>毕业典礼。</li>
-<li>重回某司继续实习（本屌就是闲不下来-_-）</li>
-</ul>
-</li>
-<li>02月
-
-<ul>
-<li>实习（这次搞平板应用）。</li>
-<li>手机应用私活D。</li>
-</ul>
-</li>
-<li>03月
-
-<ul>
-<li>毕业。</li>
-<li>某司实习转兼职。</li>
-</ul>
-</li>
-<li>04月
-
-<ul>
-<li>某司兼职。</li>
-<li>平板应用私活A。</li>
-</ul>
-</li>
-<li>05月
-
-<ul>
-<li>某司兼职。
-
-<ul>
-<li>面试若干人。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>06月
-
-<ul>
-<li>某司兼职。</li>
-<li>平板应用私活B。</li>
-<li>手机应用私活E。</li>
-</ul>
-</li>
-<li>07月
-
-<ul>
-<li>某司兼职。</li>
-</ul>
-</li>
-<li>08月
-
-<ul>
-<li>某司兼职。</li>
-</ul>
-</li>
-<li>09月
-
-<ul>
-<li>实习（看书）。</li>
-<li>平板应用私活C。</li>
-<li>开始练习日常英语。</li>
-</ul>
-</li>
-<li>10月
-
-<ul>
-<li>实习（看书）。</li>
-<li>为某C++大师义务口译。</li>
-</ul>
-</li>
-<li>11月
-
-<ul>
-<li>正式入职！</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>收入来源</h3>
-
-<ul>
-<li>某司实习工资（￥4000/月 * 2）</li>
-<li>某司兼职工资（￥7700/月 * 8）</li>
-<li>手机应用私活D（￥12000）</li>
-<li>手机应用私活E（￥15000）</li>
-<li>平板应用私活A（￥12000）</li>
-<li>平板应用项目B（￥10000）</li>
-<li>平板应用项目C（￥7000）</li>
-<li>个人手机应用（￥3500 * 10）</li>
-</ul>
-
-
-<p>总计收入：￥160,600</p>
-
-<p>三年总收入：￥320,410</p>
-
-<h2>消费的东东</h2>
-
-<p>大多都是屌丝货 &ndash;_&ndash; 可以看到电脑，书籍和耳机占据了非常大的比例。</p>
-
-<p>此外还有电影饭局等若干，不过这些不比实物，实在记不清。</p>
-
-<p>至于衣服本屌一直优衣库，因为只有优衣库有价格标签 &ndash;_&ndash;</p>
-
-<p>AKG</p>
-
-<ul>
-<li>K26P ￥200</li>
-<li>K324P ￥320</li>
-<li>K450 ￥550</li>
-<li>K518DJ ￥450</li>
-<li>K518LE ￥420</li>
-</ul>
-
-
-<p>LENOVO</p>
-
-<ul>
-<li>X200 RY7 ￥7200</li>
-<li>YOGA i5 3300 ￥6300</li>
-</ul>
-
-
-<p>SONY</p>
-
-<ul>
-<li>A806 ￥900</li>
-<li>S739F ￥1300</li>
-<li>EX310 * 2 ￥200</li>
-<li>A866 ￥1100</li>
-<li>S755 ￥550</li>
-<li>XB910 ￥650</li>
-<li>X10 ￥800</li>
-</ul>
-
-
-<p>JVC</p>
-
-<ul>
-<li>M55X ￥400</li>
-</ul>
-
-
-<p>僵尸</p>
-
-<ul>
-<li>PR2+阻线 ￥500</li>
-<li>PR401 ￥400</li>
-<li>PR200 ￥220</li>
-<li>PR300MKII ￥320</li>
-</ul>
-
-
-<p>Apple</p>
-
-<ul>
-<li>Macbook AIR 11 ￥7200</li>
-<li>iPod Touch 4 ￥900</li>
-<li>iPod Touch 5 ￥2200</li>
-<li>iPhone 5 ￥3700</li>
-<li>iPhone 5s ￥5100（送女神）</li>
-<li>iPad 1 ￥2500</li>
-<li>iPad 4 ￥3000</li>
-<li>iPad MINI ￥2500</li>
-<li>iPad Air ￥4300</li>
-<li>Ear Pod * 2 ￥400</li>
-</ul>
-
-
-<p>NOKIA</p>
-
-<ul>
-<li>E70 ￥2550</li>
-<li>E51 ￥800</li>
-<li>E72i ￥1200</li>
-<li>Asha 210 ￥520</li>
-<li>Lumia 710 ￥0（活动奖品）</li>
-<li>Lumia 1520 ￥4100（送老妈）</li>
-</ul>
-
-
-<p>Logitech</p>
-
-<ul>
-<li>TF10 ￥1200</li>
-<li>UE BOOM ￥1500</li>
-</ul>
-
-
-<p>Monster Beats</p>
-
-<ul>
-<li>Studio ￥1800</li>
-</ul>
-
-
-<p>SOL REPUBLIC</p>
-
-<ul>
-<li>V8 黑 ￥900</li>
-<li>V10 红 ￥1200</li>
-</ul>
-
-
-<p>漫步者</p>
-
-<ul>
-<li>M5 * 2 ￥1100</li>
-</ul>
-
-
-<p>Samsung</p>
-
-<ul>
-<li>iGH 907 ￥900</li>
-</ul>
-
-
-<p>购买书籍</p>
-
-<ul>
-<li>技术书籍 350余本 约￥28,000</li>
-<li>非技术书籍 150余本 约￥6,000</li>
-</ul>
-
-
-<p>总计支出：￥106,350</p>
-
-<h2>小结</h2>
-
-<ul>
-<li>三年大约收入：￥320,410</li>
-<li>三年消费的电子东东及书籍：￥106,350</li>
-<li>剩下的基本都花在吃喝玩。</li>
-</ul>
-
-
-<p>感觉这个数字还不错，应该能到中上水平吧。</p>
-
-<p>最后</p>
-
-<h3>一点经验</h3>
-
-<ul>
-<li>网上兼职大多是骗子，尤其是遮遮掩掩不肯说自己到底是干啥的。</li>
-<li>兼职要和自己专业相关
-
-<ul>
-<li>比如，除非你学的教育专业，否则家教就是一个糟糕透顶的选择。</li>
-<li>更不用说学计算机的去兼职卖衣服了，尼玛放着月入上万的活不干尼玛是闹哪样！</li>
-</ul>
-</li>
-<li>码农干私活的建议
-
-<ul>
-<li>打听好行情，先定好价格，不要因为自己是学生就不好意思加价。</li>
-<li>对对方做充分的信用调研。</li>
-<li>事前三成，半成品再三成，最后成品再四成，不到最后时刻，不要交代码。</li>
-<li>做的东西要超出对方的期望，这样有助于长期合作。</li>
-</ul>
-</li>
-<li>最后，除非你是高富帅，否则追女神既耗精力又耗钱财，有这个时间不如干点实在的，等自己牛逼了再追女神也不迟。</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[London的新玩具]]></title>
-    <link href="http://lucida.github.io/blog/new-toys-in-london/"/>
-    <updated>2014-02-15T21:16:16+00:00</updated>
-    <id>http://lucida.github.io/blog/new-toys-in-london</id>
-    <content type="html"><![CDATA[<h2>Bose Companion 20</h2>
-
-<p>之前一直用<a href="http://www.amazon.com/Ultimate-Ears-Wireless-Bluetooth-Speaker/dp/B00CM0XHNS/">UE Boom</a>，但用久了就感觉声音有些憋屈，考虑到每天至少有一个小时在听音乐，所以搞个不错的印象很有必要。</p>
-
-<p>要求如下：</p>
-
-<ol>
-<li>低音带感。</li>
-<li>体积小。</li>
-<li>外观拉风。</li>
-</ol>
-
-
-<p>Google了几篇Speaker的Review，初步锁定<a href="http://www.amazon.co.uk/Bose-Companion-Series-Multimedia-Speaker/dp/B00CL83JVQ/">Bose Companion2</a>和<a href="http://www.amazon.co.uk/Logitech-980-000659-Z600-Bluetooth-Speakers/dp/B00DUBIZ7G/">Logitech Z600</a>。</p>
-
-<p>不过观察实物时才发现，C2虽然体积合适，但非常丑；Z600虽然外观不错，但比想象的大了一圈。失望之余，意外发现了<a href="http://www.amazon.co.uk/Bose-Companion-Multimedia-Speaker-System/dp/B005EPOFTI/">Bose Companion20</a>。</p>
-
-<p><img src="http://ecx.images-amazon.com/images/I/71RYZKiBvCL._SL1500_.jpg" alt="Bose Companion20" /></p>
-
-<p>金属银的外观和声音都不错，就是价格比预计的多了一倍——199磅，不过还是买了下来，这种天天用的东西有必要好一点。</p>
-
-<h2>IRON GYM+</h2>
-
-<p>为了能够在家做引体向上，所以在Google了一圈Pull up bar，发现最快最稳的方法还是去Decathlon买，于是就从Islington坐Overground去，之后就找到这个<a href="http://www.decathlon.co.uk/iron-gym-chin-up-bar-id_8194140.html">IRON GYM+</a>，正好他们在做活动，20磅买下。</p>
-
-<p><img src="http://www.decathlon.co.uk/media/819/8194140/big_800PX_65269548.jpg" alt="Decathlon IRON GYM+" /></p>
-
-<p>试用了下，还是很结实的，不过现在一个引体向上也做不起来-_&ndash; 不过还好有凳子的辅助。</p>
 ]]></content>
   </entry>
   
