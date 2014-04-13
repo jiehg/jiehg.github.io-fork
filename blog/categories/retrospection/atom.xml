@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Retrospection | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/retrospection/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-04-07T00:06:16+01:00</updated>
+  <updated>2014-04-13T02:01:10+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,261 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
+    <link href="http://lucida.github.io/blog/levels-on-learning-and-using-technologies/"/>
+    <updated>2014-04-13T01:53:21+01:00</updated>
+    <id>http://lucida.github.io/blog/levels-on-learning-and-using-technologies</id>
+    <content type="html"><![CDATA[<h1>学习&amp;使用技术的四种层次</h1>
+
+<h2>关键字</h2>
+
+<p>技术，生活，反思。</p>
+
+<p>本文链接：<a href="http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/">http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/</a></p>
+
+<h2>关于</h2>
+
+<p>Bjarne Stroustrup在他的新书《<a href="http://www.amazon.co.uk/Tour-C--Depth/dp/0321958314/">A tour of C++</a>》</p>
+
+<p><img src="http://i.imgur.com/VlQ7ROA.jpg" alt="A tour of C++" style="max-height: 370px;"/></p>
+
+<p>里面举了一个旅行的例子来比喻初学编程语言：</p>
+
+<blockquote><p>&hellip;as an analogy, think of a short sightseeing tour of a city, such as Copenhagen or New York. In just a few hours, you are given a quick peek at the major attractions, told a few background stories, and usually given some suggestions what to see next&hellip;</p>
+
+<p>&hellip;you do not know the city after such a tour. You do not understand all you have seen and heard. You do not know how to navigate the formal and informal rules that govern life in the city&hellip;</p>
+
+<p>&hellip;to really know a city, you have to live in it, often for years.</p></blockquote>
+
+<p>简而言之，编程语言是City，而开发者则是Traveller——这是一个很有意思的比喻，在这篇文章里，我试图<strong>延续</strong>这个类比（Analogy）——把这个类比放大到初学，掌握，了解以至精通一门技术的层面。</p>
+
+<p>不过需要注意：我自己并没有精通哪一门技术——所以这篇文章的内容是值得怀疑（susceptible）的，但它可以作为一个不错的参考。</p>
+
+<h2>0. Stranger（陌生人）</h2>
+
+<p>使用一项技术最初的层次就是听说过没用过——就像我们之中的大多数人都听过南极，听过北极，知道南极有企鹅，北极有北极熊，但是却从来没有去过南极或北极。</p>
+
+<p>Stranger具有以下的特征：</p>
+
+<ul>
+<li>知道这项技术的名字。</li>
+<li>知道这项技术的一些术语。</li>
+<li>知道这项技术的一些关键人物的名字。</li>
+<li>了解少量技术的细节，但没有使用这项技术的实际经验。</li>
+</ul>
+
+
+<p>以我本人和RoR来打个比方：</p>
+
+<ul>
+<li>知道RoR是Ruby on Rails。</li>
+<li>知道Rails，Gem和Rake的存在。</li>
+<li>知道DHH也知道松本行弘。</li>
+<li>看过<a href="http://www.amazon.co.uk/Ruby-Programming-Language-David-Flanagan/dp/0596516177/">The Ruby Programming Language</a>，还使用一个基于RoR的博客框架<a href="http://octopress.org/">Octopress</a>写博客。</li>
+<li>但从来没有使用RoR去搭建网站。</li>
+</ul>
+
+
+<p>所以我是一个RoR的Stranger。</p>
+
+<p>对于新技术，绝大多数人都是Stranger——但是就我对国内技术社区的观察，相当Stranger意识不到自己还是Stranger——认为知道一点术语一些人名就算了解一门技术，甚至把它写在简历上（Familiar with XXX）或是开始与别人进行讨论（当然都是无意义的讨论）。</p>
+
+<h2>1. Tourist（旅行者）</h2>
+
+<p>当开发者真正开始用一项技术作出了可以用的东西：</p>
+
+<ul>
+<li>面向用户的产品（End-User-Oriented Product），比如一个手机应用，或是一个浏览器插件。</li>
+<li>或是面向程序员的工具（Programmer-Oriented Tools），比如一个页面抓取框架，或一个简单的Parser Generator。</li>
+<li>注意教科书范例（Textbook examples）和Hello world不属于可以用的东西——这些只是Dead Code——被执行一两次，然后被遗忘。</li>
+</ul>
+
+
+<p>这时这个开发者就进入到了Tourist阶段：</p>
+
+<ul>
+<li>了解这项技术的基本元素。</li>
+<li>使用这项技术做出了实用的产品或工具。</li>
+<li>了解对这项技术的部分细节。</li>
+</ul>
+
+
+<p>根据的学习目的的不同，Tourist又可以分为Salesman和Sightseer。</p>
+
+<h3>1.1. Salesman（旅行商）</h3>
+
+<p><img src="http://i.imgur.com/k5oucJ5.jpg" alt="Salesman" style="max-height: 370px;"/></p>
+
+<p>Salesman是具有明确目的的Tourist——他们学习技术的目标是为了完成某一项业务，就像旅行商去某地出差是为了卖商品而非观光一样。</p>
+
+<p>绝大多数职业开发者在开发生涯中都会扮演Salesman这个角色——接到一个任务，涉及到某项不熟悉的技术，需要在限定时间内完成。</p>
+
+<h3>1.2. Sightseer（观光者）</h3>
+
+<p><img src="http://i.imgur.com/RpYoDXc.gif" alt="Sightseer" style="max-height: 370px;"/></p>
+
+<p>和Salesman相反，Sightseer学习技术的目标是为了拓展视野，增加见识，而非完成某项特定业务。</p>
+
+<p>具有主动学习精神的开发者在业余时会时常扮演Sightseer角色——找到自己认为有价值的新技术或是基础知识进行系统学习，从而拓宽视野，提高水平。</p>
+
+<h2>2. Resident（居住者）</h2>
+
+<p>如果一个旅行者在一个地方待了半年以上，那么他/她就会变得原来越像当地人。随着Tourist对某项技术的日益精进，他/她会逐渐演变成这项技术的Resident：</p>
+
+<ul>
+<li>熟悉这项技术的基本元素。</li>
+<li>熟悉这项技术的生态系统（Ecology）：既包括开发工具（编辑器，命令行工具，集成开发环境等），也包括开发社区（讨论组，邮件列表等）。</li>
+<li>了解这项技术能做什么，不能做什么。</li>
+<li>了解这项技术有那些坑，如何绕过这些坑，以及识别这些坑带来的问题。</li>
+<li>对某些领域有深入的研究——但并不受限于特定领域。</li>
+<li>使用这项技术做出了有相当价值的产品或工具。</li>
+</ul>
+
+
+<p>同Tourist一样，根据使用技术的目标不同，Resident可以分为Worker和Craftsman：</p>
+
+<h2>2.1. Worker（工人）</h2>
+
+<p><img src="http://i.imgur.com/jGNNrQp.jpg" alt="Worker" style="max-height: 370px;"/></p>
+
+<p>技术是Worker的谋生手段，一个优秀的Worker应具备以下特征：</p>
+
+<ul>
+<li>对于给定问题，知道如何给出经济有效的解决方案。</li>
+<li>以团队合作为主，了解团队合作的价值，能够推动团队项目健康前进。</li>
+<li>追求按时交付。</li>
+</ul>
+
+
+<h3>2.2. Craftsman（工匠）</h3>
+
+<p><img src="http://i.imgur.com/9RRUjmb.jpg" alt="Craftsman" style="max-height: 370px;"/></p>
+
+<p>同Worker不同，技术并非Craftsman的谋生手段，而是某种“副业”——用来提升声望，修炼开发水平。</p>
+
+<p>一个优秀的Craftman往往具备以下特点：</p>
+
+<ul>
+<li>对于给定问题，知道如何给出优雅的解决方案。</li>
+<li>以单兵作战为主，主要靠个人推进项目，但也能进行一定程度的团队合作。</li>
+<li>追求极致美感。</li>
+</ul>
+
+
+<h2>3. Architect（架构者）</h2>
+
+<p>有想法且有能力的人在一个地方待久了都会有将这个地方变的更好的冲动——一种方式是从源头出发，推翻旧制度建立新社会，也就是革命；另一种方式则是保留现有的制度，对其进行温和但持续的改进，也就是改良。</p>
+
+<p>技术也是如此，任何技术都跟不上开发者成长的脚步，当这种差距到达一定程度时，就会有卓越的开发者站出来，创造出新的技术，他们就是Architect：</p>
+
+<ul>
+<li>熟悉多项互相关联的技术，并了解他们的优势和不足。</li>
+<li>具备强大的领导能力，深厚的基础和大量实际开发经验。</li>
+<li>能够带动整个技术的生态系统发展。</li>
+<li>好吧，我编不下去了（尼玛我要都知道我还至于是IT苦屌么 &ndash;_-）</li>
+</ul>
+
+
+<p>如果你看过<a href="http://movie.douban.com/subject/1304141/">Matrix 2: Reloaded</a></p>
+
+<p><img src="http://i.imgur.com/EDyNv4F.jpg" alt="Matrix 2: Reloaded" style="max-height: 370px;"/></p>
+
+<p>就会知道Architect这个词放在这里再好不过。</p>
+
+<p>根据目标不同，Architect分为Reformist和Revolutionist。</p>
+
+<h3>3.1. Reformist（改良者）</h3>
+
+<p><img src="http://i.imgur.com/xp2SzWu.jpg" alt="Reformist" style="max-height: 370px;"/></p>
+
+<p>改良者的目标：<strong>把现有技术变的更好</strong>。（<strong>Makes</strong> existing technology better）</p>
+
+<p>例如：</p>
+
+<ul>
+<li>GoF总结<a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Pattern</a>。</li>
+<li><a href="http://en.wikipedia.org/wiki/John_Resig">John Resig</a>创造<a href="http://en.wikipedia.org/wiki/Jquery">jQuery</a>。</li>
+<li><a href="http://en.wikipedia.org/wiki/Anders_Hejlsberg">Anders Hejlsberg</a>为C#引入<a href="http://en.wikipedia.org/wiki/LINQ">LINQ</a>。</li>
+</ul>
+
+
+<h3>3.2. Revolutionist（革命者）</h3>
+
+<p><img src="http://i.imgur.com/cpmjDCC.jpg" alt="Revolutionist" style="max-height: 370px;"/></p>
+
+<p>革命者的目标：<strong>用更好的技术取代现有技术</strong>。（<strong>Replaces</strong> existing technology with better one）</p>
+
+<p>例如：</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Alan_kay">Alan Kay</a>把细胞的概念引入软件开发]进而创造出<a href="http://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a>的核心概念。</li>
+<li><a href="http://en.wikipedia.org/wiki/Donald_Knuth">Don Knuth</a>对计算机算法（<a href="http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">TAOCP</a>）以及计算机排版（TEX）的贡献。</li>
+<li>iPhone于2010年之前的任何手机（iPhone4除外）。</li>
+</ul>
+
+
+<h2>小结</h2>
+
+<p>这篇文章利用<a href="http://www.amazon.co.uk/Tour-C--Depth/dp/0321958314/">A Tour of C++</a>里的隐喻，把学习/使用技术分成了四个层次七个头衔：Stranger，Tourist（Salesman，Sightseer），Resident（Worker，Craftsman），Architect（Reformist，Revolutionist），然后给出了各个头衔所应具备的特征和能力。</p>
+
+<h3>关于同类文章</h3>
+
+<p>之前也有类似的文章，例如<a href="http://blog.itpub.net/6517/viewspace-611506/">程序员的十层境界</a>和<a href="http://blog.csdn.net/happydeer/article/details/8107560">开发者的八种境界</a></p>
+
+<p>这些文章的共同点：</p>
+
+<ol>
+<li>看似很牛逼但回想一下啥都没说。</li>
+<li>不会给人带来什么价值。</li>
+<li>没有一个鉴别的标准。</li>
+<li>没有指导性，也没有使用价值。</li>
+</ol>
+
+
+<h3>本文的应用场景</h3>
+
+<h4>考察状态</h4>
+
+<p>以我自己对编程语言的掌握为例：</p>
+
+<ul>
+<li>C/C++: Stranger.</li>
+<li>Python: Craftsman.</li>
+<li>Java: Worker.</li>
+<li>C#: Craftsman.</li>
+<li>JavaScript: Sightseer.</li>
+<li>Scheme: Sightseer</li>
+</ul>
+
+
+<p>将上面的列表转置：</p>
+
+<ul>
+<li>Stranger: C/C++</li>
+<li>Sightseer: JavaScript, Scheme</li>
+<li>Worker: Java</li>
+<li>Craftsman: C#, Python</li>
+</ul>
+
+
+<p>结合这些头衔的定义，一目了然。</p>
+
+<h4>制定计划</h4>
+
+<p>运用本文的词汇，可以进行非常精炼的计划制定：</p>
+
+<ul>
+<li>例如 Make a thoroughly <strong>sightseeing</strong> of <strong>C++</strong>；</li>
+<li>或是 Become a proficient <strong>worker</strong> on <strong>IntelliJ</strong>；</li>
+<li>抑或 Take a short <strong>tour</strong> of <strong>Sublime Text</strong>。</li>
+</ul>
+
+
+<p>以上。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
