@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-04T22:02:00+01:00</updated>
+  <updated>2014-05-04T22:08:27+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -290,7 +290,7 @@
 
 <ul>
 <li>带"记忆"的数据结构（Data Structure with Persistence）。</li>
-<li>van Mode Boas（逆天的插入，删除，前驱和后继时间复杂度）。</li>
+<li>van Emde Boas（逆天的插入，删除，前驱和后继时间复杂度）。</li>
 <li>o(1)时间复杂度的的LCA、RMQ和LA解法。</li>
 <li>奇幻的o(n)时间复杂度的Suffix Tree构建方法。</li>
 <li>o(lglgn)的BST。</li>
