@@ -2021,8 +2021,8 @@
 </span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 </span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span><span class='line'>    <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">result</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">result</span> <span class="o">*=</span> <span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">return</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span><span class="c1">// This is a strict tail-recursive call which can be omitted</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
@@ -2032,8 +2032,8 @@
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 </span><span class='line'>            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">result</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
 </span><span class='line'>            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">result</span> <span class="o">*=</span> <span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>

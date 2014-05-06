@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://lucida.github.io/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-06T21:17:54+01:00</updated>
+  <updated>2014-05-06T21:21:08+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -2859,8 +2859,8 @@
 </span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 </span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span><span class='line'>    <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">result</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">result</span> <span class="o">*=</span> <span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">return</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span><span class="c1">// This is a strict tail-recursive call which can be omitted</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
@@ -2870,8 +2870,8 @@
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 </span><span class='line'>            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span><span class='line'>        <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">result</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
 </span><span class='line'>            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>            <span class="n">result</span> <span class="o">*=</span> <span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>

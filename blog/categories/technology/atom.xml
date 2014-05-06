@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-06T21:17:54+01:00</updated>
+  <updated>2014-05-06T21:21:08+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -2407,8 +2407,8 @@ int fact (int n, int result) {</p>
 <pre><code>if (n == 1)
     return result;
 else {
+    result *= n;
     n -= 1;
-    result *= 1;
     return fact(n, result);// This is a strict tail-recursive call which can be omitted
 }
 </code></pre>
@@ -2421,8 +2421,8 @@ int fact (int n, int result) {</p>
     if (n == 1)
         return result;
     else {
+        result *= n;
         n -= 1;
-        result *= 1;
     }
 }
 </code></pre>
