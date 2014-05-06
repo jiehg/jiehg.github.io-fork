@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-06T21:11:22+01:00</updated>
+  <updated>2014-05-06T21:17:54+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -2366,7 +2366,7 @@ public SObject Evaluate(SScope scope) {</p>
     } else if (first.Value == "list") {
         return new SList(this.Children.Skip(1).Select(exp =&gt; exp.Evaluate(scope)));
     } else if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {
-        var arguments = this.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+        var arguments = this.Children.Skip(1).ToArray();
         return SScope.BuiltinFunctions[first.Value](arguments, scope);
     } else {
         SFunction function = first.Value == "(" ? (SFunction)first.Evaluate(scope) : (SFunction)scope.Find(first.Value);
@@ -2465,7 +2465,7 @@ while (true) {
         } else if (first.Value == "list") {
             return new SList(current.Children.Skip(1).Select(exp =&gt; exp.Evaluate(scope)));
         } else if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {
-            var arguments = current.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+            var arguments = current.Children.Skip(1).ToArray();
             return SScope.BuiltinFunctions[first.Value](arguments, scope);
         } else {
             SFunction function = first.Value == "(" ? (SFunction)first.Evaluate(scope) : (SFunction)scope.Find(first.Value);
