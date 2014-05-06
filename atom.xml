@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://lucida.github.io/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-04T22:08:27+01:00</updated>
+  <updated>2014-05-06T21:11:22+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -2625,7 +2625,7 @@
 
 <h4>处理<code>list</code></h4>
 
-<p>首先把获得<code>list</code>里元素的值，然后创建<code>SList</code>：</p>
+<p>首先把<code>list</code>里的元素依次求值，然后创建<code>SList</code>：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2638,14 +2638,14 @@
 
 <h4>处理内置操作</h4>
 
-<p>首先对参数求值，然后调用对应的内置函数：</p>
+<p>首先得到参数的表达式，然后调用对应的内置函数：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">SScope</span><span class="p">.</span><span class="n">BuiltinFunctions</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="n">Value</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kt">var</span> <span class="n">arguments</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Skip</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">Select</span><span class="p">(</span><span class="n">node</span> <span class="p">=&gt;</span> <span class="n">node</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">(</span><span class="n">scope</span><span class="p">)).</span><span class="n">ToArray</span><span class="p">();</span>
+</span><span class='line'>    <span class="kt">var</span> <span class="n">arguments</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Skip</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">SScope</span><span class="p">.</span><span class="n">BuiltinFunctions</span><span class="p">[</span><span class="n">first</span><span class="p">.</span><span class="n">Value</span><span class="p">](</span><span class="n">arguments</span><span class="p">,</span> <span class="n">scope</span><span class="p">);</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>

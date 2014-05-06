@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-04T22:08:27+01:00</updated>
+  <updated>2014-05-06T21:11:22+01:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -1639,7 +1639,7 @@ return new SFunction(body, parameters, newScope);
 
 <h4>处理<code>list</code></h4>
 
-<p>首先把获得<code>list</code>里元素的值，然后创建<code>SList</code>：</p>
+<p>首先把<code>list</code>里的元素依次求值，然后创建<code>SList</code>：</p>
 
 <p>```csharp
 else if (first.Value == &ldquo;list&rdquo;) {</p>
@@ -1652,12 +1652,12 @@ else if (first.Value == &ldquo;list&rdquo;) {</p>
 
 <h4>处理内置操作</h4>
 
-<p>首先对参数求值，然后调用对应的内置函数：</p>
+<p>首先得到参数的表达式，然后调用对应的内置函数：</p>
 
 <p>```csharp
 else if (SScope.BuiltinFunctions.ContainsKey(first.Value)) {</p>
 
-<pre><code>var arguments = this.Children.Skip(1).Select(node =&gt; node.Evaluate(scope)).ToArray();
+<pre><code>var arguments = this.Children.Skip(1).ToArray();
 return SScope.BuiltinFunctions[first.Value](arguments, scope);
 </code></pre>
 
