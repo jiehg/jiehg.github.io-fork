@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-07T01:05:07+01:00</updated>
+  <updated>2014-05-24T01:42:42-07:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://lucida.github.io/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T21:43:42+01:00</updated>
+    <updated>2014-05-04T13:43:42-07:00</updated>
     <id>http://lucida.github.io/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h1>我的算法学习之路</h1>
 
@@ -327,7 +327,7 @@
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
     <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
-    <updated>2014-03-23T19:08:35+00:00</updated>
+    <updated>2014-03-23T12:08:35-07:00</updated>
     <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h1>90分钟实现一门编程语言——极简解释器教程</h1>
 

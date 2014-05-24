@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Retrospection | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/retrospection/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-07T01:05:07+01:00</updated>
+  <updated>2014-05-24T01:42:42-07:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,158 @@
 
   
   <entry>
+    <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
+    <link href="http://lucida.github.io/blog/on-the-keynote-of-t-one/"/>
+    <updated>2014-05-24T01:33:38-07:00</updated>
+    <id>http://lucida.github.io/blog/on-the-keynote-of-t-one</id>
+    <content type="html"><![CDATA[<h1>关于锤子手机和锤子手机发布会</h1>
+
+<h2>关于</h2>
+
+<p>本文记录了作者对<a href="http://v.youku.com/v_show/id_XNzE0Nzc0OTQ0.html">锤子手机发布会</a>和<a href="http://www.smartisan.com/">锤子手机</a>的一点感受，仅代表个人看法，但欢迎评论。</p>
+
+<p>原文作者：</p>
+
+<ul>
+<li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
+<li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
+<li><a href="http://www.douban.com/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/">http://zh.lucida.me/blog/on-the-keynote-of-t-one/</a></p>
+
+<h2>重复</h2>
+
+<p>演讲（或说服）有一个要点是重复，老罗显然深得此道，在整场发布会上下面的句式均被重复了不止五遍：</p>
+
+<ul>
+<li>作为一个大众消费品…………（表明自己站在消费者这边）</li>
+<li>作为一个小厂商…………（博取听众（消费者）的同情（patience）和容忍（tolerance））</li>
+<li>作为一个企业家，我不该…………（在贬低其它企业之后均以此句开脱）</li>
+</ul>
+
+
+<h2>误导</h2>
+
+<p>在提到T1音质时老罗举了一个例子：</p>
+
+<blockquote><p>我的老婆之前认为自己是木耳，听不出音质的区别，但把苹果耳机换成几百森海塞尔后，她明显感到音质有了很大的提升。</p></blockquote>
+
+<p>以证明即便是普通人也可以感受到音质的区别。</p>
+
+<p>但这里有一个问题：老罗夫人感受到的音质的提升源自于<strong>耳机</strong>，而非<strong>音源</strong>。在同等耳机的情况下，我怀疑老罗夫人是否还能听出锤子手机和同类手机间音质的区别。</p>
+
+<p>此外，在提到无法更换壁纸的问题时老罗是这么解释的：</p>
+
+<blockquote><p>我无法忍受把一堆图标堆在亲人的脸上。</p></blockquote>
+
+<p>似乎确实很有道理，但再想一想，为什么一定要用亲人头像做壁纸呢？如果我要用风景或是纯色呢？</p>
+
+<h2>冷知识</h2>
+
+<p>老罗很擅长用一些冷门知识去吸引人，这样的例子在这次发布会上数不胜数：</p>
+
+<ul>
+<li>不断的列出硬件厂商的渊源。</li>
+<li>指出T1手机盒子使用了某英国著名公司的纸。</li>
+<li>强调光线传感器的设计。</li>
+<li>自带螺丝刀和若干螺丝钉。</li>
+</ul>
+
+
+<p>个人认为这些东西是Boilerplate——懂编程的童鞋应该明白我的意思。</p>
+
+<h2>拍照效果</h2>
+
+<p>老罗宣称T1是目前最好的拍照手机之一，并花了大量时间去阐述他在打造拍照效果上所付出的努力，比如：</p>
+
+<ul>
+<li>寻找最好的拍照调校团队。</li>
+<li>使用最好的摄像镜头。</li>
+</ul>
+
+
+<p>但令我疑惑的是：发布会并没有任何拍照效果的对比，甚至连T1的拍照样张都没有——如果拍照效果真的那么强大，我不认为老罗会放这个贬低其他竞争对手的机会于不顾。</p>
+
+<h2>双音量键</h2>
+
+<p>T1有一个很有趣的设计是双音量键——在单独使用时可以分别作为音量调节和亮度调节使用，而一起使用时则可以进行抢拍或快速启动某个指定应用程序。</p>
+
+<p>这也带来了老罗所宣称的“全世界最快的抢拍手机”这个卖点。</p>
+
+<p>但我还是有几个疑问：</p>
+
+<ol>
+<li>双音量键一起使用是一个很不直观的设计。</li>
+<li>同时使用双音量键很不自然，不信的话你在你的手机上试试这个姿势。</li>
+<li>从设计上可以看出音量键并没有凸起——这意味着操作时需要按<strong>进</strong>音量键，也意味着任何手机壳或是bumper之类阻隔音量键的手机饰品均会妨碍音量键的正常使用。</li>
+</ol>
+
+
+<h2>对苹果的模仿</h2>
+
+<h3>锤子手机在模仿iPhone5</h3>
+
+<p>这里借用某条<a href="http://weibo.com/1847542877/B5fhi9RoE">微博</a>里的图片：</p>
+
+<p><img src="http://i.imgur.com/VOSZ1dX.jpg" alt="无处不在的模仿" /></p>
+
+<h3>锤子手机发布会处处在模仿iPhone1发布会</h3>
+
+<p>iPhone1发布会时Jobs曾给出一个转盘手机的假想图：</p>
+
+<p><img src="http://i.imgur.com/sfOzhfx.png" alt="转盘手机" /></p>
+
+<p>老罗则给出一个锤子手机的假想图：</p>
+
+<p><img src="http://i.imgur.com/fkoM9QQ.png" alt="锤子手机" /></p>
+
+<p>iPhone1发布时Jobs强调三位一体的概念：</p>
+
+<p><img src="http://i.imgur.com/WDmytpx.png" alt="三位一体" /></p>
+
+<p>老罗也是如此：</p>
+
+<p><img src="http://i.imgur.com/FK5fsC2.png" alt="又一个三位一体" /></p>
+
+<p>Jobs经常在发布会最后来一个“One more thing”：</p>
+
+<p><img src="http://i.imgur.com/ebmQPgi.png" alt="One more thing" /></p>
+
+<p>到了老罗这里变成“还有两个好东西”：</p>
+
+<p><img src="http://i.imgur.com/6yXVZ4a.png" alt="还有两个好东西" /></p>
+
+<h2>软件改进</h2>
+
+<p>下面是老罗重点介绍的锤子手机的软件改进：</p>
+
+<ul>
+<li>可以更换的主题：这个我真觉的不是啥改进——除非要和Windows Phone比。</li>
+<li>手指横扫解决单手操作问题：很有创意的想法，但我注意到即便老罗本人如此操作T1时也有相当的失误率——我怀疑这个功能的实用性。</li>
+<li>通过短信内容智能新建日历：无论是Google还是Apple都已经有这个功能。</li>
+<li>定时解除静音：很赞，这是我一直希望的功能。</li>
+<li>区域截屏：看似很赞，但仔细一想几乎所有的手机聊天应用里面都带有编辑图片的选项，此外我个人对这个功能的稳定性有疑问。</li>
+</ul>
+
+
+<h2>总结</h2>
+
+<p>锤子手机发布会最大的亮点是对OpenSSL的捐款，至于锤子手机本身……抱歉我没看到什么亮点。</p>
+
+<p>但令我诧异的是很多资深人士纷纷表示看好锤子手机（发布会），<a href="http://www.weibo.com/fenng">fenng</a>甚至在微信上宣称这是手机行业迄今为止最好的产品发布会——我不清楚他是否也把iPhone发布会算在内，呵呵。</p>
+
+<p><img src="http://i.imgur.com/MqEKRBk.jpg" alt="最好的产品发布会？？" /></p>
+
+<p>总之，在锤子手机发布会上，我看到的是一个人在不断的强调自己有多努力多认真，但我也知道当某人不断的给你强调他有多努力（effort）时，事实往往是他还没有获得任何实质性成果（progress），简而言之，effort不等于progress，就这场发布会所得到的信息，我依然认为锤子手机没有希望。</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://lucida.github.io/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T21:43:42+01:00</updated>
+    <updated>2014-05-04T13:43:42-07:00</updated>
     <id>http://lucida.github.io/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h1>我的算法学习之路</h1>
 
@@ -327,7 +476,7 @@
   <entry>
     <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
     <link href="http://lucida.github.io/blog/levels-on-learning-and-using-technologies/"/>
-    <updated>2014-04-13T01:53:21+01:00</updated>
+    <updated>2014-04-12T17:53:21-07:00</updated>
     <id>http://lucida.github.io/blog/levels-on-learning-and-using-technologies</id>
     <content type="html"><![CDATA[<h1>学习&amp;使用技术的四种层次</h1>
 
@@ -582,7 +731,7 @@
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
     <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T23:24:33+01:00</updated>
+    <updated>2014-04-06T15:24:33-07:00</updated>
     <id>http://lucida.github.io/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h1>三月小结（暨TARQIE——一种量化成长的方法（下））</h1>
 
@@ -932,7 +1081,7 @@
   <entry>
     <title type="html"><![CDATA[如何阅读书籍]]></title>
     <link href="http://lucida.github.io/blog/on-reading-books/"/>
-    <updated>2014-03-15T20:05:35+00:00</updated>
+    <updated>2014-03-15T13:05:35-07:00</updated>
     <id>http://lucida.github.io/blog/on-reading-books</id>
     <content type="html"><![CDATA[<h1>如何阅读书籍</h1>
 
@@ -1182,150 +1331,6 @@ Code Complete：软件构建全程最佳实践指南。
 </ul>
 </li>
 </ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
-    <link href="http://lucida.github.io/blog/on-suppressing-the-internet-addiction/"/>
-    <updated>2014-03-09T17:14:28+00:00</updated>
-    <id>http://lucida.github.io/blog/on-suppressing-the-internet-addiction</id>
-    <content type="html"><![CDATA[<h1>网络上瘾及其解决方法</h1>
-
-<h2>症状</h2>
-
-<h3>起床后</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人，大概20分钟。</p>
-
-<h3>工作中</h3>
-
-<p>大概每隔半小时刷一下微博或论坛，点进去看两分钟再切回来。</p>
-
-<h3>睡觉前</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人->草榴（-_-），大概30分钟。</p>
-
-<h2>原因</h2>
-
-<h3>智能手机带来的极其便利的信息可访问性</h3>
-
-<p>平板和智能手机使互联网的可访问性（accessibility）提升了至少两个数量级——三年前我的NOKIA E51只能在WIFI环境下浏览简单的文字信息，而现在我的iPhone5可以无时无刻的阅读/观看互联网上几乎所有的信息，得益于4G，即便是包含大量图片甚至视频的信息也可以轻松阅读。</p>
-
-<h3>碎片化时间不知如何处理</h3>
-
-<p>无论是工作还是学习，都会有疲倦或无聊的时刻，大概10分钟左右。</p>
-
-<p>微博这种碎片化信息的出现正好填补了碎片化时间。但比较恶心的是这种东西会上瘾——慢慢的它会占据越来越多的时间：清晨，睡眠甚至路上和正常阅读的时间。</p>
-
-<h3>长时间从事同一种工作带来的无聊感</h3>
-
-<p>无论多么有激情有兴趣，长时间从事同一种工作总会无聊的，低智力门槛的社交网络就成了一个打发时间的好选择。</p>
-
-<p>然后时间就都耗里面了。-_&ndash;</p>
-
-<h2>现实 V.S. 虚拟</h2>
-
-<p>人是社会性动物，社会性动物通过与其他对象建立联系来确定自己的存在感，也就是交流（Communication），现实和虚拟中都是如此。交流包括一对一交流和一对多交流：现实中，一对一交流通过谈话/电话/信件，一对多交流通过电视/广播；虚拟中，一对一交流通过IM（Instant Messenger），一对多交流通过微博/论坛/博客。</p>
-
-<h3>一对一交流：</h3>
-
-<ol>
-<li>现实中，一对一交流通过谈话/电话/信件，一对一交流通过IM（Instant Messenger）。</li>
-<li>现实的一对一交流大多无状态——双方的交流同时开始，同时结束。虚拟的一对一交流大多有状态——双方的交流可以从某一方开始，然后若干小时后另一方看到消息回复，然后如此继续。</li>
-<li>现实中的一对一交流需要考虑对方的状态——也就是交流需要建立在双方都有时间的基础上；虚拟的一对一交流无需考虑对方的状态，有意交流的一方可以随时给对方发送信息。</li>
-</ol>
-
-
-<p>虚拟带来的问题：</p>
-
-<ol>
-<li>任何人都可以与你交流，无论你愿意与否。</li>
-<li>你可以与任何人交流，无论是否值得。</li>
-<li>可能会陷入一种等待交流的焦虑中。</li>
-</ol>
-
-
-<h3>一对多交流：</h3>
-
-<ol>
-<li>现实的一对多交流需要大量人力物力（广播/电视/报纸），虚拟的一对多交流几乎零成本（微博/博客/社交网络）。</li>
-<li>现实的一对多交流需要信息审核/证伪，虚拟的一对多交流几乎没有信息审核。</li>
-<li>现实的一对多交流中接收方是完全被动的，虚拟的一对多交流接收方和广播方之间可以有交互。</li>
-</ol>
-
-
-<p>虚拟带来的问题：</p>
-
-<ol>
-<li>没有审核带来的大量低质量无意义信息（通常会以一种很有趣或是令人热血沸腾的形式出现）。</li>
-<li><a href="http://book.douban.com/subject/1012611/">乌合之众</a>，最热门的信息不是最有价值的，而是吵的最响（或是争议最多）的。</li>
-<li>与广播方（例如名人）的交流会带来成就感，也会使自己陷入等待回复的焦虑中。</li>
-<li>可能会陷入一种不断查看新信息（尽管这些信息毫无意义）的焦虑中。</li>
-</ol>
-
-
-<h2>解决方法</h2>
-
-<p>为此在豆瓣阅读买了一本<a href="http://book.douban.com/subject/24383461/">网络素养</a>，原版：<a href="http://www.amazon.com/Net-Smart-How-Thrive-Online/dp/0262526131/">Net Smart: How to thrive online</a>。</p>
-
-<p><img src="http://img5.douban.com/lpic/s26842036.jpg" title="网络素养" alt="网络素养" /></p>
-
-<p><img src="http://ecx.images-amazon.com/images/I/41LRFD-SVlL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_SX385_SY500_CR,0,0,385,500_SH20_OU02_.jpg" title="Net Smart" alt="Net Smart" /></p>
-
-<p>这本书废话极多，关键的两点：控制注意力，鉴别垃圾信息。</p>
-
-<h3>控制注意力</h3>
-
-<ul>
-<li>下意识的控制注意力，可以通过关注自己的呼吸来调节。</li>
-<li>即便忽略几条微博几条信息，也不会对生活造成多大影响。</li>
-<li>此外可以使用冥想提升自己的集中力（Focus）。</li>
-<li>番茄工作法（没看明白要点，25分钟休息一次是什么原理，如果这样岂不是更不靠谱）。</li>
-</ul>
-
-
-<h3>鉴别垃圾信息</h3>
-
-<ul>
-<li>冷静面对夸张的标题，此类信息一般有意断章取义，或是掩盖上下文。</li>
-<li>恰当的使用三点式验证争议信息：使用三个不同可信来源验证信息的有效性。</li>
-<li>选取可信/有效/有价值的信息来源，屏蔽哗众取宠/断章取义的信息源。</li>
-</ul>
-
-
-<h3>集中时间处理社交网络</h3>
-
-<ul>
-<li>在固定的时间段（例：12:40 &ndash; 13:10, 20:20 &ndash; 21:00）处理社交网络信息，而非随时随地的查看状态。</li>
-<li>如有特别需求，可以编写Crawler来发送Reminder邮件，替代人工轮询。</li>
-</ul>
-
-
-<h2>用不上瘾的行为填充碎片化时间</h2>
-
-<p>碎片化时间可以进行其它益智或体育活动，包括但不限于：</p>
-
-<ul>
-<li>拆解/还原九连环。</li>
-<li>单手还原魔方。</li>
-<li>背诵单词。</li>
-<li>绘画。</li>
-<li>乒乓。</li>
-<li>桌球。</li>
-</ul>
-
-
-<h2>尝试其它活动</h2>
-
-<p>为了得到新鲜感，包括但不限于：</p>
-
-<ul>
-<li>学习自己感兴趣但不了解的技术（例如ANTLR）或学科（例如经济/心理学）。</li>
-<li>尝试集体运动（例如攀岩，射箭）。</li>
-<li>尝试旅行（例如在周末去荷兰、芬兰或瑞典进行两日游）。</li>
-</ul>
 
 ]]></content>
   </entry>

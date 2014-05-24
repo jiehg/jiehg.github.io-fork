@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-07T01:05:07+01:00</updated>
+  <updated>2014-05-24T01:42:42-07:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,158 @@
 
   
   <entry>
+    <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
+    <link href="http://lucida.github.io/blog/on-the-keynote-of-t-one/"/>
+    <updated>2014-05-24T01:33:38-07:00</updated>
+    <id>http://lucida.github.io/blog/on-the-keynote-of-t-one</id>
+    <content type="html"><![CDATA[<h1>关于锤子手机和锤子手机发布会</h1>
+
+<h2>关于</h2>
+
+<p>本文记录了作者对<a href="http://v.youku.com/v_show/id_XNzE0Nzc0OTQ0.html">锤子手机发布会</a>和<a href="http://www.smartisan.com/">锤子手机</a>的一点感受，仅代表个人看法，但欢迎评论。</p>
+
+<p>原文作者：</p>
+
+<ul>
+<li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
+<li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
+<li><a href="http://www.douban.com/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/">http://zh.lucida.me/blog/on-the-keynote-of-t-one/</a></p>
+
+<h2>重复</h2>
+
+<p>演讲（或说服）有一个要点是重复，老罗显然深得此道，在整场发布会上下面的句式均被重复了不止五遍：</p>
+
+<ul>
+<li>作为一个大众消费品…………（表明自己站在消费者这边）</li>
+<li>作为一个小厂商…………（博取听众（消费者）的同情（patience）和容忍（tolerance））</li>
+<li>作为一个企业家，我不该…………（在贬低其它企业之后均以此句开脱）</li>
+</ul>
+
+
+<h2>误导</h2>
+
+<p>在提到T1音质时老罗举了一个例子：</p>
+
+<blockquote><p>我的老婆之前认为自己是木耳，听不出音质的区别，但把苹果耳机换成几百森海塞尔后，她明显感到音质有了很大的提升。</p></blockquote>
+
+<p>以证明即便是普通人也可以感受到音质的区别。</p>
+
+<p>但这里有一个问题：老罗夫人感受到的音质的提升源自于<strong>耳机</strong>，而非<strong>音源</strong>。在同等耳机的情况下，我怀疑老罗夫人是否还能听出锤子手机和同类手机间音质的区别。</p>
+
+<p>此外，在提到无法更换壁纸的问题时老罗是这么解释的：</p>
+
+<blockquote><p>我无法忍受把一堆图标堆在亲人的脸上。</p></blockquote>
+
+<p>似乎确实很有道理，但再想一想，为什么一定要用亲人头像做壁纸呢？如果我要用风景或是纯色呢？</p>
+
+<h2>冷知识</h2>
+
+<p>老罗很擅长用一些冷门知识去吸引人，这样的例子在这次发布会上数不胜数：</p>
+
+<ul>
+<li>不断的列出硬件厂商的渊源。</li>
+<li>指出T1手机盒子使用了某英国著名公司的纸。</li>
+<li>强调光线传感器的设计。</li>
+<li>自带螺丝刀和若干螺丝钉。</li>
+</ul>
+
+
+<p>个人认为这些东西是Boilerplate——懂编程的童鞋应该明白我的意思。</p>
+
+<h2>拍照效果</h2>
+
+<p>老罗宣称T1是目前最好的拍照手机之一，并花了大量时间去阐述他在打造拍照效果上所付出的努力，比如：</p>
+
+<ul>
+<li>寻找最好的拍照调校团队。</li>
+<li>使用最好的摄像镜头。</li>
+</ul>
+
+
+<p>但令我疑惑的是：发布会并没有任何拍照效果的对比，甚至连T1的拍照样张都没有——如果拍照效果真的那么强大，我不认为老罗会放这个贬低其他竞争对手的机会于不顾。</p>
+
+<h2>双音量键</h2>
+
+<p>T1有一个很有趣的设计是双音量键——在单独使用时可以分别作为音量调节和亮度调节使用，而一起使用时则可以进行抢拍或快速启动某个指定应用程序。</p>
+
+<p>这也带来了老罗所宣称的“全世界最快的抢拍手机”这个卖点。</p>
+
+<p>但我还是有几个疑问：</p>
+
+<ol>
+<li>双音量键一起使用是一个很不直观的设计。</li>
+<li>同时使用双音量键很不自然，不信的话你在你的手机上试试这个姿势。</li>
+<li>从设计上可以看出音量键并没有凸起——这意味着操作时需要按<strong>进</strong>音量键，也意味着任何手机壳或是bumper之类阻隔音量键的手机饰品均会妨碍音量键的正常使用。</li>
+</ol>
+
+
+<h2>对苹果的模仿</h2>
+
+<h3>锤子手机在模仿iPhone5</h3>
+
+<p>这里借用某条<a href="http://weibo.com/1847542877/B5fhi9RoE">微博</a>里的图片：</p>
+
+<p><img src="http://i.imgur.com/VOSZ1dX.jpg" alt="无处不在的模仿" /></p>
+
+<h3>锤子手机发布会处处在模仿iPhone1发布会</h3>
+
+<p>iPhone1发布会时Jobs曾给出一个转盘手机的假想图：</p>
+
+<p><img src="http://i.imgur.com/sfOzhfx.png" alt="转盘手机" /></p>
+
+<p>老罗则给出一个锤子手机的假想图：</p>
+
+<p><img src="http://i.imgur.com/fkoM9QQ.png" alt="锤子手机" /></p>
+
+<p>iPhone1发布时Jobs强调三位一体的概念：</p>
+
+<p><img src="http://i.imgur.com/WDmytpx.png" alt="三位一体" /></p>
+
+<p>老罗也是如此：</p>
+
+<p><img src="http://i.imgur.com/FK5fsC2.png" alt="又一个三位一体" /></p>
+
+<p>Jobs经常在发布会最后来一个“One more thing”：</p>
+
+<p><img src="http://i.imgur.com/ebmQPgi.png" alt="One more thing" /></p>
+
+<p>到了老罗这里变成“还有两个好东西”：</p>
+
+<p><img src="http://i.imgur.com/6yXVZ4a.png" alt="还有两个好东西" /></p>
+
+<h2>软件改进</h2>
+
+<p>下面是老罗重点介绍的锤子手机的软件改进：</p>
+
+<ul>
+<li>可以更换的主题：这个我真觉的不是啥改进——除非要和Windows Phone比。</li>
+<li>手指横扫解决单手操作问题：很有创意的想法，但我注意到即便老罗本人如此操作T1时也有相当的失误率——我怀疑这个功能的实用性。</li>
+<li>通过短信内容智能新建日历：无论是Google还是Apple都已经有这个功能。</li>
+<li>定时解除静音：很赞，这是我一直希望的功能。</li>
+<li>区域截屏：看似很赞，但仔细一想几乎所有的手机聊天应用里面都带有编辑图片的选项，此外我个人对这个功能的稳定性有疑问。</li>
+</ul>
+
+
+<h2>总结</h2>
+
+<p>锤子手机发布会最大的亮点是对OpenSSL的捐款，至于锤子手机本身……抱歉我没看到什么亮点。</p>
+
+<p>但令我诧异的是很多资深人士纷纷表示看好锤子手机（发布会），<a href="http://www.weibo.com/fenng">fenng</a>甚至在微信上宣称这是手机行业迄今为止最好的产品发布会——我不清楚他是否也把iPhone发布会算在内，呵呵。</p>
+
+<p><img src="http://i.imgur.com/MqEKRBk.jpg" alt="最好的产品发布会？？" /></p>
+
+<p>总之，在锤子手机发布会上，我看到的是一个人在不断的强调自己有多努力多认真，但我也知道当某人不断的给你强调他有多努力（effort）时，事实往往是他还没有获得任何实质性成果（progress），简而言之，effort不等于progress，就这场发布会所得到的信息，我依然认为锤子手机没有希望。</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://lucida.github.io/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T21:43:42+01:00</updated>
+    <updated>2014-05-04T13:43:42-07:00</updated>
     <id>http://lucida.github.io/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h1>我的算法学习之路</h1>
 
@@ -327,7 +476,7 @@
   <entry>
     <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
     <link href="http://lucida.github.io/blog/levels-on-learning-and-using-technologies/"/>
-    <updated>2014-04-13T01:53:21+01:00</updated>
+    <updated>2014-04-12T17:53:21-07:00</updated>
     <id>http://lucida.github.io/blog/levels-on-learning-and-using-technologies</id>
     <content type="html"><![CDATA[<h1>学习&amp;使用技术的四种层次</h1>
 
@@ -582,7 +731,7 @@
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
     <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T23:24:33+01:00</updated>
+    <updated>2014-04-06T15:24:33-07:00</updated>
     <id>http://lucida.github.io/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h1>三月小结（暨TARQIE——一种量化成长的方法（下））</h1>
 
@@ -932,7 +1081,7 @@
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
     <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
-    <updated>2014-03-23T19:08:35+00:00</updated>
+    <updated>2014-03-23T12:08:35-07:00</updated>
     <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h1>90分钟实现一门编程语言——极简解释器教程</h1>
 
@@ -2643,78 +2792,6 @@ static void Main(String[] cmdArgs) {</p>
 <p>对解释器/编译器感兴趣，现在正在自学Coursera的<a href="https://class.coursera.org/compilers-004">Compiler课程</a>。</p>
 
 <p>欢迎来信交流技术：lunageek#gmail#com</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[第一篇博文]]></title>
-    <link href="http://lucida.github.io/blog/my-first-article/"/>
-    <updated>2014-01-05T17:03:00+00:00</updated>
-    <id>http://lucida.github.io/blog/my-first-article</id>
-    <content type="html"><![CDATA[<h2>为什么要使用Octopress</h2>
-
-<p>之前用过不少博客，其中最长的一个<a href="http://www.cnblogs.com/figure9/">博客园博客</a>用了五年，写了不少文章，也不乏不少关注者，但我始终觉得不太爽：</p>
-
-<ul>
-<li>博客园上的文章水平太低：
-
-<ul>
-<li>倒不是装x，我并不否认博客园在国内的程序社区的地位，但这仅限于国内，一个首页上充满python入门教程或是常用排序算法的站点更适合初学者。</li>
-<li>所以可以理解一些用户在"成名"之后反而选择离开。</li>
-</ul>
-</li>
-<li>提供的编辑器不好用，尤其是代码样式难看的一B。</li>
-<li>缺乏对站点的控制，尽管有一些主题但可塑性不强，自己想放一些脚本进去也不方便。</li>
-<li>缺乏Mobile Readability，无论在我的iPhone 5还是Nexus 5上，精心设计的文章排版都会变成翔。</li>
-</ul>
-
-
-<p>直到前天和<a href="http://contributors.rubyonrails.org/contributors/oscar-del-ben/commits">Oscar</a>打桌球，我提到一直打算做一个独立博客，但由于不清楚uk这边申请域名和空间的流程而一直拖到现在，Oscar很疑惑的说如果只是一个静态博客那么用Github做host不就成了么。</p>
-
-<p>于是这个周末做了下调研，最后目标锁定在<a href="http://octopress.org/">Octopress</a>。</p>
-
-<h3>免费的空间</h3>
-
-<p>Octopress是一个静态博客生成系统，使用<a href="http://jekyllrb.com/">Jekyll</a>生成静态站点，而Jekyll是Github默认的<a href="http://pages.github.com">pages</a>生成系统，因此Octopress生成的静态站点可以很方便的部署到Github Pages上。而Github提供了免费的空间，因此申请空间这步就轻松的跳过了。</p>
-
-<h3>接近完美的样式</h3>
-
-<p>Octopress默认的样式已经很不错，尤其是在<code>code</code>的展现和对<strong>Markdown</strong>的支持上，除此之外对<code>Markdown</code>做了一系列扩展，使得排版更加精致。
-下面的代码效果令我十分满意：</p>
-
-<p>``` java Hello world in java
-package org.java.fun;</p>
-
-<p>public class Sample{</p>
-
-<pre><code>public static void main(String[] args) {
-    System.out.println("Hello world!"); 
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<h3>Mobile Readablity</h3>
-
-<p>无论是在iPad Air，还是在iPhone 5和NEXUS 5上面，Octopress的表现都堪称完美。</p>
-
-<h3>新技术的训练</h3>
-
-<p>很惭愧的承认自己并没有用过git，也没有用过Markdown。以至于Basia在得知我没用过git时十分惊讶</p>
-
-<blockquote><p>How could a programmer never use git before?</p></blockquote>
-
-<p>使用Octopress写博客可以强制自己使用git，此外如果想要对站点做一点tweak，还需要html5+css3+js+ror这一系列web开发前后端的知识，考虑到自己有做full stack developer的打算，用这个博客练手不失为一个好办法。</p>
-
-<h2>接下来会写些什么</h2>
-
-<ul>
-<li>读过的书</li>
-<li>写的代码</li>
-<li>以及在london的生活感受</li>
-</ul>
-
 ]]></content>
   </entry>
   
