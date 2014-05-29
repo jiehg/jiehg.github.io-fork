@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Lucida]]></title>
   <link href="http://lucida.github.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://lucida.github.io/"/>
-  <updated>2014-05-24T14:59:57-07:00</updated>
+  <updated>2014-05-29T13:48:58-07:00</updated>
   <id>http://lucida.github.io/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -18,9 +18,7 @@
     <link href="http://lucida.github.io/blog/on-the-keynote-of-t-one/"/>
     <updated>2014-05-24T01:33:38-07:00</updated>
     <id>http://lucida.github.io/blog/on-the-keynote-of-t-one</id>
-    <content type="html"><![CDATA[<h1>关于锤子手机和锤子手机发布会</h1>
-
-<h2>关于</h2>
+    <content type="html"><![CDATA[<h2>关于</h2>
 
 <p>本文记录了作者对<a href="http://v.youku.com/v_show/id_XNzE0Nzc0OTQ0.html">锤子手机发布会</a>和<a href="http://www.smartisan.com/">锤子手机</a>的一点感受，仅代表个人看法，但欢迎评论。</p>
 
@@ -61,6 +59,9 @@
 <blockquote><p>我无法忍受把一堆图标堆在亲人的脸上。</p></blockquote>
 
 <p>似乎确实很有道理，但再想一想，为什么一定要用亲人头像做壁纸呢？如果我要用风景或是纯色呢？</p>
+
+<!-- more -->
+
 
 <h2>冷知识</h2>
 
@@ -169,9 +170,7 @@
     <link href="http://lucida.github.io/blog/on-learning-algorithms/"/>
     <updated>2014-05-04T13:43:42-07:00</updated>
     <id>http://lucida.github.io/blog/on-learning-algorithms</id>
-    <content type="html"><![CDATA[<h1>我的算法学习之路</h1>
-
-<h2>关于</h2>
+    <content type="html"><![CDATA[<h2>关于</h2>
 
 <p>严格来说，本文题目应该是<strong>我的数据结构和算法学习之路</strong>，但这个写法实在太绕口——况且CS中的算法往往暗指数据结构和算法（例如<strong>算法导论</strong>指的实际上是<strong>数据结构和算法导论</strong>），所以我认为本文题目是合理的。</p>
 
@@ -195,6 +194,9 @@
 <p>直到大三我才反应过来以后还要找工作——而且大二的折腾证明了我并没有什么商业才能，以后还是得靠码代码混饭吃，我当时惊恐的发现自己对编程序几乎一无所知，于是我给自己制订了一个类似于建国初期五年计划的读书成长计划，其中包括C语言基础、数据结构以及计算机网络等方面的书籍。</p>
 
 <p>读书计划的第一步是选择书籍，我曾向当时我觉得很牛的"学长"和"大神"请教应该读哪些算法书籍，"学长"们均推荐算法导论，还有几个"大神"推荐计算机程序设计艺术（现在我疑心他们是否翻过这些书），草草的翻了下这两本书发现实在看不懂，但幸运的是我在无意中发现了<a href="http://www.douban.com/">豆瓣</a>这个神奇的网站，里面有很多质量不错的书评，于是我就把评价很高而且看上去不那么吓人的计算机书籍都买了下来——事实证明豆瓣要比这些"学长"或是"大神"靠谱的多得多。</p>
+
+<!-- more -->
+
 
 <h3>数据结构与算法分析——C语言描述</h3>
 
@@ -480,9 +482,7 @@
     <link href="http://lucida.github.io/blog/levels-on-learning-and-using-technologies/"/>
     <updated>2014-04-12T17:53:21-07:00</updated>
     <id>http://lucida.github.io/blog/levels-on-learning-and-using-technologies</id>
-    <content type="html"><![CDATA[<h1>学习&amp;使用技术的四种层次</h1>
-
-<h2>关键字</h2>
+    <content type="html"><![CDATA[<h2>关键字</h2>
 
 <p>技术，生活，反思。</p>
 
@@ -505,6 +505,9 @@
 <p>简而言之，编程语言是City，而开发者则是Traveller——这是一个很有意思的比喻，在这篇文章里，我试图<strong>延续</strong>这个类比（Analogy）——把这个类比放大到初学，掌握，了解以至精通一门技术的层面。</p>
 
 <p>不过需要注意：我自己并没有精通哪一门技术——所以这篇文章的内容是值得怀疑（susceptible）的，但它可以作为一个不错的参考。</p>
+
+<!-- more -->
+
 
 <h2>0. Stranger（陌生人）</h2>
 
@@ -735,9 +738,7 @@
     <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
     <updated>2014-04-06T15:24:33-07:00</updated>
     <id>http://lucida.github.io/blog/summary-of-march-2014</id>
-    <content type="html"><![CDATA[<h1>三月小结（暨TARQIE——一种量化成长的方法（下））</h1>
-
-<h2>目标实际完成情况</h2>
+    <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
 
 <h3>Tarqie-J</h3>
 
@@ -838,6 +839,9 @@
 
 
 <p>综上所述，得分 0.85</p>
+
+<!-- more -->
+
 
 <h3>Tarqie-L</h3>
 
@@ -1085,9 +1089,7 @@
     <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
     <updated>2014-03-23T12:08:35-07:00</updated>
     <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
-    <content type="html"><![CDATA[<h1>90分钟实现一门编程语言——极简解释器教程</h1>
-
-<h2>关键字</h2>
+    <content type="html"><![CDATA[<h2>关键字</h2>
 
 <p>解释器, C#, Scheme, 函数式编程</p>
 
@@ -1119,6 +1121,9 @@
 
 
 <p>本文则过于初级，你可以跳过本文，但欢迎指出本文的错误 :&ndash;)</p>
+
+<!-- more -->
+
 
 <h2>代码样例</h2>
 
