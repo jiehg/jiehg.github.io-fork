@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Life | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/life/atom.xml" rel="self"/>
-  <link href="http://lucida.github.io/"/>
-  <updated>2014-05-29T13:58:27-07:00</updated>
-  <id>http://lucida.github.io/</id>
+  <link href="http://zh.lucida.me/blog/categories/life/atom.xml" rel="self"/>
+  <link href="http://zh.lucida.me/"/>
+  <updated>2014-05-29T14:05:56-07:00</updated>
+  <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
-    <link href="http://lucida.github.io/blog/on-the-keynote-of-t-one/"/>
+    <link href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/"/>
     <updated>2014-05-24T01:33:38-07:00</updated>
-    <id>http://lucida.github.io/blog/on-the-keynote-of-t-one</id>
+    <id>http://zh.lucida.me/blog/on-the-keynote-of-t-one</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
 <p>本文记录了作者对<a href="http://v.youku.com/v_show/id_XNzE0Nzc0OTQ0.html">锤子手机发布会</a>和<a href="http://www.smartisan.com/">锤子手机</a>的一点感受，仅代表个人看法，但欢迎评论。</p>
@@ -167,9 +167,9 @@
   
   <entry>
     <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
-    <link href="http://lucida.github.io/blog/levels-on-learning-and-using-technologies/"/>
+    <link href="http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/"/>
     <updated>2014-04-12T17:53:21-07:00</updated>
-    <id>http://lucida.github.io/blog/levels-on-learning-and-using-technologies</id>
+    <id>http://zh.lucida.me/blog/levels-on-learning-and-using-technologies</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
 <p>技术，生活，反思。</p>
@@ -423,9 +423,9 @@
   
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
-    <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
+    <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
     <updated>2014-04-06T15:24:33-07:00</updated>
-    <id>http://lucida.github.io/blog/summary-of-march-2014</id>
+    <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
 
 <h3>Tarqie-J</h3>
@@ -774,9 +774,9 @@
   
   <entry>
     <title type="html"><![CDATA[London的新玩具]]></title>
-    <link href="http://lucida.github.io/blog/new-toys-in-london/"/>
+    <link href="http://zh.lucida.me/blog/new-toys-in-london/"/>
     <updated>2014-02-15T13:16:16-08:00</updated>
-    <id>http://lucida.github.io/blog/new-toys-in-london</id>
+    <id>http://zh.lucida.me/blog/new-toys-in-london</id>
     <content type="html"><![CDATA[<h2>Bose Companion 20</h2>
 
 <p>之前一直用<a href="http://www.amazon.com/Ultimate-Ears-Wireless-Bluetooth-Speaker/dp/B00CM0XHNS/">UE Boom</a>，但用久了就感觉声音有些憋屈，考虑到每天至少有一个小时在听音乐，所以搞个不错的印象很有必要。</p>

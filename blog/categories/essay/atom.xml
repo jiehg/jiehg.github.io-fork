@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Essay | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/essay/atom.xml" rel="self"/>
-  <link href="http://lucida.github.io/"/>
-  <updated>2014-05-29T13:58:27-07:00</updated>
-  <id>http://lucida.github.io/</id>
+  <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
+  <link href="http://zh.lucida.me/"/>
+  <updated>2014-05-29T14:05:56-07:00</updated>
+  <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
-    <link href="http://lucida.github.io/blog/summary-of-march-2014/"/>
+    <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
     <updated>2014-04-06T15:24:33-07:00</updated>
-    <id>http://lucida.github.io/blog/summary-of-march-2014</id>
+    <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
 
 <h3>Tarqie-J</h3>
@@ -366,9 +366,9 @@
   
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
-    <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
+    <link href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/"/>
     <updated>2014-03-23T12:08:35-07:00</updated>
-    <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
+    <id>http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
 <p>解释器, C#, Scheme, 函数式编程</p>
@@ -2084,9 +2084,9 @@ static void Main(String[] cmdArgs) {</p>
   
   <entry>
     <title type="html"><![CDATA[如何阅读书籍]]></title>
-    <link href="http://lucida.github.io/blog/on-reading-books/"/>
+    <link href="http://zh.lucida.me/blog/on-reading-books/"/>
     <updated>2014-03-15T13:05:35-07:00</updated>
-    <id>http://lucida.github.io/blog/on-reading-books</id>
+    <id>http://zh.lucida.me/blog/on-reading-books</id>
     <content type="html"><![CDATA[<h2>摘要</h2>
 
 <p>这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。</p>
@@ -2342,9 +2342,9 @@ Code Complete：软件构建全程最佳实践指南。
   
   <entry>
     <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
-    <link href="http://lucida.github.io/blog/on-suppressing-the-internet-addiction/"/>
+    <link href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/"/>
     <updated>2014-03-09T10:14:28-07:00</updated>
-    <id>http://lucida.github.io/blog/on-suppressing-the-internet-addiction</id>
+    <id>http://zh.lucida.me/blog/on-suppressing-the-internet-addiction</id>
     <content type="html"><![CDATA[<h2>症状</h2>
 
 <h3>起床后</h3>
@@ -2487,9 +2487,9 @@ Code Complete：软件构建全程最佳实践指南。
   
   <entry>
     <title type="html"><![CDATA[TARQIE——一种量化成长的方法（上）]]></title>
-    <link href="http://lucida.github.io/blog/tarqie-a-quantized-continous-growing-approach/"/>
+    <link href="http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach/"/>
     <updated>2014-03-02T15:31:27-08:00</updated>
-    <id>http://lucida.github.io/blog/tarqie-a-quantized-continous-growing-approach</id>
+    <id>http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach</id>
     <content type="html"><![CDATA[<h2>问题</h2>
 
 <p>工作到现在大概三个多月，但始终感觉有些不对——没有之前高速成长的感觉，换句话说，就是感觉自己相比三个月之前没有多大进步。</p>

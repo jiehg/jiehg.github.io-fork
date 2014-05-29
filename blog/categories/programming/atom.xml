@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Programming | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/programming/atom.xml" rel="self"/>
-  <link href="http://lucida.github.io/"/>
-  <updated>2014-05-29T13:58:27-07:00</updated>
-  <id>http://lucida.github.io/</id>
+  <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://zh.lucida.me/"/>
+  <updated>2014-05-29T14:05:56-07:00</updated>
+  <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
-    <link href="http://lucida.github.io/blog/on-learning-algorithms/"/>
+    <link href="http://zh.lucida.me/blog/on-learning-algorithms/"/>
     <updated>2014-05-04T13:43:42-07:00</updated>
-    <id>http://lucida.github.io/blog/on-learning-algorithms</id>
+    <id>http://zh.lucida.me/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
 <p>严格来说，本文题目应该是<strong>我的数据结构和算法学习之路</strong>，但这个写法实在太绕口——况且CS中的算法往往暗指数据结构和算法（例如<strong>算法导论</strong>指的实际上是<strong>数据结构和算法导论</strong>），所以我认为本文题目是合理的。</p>
@@ -327,9 +327,9 @@
   
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
-    <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
+    <link href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/"/>
     <updated>2014-03-23T12:08:35-07:00</updated>
-    <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
+    <id>http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
 <p>解释器, C#, Scheme, 函数式编程</p>

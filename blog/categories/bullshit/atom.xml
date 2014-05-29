@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Bullshit | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/bullshit/atom.xml" rel="self"/>
-  <link href="http://lucida.github.io/"/>
-  <updated>2014-05-29T13:58:27-07:00</updated>
-  <id>http://lucida.github.io/</id>
+  <link href="http://zh.lucida.me/blog/categories/bullshit/atom.xml" rel="self"/>
+  <link href="http://zh.lucida.me/"/>
+  <updated>2014-05-29T14:05:56-07:00</updated>
+  <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[打飞机故事集]]></title>
-    <link href="http://lucida.github.io/blog/stories-of-masturbations/"/>
+    <link href="http://zh.lucida.me/blog/stories-of-masturbations/"/>
     <updated>2014-05-06T16:54:37-07:00</updated>
-    <id>http://lucida.github.io/blog/stories-of-masturbations</id>
+    <id>http://zh.lucida.me/blog/stories-of-masturbations</id>
     <content type="html"><![CDATA[<h2>免责声明（Disclamer）</h2>
 
 <p><img src="http://i.imgur.com/ppEA9uM.jpg" alt="少儿不宜" /></p>
@@ -161,9 +161,9 @@
   
   <entry>
     <title type="html"><![CDATA[从挣钱的角度回忆下自己的研究生三年]]></title>
-    <link href="http://lucida.github.io/blog/memoirs-on-my-postgraduate-life/"/>
+    <link href="http://zh.lucida.me/blog/memoirs-on-my-postgraduate-life/"/>
     <updated>2014-02-16T14:08:39-08:00</updated>
-    <id>http://lucida.github.io/blog/memoirs-on-my-postgraduate-life</id>
+    <id>http://zh.lucida.me/blog/memoirs-on-my-postgraduate-life</id>
     <content type="html"><![CDATA[<h2>2010年9月 &ndash; 2010年12月</h2>
 
 <h3>主要事项</h3>

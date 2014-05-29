@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Reading | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/reading/atom.xml" rel="self"/>
-  <link href="http://lucida.github.io/"/>
-  <updated>2014-05-29T13:58:27-07:00</updated>
-  <id>http://lucida.github.io/</id>
+  <link href="http://zh.lucida.me/blog/categories/reading/atom.xml" rel="self"/>
+  <link href="http://zh.lucida.me/"/>
+  <updated>2014-05-29T14:05:56-07:00</updated>
+  <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何阅读书籍]]></title>
-    <link href="http://lucida.github.io/blog/on-reading-books/"/>
+    <link href="http://zh.lucida.me/blog/on-reading-books/"/>
     <updated>2014-03-15T13:05:35-07:00</updated>
-    <id>http://lucida.github.io/blog/on-reading-books</id>
+    <id>http://zh.lucida.me/blog/on-reading-books</id>
     <content type="html"><![CDATA[<h2>摘要</h2>
 
 <p>这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。</p>

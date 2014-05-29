@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://lucida.github.io/sitemap.xml 
+Sitemap: http://zh.lucida.me/sitemap.xml 

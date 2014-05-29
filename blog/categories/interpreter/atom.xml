@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Interpreter | Lucida]]></title>
-  <link href="http://lucida.github.io/blog/categories/interpreter/atom.xml" rel="self"/>
-  <link href="http://lucida.github.io/"/>
-  <updated>2014-05-29T13:58:27-07:00</updated>
-  <id>http://lucida.github.io/</id>
+  <link href="http://zh.lucida.me/blog/categories/interpreter/atom.xml" rel="self"/>
+  <link href="http://zh.lucida.me/"/>
+  <updated>2014-05-29T14:05:56-07:00</updated>
+  <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
-    <link href="http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp/"/>
+    <link href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/"/>
     <updated>2014-03-23T12:08:35-07:00</updated>
-    <id>http://lucida.github.io/blog/how-to-implement-an-interpreter-in-csharp</id>
+    <id>http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
 <p>解释器, C#, Scheme, 函数式编程</p>
