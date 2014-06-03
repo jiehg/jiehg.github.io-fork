@@ -10,9 +10,9 @@
   <meta name="author" content="Lucida">
 
   
-  <meta name="description" content="关于 本文记录了作者对锤子手机发布会和锤子手机的一点感受，仅代表个人看法，但欢迎评论。 原文作者： Lucida Blog
+  <meta name="description" content="关于 这篇文章简要介绍了苹果于WWDC 2014发布的编程语言——Swift。 原文作者： Lucida Blog
 新浪微博
-豆瓣 原文链接：http://zh.lucida.me/blog/on-the-keynote-of-t-one/ 重复 演讲（或说服）有一个要点是重复， &hellip;">
+豆瓣 转载前请保留出处链接，谢谢。 前言 在这里我认为有必要提一下Brec Victor的Inventing on Principle， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +69,93 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/an-introduction-to-swift/">来自苹果的编程语言——Swift简介</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-02T18:22:19-07:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
+        
+           | <a href="/blog/an-introduction-to-swift/#disqus_thread"
+             data-disqus-identifier="http://zh.lucida.me/blog/an-introduction-to-swift/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>关于</h2>
+
+<p>这篇文章简要介绍了苹果于<a href="https://developer.apple.com/wwdc/">WWDC 2014</a>发布的编程语言——Swift。</p>
+
+<p>原文作者：</p>
+
+<ul>
+<li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
+<li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
+<li><a href="http://www.douban.com/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p>转载前请保留出处链接，谢谢。</p>
+
+<h2>前言</h2>
+
+<p>在这里我认为有必要提一下<a href="http://worrydream.com/">Brec Victor</a>的<a href="http://vimeo.com/36579366">Inventing on Principle</a>，Swift编程环境的大部分概念都源自于<a href="http://worrydream.com/">Brec</a>这个演讲。</p>
+
+<p>接下来进入正题。</p>
+
+<h2>Swift是什么？</h2>
+
+<p>Swift是苹果于WWDC 2014发布的编程语言，这里引用<strong><a href="https://itunes.apple.com/gb/book/swift-programming-language/id881256329?mt=11">The Swift Programming Language</a></strong>的原话：</p>
+
+<blockquote><p>Swift is a new programming language for iOS and OS X apps that builds on the best of C and Objective-C, without the constraints of C compatibility.</p>
+
+<p>Swift adopts safe programming patterns and adds modern features to make programming easier, more flexible and more fun.</p>
+
+<p>Swift&rsquo;s clean slate, backed by the mature and much-loved Cocoa and Cocoa Touch frameworks, is an opportunity to imagine how software development works.</p>
+
+<p>Swift is the first industrial-quality systems programming language that is as expressive and enjoyable as a scripting language.</p></blockquote>
+
+<p>简单的说：</p>
+
+<ol>
+<li>Swift用来写iOS和OS X程序。（估计也不会支持其它屌丝系统）</li>
+<li>Swift吸取了C和Objective-C的优点，且更加强大易用。</li>
+<li>Swift可以使用现有的Cocoa和Cocoa Touch框架。</li>
+<li>Swift兼具编译语言的高性能（Performance）和脚本语言的交互性（Interactive）。</li>
+</ol>
+
+
+<h2>Swift语言概览</h2>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/an-introduction-to-swift/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -641,80 +728,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/on-suppressing-the-internet-addiction/">网络上瘾及其解决方法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-09T10:14:28-07:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
-        
-           | <a href="/blog/on-suppressing-the-internet-addiction/#disqus_thread"
-             data-disqus-identifier="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>症状</h2>
-
-<h3>起床后</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人，大概20分钟。</p>
-
-<h3>工作中</h3>
-
-<p>大概每隔半小时刷一下微博或论坛，点进去看两分钟再切回来。</p>
-
-<h3>睡觉前</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人->草榴（-_-），大概30分钟。</p>
-
-<h2>原因</h2>
-
-<h3>智能手机带来的极其便利的信息可访问性</h3>
-
-<p>平板和智能手机使互联网的可访问性（accessibility）提升了至少两个数量级——三年前我的NOKIA E51只能在WIFI环境下浏览简单的文字信息，而现在我的iPhone5可以无时无刻的阅读/观看互联网上几乎所有的信息，得益于4G，即便是包含大量图片甚至视频的信息也可以轻松阅读。</p>
-
-<h3>碎片化时间不知如何处理</h3>
-
-<p>无论是工作还是学习，都会有疲倦或无聊的时刻，大概10分钟左右。</p>
-
-<p>微博这种碎片化信息的出现正好填补了碎片化时间。但比较恶心的是这种东西会上瘾——慢慢的它会占据越来越多的时间：清晨，睡眠甚至路上和正常阅读的时间。</p>
-
-<h3>长时间从事同一种工作带来的无聊感</h3>
-
-<p>无论多么有激情有兴趣，长时间从事同一种工作总会无聊的，低智力门槛的社交网络就成了一个打发时间的好选择。</p>
-
-<p>然后时间就都耗里面了。-_&ndash;</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/on-suppressing-the-internet-addiction/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -737,6 +750,10 @@
 </section><section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/an-introduction-to-swift/">来自苹果的编程语言——Swift简介</a>
+      </li>
     
       <li class="post">
         <a href="/blog/on-the-keynote-of-t-one/">关于锤子手机和锤子手机发布会</a>
@@ -766,15 +783,11 @@
         <a href="/blog/on-reading-books/">如何阅读书籍</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/on-suppressing-the-internet-addiction/">网络上瘾及其解决方法</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (1)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/essay'>Essay (9)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (2)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (7)</a></li><li><a href='/blog/categories/technology'>Technology (6)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (1)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/essay'>Essay (9)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (3)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (7)</a></li><li><a href='/blog/categories/technology'>Technology (7)</a></li></ul>
 </section>
   
 </aside>
