@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-02T18:45:45-07:00</updated>
+  <updated>2014-06-02T18:56:36-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -674,7 +674,7 @@
 </ol>
 
 
-<p>如果不需要计算属性的值，但需要在赋值前后进行一些操作的话，使用<code>willSet</code>和<code>didSet</code>。</p>
+<p>如果不需要计算属性的值，但需要在赋值前后进行一些操作的话，使用<code>willSet</code>和<code>didSet</code>：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
