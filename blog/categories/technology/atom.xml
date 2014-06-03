@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-02T18:39:15-07:00</updated>
+  <updated>2014-06-02T18:45:45-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -27,7 +27,7 @@
 <ul>
 <li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
 <li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
-<li><a href="http://www.douban.com/figure9/">豆瓣</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
 </ul>
 
 
@@ -887,7 +887,7 @@ anyCommonElements([1, 2, 3], [3])
 <ul>
 <li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
 <li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
-<li><a href="http://www.douban.com/figure9/">豆瓣</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
 </ul>
 
 
