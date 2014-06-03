@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-02T18:56:36-07:00</updated>
+  <updated>2014-06-03T15:25:52-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -35,7 +35,7 @@
 
 <h2>前言</h2>
 
-<p>在这里我认为有必要提一下<a href="http://worrydream.com/">Brec Victor</a>的<a href="http://vimeo.com/36579366">Inventing on Principle</a>，Swift编程环境的大部分概念都源自于<a href="http://worrydream.com/">Brec</a>这个演讲。</p>
+<p>在这里我认为有必要提一下<a href="http://worrydream.com/">Bret Victor</a>的<a href="http://vimeo.com/36579366">Inventing on Principle</a>，Swift编程环境的大部分概念都源自于<a href="http://worrydream.com/">Brec</a>这个演讲。</p>
 
 <p>接下来进入正题。</p>
 
@@ -101,7 +101,7 @@ let explicitDouble : Double = 70
 <p><code>csharp
 let label = "The width is "
 let width = 94
-let width = label + String(width)
+let labelWidth = label + String(width)
 </code></p>
 
 <h4>字符串格式化</h4>
@@ -112,7 +112,7 @@ let width = label + String(width)
 let apples = 3
 let oranges = 5
 let appleSummary = "I have \(apples) apples."
-let appleSummary = "I have \(apples + oranges) pieces of fruit."
+let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 </code></p>
 
 <h3>数组和字典</h3>
@@ -872,7 +872,7 @@ anyCommonElements([1, 2, 3], [3])
 
 <p>我指的是编程教育。现有编程语言最大的问题就是交互性奇差，从而导致学习曲线陡峭。相信Swift及其交互性极强的编程环境能够打破这个局面，让更多的人——尤其是青少年，学会编程。</p>
 
-<p>这里有必要再次提到<a href="http://worrydream.com/">Brec Victor</a>的<a href="http://vimeo.com/36579366">Inventing on Principle</a>，看了这个视频你就会明白一个交互性强的编程环境能够带来什么。</p>
+<p>这里有必要再次提到<a href="http://worrydream.com/">Bret Victor</a>的<a href="http://vimeo.com/36579366">Inventing on Principle</a>，看了这个视频你就会明白一个交互性强的编程环境能够带来什么。</p>
 
 <h4>应用开发</h4>
 
