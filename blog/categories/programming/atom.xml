@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-02T18:33:32-07:00</updated>
+  <updated>2014-06-02T18:39:15-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -165,7 +165,7 @@ for score in individualScores {</p>
 
 <h4>可空类型</h4>
 
-<p>结合<code>if</code>和<code>let</code>，可以方便的处理可能为空值的变量。对于空值，需要在类型声明后添加<code>?</code>显式标明该类型可空。</p>
+<p>结合<code>if</code>和<code>let</code>，可以方便的处理可空变量（nullable variable）。对于空值，需要在类型声明后添加<code>?</code>显式标明该类型可空。</p>
 
 <p>```csharp
 var optionalString: String? = &ldquo;Hello&rdquo;
@@ -260,7 +260,7 @@ do {</p>
 m
 ```</p>
 
-<p>Swift支持传统的<code>for</code>循环，此外也可以通过结合<code>..</code>（生成一个区间（range））和<code>for-in</code>实现同样逻辑。</p>
+<p>Swift支持传统的<code>for</code>循环，此外也可以通过结合<code>..</code>（生成一个区间）和<code>for-in</code>实现同样的逻辑。</p>
 
 <p>```csharp
 var firstForLoop = 0
@@ -312,7 +312,7 @@ func getGasPrices() &ndash;> (Double, Double, Double) {</p>
 getGasPrices()
 ```</p>
 
-<p>Swift支持带有变长参数的函数：</p>
+<p>支持带有变长参数的函数：</p>
 
 <p>```csharp
 func sumOf(numbers: Int&hellip;) &ndash;> Int {</p>
@@ -329,7 +329,7 @@ sumOf()
 sumOf(42, 597, 12)
 ```</p>
 
-<p>函数可以嵌套函数：</p>
+<p>函数也可以嵌套函数：</p>
 
 <p>```csharp
 func returnFifteen() &ndash;> Int {</p>
@@ -386,7 +386,7 @@ hasAnyMatches(numbers, lessThanTen)
 
 <h4>闭包</h4>
 
-<p>本质来说，函数是特殊的闭包，可以利用<code>{}</code>声明匿名闭包：</p>
+<p>本质来说，函数是特殊的闭包，Swift中可以利用<code>{}</code>声明匿名闭包：</p>
 
 <p>```csharp
 numbers.map({</p>
@@ -616,15 +616,15 @@ case Jack, Queen, King
     func simpleDescription() -&gt; String {
     switch self {
         case .Ace:
-        return "ace"
+            return "ace"
         case .Jack:
-        return "jack"
+            return "jack"
         case .Queen:
-        return "queen"
+            return "queen"
         case .King:
-        return "king"
+            return "king"
         default:
-        return String(self.toRaw())
+            return String(self.toRaw())
     }
 }
 </code></pre>

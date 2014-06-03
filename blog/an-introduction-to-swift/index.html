@@ -268,7 +268,7 @@
 
 <h4>可空类型</h4>
 
-<p>结合<code>if</code>和<code>let</code>，可以方便的处理可能为空值的变量。对于空值，需要在类型声明后添加<code>?</code>显式标明该类型可空。</p>
+<p>结合<code>if</code>和<code>let</code>，可以方便的处理可空变量（nullable variable）。对于空值，需要在类型声明后添加<code>?</code>显式标明该类型可空。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -380,7 +380,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Swift支持传统的<code>for</code>循环，此外也可以通过结合<code>..</code>（生成一个区间（range））和<code>for-in</code>实现同样逻辑。</p>
+<p>Swift支持传统的<code>for</code>循环，此外也可以通过结合<code>..</code>（生成一个区间）和<code>for-in</code>实现同样的逻辑。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -439,7 +439,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Swift支持带有变长参数的函数：</p>
+<p>支持带有变长参数的函数：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -462,7 +462,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>函数可以嵌套函数：</p>
+<p>函数也可以嵌套函数：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -539,7 +539,7 @@
 
 <h4>闭包</h4>
 
-<p>本质来说，函数是特殊的闭包，可以利用<code>{}</code>声明匿名闭包：</p>
+<p>本质来说，函数是特殊的闭包，Swift中可以利用<code>{}</code>声明匿名闭包：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -873,15 +873,15 @@
 </span><span class='line'>        <span class="n">func</span> <span class="nf">simpleDescription</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">switch</span> <span class="n">self</span> <span class="p">{</span>
 </span><span class='line'>            <span class="k">case</span> <span class="p">.</span><span class="n">Ace</span><span class="p">:</span>
-</span><span class='line'>            <span class="k">return</span> <span class="s">&quot;ace&quot;</span>
+</span><span class='line'>                <span class="k">return</span> <span class="s">&quot;ace&quot;</span>
 </span><span class='line'>            <span class="k">case</span> <span class="p">.</span><span class="n">Jack</span><span class="p">:</span>
-</span><span class='line'>            <span class="k">return</span> <span class="s">&quot;jack&quot;</span>
+</span><span class='line'>                <span class="k">return</span> <span class="s">&quot;jack&quot;</span>
 </span><span class='line'>            <span class="k">case</span> <span class="p">.</span><span class="n">Queen</span><span class="p">:</span>
-</span><span class='line'>            <span class="k">return</span> <span class="s">&quot;queen&quot;</span>
+</span><span class='line'>                <span class="k">return</span> <span class="s">&quot;queen&quot;</span>
 </span><span class='line'>            <span class="k">case</span> <span class="p">.</span><span class="n">King</span><span class="p">:</span>
-</span><span class='line'>            <span class="k">return</span> <span class="s">&quot;king&quot;</span>
+</span><span class='line'>                <span class="k">return</span> <span class="s">&quot;king&quot;</span>
 </span><span class='line'>            <span class="k">default</span><span class="p">:</span>
-</span><span class='line'>            <span class="k">return</span> <span class="nf">String</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">toRaw</span><span class="p">())</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nf">String</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">toRaw</span><span class="p">())</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
