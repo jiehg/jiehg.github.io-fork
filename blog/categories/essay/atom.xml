@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-03T15:25:52-07:00</updated>
+  <updated>2014-06-06T15:13:51-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,120 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[设计中的设计——0. Prologue]]></title>
+    <link href="http://zh.lucida.me/blog/design-of-design-0-prologue/"/>
+    <updated>2014-06-06T15:06:06-07:00</updated>
+    <id>http://zh.lucida.me/blog/design-of-design-0-prologue</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/design-of-design-0-prologue/">原文链接</a></p>
+
+<h2>关于</h2>
+
+<p>“设计中的设计”是一个博文系列，我打算在这个系列记录我所见过的优秀设计和优秀设计原则，并推荐一些（我认为）不错的设计书籍。</p>
+
+<p>在“<strong>设计</strong>中的<strong>设计</strong>”里，第一个<strong>设计</strong>指具有杰出设计的优秀产品，而第二个<em>设计</em>指优秀产品具有的杰出设计。</p>
+
+<p>此外，副标题里使用<strong>Prologue</strong>，主要是因为我接下来提到的产品（设计）大多没有中文名——为了一致，我决定在这一系列所有文章的副标题中统一使用英文。</p>
+
+<p>最后，这一系列博文和原研哉的<a href="http://book.douban.com/subject/1336111/">設計中的設計</a>无关，尽管它们名字相同。</p>
+
+<h2>为什么要写这个系列？</h2>
+
+<p>作为一个码农，按理说我应该和设计绝缘——设计是美工的事情嘛，码农负责写好代码就成。事实上我之前也一直这么认为。</p>
+
+<!-- more -->
+
+
+<p>但在三年前我这个看法被动摇了——2011年是国内移动互联网井喷的一年，随着iPhone及其模仿者的大行其道，曾经的手机王者Nokia被迅速的淘汰出市场；随着手机应用开发门槛的降低（从Symbian到iOS或Android），各种手机应用喷涌而出。</p>
+
+<p>在这段时间我编写了一些手机应用，并通过QQ群，邮件列表以及论坛等渠道直接与用户交流，在这个过程中，我悲观的发现用户的思维模式和我（开发者）的思维模式完全不同，我认为理所当然的东西他们认为不可理喻，反之亦然。</p>
+
+<p>在那段时间里我一度绝望的认为所有的用户都是神经病、弱智或是某些代谢产物，后来在Microsoft ATC实习时结识了几个设计师朋友（<a href="http://weibo.com/u/3848053360">@Xing</a>和<a href="http://weibo.com/u/2104950751">@Yan</a>），我向他们大吐苦水，他们则非常腹黑的讲了一个笑话：</p>
+
+<blockquote><p>丈夫驾车出门。妻子在家听广播，听到一则报道，妻子连忙拿起电话。</p>
+
+<p>妻子：老公啊，我刚听广播上说，高速公路上有一辆车在逆行，你千万要小心。</p>
+
+<p>老公：哪是一辆啊，我看有好几百辆车都在逆行。</p></blockquote>
+
+<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/hei.png" alt="黑" /></p>
+
+<p>被善意的黑出翔之后，我认为我不能这样一直逆行下去——于是我开始天天死皮赖脸的向他们请教：从设计的原则，到设计的书籍，再到用户的心理，我强迫自己跳出码农的思维模式，像正常人一样思考。</p>
+
+<p>感谢他们的指导，尽管我无法成为像他们一样专业的优秀设计师，但我形成了一个大体的设计观：比如一个好设计应该是什么样子，而一个烂设计又应该是什么样子。</p>
+
+<p>在这个设计观的指引下，接下来我编写的手机应用都获得了不错的评价（几乎全五星），在做私活时也总能做出令客户满意的产品。</p>
+
+<h2>优秀的产品&amp;杰出的设计</h2>
+
+<p>在朋友的推荐下，最近把《道德经》看了一遍，我认为《道德经》里面的一段文字可以套用在产品和设计上：</p>
+
+<blockquote><p>太上，不知有之；</p>
+
+<p>其次，亲而誉之；</p>
+
+<p>其次，畏之；</p>
+
+<p>其次，侮之；</p>
+
+<p>信不足焉，有不信焉。</p>
+
+<p>—— 《道德经》 十七章</p></blockquote>
+
+<p>把上面的文字应用到产品和设计：</p>
+
+<ul>
+<li>优秀的设计使用户专注于产品本身，而忽略设计的存在。（例如Google（搜索引擎）和iPad）</li>
+<li>不错的设计使用户感到舒适，用户会称赞它的设计。（例如iPod Classic，<a href="http://www.parrot.com/zik/uk/">Parrot Zik</a>和Amazon Kindle）</li>
+<li>马虎的设计使用户感到不适，用户很难掌握产品的功能。（例如早期版本的Microsoft Office，vim编辑器和JavaScript语言）</li>
+<li>糟糕的设计会毁掉一个产品，用户会把产品和产品的设计骂出翔。（例如Nokia的Symbian触屏手机和绝大多数Linux桌面系统）</li>
+</ul>
+
+
+<p>需要注意，我在上面列举的产品都具有强大的功能——它们有的成功，有的失败，区别就在于设计。</p>
+
+<h2>The Inmates are Running the Asylum</h2>
+
+<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/inmates_asylum.jpg" alt="The Inmates are Running the Asylum" /></p>
+
+<p><a href="http://www.amazon.com/The-Inmates-Are-Running-Asylum/dp/0672326140/">The Inmates are Running the Asylum</a>的全名是：The Inmates Are Running the Asylum : Why High Tech Products Drive Us Crazy and How to Restore the Sanity，直译成中文是：疯子开精神病院（为什么高科技产品总让我们抓狂以及如何打破这个窘境），可能是这个书名太惊悚，所以它的中文书名被分别译为<a href="http://book.douban.com/subject/1237849/">软件创新之路</a>（第一版）和<a href="http://book.douban.com/subject/1493316/">交互设计之路</a>（第二版）。</p>
+
+<p>在这本书中，VB的创造者Alan Cooper创造性的把所有程序员黑了一遍——让程序员创造面向用户的软件，等价于让一群疯子开精神病院——因为能成为程序员的人思维本身就不正常：</p>
+
+<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/ynm3000.png" alt="要你命3000" /></p>
+
+<p>这是<a href="http://movie.douban.com/subject/1307739/">达文西</a>发明的要你命3000。</p>
+
+<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/crazy_app.jpg" alt="要你命3000000000" /></p>
+
+<p>这是程序员发明的要你命3000000000。</p>
+
+<p>当然这本书不只是为了黑程序员，作者花了大量篇幅解释为什么现在的产品随着科技含量的提高反而愈发不好用，并提出了<a href="http://en.wikipedia.org/wiki/Interaction_design#Goal-oriented_design">认知摩擦（Cognitive friction）</a>、<a href="http://www.slideshare.net/PublishingTechnology/dancing-bears-pubtech">跳舞的熊（Dancing bear）</a>以及逻辑人（Homo logicus）等令人耳目一新的概念。总而言之，<a href="http://en.wikipedia.org/wiki/Interaction_design">交互设计（Interaction Design）</a>对于软件开发必不可少。</p>
+
+<p>如果你是一个想做出好产品的程序员（码农），那么这本书值得一读——它会打破你现有的观念，让你意识到优秀的产品需要设计。就像我的朋友讲的那个笑话，它会让你意识到<strong>是你在逆行，而不是你面前的几百辆车在逆行。</strong></p>
+
+<p>（未完待续）</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/design-of-design-0-prologue/">原文链接</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
@@ -2482,278 +2596,6 @@ Code Complete：软件构建全程最佳实践指南。
 <li>尝试旅行（例如在周末去荷兰、芬兰或瑞典进行两日游）。</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[TARQIE——一种量化成长的方法（上）]]></title>
-    <link href="http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach/"/>
-    <updated>2014-03-02T15:31:27-08:00</updated>
-    <id>http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach</id>
-    <content type="html"><![CDATA[<h2>问题</h2>
-
-<p>工作到现在大概三个多月，但始终感觉有些不对——没有之前高速成长的感觉，换句话说，就是感觉自己相比三个月之前没有多大进步。</p>
-
-<p>这是一个很危险的讯息——如果三个月还没感受到实质性的成长，那么就相当于倒退，尤其还是在Google这种奇人遍地的公司。</p>
-
-<p>反复思考后发现自己现在掉到几个怪圈里——</p>
-
-<h3>选择瘫痪（Analysis Paralysis）</h3>
-
-<ol>
-<li>想做事情A，做了一小半。</li>
-<li>想做事情B。</li>
-<li>发现事情C也有必要搞。</li>
-<li>结果A，B，C都没有搞定。</li>
-<li>陷入深深的自责。</li>
-<li>回到步骤A。</li>
-</ol>
-
-
-<h3>呆滞沉浸（Dumb Dump）</h3>
-
-<ol>
-<li>看着电脑屏幕发呆。</li>
-<li>或者不停的刷微博。</li>
-<li>或者开始看一部早已经看过的美剧。</li>
-<li>或者撸来撸去。</li>
-<li>总之就是一种知道不该继续但又停不下来的感觉。-_&ndash;</li>
-</ol>
-
-
-<h3>拖延（Procrastination）</h3>
-
-<ol>
-<li>无法持续一件事情。（比如看书或是锻炼）</li>
-<li>缺乏行动力，做事之前束手束脚。</li>
-</ol>
-
-
-<h2>分析</h2>
-
-<p>回想自己过去并不是这个样子——不断成长（Continuous Growing）是自己过去几年的关键字，某种上来所自己有一种强迫症，极端的说：</p>
-
-<blockquote><p>如果自己大脑里面一半都是半年以前的东西，那么证明自己这半年什么都没做。</p></blockquote>
-
-<!-- more -->
-
-
-<p>但自己现在处于一个更好的环境，没有理由比之前做的差。于是我决定从之前的成功经历里找到答案，试着用简短的关键字回顾自己前10年的几个关键点：</p>
-
-<h3>关键点（Milestones）</h3>
-
-<h4>高考</h4>
-
-<ul>
-<li>目标
-
-<ol>
-<li>考上一个不错的大学。</li>
-</ol>
-</li>
-<li>量化
-
-<ol>
-<li>考到年级60名以内。</li>
-<li>或者是班级第一。</li>
-</ol>
-</li>
-<li>改进
-
-<ol>
-<li>海量习题练习。</li>
-<li>规律作息。</li>
-<li>每天至少踢腿二十分钟。</li>
-</ol>
-</li>
-<li>验证
-
-<ol>
-<li>月考成绩。</li>
-<li>模拟成绩。</li>
-</ol>
-</li>
-</ul>
-
-
-<h4>考研</h4>
-
-<ul>
-<li>目标
-
-<ol>
-<li>考上北航计算机系。</li>
-</ol>
-</li>
-<li>量化
-
-<ol>
-<li>超过提档线50分。</li>
-</ol>
-</li>
-<li>改进
-
-<ol>
-<li>海量习题练习。</li>
-<li>规律作息。</li>
-<li>禁欲（即停止手淫，保存精力）。</li>
-</ol>
-</li>
-<li>验证
-
-<ol>
-<li>前期：监测学习进度。</li>
-<li>后期：各种模拟试卷，给自己打分。</li>
-</ol>
-</li>
-</ul>
-
-
-<h4>找工作</h4>
-
-<ul>
-<li>目标
-
-<ol>
-<li>找到一个不错的外企工作。</li>
-</ol>
-</li>
-<li>量化
-
-<ol>
-<li>解答Top Coder D2L1和D1L2区段的题目。</li>
-<li>在纸上流畅写出可运行的算法C代码。</li>
-</ol>
-</li>
-<li>改进
-
-<ol>
-<li>每天练习Top Coder一道大题，若干道小题。</li>
-<li>用EOP的思路编写纸上代码。</li>
-</ol>
-</li>
-<li>验证
-
-<ol>
-<li>找到MS正式员工为自己做模拟面试+评估。</li>
-<li>独立解答CareerCup上7成以上的编程题目。</li>
-<li>不断拿到新的Offer。</li>
-</ol>
-</li>
-</ul>
-
-
-<h3>总结</h3>
-
-<p>我惊奇的发现自己找到了一个和《机器学习》里几乎雷同的模型：</p>
-
-<ul>
-<li>目标（TARget）：一个清晰的目标。</li>
-<li>量化（Quantization）：该目标可以被量化成具体数据。</li>
-<li>改进（Improvement）：有一种或几种改进途径不断接近目标。</li>
-<li>验证（Evaluation）：有一种或几种验证方法确认（Verify）自己正在接近目标。</li>
-</ul>
-
-
-<p>综合到一起——TARQIE，即标题里这个奇怪的词汇（很高兴这个词压根不存在）。</p>
-
-<h2>应用</h2>
-
-<p>根据自己的现状，对自己的工作和生活（或学习），分别创建对应的Tarqie模型，这里我称其为Tarqie-J（ob）和Tarqie-L（ife）。</p>
-
-<h3>Tarqie-J</h3>
-
-<ul>
-<li>目标
-
-<ol>
-<li>高效完成Q1 OKR。</li>
-</ol>
-</li>
-<li>量化
-
-<ol>
-<li>成功迁移124个Test。</li>
-<li>为这些Test配置一个可稳定运行的环境。</li>
-</ol>
-</li>
-<li>改进
-
-<ol>
-<li>恬着脸皮向不同的同事请教。</li>
-<li>理解当前Test的架构和流程。</li>
-<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。</li>
-<li>阅读Java Best Practices和Effective Java。</li>
-<li>阅读Java Performance，了解JVM。</li>
-</ol>
-</li>
-<li>验证
-
-<ol>
-<li>每周与mentor交流，进行进度控制/难点求助。</li>
-<li>Test的数量不断增加。</li>
-<li>CL中review的数量持续降低。</li>
-<li>逐步理解项目代码背后的机理。</li>
-</ol>
-</li>
-</ul>
-
-
-<h3>Tarqie-L</h3>
-
-<ul>
-<li>目标
-
-<ol>
-<li>提高精力，理解Python。</li>
-</ol>
-</li>
-<li>量化
-
-<ol>
-<li>精力提高（自然醒，不赖床）。</li>
-<li>熟悉Python及其实现。</li>
-<li>理解4个开源项目的架构。</li>
-</ol>
-</li>
-<li>改进
-
-<ol>
-<li>早睡早起（11:30 PM ~ 8:30 AM）+每天运动20分钟。</li>
-<li>阅读相关技术书籍（Python源码剖析，开源项目架构等）。</li>
-<li>增强学习能力（阅读《Study Less, Learn More》）</li>
-<li>控制手淫频率至两周一次。</li>
-</ol>
-</li>
-<li>验证
-
-<ol>
-<li>早睡早起+运动不间断。</li>
-<li>学习能力增强（+系统学习能力）。</li>
-<li>逐步理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。</li>
-<li>每周理解1个开源项目的架构。</li>
-</ol>
-</li>
-</ul>
-
-
-<h2>实验</h2>
-
-<h3>内容</h3>
-
-<p>在接下来的一个月（2014年3月），分别应用Tarqie-J和Tarqie-L到自己的工作和学习中。</p>
-
-<h3>假设</h3>
-
-<ol>
-<li>效率比之前提升50%。</li>
-<li>掌握两样新技能。</li>
-</ol>
-
-
-<h3>实验开始</h3>
-
-<h2>未完待续</h2>
 ]]></content>
   </entry>
   
