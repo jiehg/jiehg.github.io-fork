@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Retrospection | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/retrospection/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-06T15:54:28-07:00</updated>
+  <updated>2014-06-23T23:26:09+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,120 @@
 
   
   <entry>
+    <title type="html"><![CDATA[关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX]]></title>
+    <link href="http://zh.lucida.me/blog/on-programming-errors-0/"/>
+    <updated>2014-06-23T23:14:42+01:00</updated>
+    <id>http://zh.lucida.me/blog/on-programming-errors-0</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p>这是一个系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<p>原本我计划在一篇文章完成所有内容，然而随着写作的深入，我发现文章的篇幅越来越长——考虑到可读性，我决定将这篇文章拓展为一个系列，计划如下：</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li>A Taxonomy of Programming Errors</li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems.</li>
+<li>Epilogue</li>
+</ol>
+
+
+<!-- more -->
+
+
+<h2>免责声明（Disclaimer）</h2>
+
+<p>几天前我在知乎上读到一篇关于Swift的<a href="http://www.zhihu.com/question/24002984">讨论</a>：</p>
+
+<p>胡搅蛮缠</p>
+
+<p><img src="http://i.imgur.com/ezV72EP.png" alt="讨论1" /></p>
+
+<p>无知者无畏</p>
+
+<p><img src="http://i.imgur.com/XXo9TlC.png" alt="讨论2" /></p>
+
+<p>为了避免无谓的讨论，如果您认为iPhone系统闹钟可以用200行代码搞定，或者觉着Python适合编写大型项目，那么这个系列不适合您阅读。</p>
+
+<h2>编程错误（Programming Errors）</h2>
+
+<p>作为软件开发者，我自己写过一些微型程序（500行左右）和一些中小型应用（5'000~20'000行），实习时做过一些小项目（2'000行左右），到现在参与大型项目（100'000行以上）。如果让我总结这些项目的共同点，那么就是我在这些项目里都犯了各式各样的错误——小到喜闻乐见的"烫烫烫烫烫烫烫烫"，大到破坏整个应用兼容性导致上千用户流失，有的错误很愚蠢，有的错误则是聪明反被聪明误。</p>
+
+<p>不过我可以安慰自己，因为我并非孤独——计算机程序向来以错误百出而臭名昭著，以至于计算机先驱<a href="http://en.wikipedia.org/wiki/Grace_hopper">Grace Hopper</a>近乎自嘲的为计算机程序错误取了一个别名——Bug。在之后的六十余年，Bug和其衍生词Debug一直是了所有程序员的梦魇。</p>
+
+<p>Grace Hopper发现的“Bug”</p>
+
+<p><img src="http://i.imgur.com/m36RhHW.jpg" alt="第一个Bug" /></p>
+
+<p>随着经验的累积，我隐隐感觉到这些编程错误有一定的规律，因为我开始发现一些错误似乎在哪里见过，于是我开始寻找这方面的书籍和文献，以控制/减少自己的编程错误。</p>
+
+<blockquote><p>Those who cannot remember the past are condemned to repeat it.</p>
+
+<p>George Santayana</p></blockquote>
+
+<p>然后我找到了<a href="http://en.wikipedia.org/wiki/Donald_Knuth">Knuth</a>的<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>。</p>
+
+<h2>the Errors of TEX</h2>
+
+<h3>背景</h3>
+
+<p><img src="http://i.imgur.com/UF1uTSy.jpg" alt="Knuth" /></p>
+
+<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的[TAOCP]七卷本（未完成），但对Knuth开发的[TEX]以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
+
+<p><img src="http://i.imgur.com/3HzERY5.jpg" alt="TAOCP" /></p>
+
+<p>撰写并出版[TAOCP]前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
+
+<p><img src="http://i.imgur.com/e6FqiCM.jpg" alt="TEX" /></p>
+
+<p>不过排版系统并非简单的（Trivial）系统，即便如Knuth此般异禀天赋，也无法从容应付——事实上Knuth在开发TEX的过程中遇到了大量的错误，这些错误从TEX初版（1978年）到<a href="http://tug.org/TUGboat/tb35-1/tb109knut.pdf">最近的一次性能调优</a>（2014年），源源不断，挥之不去。</p>
+
+<p>这些错误让Knuth很头痛，为了理解并控制编程错误，Knuth将这些错误整理到记录日志，并对这些编程错误进行分类，这成为了<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文的基础。</p>
+
+<h3>插曲</h3>
+
+<p>Knuth开发TEX的流程在我等屌丝码农看来绝对匪夷所思，在<a href="http://www.codersatwork.com/">Coders at Work</a>一书对Knuth的访谈里，Knuth提到：</p>
+
+<blockquote><p>When I wrote TeX originally in 1977 and ’78, of course I didn’t have literate programming but I did have structured programming. I wrote it in a big notebook in longhand, in pencil.</p>
+
+<p>Six months later, after I had gone through the whole project, I started typing into the computer. And did the debugging in March of ’78 while I had started writing the program in October of ’77. The code for that is in the Stanford archives—it’s all in pencil—and of course I would come back and change a subroutine as I learned what it should be.</p></blockquote>
+
+<p>尽管有可能是1978年还没有好用的交互编程环境（Interactive Programming Environment），但Knuth六个月纸上设计纸上写代码的开发方式仍可以说是编程史上的一朵奇葩。如果放到今天，Knuth一定会被各路敏捷极限TDD编程<em>高手</em>喷出翔。</p>
+
+<p>插曲到此为止，下篇进入正题——编程错误的分类（A Taxonomy of Programming Errors）。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[设计中的设计——0. Prologue]]></title>
     <link href="http://zh.lucida.me/blog/design-of-design-0-prologue/"/>
-    <updated>2014-06-06T15:06:06-07:00</updated>
+    <updated>2014-06-06T23:06:06+01:00</updated>
     <id>http://zh.lucida.me/blog/design-of-design-0-prologue</id>
     <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -130,7 +241,7 @@
   <entry>
     <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
     <link href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/"/>
-    <updated>2014-05-24T01:33:38-07:00</updated>
+    <updated>2014-05-24T09:33:38+01:00</updated>
     <id>http://zh.lucida.me/blog/on-the-keynote-of-t-one</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -282,7 +393,7 @@
   <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://zh.lucida.me/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T13:43:42-07:00</updated>
+    <updated>2014-05-04T21:43:42+01:00</updated>
     <id>http://zh.lucida.me/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -594,7 +705,7 @@
   <entry>
     <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
     <link href="http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/"/>
-    <updated>2014-04-12T17:53:21-07:00</updated>
+    <updated>2014-04-13T01:53:21+01:00</updated>
     <id>http://zh.lucida.me/blog/levels-on-learning-and-using-technologies</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
@@ -844,357 +955,6 @@
 
 
 <p>以上。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
-    <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T15:24:33-07:00</updated>
-    <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
-    <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
-
-<h3>Tarqie-J</h3>
-
-<ol>
-<li>目标
-
-<ul>
-<li>高效完成Q1 OKR。 &ndash;> 1.0
-
-<ul>
-<li>搞定，超出Manager和Mentor的预期。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>量化
-
-<ul>
-<li>成功迁移124个Test。 &ndash;> 1.0
-
-<ul>
-<li>搞定，并且构建了持续测试环境。</li>
-</ul>
-</li>
-<li>为这些Test配置一个可稳定运行的环境。 &ndash;> 0.8
-
-<ul>
-<li>基本搞定，但仍存在少量（每天1~2次）的不稳定状况。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>改进
-
-<ul>
-<li>恬着脸皮向不同的同事请教。 &ndash;> 1.0
-
-<ul>
-<li>达成——基本每个同事都被我骚扰了一遍 &ndash;_&ndash;</li>
-</ul>
-</li>
-<li>理解当前Test的架构和流程。 &ndash;> 1.0
-
-<ul>
-<li>重建测试框架的过程中了解</li>
-</ul>
-</li>
-<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。 &ndash;> 0.7
-
-<ul>
-<li>部分完成，阅读Google Guice Book，了解了Guice运作机制。</li>
-</ul>
-</li>
-<li>阅读Java Best Practices和Effective Java。 &ndash;> 0.8
-
-<ul>
-<li>部分完成，重新阅读了JBP，但Effective Java只看了一多半。</li>
-</ul>
-</li>
-<li>阅读Java Performance，了解JVM。 &ndash;> 0.7
-
-<ul>
-<li>部分完成，阅读了国产的<a href="http://book.douban.com/subject/24722612/">《深入理解Java虚拟机》</a>，了解Java内存管理/回收，字节码生成等内容。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>验证
-
-<ul>
-<li>每周与mentor交流，进行进度控制/难点求助。 &ndash;> 0.6
-
-<ul>
-<li>由于mentor结婚度蜜月所以没有达成。</li>
-</ul>
-</li>
-<li>Test的数量不断增加。 &ndash;> 1.0
-
-<ul>
-<li>达成——事实上全部搞定。</li>
-</ul>
-</li>
-<li>CL中review的数量持续降低。 &ndash;> 1.0
-
-<ul>
-<li>搞定，成功的从每次提交代码20余个review降至小于6个。</li>
-</ul>
-</li>
-<li>逐步理解项目代码背后的机理。 &ndash;> 0.6
-
-<ul>
-<li>部分搞定，对项目测试框架已经相当了解了（毕竟自己重新搭建了整个框架），但对整个项目的各个模块，交互流程还是一头雾水。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-
-<p>综上所述，得分 0.85</p>
-
-<!-- more -->
-
-
-<h3>Tarqie-L</h3>
-
-<ol>
-<li>目标
-
-<ul>
-<li>提高精力，理解Python。 &ndash;> 0.8
-
-<ul>
-<li>精力小有提高，至于Python——实现机制不太了解，但Python语法和编程风格我现在有足够自信——毕竟写了一个程序解析合法的Python然后生成同等语义的Google风格的Python，再加上身边有一个Python Readability Reviewer，说自己现在达到中级Python开发者的水准应该不为过。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>量化
-
-<ul>
-<li>精力提高（自然醒，不赖床）。 &ndash;> 0.6
-
-<ul>
-<li>自然醒但依然赖床——-_&ndash;</li>
-</ul>
-</li>
-<li>熟悉Python及其实现。 &ndash;> 0.8
-
-<ul>
-<li>部分搞定，见上文。</li>
-</ul>
-</li>
-<li>理解4个开源项目的架构。 &ndash;> 1.0
-
-<ul>
-<li>搞定，见下文。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>改进
-
-<ul>
-<li>早睡早起（11:30 PM ~ 8:30 AM）+每天运动20分钟。 &ndash;> 0.7
-
-<ul>
-<li>早睡早起没做到，运动的频率两周一次。</li>
-</ul>
-</li>
-<li>阅读相关技术书籍（Python源码剖析，开源项目架构等）。 &ndash;> 0.6
-
-<ul>
-<li>部分完成，Python源码剖析只读了第一章，但开源项目架构每周一篇。</li>
-</ul>
-</li>
-<li>增强学习能力（阅读《Study Less, Learn More》） &ndash;> 1.0
-
-<ul>
-<li>完成。</li>
-</ul>
-</li>
-<li>控制手淫频率至两周一次。 &ndash;> 1.0 &ndash;_&ndash;
-
-<ul>
-<li>完成。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>验证
-
-<ul>
-<li>早睡早起+运动不间断。 &ndash;> 0.5
-
-<ul>
-<li>搞定一半。两天运动一次。</li>
-</ul>
-</li>
-<li>学习能力增强（+系统学习能力）。 &ndash;> 1.0
-
-<ul>
-<li>部分做到，但很难验证——不过用十天搞出了另外一个家伙搞了5个月的东西应该能说明部分问题。</li>
-</ul>
-</li>
-<li>逐步理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。 &ndash;> 1.0
-
-<ul>
-<li>没有阅读代码，但完成了一个Python Formatter——把Python代码转换成AST再转换回等语义的<a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">Google Python Style</a>代码。</li>
-</ul>
-</li>
-<li>每周理解1个开源项目的架构。 &ndash;> 1.0
-
-<ul>
-<li>完成——阅读了<a href="http://aosabook.org/en/bash.html">Bash</a>, <a href="http://aosabook.org/en/selenium.html">Selenium WebDriver</a>, <a href="http://aosabook.org/en/posa/high-performance-networking-in-chrome.html">Chrome</a>和<a href="http://aosabook.org/en/posa/parsing-xml-at-the-speed-of-light.html">puginxml</a>。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-
-<p>综上所述，得分 0.8</p>
-
-<h3>成就</h3>
-
-<h4>工作</h4>
-
-<ol>
-<li>构建新的测试环境并迁移原有的测试用例。
-
-<ul>
-<li>各种神坑，Team/MailList/Group/ReadTheFuckingSource。</li>
-<li>manager一度问我是否需要support——想了想还是撑下来了，还好搞定了。</li>
-<li>神奇的发现自己第一次实习时做的也是migration，尼玛难道是轮回？</li>
-</ul>
-</li>
-<li>利用业余时间构建了pyfmt——基于AST的代码格式化工具，生成符合<a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">Google Python Style</a>的等语义代码。
-
-<ul>
-<li>速度是公司工具的6倍到50倍不等（已验证）。</li>
-<li>速度是<a href="https://github.com/hhatto/autopep8">autopep8</a>的3倍到30倍（已验证）。</li>
-<li>生成的代码质量基本等同（待验证）。</li>
-<li>代码量是<a href="https://github.com/hhatto/autopep8">autopep8</a>的二分之一。</li>
-<li>不依赖任何第三方库。</li>
-<li>不使用任何正则表达式——Never send a regex to do a parser&rsquo;s job.</li>
-</ul>
-</li>
-</ol>
-
-
-<h4>生活</h4>
-
-<ol>
-<li>重新实现了自己两年前写的Lucida。
-
-<ul>
-<li>重新设计类型系统，进行尾递归优化。然后完成<a href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/">《90分钟实现一门编程语言——极简解释器教程》</a>，写作之余想通了之前很多迷惑的地方。</li>
-<li>功能基本等同，代码量是前一版的八分之一，运行速度是前一版的270倍（倒不是这一版效率有多高，主要是前一版写的太挫了）</li>
-</ul>
-</li>
-<li><a href="http://zh.lucida.me/blog/on-reading-books/">《如何阅读书籍》</a>和<a href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/">《网络上瘾及其解决方法》</a>两篇议论型博客。</li>
-<li>完整的完成一个引体向上。</li>
-</ol>
-
-
-<h3>阅读列表</h3>
-
-<ul>
-<li><a href="http://book.douban.com/subject/3814402/">The Quick Python Book</a></li>
-<li><a href="http://book.douban.com/subject/25710862/">Getting Started with Google Guava</a></li>
-<li><a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a></li>
-<li><a href="http://book.douban.com/subject/24383461/">网络素养</a></li>
-<li><a href="http://book.douban.com/subject/25783654/">如何高效学习</a></li>
-<li><a href="http://book.douban.com/subject/3009235/">Google Guice</a></li>
-<li><a href="http://aosabook.org/en/index.html">The Architecture of Open Source Applications</a></li>
-</ul>
-
-
-<h3>一些体会</h3>
-
-<ol>
-<li>慢读慎写——读书不是靠页数，代码不是拼行数。</li>
-<li>精益求精——严肃认真对待自己的任何一个项目/作品，每一行代码，每一个细节都应有其意义。</li>
-<li>Don&rsquo;t <a href="http://en.wikipedia.org/wiki/Satisfice">satisfice</a>—— 在时间充裕的情况下，尽力寻找最优解，而不是找到一个答案就满足。</li>
-<li>Have a mentor/coach——无论学习什么，身边要有一个大师级人物，不要盲目相信自学能力——坑大多都是自己挖出来的。</li>
-<li>在合适的抽象层工作（Working at a proper abstraction layer），包括下面几点：
-
-<ul>
-<li>找到与目标最契合的层次：
-
-<ul>
-<li>如果层级过高就会造成性能损失和功能缺失。</li>
-<li>如果层次过低就会变成重造轮子。</li>
-</ul>
-</li>
-<li>总是在同一个层次工作——以避免上下文切换。</li>
-<li>将复杂度封装到各自对应的层次——以避免进行交互——<a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a></li>
-</ul>
-</li>
-</ol>
-
-
-<h3>发现的问题</h3>
-
-<ol>
-<li>3月目标制定的过于宏大——尽管完成度不错，但代价也很大——工作时间从每天8小时增加到10小时，到了后期的阅读时间几乎被缩减到零，接下来会相应的缩小计划目标。</li>
-<li>除了工作就是学习，导致略抑郁——尽管做出的东西带来了一点成就感。总之接下来需要更多的娱乐。</li>
-<li>猛然反应过来所谓的TARQIE其实就是OKR（<a href="http://en.wikipedia.org/wiki/OKR">Objective-Key-Results</a>）——所以接下来直接使用<a href="http://en.wikipedia.org/wiki/OKR">OKR</a>制定计划，更加简洁。</li>
-</ol>
-
-
-<h3>4月计划</h3>
-
-<h3>OKR-J</h3>
-
-<ul>
-<li>目标
-
-<ol>
-<li>完整迁移测试到原项目中。</li>
-<li>稳定+推广pyfmt。</li>
-</ol>
-</li>
-<li>关键结果
-
-<ol>
-<li>成功迁移124个Test到原项目。</li>
-<li>将测试的不稳定性控制在每天3次以下。</li>
-<li>pyfmt通过Python Readability。</li>
-<li>pyfmt有10个以上的用户。</li>
-<li>pyfmt从experimental进入devtools（略激进，但值得一试）。</li>
-</ol>
-</li>
-</ul>
-
-
-<h3>OKR-L</h3>
-
-<ul>
-<li>目标
-
-<ol>
-<li>正常作息，提高精力。</li>
-<li>结合pyfmt，深度理解Python。</li>
-<li>加深对Java &amp; JVM的理解。</li>
-</ol>
-</li>
-<li>关键结果
-
-<ol>
-<li>理解Python各个部分的实现，从源码了解其机制。</li>
-<li>阅读并理解两个以上的开源项目架构。</li>
-<li>完成<a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a>，阅读<a href="http://www.amazon.co.uk/Java-Performance-Addison-Wesley-Charlie-Hunt/dp/0137142528/">《Java Performance》</a>至50%。</li>
-<li>迁移测试的同时完成<a href="http://www.amazon.co.uk/Effective-Unit-Testing-guide-developers/dp/1935182579/">Effective Unit Testing: A guide for Java developers</a>的阅读。</li>
-<li>早睡<em>晚</em>起（8:40 ~ 23:50）</li>
-<li>控制手淫频率至两周一次。</li>
-<li>至少两天一次20分钟的运动。</li>
-</ol>
-</li>
-</ul>
-
 ]]></content>
   </entry>
   

@@ -2,78 +2,82 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://zh.lucida.me/blog/my-first-article/</loc>
-        <lastmod>2014-05-29T13:39:05-07:00</lastmod>
+        <lastmod>2014-05-29T21:39:05+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/about-movie-chinese-dream/</loc>
-        <lastmod>2014-05-29T13:40:02-07:00</lastmod>
+        <lastmod>2014-05-29T21:40:02+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/new-toys-in-london/</loc>
-        <lastmod>2014-05-29T13:40:14-07:00</lastmod>
+        <lastmod>2014-05-29T21:40:14+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/memoirs-on-my-postgraduate-life/</loc>
-        <lastmod>2014-05-29T13:44:56-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:56+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach/</loc>
-        <lastmod>2014-05-29T13:44:49-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:49+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/</loc>
-        <lastmod>2014-05-29T13:44:44-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:44+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/on-reading-books/</loc>
-        <lastmod>2014-05-29T13:44:38-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:38+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/</loc>
-        <lastmod>2014-05-29T13:44:30-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:30+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/summary-of-march-2014/</loc>
-        <lastmod>2014-05-29T13:44:24-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:24+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/</loc>
-        <lastmod>2014-05-29T13:44:18-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:18+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/on-learning-algorithms/</loc>
-        <lastmod>2014-05-29T13:44:11-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/stories-of-masturbations/</loc>
-        <lastmod>2014-05-29T13:44:03-07:00</lastmod>
+        <lastmod>2014-05-29T21:44:03+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/on-the-keynote-of-t-one/</loc>
-        <lastmod>2014-05-29T13:45:11-07:00</lastmod>
+        <lastmod>2014-05-29T21:45:11+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/an-introduction-to-swift/</loc>
-        <lastmod>2014-06-06T15:38:54-07:00</lastmod>
+        <lastmod>2014-06-06T23:38:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/design-of-design-0-prologue/</loc>
-        <lastmod>2014-06-06T15:46:01-07:00</lastmod>
+        <lastmod>2014-06-06T23:46:01+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://zh.lucida.me/blog/on-programming-errors-0/</loc>
+        <lastmod>2014-06-23T23:26:01+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/about/</loc>
-        <lastmod>2014-06-06T15:35:47-07:00</lastmod>
+        <lastmod>2014-06-06T23:35:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/archives/</loc>
-        <lastmod>2014-06-06T15:46:01-07:00</lastmod>
+        <lastmod>2014-06-23T23:26:01+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/</loc>
-        <lastmod>2014-06-06T15:46:01-07:00</lastmod>
+        <lastmod>2014-06-23T23:26:01+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/robots.txt</loc>
-        <lastmod>2014-01-05T09:01:35-08:00</lastmod>
+        <lastmod>2014-01-05T17:01:35+00:00</lastmod>
     </url>
 </urlset>

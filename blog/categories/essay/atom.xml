@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-06T15:54:28-07:00</updated>
+  <updated>2014-06-23T23:26:09+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,120 @@
 
   
   <entry>
+    <title type="html"><![CDATA[关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX]]></title>
+    <link href="http://zh.lucida.me/blog/on-programming-errors-0/"/>
+    <updated>2014-06-23T23:14:42+01:00</updated>
+    <id>http://zh.lucida.me/blog/on-programming-errors-0</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p>这是一个系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<p>原本我计划在一篇文章完成所有内容，然而随着写作的深入，我发现文章的篇幅越来越长——考虑到可读性，我决定将这篇文章拓展为一个系列，计划如下：</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li>A Taxonomy of Programming Errors</li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems.</li>
+<li>Epilogue</li>
+</ol>
+
+
+<!-- more -->
+
+
+<h2>免责声明（Disclaimer）</h2>
+
+<p>几天前我在知乎上读到一篇关于Swift的<a href="http://www.zhihu.com/question/24002984">讨论</a>：</p>
+
+<p>胡搅蛮缠</p>
+
+<p><img src="http://i.imgur.com/ezV72EP.png" alt="讨论1" /></p>
+
+<p>无知者无畏</p>
+
+<p><img src="http://i.imgur.com/XXo9TlC.png" alt="讨论2" /></p>
+
+<p>为了避免无谓的讨论，如果您认为iPhone系统闹钟可以用200行代码搞定，或者觉着Python适合编写大型项目，那么这个系列不适合您阅读。</p>
+
+<h2>编程错误（Programming Errors）</h2>
+
+<p>作为软件开发者，我自己写过一些微型程序（500行左右）和一些中小型应用（5'000~20'000行），实习时做过一些小项目（2'000行左右），到现在参与大型项目（100'000行以上）。如果让我总结这些项目的共同点，那么就是我在这些项目里都犯了各式各样的错误——小到喜闻乐见的"烫烫烫烫烫烫烫烫"，大到破坏整个应用兼容性导致上千用户流失，有的错误很愚蠢，有的错误则是聪明反被聪明误。</p>
+
+<p>不过我可以安慰自己，因为我并非孤独——计算机程序向来以错误百出而臭名昭著，以至于计算机先驱<a href="http://en.wikipedia.org/wiki/Grace_hopper">Grace Hopper</a>近乎自嘲的为计算机程序错误取了一个别名——Bug。在之后的六十余年，Bug和其衍生词Debug一直是了所有程序员的梦魇。</p>
+
+<p>Grace Hopper发现的“Bug”</p>
+
+<p><img src="http://i.imgur.com/m36RhHW.jpg" alt="第一个Bug" /></p>
+
+<p>随着经验的累积，我隐隐感觉到这些编程错误有一定的规律，因为我开始发现一些错误似乎在哪里见过，于是我开始寻找这方面的书籍和文献，以控制/减少自己的编程错误。</p>
+
+<blockquote><p>Those who cannot remember the past are condemned to repeat it.</p>
+
+<p>George Santayana</p></blockquote>
+
+<p>然后我找到了<a href="http://en.wikipedia.org/wiki/Donald_Knuth">Knuth</a>的<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>。</p>
+
+<h2>the Errors of TEX</h2>
+
+<h3>背景</h3>
+
+<p><img src="http://i.imgur.com/UF1uTSy.jpg" alt="Knuth" /></p>
+
+<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的[TAOCP]七卷本（未完成），但对Knuth开发的[TEX]以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
+
+<p><img src="http://i.imgur.com/3HzERY5.jpg" alt="TAOCP" /></p>
+
+<p>撰写并出版[TAOCP]前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
+
+<p><img src="http://i.imgur.com/e6FqiCM.jpg" alt="TEX" /></p>
+
+<p>不过排版系统并非简单的（Trivial）系统，即便如Knuth此般异禀天赋，也无法从容应付——事实上Knuth在开发TEX的过程中遇到了大量的错误，这些错误从TEX初版（1978年）到<a href="http://tug.org/TUGboat/tb35-1/tb109knut.pdf">最近的一次性能调优</a>（2014年），源源不断，挥之不去。</p>
+
+<p>这些错误让Knuth很头痛，为了理解并控制编程错误，Knuth将这些错误整理到记录日志，并对这些编程错误进行分类，这成为了<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文的基础。</p>
+
+<h3>插曲</h3>
+
+<p>Knuth开发TEX的流程在我等屌丝码农看来绝对匪夷所思，在<a href="http://www.codersatwork.com/">Coders at Work</a>一书对Knuth的访谈里，Knuth提到：</p>
+
+<blockquote><p>When I wrote TeX originally in 1977 and ’78, of course I didn’t have literate programming but I did have structured programming. I wrote it in a big notebook in longhand, in pencil.</p>
+
+<p>Six months later, after I had gone through the whole project, I started typing into the computer. And did the debugging in March of ’78 while I had started writing the program in October of ’77. The code for that is in the Stanford archives—it’s all in pencil—and of course I would come back and change a subroutine as I learned what it should be.</p></blockquote>
+
+<p>尽管有可能是1978年还没有好用的交互编程环境（Interactive Programming Environment），但Knuth六个月纸上设计纸上写代码的开发方式仍可以说是编程史上的一朵奇葩。如果放到今天，Knuth一定会被各路敏捷极限TDD编程<em>高手</em>喷出翔。</p>
+
+<p>插曲到此为止，下篇进入正题——编程错误的分类（A Taxonomy of Programming Errors）。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[设计中的设计——0. Prologue]]></title>
     <link href="http://zh.lucida.me/blog/design-of-design-0-prologue/"/>
-    <updated>2014-06-06T15:06:06-07:00</updated>
+    <updated>2014-06-06T23:06:06+01:00</updated>
     <id>http://zh.lucida.me/blog/design-of-design-0-prologue</id>
     <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -130,7 +241,7 @@
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
     <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T15:24:33-07:00</updated>
+    <updated>2014-04-06T23:24:33+01:00</updated>
     <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
 
@@ -481,7 +592,7 @@
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
     <link href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/"/>
-    <updated>2014-03-23T12:08:35-07:00</updated>
+    <updated>2014-03-23T19:08:35+00:00</updated>
     <id>http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
@@ -2199,7 +2310,7 @@ static void Main(String[] cmdArgs) {</p>
   <entry>
     <title type="html"><![CDATA[如何阅读书籍]]></title>
     <link href="http://zh.lucida.me/blog/on-reading-books/"/>
-    <updated>2014-03-15T13:05:35-07:00</updated>
+    <updated>2014-03-15T20:05:35+00:00</updated>
     <id>http://zh.lucida.me/blog/on-reading-books</id>
     <content type="html"><![CDATA[<h2>摘要</h2>
 
@@ -2450,151 +2561,6 @@ Code Complete：软件构建全程最佳实践指南。
 </ul>
 </li>
 </ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
-    <link href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/"/>
-    <updated>2014-03-09T10:14:28-07:00</updated>
-    <id>http://zh.lucida.me/blog/on-suppressing-the-internet-addiction</id>
-    <content type="html"><![CDATA[<h2>症状</h2>
-
-<h3>起床后</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人，大概20分钟。</p>
-
-<h3>工作中</h3>
-
-<p>大概每隔半小时刷一下微博或论坛，点进去看两分钟再切回来。</p>
-
-<h3>睡觉前</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人->草榴（-_-），大概30分钟。</p>
-
-<h2>原因</h2>
-
-<h3>智能手机带来的极其便利的信息可访问性</h3>
-
-<p>平板和智能手机使互联网的可访问性（accessibility）提升了至少两个数量级——三年前我的NOKIA E51只能在WIFI环境下浏览简单的文字信息，而现在我的iPhone5可以无时无刻的阅读/观看互联网上几乎所有的信息，得益于4G，即便是包含大量图片甚至视频的信息也可以轻松阅读。</p>
-
-<h3>碎片化时间不知如何处理</h3>
-
-<p>无论是工作还是学习，都会有疲倦或无聊的时刻，大概10分钟左右。</p>
-
-<p>微博这种碎片化信息的出现正好填补了碎片化时间。但比较恶心的是这种东西会上瘾——慢慢的它会占据越来越多的时间：清晨，睡眠甚至路上和正常阅读的时间。</p>
-
-<h3>长时间从事同一种工作带来的无聊感</h3>
-
-<p>无论多么有激情有兴趣，长时间从事同一种工作总会无聊的，低智力门槛的社交网络就成了一个打发时间的好选择。</p>
-
-<p>然后时间就都耗里面了。-_&ndash;</p>
-
-<!-- more -->
-
-
-<h2>现实 V.S. 虚拟</h2>
-
-<p>人是社会性动物，社会性动物通过与其他对象建立联系来确定自己的存在感，也就是交流（Communication），现实和虚拟中都是如此。交流包括一对一交流和一对多交流：现实中，一对一交流通过谈话/电话/信件，一对多交流通过电视/广播；虚拟中，一对一交流通过IM（Instant Messenger），一对多交流通过微博/论坛/博客。</p>
-
-<h3>一对一交流：</h3>
-
-<ol>
-<li>现实中，一对一交流通过谈话/电话/信件，一对一交流通过IM（Instant Messenger）。</li>
-<li>现实的一对一交流大多无状态——双方的交流同时开始，同时结束。虚拟的一对一交流大多有状态——双方的交流可以从某一方开始，然后若干小时后另一方看到消息回复，然后如此继续。</li>
-<li>现实中的一对一交流需要考虑对方的状态——也就是交流需要建立在双方都有时间的基础上；虚拟的一对一交流无需考虑对方的状态，有意交流的一方可以随时给对方发送信息。</li>
-</ol>
-
-
-<p>虚拟带来的问题：</p>
-
-<ol>
-<li>任何人都可以与你交流，无论你愿意与否。</li>
-<li>你可以与任何人交流，无论是否值得。</li>
-<li>可能会陷入一种等待交流的焦虑中。</li>
-</ol>
-
-
-<h3>一对多交流：</h3>
-
-<ol>
-<li>现实的一对多交流需要大量人力物力（广播/电视/报纸），虚拟的一对多交流几乎零成本（微博/博客/社交网络）。</li>
-<li>现实的一对多交流需要信息审核/证伪，虚拟的一对多交流几乎没有信息审核。</li>
-<li>现实的一对多交流中接收方是完全被动的，虚拟的一对多交流接收方和广播方之间可以有交互。</li>
-</ol>
-
-
-<p>虚拟带来的问题：</p>
-
-<ol>
-<li>没有审核带来的大量低质量无意义信息（通常会以一种很有趣或是令人热血沸腾的形式出现）。</li>
-<li><a href="http://book.douban.com/subject/1012611/">乌合之众</a>，最热门的信息不是最有价值的，而是吵的最响（或是争议最多）的。</li>
-<li>与广播方（例如名人）的交流会带来成就感，也会使自己陷入等待回复的焦虑中。</li>
-<li>可能会陷入一种不断查看新信息（尽管这些信息毫无意义）的焦虑中。</li>
-</ol>
-
-
-<h2>解决方法</h2>
-
-<p>为此在豆瓣阅读买了一本<a href="http://book.douban.com/subject/24383461/">网络素养</a>，原版：<a href="http://www.amazon.com/Net-Smart-How-Thrive-Online/dp/0262526131/">Net Smart: How to thrive online</a>。</p>
-
-<p><img src="http://img5.douban.com/lpic/s26842036.jpg" title="网络素养" alt="网络素养" /></p>
-
-<p><img src="http://ecx.images-amazon.com/images/I/41LRFD-SVlL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_SX385_SY500_CR,0,0,385,500_SH20_OU02_.jpg" title="Net Smart" alt="Net Smart" /></p>
-
-<p>这本书废话极多，关键的两点：控制注意力，鉴别垃圾信息。</p>
-
-<h3>控制注意力</h3>
-
-<ul>
-<li>下意识的控制注意力，可以通过关注自己的呼吸来调节。</li>
-<li>即便忽略几条微博几条信息，也不会对生活造成多大影响。</li>
-<li>此外可以使用冥想提升自己的集中力（Focus）。</li>
-<li>番茄工作法（没看明白要点，25分钟休息一次是什么原理，如果这样岂不是更不靠谱）。</li>
-</ul>
-
-
-<h3>鉴别垃圾信息</h3>
-
-<ul>
-<li>冷静面对夸张的标题，此类信息一般有意断章取义，或是掩盖上下文。</li>
-<li>恰当的使用三点式验证争议信息：使用三个不同可信来源验证信息的有效性。</li>
-<li>选取可信/有效/有价值的信息来源，屏蔽哗众取宠/断章取义的信息源。</li>
-</ul>
-
-
-<h3>集中时间处理社交网络</h3>
-
-<ul>
-<li>在固定的时间段（例：12:40 &ndash; 13:10, 20:20 &ndash; 21:00）处理社交网络信息，而非随时随地的查看状态。</li>
-<li>如有特别需求，可以编写Crawler来发送Reminder邮件，替代人工轮询。</li>
-</ul>
-
-
-<h2>用不上瘾的行为填充碎片化时间</h2>
-
-<p>碎片化时间可以进行其它益智或体育活动，包括但不限于：</p>
-
-<ul>
-<li>拆解/还原九连环。</li>
-<li>单手还原魔方。</li>
-<li>背诵单词。</li>
-<li>绘画。</li>
-<li>乒乓。</li>
-<li>桌球。</li>
-</ul>
-
-
-<h2>尝试其它活动</h2>
-
-<p>为了得到新鲜感，包括但不限于：</p>
-
-<ul>
-<li>学习自己感兴趣但不了解的技术（例如ANTLR）或学科（例如经济/心理学）。</li>
-<li>尝试集体运动（例如攀岩，射箭）。</li>
-<li>尝试旅行（例如在周末去荷兰、芬兰或瑞典进行两日游）。</li>
-</ul>
 
 ]]></content>
   </entry>

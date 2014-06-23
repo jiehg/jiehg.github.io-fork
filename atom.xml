@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-06T15:54:28-07:00</updated>
+  <updated>2014-06-23T23:26:09+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,120 @@
 
   
   <entry>
+    <title type="html"><![CDATA[关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX]]></title>
+    <link href="http://zh.lucida.me/blog/on-programming-errors-0/"/>
+    <updated>2014-06-23T23:14:42+01:00</updated>
+    <id>http://zh.lucida.me/blog/on-programming-errors-0</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p>这是一个系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<p>原本我计划在一篇文章完成所有内容，然而随着写作的深入，我发现文章的篇幅越来越长——考虑到可读性，我决定将这篇文章拓展为一个系列，计划如下：</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li>A Taxonomy of Programming Errors</li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems.</li>
+<li>Epilogue</li>
+</ol>
+
+
+<!-- more -->
+
+
+<h2>免责声明（Disclaimer）</h2>
+
+<p>几天前我在知乎上读到一篇关于Swift的<a href="http://www.zhihu.com/question/24002984">讨论</a>：</p>
+
+<p>胡搅蛮缠</p>
+
+<p><img src="http://i.imgur.com/ezV72EP.png" alt="讨论1" /></p>
+
+<p>无知者无畏</p>
+
+<p><img src="http://i.imgur.com/XXo9TlC.png" alt="讨论2" /></p>
+
+<p>为了避免无谓的讨论，如果您认为iPhone系统闹钟可以用200行代码搞定，或者觉着Python适合编写大型项目，那么这个系列不适合您阅读。</p>
+
+<h2>编程错误（Programming Errors）</h2>
+
+<p>作为软件开发者，我自己写过一些微型程序（500行左右）和一些中小型应用（5&#8217;000~20&#8217;000行），实习时做过一些小项目（2&#8217;000行左右），到现在参与大型项目（100&#8217;000行以上）。如果让我总结这些项目的共同点，那么就是我在这些项目里都犯了各式各样的错误——小到喜闻乐见的&#8221;烫烫烫烫烫烫烫烫&#8221;，大到破坏整个应用兼容性导致上千用户流失，有的错误很愚蠢，有的错误则是聪明反被聪明误。</p>
+
+<p>不过我可以安慰自己，因为我并非孤独——计算机程序向来以错误百出而臭名昭著，以至于计算机先驱<a href="http://en.wikipedia.org/wiki/Grace_hopper">Grace Hopper</a>近乎自嘲的为计算机程序错误取了一个别名——Bug。在之后的六十余年，Bug和其衍生词Debug一直是了所有程序员的梦魇。</p>
+
+<p>Grace Hopper发现的“Bug”</p>
+
+<p><img src="http://i.imgur.com/m36RhHW.jpg" alt="第一个Bug" /></p>
+
+<p>随着经验的累积，我隐隐感觉到这些编程错误有一定的规律，因为我开始发现一些错误似乎在哪里见过，于是我开始寻找这方面的书籍和文献，以控制/减少自己的编程错误。</p>
+
+<blockquote><p>Those who cannot remember the past are condemned to repeat it.</p>
+
+<p>George Santayana</p></blockquote>
+
+<p>然后我找到了<a href="http://en.wikipedia.org/wiki/Donald_Knuth">Knuth</a>的<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>。</p>
+
+<h2>the Errors of TEX</h2>
+
+<h3>背景</h3>
+
+<p><img src="http://i.imgur.com/UF1uTSy.jpg" alt="Knuth" /></p>
+
+<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的[TAOCP]七卷本（未完成），但对Knuth开发的[TEX]以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
+
+<p><img src="http://i.imgur.com/3HzERY5.jpg" alt="TAOCP" /></p>
+
+<p>撰写并出版[TAOCP]前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
+
+<p><img src="http://i.imgur.com/e6FqiCM.jpg" alt="TEX" /></p>
+
+<p>不过排版系统并非简单的（Trivial）系统，即便如Knuth此般异禀天赋，也无法从容应付——事实上Knuth在开发TEX的过程中遇到了大量的错误，这些错误从TEX初版（1978年）到<a href="http://tug.org/TUGboat/tb35-1/tb109knut.pdf">最近的一次性能调优</a>（2014年），源源不断，挥之不去。</p>
+
+<p>这些错误让Knuth很头痛，为了理解并控制编程错误，Knuth将这些错误整理到记录日志，并对这些编程错误进行分类，这成为了<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文的基础。</p>
+
+<h3>插曲</h3>
+
+<p>Knuth开发TEX的流程在我等屌丝码农看来绝对匪夷所思，在<a href="http://www.codersatwork.com/">Coders at Work</a>一书对Knuth的访谈里，Knuth提到：</p>
+
+<blockquote><p>When I wrote TeX originally in 1977 and ’78, of course I didn’t have literate programming but I did have structured programming. I wrote it in a big notebook in longhand, in pencil.</p>
+
+<p>Six months later, after I had gone through the whole project, I started typing into the computer. And did the debugging in March of ’78 while I had started writing the program in October of ’77. The code for that is in the Stanford archives—it’s all in pencil—and of course I would come back and change a subroutine as I learned what it should be.</p></blockquote>
+
+<p>尽管有可能是1978年还没有好用的交互编程环境（Interactive Programming Environment），但Knuth六个月纸上设计纸上写代码的开发方式仍可以说是编程史上的一朵奇葩。如果放到今天，Knuth一定会被各路敏捷极限TDD编程<em>高手</em>喷出翔。</p>
+
+<p>插曲到此为止，下篇进入正题——编程错误的分类（A Taxonomy of Programming Errors）。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[设计中的设计——0. Prologue]]></title>
     <link href="http://zh.lucida.me/blog/design-of-design-0-prologue/"/>
-    <updated>2014-06-06T15:06:06-07:00</updated>
+    <updated>2014-06-06T23:06:06+01:00</updated>
     <id>http://zh.lucida.me/blog/design-of-design-0-prologue</id>
     <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -130,7 +241,7 @@
   <entry>
     <title type="html"><![CDATA[来自苹果的编程语言——Swift简介]]></title>
     <link href="http://zh.lucida.me/blog/an-introduction-to-swift/"/>
-    <updated>2014-06-02T18:22:19-07:00</updated>
+    <updated>2014-06-03T02:22:19+01:00</updated>
     <id>http://zh.lucida.me/blog/an-introduction-to-swift</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -1257,7 +1368,7 @@
   <entry>
     <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
     <link href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/"/>
-    <updated>2014-05-24T01:33:38-07:00</updated>
+    <updated>2014-05-24T09:33:38+01:00</updated>
     <id>http://zh.lucida.me/blog/on-the-keynote-of-t-one</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -1409,7 +1520,7 @@
   <entry>
     <title type="html"><![CDATA[打飞机故事集]]></title>
     <link href="http://zh.lucida.me/blog/stories-of-masturbations/"/>
-    <updated>2014-05-06T16:54:37-07:00</updated>
+    <updated>2014-05-07T00:54:37+01:00</updated>
     <id>http://zh.lucida.me/blog/stories-of-masturbations</id>
     <content type="html"><![CDATA[<h2>免责声明（Disclamer）</h2>
 
@@ -1555,7 +1666,7 @@
   <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://zh.lucida.me/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T13:43:42-07:00</updated>
+    <updated>2014-05-04T21:43:42+01:00</updated>
     <id>http://zh.lucida.me/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -1867,7 +1978,7 @@
   <entry>
     <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
     <link href="http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/"/>
-    <updated>2014-04-12T17:53:21-07:00</updated>
+    <updated>2014-04-13T01:53:21+01:00</updated>
     <id>http://zh.lucida.me/blog/levels-on-learning-and-using-technologies</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
@@ -2123,7 +2234,7 @@
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
     <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T15:24:33-07:00</updated>
+    <updated>2014-04-06T23:24:33+01:00</updated>
     <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
 
@@ -2474,7 +2585,7 @@
   <entry>
     <title type="html"><![CDATA[90分钟实现一门编程语言——极简解释器教程]]></title>
     <link href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/"/>
-    <updated>2014-03-23T12:08:35-07:00</updated>
+    <updated>2014-03-23T19:08:35+00:00</updated>
     <id>http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
@@ -4689,7 +4800,7 @@
   <entry>
     <title type="html"><![CDATA[如何阅读书籍]]></title>
     <link href="http://zh.lucida.me/blog/on-reading-books/"/>
-    <updated>2014-03-15T13:05:35-07:00</updated>
+    <updated>2014-03-15T20:05:35+00:00</updated>
     <id>http://zh.lucida.me/blog/on-reading-books</id>
     <content type="html"><![CDATA[<h2>摘要</h2>
 
@@ -4967,7 +5078,7 @@
   <entry>
     <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
     <link href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/"/>
-    <updated>2014-03-09T10:14:28-07:00</updated>
+    <updated>2014-03-09T17:14:28+00:00</updated>
     <id>http://zh.lucida.me/blog/on-suppressing-the-internet-addiction</id>
     <content type="html"><![CDATA[<h2>症状</h2>
 
@@ -5112,7 +5223,7 @@
   <entry>
     <title type="html"><![CDATA[TARQIE——一种量化成长的方法（上）]]></title>
     <link href="http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach/"/>
-    <updated>2014-03-02T15:31:27-08:00</updated>
+    <updated>2014-03-02T23:31:27+00:00</updated>
     <id>http://zh.lucida.me/blog/tarqie-a-quantized-continous-growing-approach</id>
     <content type="html"><![CDATA[<h2>问题</h2>
 
@@ -5384,7 +5495,7 @@
   <entry>
     <title type="html"><![CDATA[从挣钱的角度回忆下自己的研究生三年]]></title>
     <link href="http://zh.lucida.me/blog/memoirs-on-my-postgraduate-life/"/>
-    <updated>2014-02-16T14:08:39-08:00</updated>
+    <updated>2014-02-16T22:08:39+00:00</updated>
     <id>http://zh.lucida.me/blog/memoirs-on-my-postgraduate-life</id>
     <content type="html"><![CDATA[<h2>2010年9月 &ndash; 2010年12月</h2>
 
@@ -5867,7 +5978,7 @@
   <entry>
     <title type="html"><![CDATA[London的新玩具]]></title>
     <link href="http://zh.lucida.me/blog/new-toys-in-london/"/>
-    <updated>2014-02-15T13:16:16-08:00</updated>
+    <updated>2014-02-15T21:16:16+00:00</updated>
     <id>http://zh.lucida.me/blog/new-toys-in-london</id>
     <content type="html"><![CDATA[<h2>Bose Companion 20</h2>
 
@@ -5906,7 +6017,7 @@
   <entry>
     <title type="html"><![CDATA[关于中国合伙人]]></title>
     <link href="http://zh.lucida.me/blog/about-movie-chinese-dream/"/>
-    <updated>2014-01-11T04:06:29-08:00</updated>
+    <updated>2014-01-11T12:06:29+00:00</updated>
     <id>http://zh.lucida.me/blog/about-movie-chinese-dream</id>
     <content type="html"><![CDATA[<h2>About</h2>
 
@@ -5974,7 +6085,7 @@
   <entry>
     <title type="html"><![CDATA[第一篇博文]]></title>
     <link href="http://zh.lucida.me/blog/my-first-article/"/>
-    <updated>2014-01-05T09:03:00-08:00</updated>
+    <updated>2014-01-05T17:03:00+00:00</updated>
     <id>http://zh.lucida.me/blog/my-first-article</id>
     <content type="html"><![CDATA[<h2>为什么要使用Octopress</h2>
 

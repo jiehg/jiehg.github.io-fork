@@ -6,12 +6,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="google-site-verification" content="xcnfIp24QN30miBMIDuuCCQF5IKPlu9_-U0785KdzLc" />
-  <title>关于锤子手机和锤子手机发布会 - Lucida</title>
+  <title>关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX - Lucida</title>
   <meta name="author" content="Lucida">
 
   
-  <meta name="description" content="本文记录了作者对锤子手机发布会和锤子手机的一点感受，仅代表个人看法，但欢迎评论。">
-  <meta name="keywords" content="锤子手机, 老罗">
+  <meta name="description" content="这是一个系列，我试图通过结合the Errors of TEX对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。">
+  <meta name="keywords" content="编程, Knuth, 编程错误">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zh.lucida.me/blog/on-the-keynote-of-t-one">
+  <link rel="canonical" href="http://zh.lucida.me/blog/on-programming-errors-0">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Lucida" type="application/atom+xml">
@@ -70,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">关于锤子手机和锤子手机发布会</h1>
+      <h1 class="entry-title">关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX</h1>
     
     
       <p class="meta">
@@ -86,7 +86,7 @@
   
 
 
-<time datetime="2014-05-24T09:33:38+01:00" pubdate data-updated="true">May 24<span>th</span>, 2014</time>
+<time datetime="2014-06-23T23:14:42+01:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://zh.lucida.me">Comments</a>
@@ -96,150 +96,109 @@
   </header>
 
 
-<div class="entry-content"><h2>关于</h2>
-
-<p>本文记录了作者对<a href="http://v.youku.com/v_show/id_XNzE0Nzc0OTQ0.html">锤子手机发布会</a>和<a href="http://www.smartisan.com/">锤子手机</a>的一点感受，仅代表个人看法，但欢迎评论。</p>
-
-<p>原文作者：</p>
+<div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
 <ul>
-<li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
-<li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
 <li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
 </ul>
 
 
-<p>原文链接：<a href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/">http://zh.lucida.me/blog/on-the-keynote-of-t-one/</a></p>
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
 
-<h2>重复</h2>
+<h2>概要</h2>
 
-<p>演讲（或说服）有一个要点是重复，老罗显然深得此道，整场发布会下面的句式均被重复了不止五遍：</p>
+<p>这是一个系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
 
-<ul>
-<li>作为一个大众消费品…………（表明自己站在消费者这边）</li>
-<li>作为一个小厂商…………（博取听众（消费者）的同情（sympathy）和容忍（tolerance））</li>
-<li>作为一个企业家，我不该…………（在贬低其它企业之后均以此句开脱）</li>
-</ul>
+<p>原本我计划在一篇文章完成所有内容，然而随着写作的深入，我发现文章的篇幅越来越长——考虑到可读性，我决定将这篇文章拓展为一个系列，计划如下：</p>
 
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li>A Taxonomy of Programming Errors</li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems.</li>
+<li>Epilogue</li>
+</ol>
 
-<h2>误导</h2>
-
-<p>在提到锤子手机音质时老罗举了这样的例子：</p>
-
-<blockquote><p>我老婆之前认为自己是木耳，听不出音质的区别，但把苹果耳机换成几百森海塞尔后，她明显感到音质有了很大的提升。</p></blockquote>
-
-<p>以证明即便是普通人也可以感受到音质的区别。</p>
-
-<p>但这里有个问题：老罗夫人感受到的音质的提升源自于<strong>耳机</strong>，而非<strong>音源</strong>。在同等耳机的情况下，我怀疑老罗夫人是否还能听出锤子手机和同类手机间音质的区别。</p>
-
-<p>此外，在提到无法更换壁纸的问题时老罗是这么解释的：</p>
-
-<blockquote><p>我无法忍受把一堆图标堆在亲人的脸上。</p></blockquote>
-
-<p>似乎确实很有道理，但再想一想，为什么一定要用亲人头像做壁纸呢？如果我要用风景或是纯色呢？</p>
 
 <!-- more -->
 
 
-<h2>冷知识</h2>
+<h2>免责声明（Disclaimer）</h2>
 
-<p>老罗很擅长用一些冷门知识去吸引人，这样的例子在这次发布会上数不胜数：</p>
+<p>几天前我在知乎上读到一篇关于Swift的<a href="http://www.zhihu.com/question/24002984">讨论</a>：</p>
+
+<p>胡搅蛮缠</p>
+
+<p><img src="http://i.imgur.com/ezV72EP.png" alt="讨论1" /></p>
+
+<p>无知者无畏</p>
+
+<p><img src="http://i.imgur.com/XXo9TlC.png" alt="讨论2" /></p>
+
+<p>为了避免无谓的讨论，如果您认为iPhone系统闹钟可以用200行代码搞定，或者觉着Python适合编写大型项目，那么这个系列不适合您阅读。</p>
+
+<h2>编程错误（Programming Errors）</h2>
+
+<p>作为软件开发者，我自己写过一些微型程序（500行左右）和一些中小型应用（5&#8217;000~20&#8217;000行），实习时做过一些小项目（2&#8217;000行左右），到现在参与大型项目（100&#8217;000行以上）。如果让我总结这些项目的共同点，那么就是我在这些项目里都犯了各式各样的错误——小到喜闻乐见的&#8221;烫烫烫烫烫烫烫烫&#8221;，大到破坏整个应用兼容性导致上千用户流失，有的错误很愚蠢，有的错误则是聪明反被聪明误。</p>
+
+<p>不过我可以安慰自己，因为我并非孤独——计算机程序向来以错误百出而臭名昭著，以至于计算机先驱<a href="http://en.wikipedia.org/wiki/Grace_hopper">Grace Hopper</a>近乎自嘲的为计算机程序错误取了一个别名——Bug。在之后的六十余年，Bug和其衍生词Debug一直是了所有程序员的梦魇。</p>
+
+<p>Grace Hopper发现的“Bug”</p>
+
+<p><img src="http://i.imgur.com/m36RhHW.jpg" alt="第一个Bug" /></p>
+
+<p>随着经验的累积，我隐隐感觉到这些编程错误有一定的规律，因为我开始发现一些错误似乎在哪里见过，于是我开始寻找这方面的书籍和文献，以控制/减少自己的编程错误。</p>
+
+<blockquote><p>Those who cannot remember the past are condemned to repeat it.</p>
+
+<p>George Santayana</p></blockquote>
+
+<p>然后我找到了<a href="http://en.wikipedia.org/wiki/Donald_Knuth">Knuth</a>的<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>。</p>
+
+<h2>the Errors of TEX</h2>
+
+<h3>背景</h3>
+
+<p><img src="http://i.imgur.com/UF1uTSy.jpg" alt="Knuth" /></p>
+
+<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的[TAOCP]七卷本（未完成），但对Knuth开发的[TEX]以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
+
+<p><img src="http://i.imgur.com/3HzERY5.jpg" alt="TAOCP" /></p>
+
+<p>撰写并出版[TAOCP]前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
+
+<p><img src="http://i.imgur.com/e6FqiCM.jpg" alt="TEX" /></p>
+
+<p>不过排版系统并非简单的（Trivial）系统，即便如Knuth此般异禀天赋，也无法从容应付——事实上Knuth在开发TEX的过程中遇到了大量的错误，这些错误从TEX初版（1978年）到<a href="http://tug.org/TUGboat/tb35-1/tb109knut.pdf">最近的一次性能调优</a>（2014年），源源不断，挥之不去。</p>
+
+<p>这些错误让Knuth很头痛，为了理解并控制编程错误，Knuth将这些错误整理到记录日志，并对这些编程错误进行分类，这成为了<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文的基础。</p>
+
+<h3>插曲</h3>
+
+<p>Knuth开发TEX的流程在我等屌丝码农看来绝对匪夷所思，在<a href="http://www.codersatwork.com/">Coders at Work</a>一书对Knuth的访谈里，Knuth提到：</p>
+
+<blockquote><p>When I wrote TeX originally in 1977 and ’78, of course I didn’t have literate programming but I did have structured programming. I wrote it in a big notebook in longhand, in pencil.</p>
+
+<p>Six months later, after I had gone through the whole project, I started typing into the computer. And did the debugging in March of ’78 while I had started writing the program in October of ’77. The code for that is in the Stanford archives—it’s all in pencil—and of course I would come back and change a subroutine as I learned what it should be.</p></blockquote>
+
+<p>尽管有可能是1978年还没有好用的交互编程环境（Interactive Programming Environment），但Knuth六个月纸上设计纸上写代码的开发方式仍可以说是编程史上的一朵奇葩。如果放到今天，Knuth一定会被各路敏捷极限TDD编程<em>高手</em>喷出翔。</p>
+
+<p>插曲到此为止，下篇进入正题——编程错误的分类（A Taxonomy of Programming Errors）。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
 <ul>
-<li>不断的列出硬件厂商的渊源。</li>
-<li>指出锤子手机手机盒子使用了某英国著名公司的纸。</li>
-<li>强调光线传感器的设计。</li>
-<li>自带螺丝刀和若干螺丝钉。</li>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
 </ul>
 
 
-<p>个人认为这些东西是Boilerplate——懂编程的童鞋应该明白我的意思。</p>
-
-<h2>拍照效果</h2>
-
-<p>老罗宣称锤子手机是目前最好的拍照手机之一，并花了大量时间去阐述他在打造拍照效果上所付出的努力，比如：</p>
-
-<ul>
-<li>寻找最好的拍照调校团队。</li>
-<li>使用最好的摄像镜头。</li>
-</ul>
-
-
-<p>但令我疑惑的是：发布会并没有任何拍照效果的对比，甚至连锤子手机的拍照样张都没有——如果拍照效果真的那么强大，我不认为老罗会放这个贬低其他竞争对手的机会于不顾。</p>
-
-<h2>双音量键</h2>
-
-<p>锤子手机有一个很有趣的设计是双音量键——在单独使用时可以分别作为音量调节和亮度调节使用，而一起使用时则可以进行抢拍或快速启动某个指定应用程序。</p>
-
-<p>这也带来了老罗所宣称的“全世界最快的抢拍手机”这个卖点。</p>
-
-<p>但我还是有几个疑问：</p>
-
-<ol>
-<li>双音量键一起使用是一个很不直观的设计。</li>
-<li>同时使用双音量键很不自然，不信的话你在你的手机上试试这个姿势。</li>
-<li>从设计图上可以看出音量键并没有明显凸起——这意味着操作时需要按<strong>进</strong>音量键，也意味着任何手机壳或是bumper之类阻隔音量键的手机饰品均会妨碍音量键的正常使用。</li>
-</ol>
-
-
-<h2>对苹果的模仿</h2>
-
-<h3>锤子手机在模仿iPhone5</h3>
-
-<p>这里借用某条<a href="http://weibo.com/1847542877/B5fhi9RoE">微博</a>里的图片：</p>
-
-<p><img src="http://i.imgur.com/VOSZ1dX.jpg" alt="无处不在的模仿" /></p>
-
-<h3>锤子手机发布会处处在模仿iPhone1发布会</h3>
-
-<p>iPhone1发布会时Jobs曾给出一个转盘手机的假想图：</p>
-
-<p><img src="http://i.imgur.com/sfOzhfx.png" alt="转盘手机" /></p>
-
-<p>老罗则给出一个锤子手机的假想图：</p>
-
-<p><img src="http://i.imgur.com/fkoM9QQ.png" alt="锤子手机" /></p>
-
-<p>iPhone1发布时Jobs强调三位一体的概念：</p>
-
-<p><img src="http://i.imgur.com/WDmytpx.png" alt="三位一体" /></p>
-
-<p>老罗也是如此：</p>
-
-<p><img src="http://i.imgur.com/FK5fsC2.png" alt="又一个三位一体" /></p>
-
-<p>Jobs经常在发布会最后来一个“One more thing”：</p>
-
-<p><img src="http://i.imgur.com/ebmQPgi.png" alt="One more thing" /></p>
-
-<p>到了老罗这里变成“还有两个好东西”：</p>
-
-<p><img src="http://i.imgur.com/6yXVZ4a.png" alt="还有两个好东西" /></p>
-
-<h2>软件改进</h2>
-
-<p>下面是老罗重点介绍的锤子手机的软件改进：</p>
-
-<ul>
-<li>可以更换的主题：这个我真觉的不是啥改进——除非要和Windows Phone比。</li>
-<li>手指横扫解决单手操作问题：很有创意的想法，但我注意到即便老罗本人如此操作锤子手机时也有相当的失误率——我怀疑这个功能的实用性。</li>
-<li>通过短信内容智能新建日历：无论是Google还是Apple都已经有这个功能。</li>
-<li>定时解除静音：很赞，这是我一直希望的功能。</li>
-<li>区域截屏：看似很赞，但仔细一想几乎所有的手机聊天应用里面都带有编辑图片的选项，此外我个人对这个功能的稳定性有疑问。</li>
-</ul>
-
-
-<h2>总结</h2>
-
-<p>锤子手机发布会最大的亮点是对OpenSSL的捐款，至于锤子手机本身……抱歉我没看到什么亮点。</p>
-
-<p>但令我诧异的是很多资深人士纷纷表示看好锤子手机（发布会），<a href="http://www.weibo.com/fenng">fenng</a>甚至在微信上宣称这是手机行业迄今为止最好的产品发布会——</p>
-
-<p><img src="http://i.imgur.com/MqEKRBk.jpg" alt="最好的产品发布会？？" /></p>
-
-<p>我不清楚他是否也把iPhone发布会算在内。</p>
-
-<p>总之，在锤子手机发布会上，我看到的是一个人在不断的强调自己有多努力多认真，但我也知道当某人不断的给你强调他有多努力（effort）时，事实往往是他还没有获得任何实质性成果（progress），简而言之，effort不等于progress，就这场发布会所得到的信息，我依然认为锤子手机没有希望。</p>
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
 </div>
 
 
@@ -262,12 +221,12 @@
   
 
 
-<time datetime="2014-05-24T09:33:38+01:00" pubdate data-updated="true">May 24<span>th</span>, 2014</time>
+<time datetime="2014-06-23T23:14:42+01:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/life/'>Life</a>, <a class='category' href='/blog/categories/retrospection/'>Retrospection</a>, <a class='category' href='/blog/categories/technology/'>Technology</a>
+    <a class='category' href='/blog/categories/essay/'>Essay</a>, <a class='category' href='/blog/categories/programming/'>Programming</a>, <a class='category' href='/blog/categories/retrospection/'>Retrospection</a>
   
 </span>
 
@@ -276,7 +235,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zh.lucida.me/blog/on-the-keynote-of-t-one/" data-via="" data-counturl="http://zh.lucida.me/blog/on-the-keynote-of-t-one/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zh.lucida.me/blog/on-programming-errors-0/" data-via="" data-counturl="http://zh.lucida.me/blog/on-programming-errors-0/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -288,10 +247,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/stories-of-masturbations/" title="Previous Post: 打飞机故事集">&laquo; 打飞机故事集</a>
+        <a class="basic-alignment left" href="/blog/design-of-design-0-prologue/" title="Previous Post: 设计中的设计——0. Prologue">&laquo; 设计中的设计——0. Prologue</a>
       
-      
-        <a class="basic-alignment right" href="/blog/an-introduction-to-swift/" title="Next Post: 来自苹果的编程语言——Swift简介">来自苹果的编程语言——Swift简介 &raquo;</a>
       
     </p>
   </footer>
@@ -377,8 +334,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://zh.lucida.me/blog/on-the-keynote-of-t-one/';
-        var disqus_url = 'http://zh.lucida.me/blog/on-the-keynote-of-t-one/';
+        var disqus_identifier = 'http://zh.lucida.me/blog/on-programming-errors-0/';
+        var disqus_url = 'http://zh.lucida.me/blog/on-programming-errors-0/';
         var disqus_script = 'embed.js';
       
     (function () {
