@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-23T23:26:09+01:00</updated>
+  <updated>2014-06-24T23:50:09+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,242 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于编程错误的思考——1. A Taxonomy of Programming Errors]]></title>
+    <link href="http://zh.lucida.me/blog/on-programming-errors-1/"/>
+    <updated>2014-06-24T23:32:12+01:00</updated>
+    <id>http://zh.lucida.me/blog/on-programming-errors-1</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems</li>
+<li>Epilogue</li>
+</ol>
+
+
+<h2>编程错误的分类</h2>
+
+<p>前文讲到Knuth在开发TEX的过程中遇到了各式各样的差错，为了理解并控制编程错误，Knuth将这些错误整理到<a href="http://texdoc.net/texmf-dist/doc/generic/knuth/errata/errorlog.pdf">记录日志</a>，并将这些差错分为15类。为了引用方便，我将它们翻译成中文。</p>
+
+<p>注意：</p>
+
+<ol>
+<li>为了引用方便，Knuth使用英文首字母指代各个编程错误的分类，出于同样的原因，我将这些分类一一翻译为成语。</li>
+<li>保留原文，以便读者理解，以免信息丢失。</li>
+<li>原文中的"my"和"I"以及译文中的"我"均指Knuth本人。</li>
+<li>如果认为翻译不靠谱请在评论中指出 :)</li>
+</ol>
+
+
+<p>下面是Knuth对TEX错误的分类：</p>
+
+<!-- more -->
+
+
+<hr />
+
+<ul>
+<li><strong>A: an algorithm awry.</strong> Here my original method proved to be incorrect or inadequate.</li>
+<li><strong>不可胜算</strong>：我最初设想的算法有误或存在不足。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>B: a blunder or botch.</strong> Here I knew what I ought to do, but I wrote something else that was syntactically correct&mdash;sort of a mental typo.</li>
+<li><strong>鬼使神差</strong>：我知道这段代码该怎么写，但我糊里糊涂写了另外一段出来而且还能通过编译。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>C: a cleanup for consistency or clarity.</strong> Here I changed the rules of the language to make things easier to remember and/or more logical.</li>
+<li><strong>得心应手</strong>：我对语言（TEX）规则进行整理，使其符合逻辑，更加易用。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>D: a data structure debacle.</strong> Here I didn&rsquo;t properly update the representation of information to preserve the appropriate invariants.</li>
+<li><strong>差之毫厘</strong>：我对数据结构的操作有误，使其处在不一致的状态（破坏了其本应维持的不变式）。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>E: an efficiency enhancement.</strong> Here I changed the program so that it would run faster; the existing code was correct but slow.</li>
+<li><strong>多快好省</strong>：尽管原来的代码正确，但速度很慢，于是我修改代码以改善程序的性能。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>F: a forgotten function.</strong> Here I didn&rsquo;t remember to do everything I had intended, when I actually got around to writing a particular part of the code.</li>
+<li><strong>丢三落四</strong>：我忘记了一些本应完成的事情，比如说我知道这段代码应该写但我忘了写。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>G: a generalization or growth of ability.</strong> Here I realized that some extension of the existing specifications was desirable.</li>
+<li><strong>虚怀若谷</strong>：我将一些已有的代码进行扩展/抽象使其更加通用。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>I: an interactive improvement.</strong> Here I made TEX respond better to the user&rsquo;s needs.</li>
+<li><strong>各得其所</strong>：我使TEX对用户更加友好。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>L: a language liability.</strong> Here I misused or misunderstood the programming language or system hardware I was working with.</li>
+<li><strong>言非所指</strong>：我对编程语言（或是系统硬件）理解有误，从而造成错误。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>M: a mismatch between modules.</strong> Here I forgot the conventions I had built into a subroutine when I actually got around to using that subroutine.</li>
+<li><strong>事与愿违</strong>：我忘了我自己编写的例程（或函数）的正确用法，以至于调用它们时出现问题。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>P: a promotion of portability.</strong> Here I changed the organization or documentation of the program; this affected only a person who would try to read or modify the code, not a person who tried to run it.</li>
+<li><strong>焕然一新</strong>：我对程序的结构或是文档进行改善，从而在不改变程序的前提下改善其可读性和可修改性。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>Q: a quest for quality.</strong> Here I changed the specifications of what the program should output from given input, when I learned how to improve the typographic appearance of the output.</li>
+<li><strong>精益求精</strong>：在对字体版式有了更深入的理解之后，我对程序进行修改，以获得更好的输出效果。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>R: a reinforcement of robustness.</strong> Whenever I realized that TEX could loop or crash in the presence of certain erroneous input, I tried to make the code bulletproof.</li>
+<li><strong>百毒不侵</strong>：一旦我意识到TEX有可能在极端情况下崩溃，我就会想方设法使程序变的更加健壮。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>S: a surprising scenario.</strong> Errors of type S were particularly bad bugs that forced me to change my original ideas, because of unforeseen interactions between various parts of the program.</li>
+<li><strong>出乎意料</strong>：由于我最初对问题的定义或是对程序间模块的交互理解不足，导致一些无法预见的错误——这类错误往往很棘手。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>T: a trivial typo.</strong> Sometimes I did&rsquo;t type the right thing when I entered the program into the computer, although my original pencil draft was correct.</li>
+<li><strong>粗心大意</strong>：我在打字时会犯一些小错，以至我纸上的草稿是对的，但敲进去的是错的。</li>
+</ul>
+
+
+<hr />
+
+<h2>进一步的分类</h2>
+
+<h3>Knuth随后将这15个分类分为两大类：</h3>
+
+<ul>
+<li><strong>不可胜算</strong>、<strong>鬼使神差</strong>、<strong>差之毫厘</strong>、<strong>丢三落四</strong>、<strong>言非所指</strong>、<strong>事与愿违</strong>、<strong>百毒不侵</strong>、<strong>出乎意料</strong>和<strong>粗心大意</strong>属于程序的差错（Bugs）。</li>
+<li><strong>得心应手</strong>、<strong>多快好省</strong>、<strong>虚怀若谷</strong>、<strong>各得其所</strong>、<strong>焕然一新</strong>和<strong>精益求精</strong>属于对程序的改进（Enhancements）。</li>
+</ul>
+
+
+<h3>然后按复杂程度把差错（Bugs）分为三类：</h3>
+
+<h4>简单的差错</h4>
+
+<ul>
+<li><strong>粗心大意</strong>：敲错了代码。</li>
+<li><strong>鬼使神差</strong>：敲串了代码。</li>
+<li><strong>丢三落四</strong>：忘敲了代码。</li>
+<li><strong>言非所指</strong>：踩语言的坑。</li>
+<li><strong>事与愿违</strong>：中自己的坑。</li>
+</ul>
+
+
+<h4>复杂的差错</h4>
+
+<ul>
+<li><strong>不可胜算</strong>：算法设计不当。</li>
+<li><strong>差之毫厘</strong>：数据结构维护不周。</li>
+</ul>
+
+
+<h4>棘手的差错</h4>
+
+<ul>
+<li><strong>百毒不侵</strong>：对错误输入处理不当而造成的问题。</li>
+<li><strong>出乎意料</strong>：由于对问题的理解不足，从而导致各种诡异的问题。</li>
+</ul>
+
+
+<h2><a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>的不足</h2>
+
+<p>Knuth在<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对TEX的错误进行了详细的分析，并对这些错误进行了系统的分类，但我认为这篇文章仍有一些不足：</p>
+
+<ol>
+<li>Knuth并未对编程错误给出应对策略。</li>
+<li><a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文成于1989年，其中记载的是1978年至1982年Knuth开发TEX时碰到的各种问题——30年前的编程语言和现在严重脱节。</li>
+</ol>
+
+
+<p>所以，我打算（不自量力的）结合自己的经验，在Knuth的分析基础上再进一步——从下篇开始，我会为每一类编程错误给出其案例，诱因和应对策略。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX]]></title>
@@ -30,7 +266,7 @@
 
 <h2>概要</h2>
 
-<p>这是一个系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
 
 <p>原本我计划在一篇文章完成所有内容，然而随着写作的深入，我发现文章的篇幅越来越长——考虑到可读性，我决定将这篇文章拓展为一个系列，计划如下：</p>
 
@@ -40,7 +276,7 @@
 <li>Blunders, Typos, Mismatches, and Language Liability</li>
 <li>Algorithm + Data Structures &ndash;> Programming</li>
 <li>Robustness and Surprise</li>
-<li>On Enhancing Existing Systems.</li>
+<li>On Enhancing Existing Systems</li>
 <li>Epilogue</li>
 </ol>
 
@@ -86,11 +322,11 @@
 
 <p><img src="http://i.imgur.com/UF1uTSy.jpg" alt="Knuth" /></p>
 
-<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的[TAOCP]七卷本（未完成），但对Knuth开发的[TEX]以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
+<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的<a href="http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">TAOCP</a>七卷本（未完成），但对Knuth开发的TEX以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
 
 <p><img src="http://i.imgur.com/3HzERY5.jpg" alt="TAOCP" /></p>
 
-<p>撰写并出版[TAOCP]前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
+<p>撰写并出版<a href="http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">TAOCP</a>前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
 
 <p><img src="http://i.imgur.com/e6FqiCM.jpg" alt="TEX" /></p>
 

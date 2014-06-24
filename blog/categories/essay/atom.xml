@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-23T23:26:09+01:00</updated>
+  <updated>2014-06-24T23:50:09+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,242 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于编程错误的思考——1. A Taxonomy of Programming Errors]]></title>
+    <link href="http://zh.lucida.me/blog/on-programming-errors-1/"/>
+    <updated>2014-06-24T23:32:12+01:00</updated>
+    <id>http://zh.lucida.me/blog/on-programming-errors-1</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems</li>
+<li>Epilogue</li>
+</ol>
+
+
+<h2>编程错误的分类</h2>
+
+<p>前文讲到Knuth在开发TEX的过程中遇到了各式各样的差错，为了理解并控制编程错误，Knuth将这些错误整理到<a href="http://texdoc.net/texmf-dist/doc/generic/knuth/errata/errorlog.pdf">记录日志</a>，并将这些差错分为15类。为了引用方便，我将它们翻译成中文。</p>
+
+<p>注意：</p>
+
+<ol>
+<li>为了引用方便，Knuth使用英文首字母指代各个编程错误的分类，出于同样的原因，我将这些分类一一翻译为成语。</li>
+<li>保留原文，以便读者理解，以免信息丢失。</li>
+<li>原文中的"my"和"I"以及译文中的"我"均指Knuth本人。</li>
+<li>如果认为翻译不靠谱请在评论中指出 :)</li>
+</ol>
+
+
+<p>下面是Knuth对TEX错误的分类：</p>
+
+<!-- more -->
+
+
+<hr />
+
+<ul>
+<li><strong>A: an algorithm awry.</strong> Here my original method proved to be incorrect or inadequate.</li>
+<li><strong>不可胜算</strong>：我最初设想的算法有误或存在不足。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>B: a blunder or botch.</strong> Here I knew what I ought to do, but I wrote something else that was syntactically correct&mdash;sort of a mental typo.</li>
+<li><strong>鬼使神差</strong>：我知道这段代码该怎么写，但我糊里糊涂写了另外一段出来而且还能通过编译。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>C: a cleanup for consistency or clarity.</strong> Here I changed the rules of the language to make things easier to remember and/or more logical.</li>
+<li><strong>得心应手</strong>：我对语言（TEX）规则进行整理，使其符合逻辑，更加易用。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>D: a data structure debacle.</strong> Here I didn&rsquo;t properly update the representation of information to preserve the appropriate invariants.</li>
+<li><strong>差之毫厘</strong>：我对数据结构的操作有误，使其处在不一致的状态（破坏了其本应维持的不变式）。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>E: an efficiency enhancement.</strong> Here I changed the program so that it would run faster; the existing code was correct but slow.</li>
+<li><strong>多快好省</strong>：尽管原来的代码正确，但速度很慢，于是我修改代码以改善程序的性能。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>F: a forgotten function.</strong> Here I didn&rsquo;t remember to do everything I had intended, when I actually got around to writing a particular part of the code.</li>
+<li><strong>丢三落四</strong>：我忘记了一些本应完成的事情，比如说我知道这段代码应该写但我忘了写。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>G: a generalization or growth of ability.</strong> Here I realized that some extension of the existing specifications was desirable.</li>
+<li><strong>虚怀若谷</strong>：我将一些已有的代码进行扩展/抽象使其更加通用。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>I: an interactive improvement.</strong> Here I made TEX respond better to the user&rsquo;s needs.</li>
+<li><strong>各得其所</strong>：我使TEX对用户更加友好。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>L: a language liability.</strong> Here I misused or misunderstood the programming language or system hardware I was working with.</li>
+<li><strong>言非所指</strong>：我对编程语言（或是系统硬件）理解有误，从而造成错误。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>M: a mismatch between modules.</strong> Here I forgot the conventions I had built into a subroutine when I actually got around to using that subroutine.</li>
+<li><strong>事与愿违</strong>：我忘了我自己编写的例程（或函数）的正确用法，以至于调用它们时出现问题。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>P: a promotion of portability.</strong> Here I changed the organization or documentation of the program; this affected only a person who would try to read or modify the code, not a person who tried to run it.</li>
+<li><strong>焕然一新</strong>：我对程序的结构或是文档进行改善，从而在不改变程序的前提下改善其可读性和可修改性。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>Q: a quest for quality.</strong> Here I changed the specifications of what the program should output from given input, when I learned how to improve the typographic appearance of the output.</li>
+<li><strong>精益求精</strong>：在对字体版式有了更深入的理解之后，我对程序进行修改，以获得更好的输出效果。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>R: a reinforcement of robustness.</strong> Whenever I realized that TEX could loop or crash in the presence of certain erroneous input, I tried to make the code bulletproof.</li>
+<li><strong>百毒不侵</strong>：一旦我意识到TEX有可能在极端情况下崩溃，我就会想方设法使程序变的更加健壮。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>S: a surprising scenario.</strong> Errors of type S were particularly bad bugs that forced me to change my original ideas, because of unforeseen interactions between various parts of the program.</li>
+<li><strong>出乎意料</strong>：由于我最初对问题的定义或是对程序间模块的交互理解不足，导致一些无法预见的错误——这类错误往往很棘手。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>T: a trivial typo.</strong> Sometimes I did&rsquo;t type the right thing when I entered the program into the computer, although my original pencil draft was correct.</li>
+<li><strong>粗心大意</strong>：我在打字时会犯一些小错，以至我纸上的草稿是对的，但敲进去的是错的。</li>
+</ul>
+
+
+<hr />
+
+<h2>进一步的分类</h2>
+
+<h3>Knuth随后将这15个分类分为两大类：</h3>
+
+<ul>
+<li><strong>不可胜算</strong>、<strong>鬼使神差</strong>、<strong>差之毫厘</strong>、<strong>丢三落四</strong>、<strong>言非所指</strong>、<strong>事与愿违</strong>、<strong>百毒不侵</strong>、<strong>出乎意料</strong>和<strong>粗心大意</strong>属于程序的差错（Bugs）。</li>
+<li><strong>得心应手</strong>、<strong>多快好省</strong>、<strong>虚怀若谷</strong>、<strong>各得其所</strong>、<strong>焕然一新</strong>和<strong>精益求精</strong>属于对程序的改进（Enhancements）。</li>
+</ul>
+
+
+<h3>然后按复杂程度把差错（Bugs）分为三类：</h3>
+
+<h4>简单的差错</h4>
+
+<ul>
+<li><strong>粗心大意</strong>：敲错了代码。</li>
+<li><strong>鬼使神差</strong>：敲串了代码。</li>
+<li><strong>丢三落四</strong>：忘敲了代码。</li>
+<li><strong>言非所指</strong>：踩语言的坑。</li>
+<li><strong>事与愿违</strong>：中自己的坑。</li>
+</ul>
+
+
+<h4>复杂的差错</h4>
+
+<ul>
+<li><strong>不可胜算</strong>：算法设计不当。</li>
+<li><strong>差之毫厘</strong>：数据结构维护不周。</li>
+</ul>
+
+
+<h4>棘手的差错</h4>
+
+<ul>
+<li><strong>百毒不侵</strong>：对错误输入处理不当而造成的问题。</li>
+<li><strong>出乎意料</strong>：由于对问题的理解不足，从而导致各种诡异的问题。</li>
+</ul>
+
+
+<h2><a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>的不足</h2>
+
+<p>Knuth在<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对TEX的错误进行了详细的分析，并对这些错误进行了系统的分类，但我认为这篇文章仍有一些不足：</p>
+
+<ol>
+<li>Knuth并未对编程错误给出应对策略。</li>
+<li><a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文成于1989年，其中记载的是1978年至1982年Knuth开发TEX时碰到的各种问题——30年前的编程语言和现在严重脱节。</li>
+</ol>
+
+
+<p>所以，我打算（不自量力的）结合自己的经验，在Knuth的分析基础上再进一步——从下篇开始，我会为每一类编程错误给出其案例，诱因和应对策略。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX]]></title>
@@ -30,7 +266,7 @@
 
 <h2>概要</h2>
 
-<p>这是一个系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
 
 <p>原本我计划在一篇文章完成所有内容，然而随着写作的深入，我发现文章的篇幅越来越长——考虑到可读性，我决定将这篇文章拓展为一个系列，计划如下：</p>
 
@@ -40,7 +276,7 @@
 <li>Blunders, Typos, Mismatches, and Language Liability</li>
 <li>Algorithm + Data Structures &ndash;> Programming</li>
 <li>Robustness and Surprise</li>
-<li>On Enhancing Existing Systems.</li>
+<li>On Enhancing Existing Systems</li>
 <li>Epilogue</li>
 </ol>
 
@@ -86,11 +322,11 @@
 
 <p><img src="http://i.imgur.com/UF1uTSy.jpg" alt="Knuth" /></p>
 
-<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的[TAOCP]七卷本（未完成），但对Knuth开发的[TEX]以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
+<p>相信任何学计算机的人都知道Knuth和他神话（或神化）般（的<a href="http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">TAOCP</a>七卷本（未完成），但对Knuth开发的TEX以及Knuth开发TEX的流程可能就不是那么了解了，所以我在这里简单介绍下。</p>
 
 <p><img src="http://i.imgur.com/3HzERY5.jpg" alt="TAOCP" /></p>
 
-<p>撰写并出版[TAOCP]前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
+<p>撰写并出版<a href="http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">TAOCP</a>前三卷之后，Knuth发现印刷排版烂的一逼，在没有好使的数字排版系统的情况下，Knuth决定自己搞一个出来——于是就有了TEX。</p>
 
 <p><img src="http://i.imgur.com/e6FqiCM.jpg" alt="TEX" /></p>
 
@@ -2304,264 +2540,6 @@ static void Main(String[] cmdArgs) {</p>
 <p>对解释器/编译器感兴趣，现在正在自学Coursera的<a href="https://class.coursera.org/compilers-004">Compiler课程</a>。</p>
 
 <p>欢迎来信交流技术：lunageek#gmail#com</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[如何阅读书籍]]></title>
-    <link href="http://zh.lucida.me/blog/on-reading-books/"/>
-    <updated>2014-03-15T20:05:35+00:00</updated>
-    <id>http://zh.lucida.me/blog/on-reading-books</id>
-    <content type="html"><![CDATA[<h2>摘要</h2>
-
-<p>这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。</p>
-
-<h2>注意</h2>
-
-<ol>
-<li>“如何阅读”指“What to read”而非“How to read”，Mortimer J. Adler的<a href="http://book.douban.com/subject/1013208/">怎样阅读一本书</a>对How to read有着精彩的描述。</li>
-<li>“书籍”指非小说（Non-fiction）类书籍。</li>
-</ol>
-
-
-<h2>目标</h2>
-
-<p>我是一个功利主义者（<a href="http://en.wikipedia.org/wiki/Utilitarianism">Utilitarianism</a>），因此我认为阅读的目标在于为自己创造实际价值，所以：</p>
-
-<ol>
-<li>我不会因为某本书看起来很有趣就去阅读（机会成本）。</li>
-<li>也不会因为很多人推荐某本书就去阅读（从众）。</li>
-<li>更不会因为某本书难就去阅读（追求智商优越感）</li>
-</ol>
-
-
-<p>一本书值得阅读，当且仅当：</p>
-
-<ol>
-<li>它可以直接为我创造价值。</li>
-<li>它可以间接为我创造价值。</li>
-</ol>
-
-
-<p>我的阅读目标：</p>
-
-<blockquote><p>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。</p></blockquote>
-
-<!-- more -->
-
-
-<h2>如何选择？</h2>
-
-<h3>专业书籍</h3>
-
-<blockquote><p>专业知识尽可能深入。</p></blockquote>
-
-<p>我是一个软件开发者（Software Developer），因此这里的专业书籍均和软件开发有关。</p>
-
-<p>这里介绍我自己用的两种方法：</p>
-
-<h4>根据引用列表</h4>
-
-<p>从一本经典书籍出发，深度优先遍历它的引用列表，通过书评和摘要了解这些引用书籍，再根据自己的实际情况决定自己的阅读次序。</p>
-
-<p>这里以<a href="http://book.douban.com/subject/1477390/">代码大全</a>为例（为了方便和一致性，这里使用英文书名）：</p>
-
-<p>```
-Code Complete：软件构建全程最佳实践指南。
-|
-|&mdash;&mdash;How to Solve it：系统解决问题。
-|
-|&mdash;&mdash;Conceptual Blockbusting：跳出思维的壁垒。
-|
-|&mdash;&mdash;Mythical Man Month：软件工程不能做什么。
-|
-|&mdash;&mdash;Programming Pearls：极简算法手册。</p>
-
-<pre><code> |
- |----The Science of Programming：编写正确的程序。
- |
- |----Writing Efficient Programs：编写高效的程序。
-</code></pre>
-
-<p>|
-|&mdash;&mdash;Pragmatic Programmer：高效程序员的实践。
-|
-|&mdash;&mdash;Refactoring：如何改进自己的代码。
-|
-|&mdash;&mdash;Programming on Purposes：用正确的编程模式处理问题。
-|
-|&mdash;&mdash;Software Tools：用合适的抽象封装复杂度。</p>
-
-<pre><code> |
- |----The Practice of Programming：极简编程风格指南。
-      |
-      |---- Writing Solid Code：减少调试的时间。
-      |
-      |---- Elements of Programming Style：极简编程风格指南。
-</code></pre>
-
-<p>```</p>
-
-<p>可以发现，通过<a href="http://book.douban.com/subject/1477390/">代码大全</a>一本书，经过短短两层引用联系，几乎可以找到2004年以前所有软件开发的经典书籍。事实上，我阅读的80%以上的软件开发经典书籍，都源自于<a href="http://book.douban.com/subject/1477390/">代码大全</a>的引用列表。</p>
-
-<p>这种方法的好处：</p>
-
-<ul>
-<li>简单直接：相对于从茫茫书海里找出10本经典书籍，找1本经典书籍再从它的引用列表里面找到20本经典书籍要容易的多。</li>
-<li>质量保证：靠谱书籍的引用书籍的质量一般都很高。</li>
-<li>发现一些被忽视的经典：相当一部分的书籍随着时间的流逝而淡出人们的视野，但这并不代表它们本身没有价值，例如：
-
-<ul>
-<li><a href="http://book.douban.com/subject/1989284/">Programming on Purposes</a></li>
-<li><a href="http://book.douban.com/subject/1815459/">Software Tools</a></li>
-<li><a href="http://book.douban.com/subject/2350559/">The Science of Programming</a></li>
-<li><a href="http://book.douban.com/subject/1456967/">Writing Solid Code</a></li>
-<li><a href="http://book.douban.com/subject/1768600/">Writing Efficient Programs</a></li>
-<li>等等&hellip; 这些书或者绝版，但它们都对我的软件开发理念产生了巨大影响。</li>
-</ul>
-</li>
-<li>形成知识体系：引用书籍彼此具有天然的联系，这使得创建知识体系更加容易。</li>
-</ul>
-
-
-<p>我认为这种方法适用于任何需要严肃阅读的领域：</p>
-
-<ol>
-<li>锚点：找到一本经典书籍。</li>
-<li>撒网：了解该书引用列表中的书籍。</li>
-<li>收网：根据自己实际需要，精读相关书籍。</li>
-</ol>
-
-
-<h4>根据作者</h4>
-
-<p>这里以计算机书籍为例（以下仅代表个人口味）：</p>
-
-<ol>
-<li>Richard Stevens：善。</li>
-<li>Brian Kernighan：极善。</li>
-<li>Deitel Series：翔。</li>
-<li>Bruce Eckel：废话连篇。</li>
-<li>Jon Bentley：善。</li>
-<li>Andrew S Tanenbaum：大善。</li>
-<li>Jeffrey D Ullman：善。</li>
-<li>P.J. Plauger：大善。</li>
-<li>Robert C Martin：善。</li>
-<li>Bjarne Stroustrup：善，但略神叨（神侃世界观方法论有点顶不住）。</li>
-<li>Martin Fowler：善，但略唠叨。</li>
-<li>Ron Jeffries：翔（好吧我是故意来黑的，尼玛连个<a href="http://devgrind.com/2007/04/25/how-to-not-solve-a-sudoku/">Sudoku</a>都解不出来写毛程序）</li>
-</ol>
-
-
-<p>这种方法的问题在于需要一定阅读经验，但是它非常有效——以至于不用看内容就对书的质量有七八成把握。</p>
-
-<h3>非本专业书籍</h3>
-
-<blockquote><p>专业周边知识尽可能精炼。</p></blockquote>
-
-<ol>
-<li>对于专业周边知识，了解关键概念及指导思想即可。</li>
-<li>不需要，也没有必要对专业周边知识进行深入了解。</li>
-<li>&ldquo;Know what&rdquo; is enough, &ldquo;Know how&rdquo; is expensive.</li>
-</ol>
-
-
-<p>以我2年前编写手机应用，学习用户体验为例：</p>
-
-<ol>
-<li>分别在现实中（身边有几个很不错的交互设计师）和线上（Quora和知乎）进行提问和搜索，得到一个书单。</li>
-<li>按照下面的原则过滤书单：
-
-<ul>
-<li>去掉教科书和大部头。</li>
-<li>去掉包含大量原理或论证的书籍。</li>
-<li>保留结论型书籍。</li>
-<li>保留指南型书籍。</li>
-</ul>
-</li>
-<li>总结出书单，迅速的阅读并找到关键点。
-
-<ul>
-<li><a href="http://book.douban.com/subject/3323633/">给大家看的设计书</a>：CRAP原则，字体与配色。</li>
-<li><a href="http://book.douban.com/subject/4606471/">设计心理学</a>：心智模型，心智摩擦，最小惊讶。</li>
-<li><a href="http://book.douban.com/subject/1493316/">交互设计之路</a>：为什么需要交互，交互有哪些坑。</li>
-<li><a href="http://book.douban.com/subject/4254166/">Tapworthy</a>：具有实际操作性的移动平台交互设计指南。</li>
-</ul>
-</li>
-</ol>
-
-
-<p>了解设计的人可能认为上面的书单过于初级——没错，它们都是结论型或指南型书籍，没有原理，也没有论证——但这正是对于我这样的非专业者所需要的书籍：我不需要知道这些知识是怎么来的，知道怎么用足矣。</p>
-
-<p>此外，受价值驱动，而非兴趣——大多数情况下兴趣只是把自己脱离当前困境的接口。</p>
-
-<h3>学习型书籍</h3>
-
-<p>学习型书籍是一种元（Meta）方法书籍：这类书籍用于提升学习能力，换句话说，就是缩短吸收知识所需要的时间。</p>
-
-<p>这类书籍我只读过下面的几本，效果有但不明显：</p>
-
-<ul>
-<li><a href="http://book.douban.com/subject/2345548/">学习之道</a>：冥想，体会。</li>
-<li><a href="http://book.douban.com/subject/1013208/">如何阅读一本书</a>：检视阅读，主题阅读。</li>
-<li><a href="http://www.scotthyoung.com/learnmorestudyless/">Learn more, study less</a>：建立知识体系及联系。</li>
-</ul>
-
-
-<p>需要注意的是，不要陷入到寻求最优学习方法的误区——Best is the worthest enemy of better。</p>
-
-<h2>阅读原版？</h2>
-
-<h3>如何在翻译版和原版做选择？</h3>
-
-<ol>
-<li>优先选择翻译版。计算机书籍这种描述精确知识的书籍更是如此。</li>
-<li>此外，如果阅读中出现难以理解的问题，不要下意识的把其归咎于翻译问题——多数情况是理解问题。</li>
-</ol>
-
-
-<h3>为什么还有那么多人阅读原版？</h3>
-
-<ol>
-<li>因为翻译版还没出版。</li>
-<li>知识的价值有其时效性。</li>
-<li>逼格。</li>
-</ol>
-
-
-<h2>越多越好？</h2>
-
-<p>我经常逛豆瓣，豆瓣有一个很有意思的现象就是人们喜欢去比较自己每年读书的数量，或者是截图炫耀自己读过几千本书云云。</p>
-
-<p>我在这里酸一下：书的数量并没有什么参考价值，就好比无法用盖一栋大楼的砖数评价这栋大楼的质量；换个说法，Effort不等于Progress。</p>
-
-<blockquote><p>关键在于读过书的质量，吸收的程度，以及创造的价值。</p></blockquote>
-
-<p>此外，盲目追求读书的数量会带来另一个问题——浅尝辄止。本应花在专业书籍上的时间被分配到其它无关紧要的事情上，导致该学好的没学好，没必要的学了一滩但用不上。</p>
-
-<h2>总结</h2>
-
-<ol>
-<li>形成T型知识结构：专业知识尽可能深入，专业周边知识尽可能精炼。
-
-<ul>
-<li>按照引用列表和作者深入阅读专业书籍。</li>
-<li>利用结论型/指南型书籍精炼阅读专业周边书籍。</li>
-<li>不断强化自己的按需学习能力。</li>
-</ul>
-</li>
-<li>不一定非要阅读原版。</li>
-<li>读书并非多多益善。</li>
-<li>读书之前回答下面几个问题：
-
-<ul>
-<li>这本书能给自己带来什么改变？</li>
-<li>自己是否需要这种改变？</li>
-<li>如果均为Yes，继续；如果有一个No，砍掉。</li>
-</ul>
-</li>
-</ol>
-
 ]]></content>
   </entry>
   

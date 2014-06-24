@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="xcnfIp24QN30miBMIDuuCCQF5IKPlu9_-U0785KdzLc" />
+  <title>关于编程错误的思考——1. A Taxonomy of Programming Errors - Lucida</title>
+  <meta name="author" content="Lucida">
+
+  
+  <meta name="description" content="关于编程错误的思考是一个博文系列，我试图通过结合the Errors of TEX对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。">
+  <meta name="keywords" content="编程, Knuth, 编程错误">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zh.lucida.me/blog/on-programming-errors-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Lucida" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Lucida</a></h1>
+  
+    <h2>Life Love Tech</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://www.duckduckgo.com/" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sites" value="zh.lucida.me" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search&hellip;"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首页</a></li>
+  <li><a href="/blog/archives">博文列表</a></li>
+  <li><a href="http://en.lucida.me">English</a></li>
+  <li><a href="/about">关于</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">关于编程错误的思考——1. A Taxonomy of Programming Errors</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T23:32:12+01:00" pubdate data-updated="true">Jun 24<span>th</span>, 2014</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://zh.lucida.me">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems</li>
+<li>Epilogue</li>
+</ol>
+
+
+<h2>编程错误的分类</h2>
+
+<p>前文讲到Knuth在开发TEX的过程中遇到了各式各样的差错，为了理解并控制编程错误，Knuth将这些错误整理到<a href="http://texdoc.net/texmf-dist/doc/generic/knuth/errata/errorlog.pdf">记录日志</a>，并将这些差错分为15类。为了引用方便，我将它们翻译成中文。</p>
+
+<p>注意：</p>
+
+<ol>
+<li>为了引用方便，Knuth使用英文首字母指代各个编程错误的分类，出于同样的原因，我将这些分类一一翻译为成语。</li>
+<li>保留原文，以便读者理解，以免信息丢失。</li>
+<li>原文中的&#8221;my&#8221;和&#8221;I&#8221;以及译文中的&#8221;我&#8221;均指Knuth本人。</li>
+<li>如果认为翻译不靠谱请在评论中指出 :)</li>
+</ol>
+
+
+<p>下面是Knuth对TEX错误的分类：</p>
+
+<!-- more -->
+
+
+<hr />
+
+<ul>
+<li><strong>A: an algorithm awry.</strong> Here my original method proved to be incorrect or inadequate.</li>
+<li><strong>不可胜算</strong>：我最初设想的算法有误或存在不足。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>B: a blunder or botch.</strong> Here I knew what I ought to do, but I wrote something else that was syntactically correct&mdash;sort of a mental typo.</li>
+<li><strong>鬼使神差</strong>：我知道这段代码该怎么写，但我糊里糊涂写了另外一段出来而且还能通过编译。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>C: a cleanup for consistency or clarity.</strong> Here I changed the rules of the language to make things easier to remember and/or more logical.</li>
+<li><strong>得心应手</strong>：我对语言（TEX）规则进行整理，使其符合逻辑，更加易用。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>D: a data structure debacle.</strong> Here I didn&rsquo;t properly update the representation of information to preserve the appropriate invariants.</li>
+<li><strong>差之毫厘</strong>：我对数据结构的操作有误，使其处在不一致的状态（破坏了其本应维持的不变式）。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>E: an efficiency enhancement.</strong> Here I changed the program so that it would run faster; the existing code was correct but slow.</li>
+<li><strong>多快好省</strong>：尽管原来的代码正确，但速度很慢，于是我修改代码以改善程序的性能。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>F: a forgotten function.</strong> Here I didn&rsquo;t remember to do everything I had intended, when I actually got around to writing a particular part of the code.</li>
+<li><strong>丢三落四</strong>：我忘记了一些本应完成的事情，比如说我知道这段代码应该写但我忘了写。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>G: a generalization or growth of ability.</strong> Here I realized that some extension of the existing specifications was desirable.</li>
+<li><strong>虚怀若谷</strong>：我将一些已有的代码进行扩展/抽象使其更加通用。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>I: an interactive improvement.</strong> Here I made TEX respond better to the user&rsquo;s needs.</li>
+<li><strong>各得其所</strong>：我使TEX对用户更加友好。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>L: a language liability.</strong> Here I misused or misunderstood the programming language or system hardware I was working with.</li>
+<li><strong>言非所指</strong>：我对编程语言（或是系统硬件）理解有误，从而造成错误。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>M: a mismatch between modules.</strong> Here I forgot the conventions I had built into a subroutine when I actually got around to using that subroutine.</li>
+<li><strong>事与愿违</strong>：我忘了我自己编写的例程（或函数）的正确用法，以至于调用它们时出现问题。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>P: a promotion of portability.</strong> Here I changed the organization or documentation of the program; this affected only a person who would try to read or modify the code, not a person who tried to run it.</li>
+<li><strong>焕然一新</strong>：我对程序的结构或是文档进行改善，从而在不改变程序的前提下改善其可读性和可修改性。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>Q: a quest for quality.</strong> Here I changed the specifications of what the program should output from given input, when I learned how to improve the typographic appearance of the output.</li>
+<li><strong>精益求精</strong>：在对字体版式有了更深入的理解之后，我对程序进行修改，以获得更好的输出效果。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>R: a reinforcement of robustness.</strong> Whenever I realized that TEX could loop or crash in the presence of certain erroneous input, I tried to make the code bulletproof.</li>
+<li><strong>百毒不侵</strong>：一旦我意识到TEX有可能在极端情况下崩溃，我就会想方设法使程序变的更加健壮。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>S: a surprising scenario.</strong> Errors of type S were particularly bad bugs that forced me to change my original ideas, because of unforeseen interactions between various parts of the program.</li>
+<li><strong>出乎意料</strong>：由于我最初对问题的定义或是对程序间模块的交互理解不足，导致一些无法预见的错误——这类错误往往很棘手。</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>T: a trivial typo.</strong> Sometimes I did&rsquo;t type the right thing when I entered the program into the computer, although my original pencil draft was correct.</li>
+<li><strong>粗心大意</strong>：我在打字时会犯一些小错，以至我纸上的草稿是对的，但敲进去的是错的。</li>
+</ul>
+
+
+<hr />
+
+<h2>进一步的分类</h2>
+
+<h3>Knuth随后将这15个分类分为两大类：</h3>
+
+<ul>
+<li><strong>不可胜算</strong>、<strong>鬼使神差</strong>、<strong>差之毫厘</strong>、<strong>丢三落四</strong>、<strong>言非所指</strong>、<strong>事与愿违</strong>、<strong>百毒不侵</strong>、<strong>出乎意料</strong>和<strong>粗心大意</strong>属于程序的差错（Bugs）。</li>
+<li><strong>得心应手</strong>、<strong>多快好省</strong>、<strong>虚怀若谷</strong>、<strong>各得其所</strong>、<strong>焕然一新</strong>和<strong>精益求精</strong>属于对程序的改进（Enhancements）。</li>
+</ul>
+
+
+<h3>然后按复杂程度把差错（Bugs）分为三类：</h3>
+
+<h4>简单的差错</h4>
+
+<ul>
+<li><strong>粗心大意</strong>：敲错了代码。</li>
+<li><strong>鬼使神差</strong>：敲串了代码。</li>
+<li><strong>丢三落四</strong>：忘敲了代码。</li>
+<li><strong>言非所指</strong>：踩语言的坑。</li>
+<li><strong>事与愿违</strong>：中自己的坑。</li>
+</ul>
+
+
+<h4>复杂的差错</h4>
+
+<ul>
+<li><strong>不可胜算</strong>：算法设计不当。</li>
+<li><strong>差之毫厘</strong>：数据结构维护不周。</li>
+</ul>
+
+
+<h4>棘手的差错</h4>
+
+<ul>
+<li><strong>百毒不侵</strong>：对错误输入处理不当而造成的问题。</li>
+<li><strong>出乎意料</strong>：由于对问题的理解不足，从而导致各种诡异的问题。</li>
+</ul>
+
+
+<h2><a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>的不足</h2>
+
+<p>Knuth在<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对TEX的错误进行了详细的分析，并对这些错误进行了系统的分类，但我认为这篇文章仍有一些不足：</p>
+
+<ol>
+<li>Knuth并未对编程错误给出应对策略。</li>
+<li><a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>一文成于1989年，其中记载的是1978年至1982年Knuth开发TEX时碰到的各种问题——30年前的编程语言和现在严重脱节。</li>
+</ol>
+
+
+<p>所以，我打算（不自量力的）结合自己的经验，在Knuth的分析基础上再进一步——从下篇开始，我会为每一类编程错误给出其案例，诱因和应对策略。</p>
+
+<p>——未完待续</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lucida</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T23:32:12+01:00" pubdate data-updated="true">Jun 24<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/essay/'>Essay</a>, <a class='category' href='/blog/categories/programming/'>Programming</a>, <a class='category' href='/blog/categories/retrospection/'>Retrospection</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zh.lucida.me/blog/on-programming-errors-1/" data-via="" data-counturl="http://zh.lucida.me/blog/on-programming-errors-1/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/on-programming-errors-0/" title="Previous Post: 关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX">&laquo; 关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>关于</h1>
+  <img src="http://imgur.com/nZXZVhG.png" width="128px" height="128px">
+  <p>学生生涯在<a href="http://www.dlut.edu.cn" target="_blank">大工</a>和<a href="http://www.buaa.edu.cn" target="_blank">北航</a>度过；</p>
+  <p>现在就职于<a href="http://www.google.co.uk/about/jobs/locations/london/" target="_blank">Google London</a>；</p>
+  <p><a href="http://www.windowsphone.com/zh-cn/store/publishers?publisherId=LucSoft&amp;appId=3e4f73b2-c70e-40dd-b3b8-1d2135e9af56" target="_blank">LucSoft</a>和<a href="http://www.windowsphone.com/zh-cn/store/publishers?publisherId=IdaSoft&amp;appId=7f06890c-60d6-4ec7-880d-24a9dd24a283" target="_blank">IdaSoft</a>的创建者，其下包含<a href="http://www.windowsphone.com/zh-cn/store/app/%E4%B8%AD%E6%96%87%E6%8B%A8%E5%8F%B7%E5%8A%A9%E6%89%8B/3e4f73b2-c70e-40dd-b3b8-1d2135e9af56" target="_blank">拨号助手</a>和<a href="http://www.windowsphone.com/zh-cn/store/app/%E9%87%91%E5%BA%B8%E5%85%A8%E9%9B%86/7f06890c-60d6-4ec7-880d-24a9dd24a283" target="_blank">金庸全集</a>等热门应用；</p>
+  <p><a href="http://book.douban.com/people/figure9/" target="_blank">读过的书</a>和<a href="http://book.douban.com/people/figure9/reviews" target="_blank">书评</a>；</p>  
+  <p><a href="http://www.weibo.com/pegong" target="_blank">新浪微博</a>；</p>
+  <p>本站所有内容均属个人观点，和本人雇主及其他团体无关。</p>
+</section><section>
+  <h1>最近的博文</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/on-programming-errors-1/">关于编程错误的思考——1. A Taxonomy of Programming Errors</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/on-programming-errors-0/">关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/design-of-design-0-prologue/">设计中的设计——0. Prologue</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/an-introduction-to-swift/">来自苹果的编程语言——Swift简介</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/on-the-keynote-of-t-one/">关于锤子手机和锤子手机发布会</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/stories-of-masturbations/">打飞机故事集</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/on-learning-algorithms/">我的算法学习之路</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/levels-on-learning-and-using-technologies/">学习&使用技术的四种层次</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>分类</h1>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (1)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/design'>Design (1)</a></li><li><a href='/blog/categories/essay'>Essay (12)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (5)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (10)</a></li><li><a href='/blog/categories/technology'>Technology (7)</a></li></ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Lucida -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'lucida';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://zh.lucida.me/blog/on-programming-errors-1/';
+        var disqus_url = 'http://zh.lucida.me/blog/on-programming-errors-1/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
