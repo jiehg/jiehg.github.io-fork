@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-28T00:14:19+01:00</updated>
+  <updated>2014-06-28T00:16:30+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -427,21 +427,6 @@
 
 
 <p><a href="http://zh.lucida.me/blog/on-programming-errors-2/">原文链接</a></p>
-
-<h2>概要</h2>
-
-<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
-
-<ol>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-2/">Blunders, Typos, Mismatches, and Language Liability</a></li>
-<li>Algorithm + Data Structures &ndash;> Programming</li>
-<li>Robustness and Surprise</li>
-<li>On Enhancing Existing Systems</li>
-<li>Epilogue</li>
-</ol>
-
 ]]></content>
   </entry>
   
