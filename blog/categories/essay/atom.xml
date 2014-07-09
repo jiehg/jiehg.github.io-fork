@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-06-29T23:13:53+01:00</updated>
+  <updated>2014-07-09T23:13:12+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[我们都爱黑巴西——德国神虐巴西之后]]></title>
+    <link href="http://zh.lucida.me/blog/after-germany-screwed-brazil/"/>
+    <updated>2014-07-09T23:02:44+01:00</updated>
+    <id>http://zh.lucida.me/blog/after-germany-screwed-brazil</id>
+    <content type="html"><![CDATA[<p>比赛的结果大家都知道——世界杯史上最惨烈的半决赛，巴西国家队生生的被德国打成了中国少先队。</p>
+
+<p>比赛之前的Google Doodle：</p>
+
+<p><img src="http://i.imgur.com/NN26YIR.gif" alt="Original Doodle" /></p>
+
+<p>上半场结束后的Doodle：</p>
+
+<p><img src="http://i.imgur.com/KmCNKZZ.gif" alt="Updated Doodle" /></p>
+
+<p>全场结束后的Doodle：</p>
+
+<!-- more -->
+
+
+<p><img src="http://i.imgur.com/le8xFzz.gif" alt="Finished Doodle" /></p>
+
+<p>整场比赛大致是这样：</p>
+
+<p><img src="http://i.imgur.com/ZERmlv2.gif" alt="Hulk" /></p>
+
+<p>也可以说是这样：</p>
+
+<p><img src="http://i.imgur.com/qHnxq3n.gif" alt="Beer" /></p>
+
+<p>巴西守门员的表现：</p>
+
+<p><img src="http://i.imgur.com/lp1nRDE.gif" alt="守门员" /></p>
+
+<p>所以也许只有Howard才能拯救巴西：</p>
+
+<p><img src="http://i.imgur.com/SJwVQdO.png" alt="Howard" /></p>
+
+<p>耶稣都哭了：</p>
+
+<p><img src="http://i.imgur.com/tkmwfnX.png" alt="Crying Jesus" /></p>
+
+<p>然后准备跑路：</p>
+
+<p><img src="http://i.imgur.com/4Mq6CKZ.png" alt="Escaping Jesus" /></p>
+
+<p>一些球迷认为巴西应该换一面国旗</p>
+
+<p><img src="http://i.imgur.com/9Rhh3B3.png" alt="New Flag" /></p>
+
+<p>阿根廷陷入了沉思：</p>
+
+<p><img src="http://i.imgur.com/CYQzqw0.png" alt="Argentina Dilemma" /></p>
+
+<p>西班牙松了一口气：</p>
+
+<p><img src="http://i.imgur.com/IxbY9YE.png" alt="Spanish" /></p>
+
+<p>美国则表示哥比巴西强多了</p>
+
+<p><img src="http://i.imgur.com/2is6Eum.png" alt="American" /></p>
+
+<p>甚至连加拿大也长出一口气（加拿大在预选赛中被洪都拉斯黑成8:1）</p>
+
+<p><img src="http://i.imgur.com/KNevvMp.png" alt="Canadian" /></p>
+
+<p>码农表示一轮Build没跑完德国已经进了仨：</p>
+
+<p><img src="http://i.imgur.com/lIer2vQ.png" alt="Build" /></p>
+
+<p>美工表示对于2014世界杯Logo有了新解读：</p>
+
+<p><img src="http://i.imgur.com/3vClfHw.png" alt="Logo" /></p>
+
+<p>前端表示当时没考虑到这种情况所以出了Bug：</p>
+
+<p><img src="http://i.imgur.com/xKmFl3a.png" alt="Scroll Bar" /></p>
+
+<p>总之</p>
+
+<p><img src="http://i.imgur.com/1JdyRgN.png" alt="German LGTM" /></p>
+
+<p><img src="http://i.imgur.com/tNFyNlX.png" alt="Brazil OMG" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[逗逼足球——Xorb Football]]></title>
@@ -872,120 +958,6 @@ var popUpAnimation = popUp.From(x: 0, y: -320).MoveTo(x: 0, y: 320).InMilliSecon
 
 
 <p><a href="http://zh.lucida.me/blog/on-programming-errors-0/">原文链接</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[设计中的设计——0. Prologue]]></title>
-    <link href="http://zh.lucida.me/blog/design-of-design-0-prologue/"/>
-    <updated>2014-06-06T23:06:06+01:00</updated>
-    <id>http://zh.lucida.me/blog/design-of-design-0-prologue</id>
-    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/design-of-design-0-prologue/">原文链接</a></p>
-
-<h2>关于</h2>
-
-<p>“设计中的设计”是一个博文系列，我打算在这个系列记录我所见过的优秀设计和优秀设计原则，并推荐一些（我认为）不错的设计书籍。</p>
-
-<p>在“<strong>设计</strong>中的<em>设计</em>”里，第一个<strong>设计</strong>指具有杰出设计的优秀产品，而第二个<em>设计</em>指优秀产品具有的杰出设计。</p>
-
-<p>此外，副标题里使用<strong>Prologue</strong>，主要是因为我接下来提到的产品（设计）大多没有中文名——为了一致，我决定在这一系列所有文章的副标题中统一使用英文。</p>
-
-<p>最后，这一系列博文和原研哉的<a href="http://book.douban.com/subject/1336111/">設計中的設計</a>无关，尽管它们名字相同。</p>
-
-<h2>为什么要写这个系列？</h2>
-
-<p>作为一个码农，按理说我应该和设计绝缘——设计是美工的事情嘛，码农负责写好代码就成。事实上我之前也一直这么认为。</p>
-
-<!-- more -->
-
-
-<p>但在三年前我这个看法被动摇了——2011年是国内移动互联网井喷的一年，随着iPhone及其模仿者的大行其道，曾经的手机王者Nokia被迅速的淘汰出市场；随着手机应用开发门槛的降低（从Symbian到iOS或Android），各种手机应用喷涌而出。</p>
-
-<p>在这段时间我编写了一些手机应用，并通过QQ群，邮件列表以及论坛等渠道直接与用户交流，在这个过程中，我悲观的发现用户的思维模式和我（开发者）的思维模式完全不同，我认为理所当然的东西他们认为不可理喻，反之亦然。</p>
-
-<p>在那段时间里我一度绝望的认为所有的用户都是神经病、弱智或是某些代谢产物，后来在Microsoft ATC实习时结识了几个设计师朋友（<a href="http://weibo.com/u/3848053360">@Xing</a>和<a href="http://weibo.com/u/2104950751">@Yan</a>），我向他们大吐苦水，他们则非常腹黑的讲了一个笑话：</p>
-
-<blockquote><p>丈夫驾车出门。妻子在家听广播，听到一则报道，妻子连忙拿起电话。</p>
-
-<p>妻子：老公啊，我刚听广播上说，高速公路上有一辆车在逆行，你千万要小心。</p>
-
-<p>老公：哪是一辆啊，我看有好几百辆车都在逆行。</p></blockquote>
-
-<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/hei.png" alt="黑" /></p>
-
-<p>被善意的黑出翔之后，我认为我不能这样一直逆行下去——于是我开始天天死皮赖脸的向他们请教：从设计的原则，到设计的书籍，再到用户的心理，我强迫自己跳出码农的思维模式，像正常人一样思考。</p>
-
-<p>感谢他们的指导，尽管我无法成为像他们一样专业的优秀设计师，但我形成了一个大体的设计观：比如一个好设计应该是什么样子，而一个烂设计又应该是什么样子。</p>
-
-<p>在这个设计观的指引下，接下来我编写的手机应用都获得了不错的评价（几乎全五星），在做私活时也总能做出令客户满意的产品。</p>
-
-<h2>优秀的产品&amp;杰出的设计</h2>
-
-<p>在朋友的推荐下，最近把《道德经》看了一遍，我认为《道德经》里面的一段文字可以套用在产品和设计上：</p>
-
-<blockquote><p>太上，不知有之；</p>
-
-<p>其次，亲而誉之；</p>
-
-<p>其次，畏之；</p>
-
-<p>其次，侮之；</p>
-
-<p>信不足焉，有不信焉。</p>
-
-<p>—— 《道德经》 十七章</p></blockquote>
-
-<p>把上面的文字应用到产品和设计：</p>
-
-<ul>
-<li>优秀的设计使用户专注于产品本身，而忽略设计的存在。（例如Google（搜索引擎）和iPad）</li>
-<li>不错的设计使用户感到舒适，用户会称赞它的设计。（例如iPod Classic，<a href="http://www.parrot.com/zik/uk/">Parrot Zik</a>和Amazon Kindle）</li>
-<li>马虎的设计使用户感到不适，用户很难掌握产品的功能。（例如早期版本的Microsoft Office，vim编辑器和JavaScript语言）</li>
-<li>糟糕的设计会毁掉一个产品，用户会把产品和产品的设计骂出翔。（例如Nokia的Symbian触屏手机和绝大多数Linux桌面系统）</li>
-</ul>
-
-
-<p>需要注意，我在上面列举的产品都具有强大的功能——它们有的成功，有的失败，区别就在于设计。</p>
-
-<h2>The Inmates are Running the Asylum</h2>
-
-<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/inmates_asylum.jpg" alt="The Inmates are Running the Asylum" /></p>
-
-<p><a href="http://www.amazon.com/The-Inmates-Are-Running-Asylum/dp/0672326140/">The Inmates are Running the Asylum</a>的全名是：The Inmates Are Running the Asylum : Why High Tech Products Drive Us Crazy and How to Restore the Sanity，直译成中文是：疯子开精神病院（为什么高科技产品总让我们抓狂以及如何打破这个窘境），可能是这个书名太惊悚，所以它的中文书名被分别译为<a href="http://book.douban.com/subject/1237849/">软件创新之路</a>（第一版）和<a href="http://book.douban.com/subject/1493316/">交互设计之路</a>（第二版）。</p>
-
-<p>在这本书中，VB的创造者Alan Cooper创造性的把所有程序员黑了一遍——让程序员创造面向用户的软件，等价于让一群疯子开精神病院——因为能成为程序员的人思维本身就不正常：</p>
-
-<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/ynm3000.png" alt="要你命3000" /></p>
-
-<p>这是<a href="http://movie.douban.com/subject/1307739/">达文西</a>发明的要你命3000。</p>
-
-<p><img src="http://lucida-imgs.b0.upaiyun.com/blogs/dod_0/crazy_app.jpg" alt="要你命3000000000" /></p>
-
-<p>这是程序员发明的要你命3000000000。</p>
-
-<p>当然这本书不只是为了黑程序员，作者花了大量篇幅解释为什么现在的产品随着科技含量的提高反而愈发不好用，并提出了<a href="http://en.wikipedia.org/wiki/Interaction_design#Goal-oriented_design">认知摩擦（Cognitive friction）</a>、<a href="http://www.slideshare.net/PublishingTechnology/dancing-bears-pubtech">跳舞的熊（Dancing bear）</a>以及逻辑人（Homo logicus）等令人耳目一新的概念。总而言之，<a href="http://en.wikipedia.org/wiki/Interaction_design">交互设计（Interaction Design）</a>对于软件开发必不可少。</p>
-
-<p>如果你是一个想做出好产品的程序员（码农），那么这本书值得一读——它会打破你现有的观念，让你意识到优秀的产品需要设计。就像我的朋友讲的那个笑话，它会让你意识到<strong>是你在逆行，而不是你面前的几百辆车在逆行。</strong></p>
-
-<p>（未完待续）</p>
-
-<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/design-of-design-0-prologue/">原文链接</a></p>
 ]]></content>
   </entry>
   
