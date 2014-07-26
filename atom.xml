@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-07-09T23:13:12+01:00</updated>
+  <updated>2014-07-27T00:21:20+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[设计中的设计——1. Horror Vacui]]></title>
+    <link href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/"/>
+    <updated>2014-07-27T00:10:03+01:00</updated>
+    <id>http://zh.lucida.me/blog/design-of-design-1-horror-vacui</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">原文链接</a></p>
+
+<h2>关于</h2>
+
+<p>“设计中的设计”是一个博文系列，我打算在这个系列记录我所见过的优秀设计和优秀设计原则，并推荐一些（我认为）不错的设计书籍。</p>
+
+<p>在“<strong>设计</strong>中的<strong>设计</strong>”里，第一个<strong>设计</strong>指具有杰出设计的优秀产品，而第二个<em>设计</em>指优秀产品具有的杰出设计。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/design-of-design-0-horror-prologue/">设计中的设计——0. Prologue</a></li>
+<li><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">设计中的设计——1. Horror Vacui</a></li>
+</ol>
+
+
+<h2>Horror Vacui</h2>
+
+<blockquote><p>Horror Vacui——a Latin expression meaning &ldquo;fear of emptiness&#8221;——regards the desire to fill empty spaces with information of objects.</p></blockquote>
+
+<p><strong><a href="http://en.wikipedia.org/wiki/Horror_vacui">Horror Vacui</a></strong>源自人对空旷空间的畏惧感——它是一种要将空间填满的心理，也是一种不留任何空白空间的艺术风格，这种风格的代表设计师包括David Carson和Vaughan Oliver，有兴趣的童鞋请自行Google他们的代表作品。</p>
+
+<p>不过这篇文章讨论的并不是<strong>Horror Vacui</strong>艺术风格，而是<strong>Horror Vacui</strong>心理。</p>
+
+<!-- more -->
+
+
+<p>研究表明，<strong>Horror Vacui</strong>和<strong>价值感知（Value Perception）</strong>间存在反比关系——随着<strong>Horror Vacui</strong>的升高，价值感知随之下降。简单的来说——同样的空间，放的东西越多，给人的廉价感越强烈，反之亦然（vice versa）。</p>
+
+<p>以服装店店面的设计为例：</p>
+
+<p><img src="http://i.imgur.com/FFblJhS.png" alt="Horror Vacui" /></p>
+
+<p>研究者做了一个调查，对于上面的店面设计风格，从左到右的空间利用率越来越低，然而给人的价值感知正好相反——几乎所有被调查者都认为最左的廉价感最强，而最右的高端感最强。</p>
+
+<p>再来几个现实例子：</p>
+
+<h3>店铺</h3>
+
+<p><img src="http://i.imgur.com/5LsZvER.jpg" width="600" height="400" title="西单某服装店" ></p>
+
+<p><img src="http://i.imgur.com/CtXZzWw.jpg" width="600" height="400" title="优衣库" ></p>
+
+<p><img src="http://i.imgur.com/CUwAJDd.jpg" width="600" height="400" title="Burberry" ></p>
+
+<p>你觉得哪一个店更贵？</p>
+
+<h3>食物</h3>
+
+<p><img src="http://i.imgur.com/YwI3YGU.jpg" width="600" height="400" title="东北乱炖" ></p>
+
+<p><img src="http://i.imgur.com/pw8iVAa.jpg" width="600" height="400" title="法式食物" ></p>
+
+<p>你认为哪道菜更贵？</p>
+
+<h2>Horror Vacui vs Minimalism</h2>
+
+<p>Horror Vacui设计是Minimalism设计的反面，<a href="http://www.amazon.co.uk/Universal-Principles-Design-Revised-Updated/dp/1592535879">Universal Principles of Design</a>在介绍Horror Vacui时给出了下面刻薄但又实用的建议：</p>
+
+<blockquote><p>To promote associations of high value, favor minimalism for affluent and well-educated audiences and horror vacui for poorer and less-educated audiences, and vice versa.</p></blockquote>
+
+<p>简单来说：</p>
+
+<ul>
+<li>对于教育程度高或富有的用户，使用minimalism（极简）设计以带来高价值认知。</li>
+<li>对于教育程度低或较穷的用户，使用horror vacui设计以带来高性价比认知。</li>
+</ul>
+
+
+<p>反之也一样：</p>
+
+<ul>
+<li>对于教育程度低或较穷的用户，minimalism设计会让他们认为这货性价比太低，不值得。</li>
+<li>对于教育程度高或富有的用户，horror vacui设计会让他们认为这货太廉价，没必要。</li>
+</ul>
+
+
+<p>总之，不用给矮矬穷营造高大上，也不要给高帅富灌输便宜大碗，会有反效果。</p>
+
+<h2>Universal Principles of Design</h2>
+
+<p><img src="http://i.imgur.com/EEueKvz.jpg" alt="Universal Principles of Design" /></p>
+
+<p>我在之前的<a href="http://zh.lucida.me/blog/on-reading-books/">如何阅读书籍</a>中提到利用结论型/指南型书籍精炼阅读专业周边书籍，<a href="http://www.amazon.co.uk/Universal-Principles-Design-Revised-Updated/dp/1592535879">Universal Principles of Design</a>就是设计中结论型书籍的代表作：</p>
+
+<ol>
+<li>包含一百多种实用设计原则，这些原则涵盖了改善可用性（Enhance usability）、影响感知（Infuluence Perception）、提升吸引力（Increase Appeal）、做出更好的设计决策（Make Better Design Decisions）以及设计教学（Teach through Design）这五大方面。</li>
+<li>全书按照字母顺序（Alphabetical Order）组织，同时也包含按类别组织的目录，既方便查阅，也方便针对性阅读。</li>
+<li>每一种设计原则都配有详细的文字介绍、图解、案例以及参考文献。</li>
+</ol>
+
+
+<p><img src="http://i.imgur.com/eqTjTqK.jpg" alt="样章" /></p>
+
+<p>总之，这本书对于专业设计师可能比较初级，但对于设计入门者是绝好的书籍。任何涉及到制作最终用户产品的人员（包括开发、测试和产品等）都应该阅读此书，从而了解基本设计原则（principle）和术语（terminology），以便与设计师进行交流，做出令用户满意的高价值设计。</p>
+
+<p>这本书有<a href="http://www.amazon.cn/%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%B3%95%E5%88%99-%E5%A8%81%E5%BB%89%E2%80%A2%E7%AB%8B%E5%BE%B7%E5%A8%81%E5%B0%94/dp/B00ES8JL8W/">中文译版</a>，但个人强烈推荐<a href="http://www.amazon.cn/Universal-Principles-of-Design-Lidwell-William/dp/1592535879/">原版</a>：因为这类书籍翻译过来会损失相当多的信息（注意并非否认翻译水平），此外原版价格也相当实惠。</p>
+
+<p>（未完待续）</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">原文链接</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[我们都爱黑巴西——德国神虐巴西之后]]></title>
@@ -6940,85 +7063,6 @@
 <h3>小结</h3>
 
 <p>导演很牛逼，可以在不触犯政府敏感地带的前提下将一个跨越80年到05年的影片拍出如此的真实感，而且在商业和声誉上取得双赢，国内恐怕没有几个导演可以做到。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[第一篇博文]]></title>
-    <link href="http://zh.lucida.me/blog/my-first-article/"/>
-    <updated>2014-01-05T17:03:00+00:00</updated>
-    <id>http://zh.lucida.me/blog/my-first-article</id>
-    <content type="html"><![CDATA[<h2>为什么要使用Octopress</h2>
-
-<p>之前用过不少博客，其中最长的一个<a href="http://www.cnblogs.com/figure9/">博客园博客</a>用了五年，写了不少文章，也不乏不少关注者，但我始终觉得不太爽：</p>
-
-<ul>
-<li>博客园上的文章水平太低：
-
-<ul>
-<li>倒不是装x，我并不否认博客园在国内的程序社区的地位，但这仅限于国内，一个首页上充满python入门教程或是常用排序算法的站点更适合初学者。</li>
-<li>所以可以理解一些用户在&#8221;成名&#8221;之后反而选择离开。</li>
-</ul>
-</li>
-<li>提供的编辑器不好用，尤其是代码样式难看的一B。</li>
-<li>缺乏对站点的控制，尽管有一些主题但可塑性不强，自己想放一些脚本进去也不方便。</li>
-<li>缺乏Mobile Readability，无论在我的iPhone 5还是Nexus 5上，精心设计的文章排版都会变成翔。</li>
-</ul>
-
-
-<p>直到前天和<a href="http://contributors.rubyonrails.org/contributors/oscar-del-ben/commits">Oscar</a>打桌球，我提到一直打算做一个独立博客，但由于不清楚uk这边申请域名和空间的流程而一直拖到现在，Oscar很疑惑的说如果只是一个静态博客那么用Github做host不就成了么。</p>
-
-<p>于是这个周末做了下调研，最后目标锁定在<a href="http://octopress.org/">Octopress</a>。</p>
-
-<!-- more -->
-
-
-<h3>免费的空间</h3>
-
-<p>Octopress是一个静态博客生成系统，使用<a href="http://jekyllrb.com/">Jekyll</a>生成静态站点，而Jekyll是Github默认的<a href="http://pages.github.com">pages</a>生成系统，因此Octopress生成的静态站点可以很方便的部署到Github Pages上。而Github提供了免费的空间，因此申请空间这步就轻松的跳过了。</p>
-
-<h3>接近完美的样式</h3>
-
-<p>Octopress默认的样式已经很不错，尤其是在<code>code</code>的展现和对<strong>Markdown</strong>的支持上，除此之外对<code>Markdown</code>做了一系列扩展，使得排版更加精致。
-下面的代码效果令我十分满意：</p>
-
-<figure class='code'><figcaption><span>Hello world in java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">java</span><span class="o">.</span><span class="na">fun</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span><span class="o">{</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello world!&quot;</span><span class="o">);</span>   
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Mobile Readablity</h3>
-
-<p>无论是在iPad Air，还是在iPhone 5和NEXUS 5上面，Octopress的表现都堪称完美。</p>
-
-<h3>新技术的训练</h3>
-
-<p>很惭愧的承认自己并没有用过git，也没有用过Markdown。以至于Basia在得知我没用过git时十分惊讶</p>
-
-<blockquote><p>How could a programmer never use git before?</p></blockquote>
-
-<p>使用Octopress写博客可以强制自己使用git，此外如果想要对站点做一点tweak，还需要html5+css3+js+ror这一系列web开发前后端的知识，考虑到自己有做full stack developer的打算，用这个博客练手不失为一个好办法。</p>
-
-<h2>接下来会写些什么</h2>
-
-<ul>
-<li>读过的书</li>
-<li>写的代码</li>
-<li>以及在london的生活感受</li>
-</ul>
-
 ]]></content>
   </entry>
   

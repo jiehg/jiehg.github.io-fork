@@ -58,7 +58,7 @@
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/design-of-design-0-prologue/</loc>
-        <lastmod>2014-06-06T23:46:01+01:00</lastmod>
+        <lastmod>2014-07-27T00:11:27+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/on-programming-errors-0/</loc>
@@ -81,16 +81,20 @@
         <lastmod>2014-07-09T23:12:58+01:00</lastmod>
     </url>
     <url>
+        <loc>http://zh.lucida.me/blog/design-of-design-1-horror-vacui/</loc>
+        <lastmod>2014-07-27T00:21:13+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://zh.lucida.me/about/</loc>
         <lastmod>2014-06-06T23:35:47+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/blog/archives/</loc>
-        <lastmod>2014-07-09T23:12:58+01:00</lastmod>
+        <lastmod>2014-07-27T00:21:13+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/</loc>
-        <lastmod>2014-07-09T23:12:58+01:00</lastmod>
+        <lastmod>2014-07-27T00:21:13+01:00</lastmod>
     </url>
     <url>
         <loc>http://zh.lucida.me/robots.txt</loc>

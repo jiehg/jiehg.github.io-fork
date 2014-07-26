@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Retrospection | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/retrospection/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-07-09T23:13:12+01:00</updated>
+  <updated>2014-07-27T00:21:20+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[设计中的设计——1. Horror Vacui]]></title>
+    <link href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/"/>
+    <updated>2014-07-27T00:10:03+01:00</updated>
+    <id>http://zh.lucida.me/blog/design-of-design-1-horror-vacui</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">原文链接</a></p>
+
+<h2>关于</h2>
+
+<p>“设计中的设计”是一个博文系列，我打算在这个系列记录我所见过的优秀设计和优秀设计原则，并推荐一些（我认为）不错的设计书籍。</p>
+
+<p>在“<strong>设计</strong>中的<strong>设计</strong>”里，第一个<strong>设计</strong>指具有杰出设计的优秀产品，而第二个<em>设计</em>指优秀产品具有的杰出设计。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/design-of-design-0-horror-prologue/">设计中的设计——0. Prologue</a></li>
+<li><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">设计中的设计——1. Horror Vacui</a></li>
+</ol>
+
+
+<h2>Horror Vacui</h2>
+
+<blockquote><p>Horror Vacui——a Latin expression meaning &ldquo;fear of emptiness"——regards the desire to fill empty spaces with information of objects.</p></blockquote>
+
+<p><strong><a href="http://en.wikipedia.org/wiki/Horror_vacui">Horror Vacui</a></strong>源自人对空旷空间的畏惧感——它是一种要将空间填满的心理，也是一种不留任何空白空间的艺术风格，这种风格的代表设计师包括David Carson和Vaughan Oliver，有兴趣的童鞋请自行Google他们的代表作品。</p>
+
+<p>不过这篇文章讨论的并不是<strong>Horror Vacui</strong>艺术风格，而是<strong>Horror Vacui</strong>心理。</p>
+
+<!-- more -->
+
+
+<p>研究表明，<strong>Horror Vacui</strong>和<strong>价值感知（Value Perception）</strong>间存在反比关系——随着<strong>Horror Vacui</strong>的升高，价值感知随之下降。简单的来说——同样的空间，放的东西越多，给人的廉价感越强烈，反之亦然（vice versa）。</p>
+
+<p>以服装店店面的设计为例：</p>
+
+<p><img src="http://i.imgur.com/FFblJhS.png" alt="Horror Vacui" /></p>
+
+<p>研究者做了一个调查，对于上面的店面设计风格，从左到右的空间利用率越来越低，然而给人的价值感知正好相反——几乎所有被调查者都认为最左的廉价感最强，而最右的高端感最强。</p>
+
+<p>再来几个现实例子：</p>
+
+<h3>店铺</h3>
+
+<p><img class="<a" src="href="http://i.imgur.com/5LsZvER.jpg">http://i.imgur.com/5LsZvER.jpg</a>" width="600" height="400" title="西单某服装店" ></p>
+
+<p><img class="<a" src="href="http://i.imgur.com/CtXZzWw.jpg">http://i.imgur.com/CtXZzWw.jpg</a>" width="600" height="400" title="优衣库" ></p>
+
+<p><img class="<a" src="href="http://i.imgur.com/CUwAJDd.jpg">http://i.imgur.com/CUwAJDd.jpg</a>" width="600" height="400" title="Burberry" ></p>
+
+<p>你觉得哪一个店更贵？</p>
+
+<h3>食物</h3>
+
+<p><img class="<a" src="href="http://i.imgur.com/YwI3YGU.jpg">http://i.imgur.com/YwI3YGU.jpg</a>" width="600" height="400" title="东北乱炖" ></p>
+
+<p><img class="<a" src="href="http://i.imgur.com/pw8iVAa.jpg">http://i.imgur.com/pw8iVAa.jpg</a>" width="600" height="400" title="法式食物" ></p>
+
+<p>你认为哪道菜更贵？</p>
+
+<h2>Horror Vacui vs Minimalism</h2>
+
+<p>Horror Vacui设计是Minimalism设计的反面，<a href="http://www.amazon.co.uk/Universal-Principles-Design-Revised-Updated/dp/1592535879">Universal Principles of Design</a>在介绍Horror Vacui时给出了下面刻薄但又实用的建议：</p>
+
+<blockquote><p>To promote associations of high value, favor minimalism for affluent and well-educated audiences and horror vacui for poorer and less-educated audiences, and vice versa.</p></blockquote>
+
+<p>简单来说：</p>
+
+<ul>
+<li>对于教育程度高或富有的用户，使用minimalism（极简）设计以带来高价值认知。</li>
+<li>对于教育程度低或较穷的用户，使用horror vacui设计以带来高性价比认知。</li>
+</ul>
+
+
+<p>反之也一样：</p>
+
+<ul>
+<li>对于教育程度低或较穷的用户，minimalism设计会让他们认为这货性价比太低，不值得。</li>
+<li>对于教育程度高或富有的用户，horror vacui设计会让他们认为这货太廉价，没必要。</li>
+</ul>
+
+
+<p>总之，不用给矮矬穷营造高大上，也不要给高帅富灌输便宜大碗，会有反效果。</p>
+
+<h2>Universal Principles of Design</h2>
+
+<p><img src="http://i.imgur.com/EEueKvz.jpg" alt="Universal Principles of Design" /></p>
+
+<p>我在之前的<a href="http://zh.lucida.me/blog/on-reading-books/">如何阅读书籍</a>中提到利用结论型/指南型书籍精炼阅读专业周边书籍，<a href="http://www.amazon.co.uk/Universal-Principles-Design-Revised-Updated/dp/1592535879">Universal Principles of Design</a>就是设计中结论型书籍的代表作：</p>
+
+<ol>
+<li>包含一百多种实用设计原则，这些原则涵盖了改善可用性（Enhance usability）、影响感知（Infuluence Perception）、提升吸引力（Increase Appeal）、做出更好的设计决策（Make Better Design Decisions）以及设计教学（Teach through Design）这五大方面。</li>
+<li>全书按照字母顺序（Alphabetical Order）组织，同时也包含按类别组织的目录，既方便查阅，也方便针对性阅读。</li>
+<li>每一种设计原则都配有详细的文字介绍、图解、案例以及参考文献。</li>
+</ol>
+
+
+<p><img src="http://i.imgur.com/eqTjTqK.jpg" alt="样章" /></p>
+
+<p>总之，这本书对于专业设计师可能比较初级，但对于设计入门者是绝好的书籍。任何涉及到制作最终用户产品的人员（包括开发、测试和产品等）都应该阅读此书，从而了解基本设计原则（principle）和术语（terminology），以便与设计师进行交流，做出令用户满意的高价值设计。</p>
+
+<p>这本书有<a href="http://www.amazon.cn/%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%B3%95%E5%88%99-%E5%A8%81%E5%BB%89%E2%80%A2%E7%AB%8B%E5%BE%B7%E5%A8%81%E5%B0%94/dp/B00ES8JL8W/">中文译版</a>，但个人强烈推荐<a href="http://www.amazon.cn/Universal-Principles-of-Design-Lidwell-William/dp/1592535879/">原版</a>：因为这类书籍翻译过来会损失相当多的信息（注意并非否认翻译水平），此外原版价格也相当实惠。</p>
+
+<p>（未完待续）</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">原文链接</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于编程错误的思考——2. Blunders, Typos, Mismatches, and Language Liability]]></title>
@@ -864,158 +987,6 @@ var popUpAnimation = popUp.From(x: 0, y: -320).MoveTo(x: 0, y: 320).InMilliSecon
 
 
 <p><a href="http://zh.lucida.me/blog/design-of-design-0-prologue/">原文链接</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
-    <link href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/"/>
-    <updated>2014-05-24T09:33:38+01:00</updated>
-    <id>http://zh.lucida.me/blog/on-the-keynote-of-t-one</id>
-    <content type="html"><![CDATA[<h2>关于</h2>
-
-<p>本文记录了作者对<a href="http://v.youku.com/v_show/id_XNzE0Nzc0OTQ0.html">锤子手机发布会</a>和<a href="http://www.smartisan.com/">锤子手机</a>的一点感受，仅代表个人看法，但欢迎评论。</p>
-
-<p>原文作者：</p>
-
-<ul>
-<li><a href="http://zh.lucida.me/">Lucida Blog</a></li>
-<li><a href="http://www.weibo.com/pegong/">新浪微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p>原文链接：<a href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/">http://zh.lucida.me/blog/on-the-keynote-of-t-one/</a></p>
-
-<h2>重复</h2>
-
-<p>演讲（或说服）有一个要点是重复，老罗显然深得此道，整场发布会下面的句式均被重复了不止五遍：</p>
-
-<ul>
-<li>作为一个大众消费品…………（表明自己站在消费者这边）</li>
-<li>作为一个小厂商…………（博取听众（消费者）的同情（sympathy）和容忍（tolerance））</li>
-<li>作为一个企业家，我不该…………（在贬低其它企业之后均以此句开脱）</li>
-</ul>
-
-
-<h2>误导</h2>
-
-<p>在提到锤子手机音质时老罗举了这样的例子：</p>
-
-<blockquote><p>我老婆之前认为自己是木耳，听不出音质的区别，但把苹果耳机换成几百森海塞尔后，她明显感到音质有了很大的提升。</p></blockquote>
-
-<p>以证明即便是普通人也可以感受到音质的区别。</p>
-
-<p>但这里有个问题：老罗夫人感受到的音质的提升源自于<strong>耳机</strong>，而非<strong>音源</strong>。在同等耳机的情况下，我怀疑老罗夫人是否还能听出锤子手机和同类手机间音质的区别。</p>
-
-<p>此外，在提到无法更换壁纸的问题时老罗是这么解释的：</p>
-
-<blockquote><p>我无法忍受把一堆图标堆在亲人的脸上。</p></blockquote>
-
-<p>似乎确实很有道理，但再想一想，为什么一定要用亲人头像做壁纸呢？如果我要用风景或是纯色呢？</p>
-
-<!-- more -->
-
-
-<h2>冷知识</h2>
-
-<p>老罗很擅长用一些冷门知识去吸引人，这样的例子在这次发布会上数不胜数：</p>
-
-<ul>
-<li>不断的列出硬件厂商的渊源。</li>
-<li>指出锤子手机手机盒子使用了某英国著名公司的纸。</li>
-<li>强调光线传感器的设计。</li>
-<li>自带螺丝刀和若干螺丝钉。</li>
-</ul>
-
-
-<p>个人认为这些东西是Boilerplate——懂编程的童鞋应该明白我的意思。</p>
-
-<h2>拍照效果</h2>
-
-<p>老罗宣称锤子手机是目前最好的拍照手机之一，并花了大量时间去阐述他在打造拍照效果上所付出的努力，比如：</p>
-
-<ul>
-<li>寻找最好的拍照调校团队。</li>
-<li>使用最好的摄像镜头。</li>
-</ul>
-
-
-<p>但令我疑惑的是：发布会并没有任何拍照效果的对比，甚至连锤子手机的拍照样张都没有——如果拍照效果真的那么强大，我不认为老罗会放这个贬低其他竞争对手的机会于不顾。</p>
-
-<h2>双音量键</h2>
-
-<p>锤子手机有一个很有趣的设计是双音量键——在单独使用时可以分别作为音量调节和亮度调节使用，而一起使用时则可以进行抢拍或快速启动某个指定应用程序。</p>
-
-<p>这也带来了老罗所宣称的“全世界最快的抢拍手机”这个卖点。</p>
-
-<p>但我还是有几个疑问：</p>
-
-<ol>
-<li>双音量键一起使用是一个很不直观的设计。</li>
-<li>同时使用双音量键很不自然，不信的话你在你的手机上试试这个姿势。</li>
-<li>从设计图上可以看出音量键并没有明显凸起——这意味着操作时需要按<strong>进</strong>音量键，也意味着任何手机壳或是bumper之类阻隔音量键的手机饰品均会妨碍音量键的正常使用。</li>
-</ol>
-
-
-<h2>对苹果的模仿</h2>
-
-<h3>锤子手机在模仿iPhone5</h3>
-
-<p>这里借用某条<a href="http://weibo.com/1847542877/B5fhi9RoE">微博</a>里的图片：</p>
-
-<p><img src="http://i.imgur.com/VOSZ1dX.jpg" alt="无处不在的模仿" /></p>
-
-<h3>锤子手机发布会处处在模仿iPhone1发布会</h3>
-
-<p>iPhone1发布会时Jobs曾给出一个转盘手机的假想图：</p>
-
-<p><img src="http://i.imgur.com/sfOzhfx.png" alt="转盘手机" /></p>
-
-<p>老罗则给出一个锤子手机的假想图：</p>
-
-<p><img src="http://i.imgur.com/fkoM9QQ.png" alt="锤子手机" /></p>
-
-<p>iPhone1发布时Jobs强调三位一体的概念：</p>
-
-<p><img src="http://i.imgur.com/WDmytpx.png" alt="三位一体" /></p>
-
-<p>老罗也是如此：</p>
-
-<p><img src="http://i.imgur.com/FK5fsC2.png" alt="又一个三位一体" /></p>
-
-<p>Jobs经常在发布会最后来一个“One more thing”：</p>
-
-<p><img src="http://i.imgur.com/ebmQPgi.png" alt="One more thing" /></p>
-
-<p>到了老罗这里变成“还有两个好东西”：</p>
-
-<p><img src="http://i.imgur.com/6yXVZ4a.png" alt="还有两个好东西" /></p>
-
-<h2>软件改进</h2>
-
-<p>下面是老罗重点介绍的锤子手机的软件改进：</p>
-
-<ul>
-<li>可以更换的主题：这个我真觉的不是啥改进——除非要和Windows Phone比。</li>
-<li>手指横扫解决单手操作问题：很有创意的想法，但我注意到即便老罗本人如此操作锤子手机时也有相当的失误率——我怀疑这个功能的实用性。</li>
-<li>通过短信内容智能新建日历：无论是Google还是Apple都已经有这个功能。</li>
-<li>定时解除静音：很赞，这是我一直希望的功能。</li>
-<li>区域截屏：看似很赞，但仔细一想几乎所有的手机聊天应用里面都带有编辑图片的选项，此外我个人对这个功能的稳定性有疑问。</li>
-</ul>
-
-
-<h2>总结</h2>
-
-<p>锤子手机发布会最大的亮点是对OpenSSL的捐款，至于锤子手机本身……抱歉我没看到什么亮点。</p>
-
-<p>但令我诧异的是很多资深人士纷纷表示看好锤子手机（发布会），<a href="http://www.weibo.com/fenng">fenng</a>甚至在微信上宣称这是手机行业迄今为止最好的产品发布会——</p>
-
-<p><img src="http://i.imgur.com/MqEKRBk.jpg" alt="最好的产品发布会？？" /></p>
-
-<p>我不清楚他是否也把iPhone发布会算在内。</p>
-
-<p>总之，在锤子手机发布会上，我看到的是一个人在不断的强调自己有多努力多认真，但我也知道当某人不断的给你强调他有多努力（effort）时，事实往往是他还没有获得任何实质性成果（progress），简而言之，effort不等于progress，就这场发布会所得到的信息，我依然认为锤子手机没有希望。</p>
 ]]></content>
   </entry>
   
