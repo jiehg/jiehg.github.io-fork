@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-07-27T00:21:20+01:00</updated>
+  <updated>2014-09-27T22:16:00+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,690 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime Text 全程指南]]></title>
+    <link href="http://zh.lucida.me/blog/sublime-text-complete-guide/"/>
+    <updated>2014-09-27T21:57:15+01:00</updated>
+    <id>http://zh.lucida.me/blog/sublime-text-complete-guide</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/sublime-text-complete-guide/">http://zh.lucida.me/blog/sublime-text-complete-guide/</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<h2>摘要（Abstract）</h2>
+
+<p>本文系统全面的介绍了Sublime Text，旨在成为最优秀的Sublime Text中文教程。</p>
+
+<h2>前言（Prologue）</h2>
+
+<p>Sublime Text是一款跨平台代码编辑器（Code Editor），从最初的Sublime Text 1.0，到现在的Sublime Text 3.0，Sublime Text从一个不知名的编辑器演变到现在几乎是各平台首选的GUI编辑器。而这样优秀的编辑器却没有一个靠谱的中文教程，所以我试图通过本文弥补这个缺陷。</p>
+
+<h3>编辑器的选择（Editor Choices）</h3>
+
+<p>从初学编程到现在，我用过的编辑器有EditPlus、UltraEdit、Notepad++、Vim、TextMate和Sublime Text，如果让我从中推荐，我会毫不犹豫的推荐Vim和Sublime Text，原因有下面几点：</p>
+
+<!-- more -->
+
+
+<ol>
+<li><strong>跨平台</strong>：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。作为一个程序员，切换系统是常有的事情，为了减少重复学习，使用一个跨平台的编辑器是很有必要的。</li>
+<li><strong>可扩展</strong>：Vim和Sublime Text都是可扩展的（Extensible），并包含大量实用插件，我们可以通过安装自己领域的插件来成倍提高工作效率。</li>
+<li><strong>互补</strong>：Vim和Sublime Text分别是命令行环境（CLI）和图形界面环境（GUI）下的最佳选择，同时使用两者会大大提高工作效率。</li>
+</ol>
+
+
+<h3>个人背景（Personal Background）</h3>
+
+<p>我是一名非常典型的程序员：平时工作主要在Linux环境下使用Java和Python，偶尔会用HTML+CSS+JavaScript编写网页；业余时会在Windows环境编写一些C#程序（包括控制台程序（Console Application）和移动应用（Mobile App），也会玩一些非主流语言（比如Haskell，ML和Ruby等）以拓展见识。</p>
+
+<p>所以这篇文章会我的个人工作内容为主要使用场景（Scenario），尽管无法覆盖到所有的使用场景，但我认为依然可以覆盖到绝大部分，如果您认为我遗漏了什么内容，请在文章下面回复，我会尽量更新。</p>
+
+<h3>本文风格（Writing Style）</h3>
+
+<p>受益于<a href="http://en.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R C</a>的写作风格，我倾向于以实际案例来讲解Sublime Text的功能，所以本文中的例子均源于我在实际开发时遇到的问题。</p>
+
+<p>此外，把本文会使用大量动画（GIF）演示Sublime Text的编辑功能，因为我发现图片难以演示完整的编辑流程（Workflow），而视频又过于重量级。本文的GIF动画均使用<a href="http://screentogif.codeplex.com/">ScreenToGif</a>进行录制。</p>
+
+<h3>编辑器（Editor） vs 集成开发环境（Integrated Development Environment，下文简称IDE）</h3>
+
+<p>我经常看到一些程序员拿编辑器和IDE进行比较，诸如Vim比Eclipse强大或是Visual Studio太慢不如Notepad++好使之类的讨论比比皆是，个人认为这些讨论没有意义，因为编辑器和IDE根本是面向两种不同使用场景的工具：</p>
+
+<ul>
+<li>编辑器面向无语义的纯文本，不涉及领域逻辑，因此速度快体积小，适合编写单独的配置文件和动态语言脚本（Shell、Python和Ruby等）。</li>
+<li>IDE面向有语义的代码，会涉及到大量领域逻辑，因此速度偏慢体积庞大，适合编写静态语言项目（Java、C++和C#等）。</li>
+</ul>
+
+
+<p>我认为应当使用正确的工具去做有价值的事情，并把效率最大化，所以我会用Eclipse编写Java项目，用Vim编写Shell，用Sublime Text编写JavaScript/HTML/Python，用Visual Studio编写C#。</p>
+
+<p>前言到此结束，下面进入正题。</p>
+
+<h2>安装（Installation）</h2>
+
+<p>Sublime Text<a href="http://www.sublimetext.com/">官方网站</a>提供了Sublime Text各系统各版本的下载，目前Sublime Text的最新版本是<a href="http://www.sublimetext.com/3">Sublime Text 3</a>。这里以Windows版本的Sublime Text安装为例。</p>
+
+<p>注意在安装时勾选<strong>Add to explorer context menu</strong>，这样在右键单击文件时就可以直接使用Sublime Text打开。</p>
+
+<p><img src="http://i.imgur.com/zVtiXNP.jpg" alt="右键打开" /></p>
+
+<h3>添加Sublime Text到环境变量</h3>
+
+<p>使用<code>Win + R</code>运行<code>sysdm.cpl</code>打开“系统属性”。</p>
+
+<p><img src="http://i.imgur.com/ysZe1BH.jpg" alt="sysdm.cpl" /></p>
+
+<p>然后在“高级”选项卡里选择“环境变量”，编辑“Path”，增加Sublime Text的安装目录（例如<code>D:\Program Files\Sublime Text 3</code>）。</p>
+
+<p><img src="http://i.imgur.com/dY5EaZX.jpg" alt="添加环境变量" /></p>
+
+<p>接下来你就可以在命令行里面利用<code>subl</code>命令直接使用Sublime Text了：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>subl file    :: 使用Sublime Text打开file文件
+</span><span class='line'>subl folder  :: 使用Sublime Text打开folder文件夹
+</span><span class='line'>subl .       :: 使用Sublime Text当前文件夹</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>安装Package Control</h3>
+
+<p>前文提到Sublime Text支持大量插件，如何找到并管理这些插件就成了一个问题，Package Control正是为了解决这个问题而出现的，利用它我们可以很方便的浏览、安装和卸载Sublime Text中的插件。</p>
+
+<p>进入Package Control的<a href="https://sublime.wbond.net/">官网</a>，里面有详细的<a href="https://sublime.wbond.net/installation">安装教程</a>。Package Control支持Sublime Text 2和3，本文只给出3的安装流程：</p>
+
+<ul>
+<li>使用`Ctrl + &#8220;打开Sublime Text控制台。</li>
+<li>将下面的代码粘贴到控制台里：</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>等待Package Control安装完成。之后使用<code>Ctrl + Shift + P</code>打开命令板，输入<code>PC</code>应出现Package Control：</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/fgnl2Qj.jpg" alt="Package Control安装成功" /></p>
+
+<p>成功安装Package Control之后，我们就可以方便的安装使用Sublime Text的各种插件：</p>
+
+<p><img src="http://i.imgur.com/pnuar4c.gif" alt="使用Package Control安装插件" /></p>
+
+<h2>购买（Purchase）</h2>
+
+<p>Sublime Text是一个收费闭源软件，这在一定程度上成为了我支持Sublime Text的理由（我心中的软件靠谱程度：免费开源 &lt;&lt; 免费闭源 &lt; 收费开源 &lt; 收费闭源）：在<a href="https://www.sublimetext.com/buy">这里</a>购买。</p>
+
+<p>不过不购买Sublime Text也可以“正常”使用它，只是Sublime Text会时不时的弹出一个对话框提醒你购买，此外窗口处会有一个很屌丝很low逼的<strong>(UNREGISTERED)</strong>。（在高频操作下，一般20分钟提示一次，个人认为算是很厚道了）</p>
+
+<p><img src="http://i.imgur.com/hPNqz66.jpg" alt="提示注册" /></p>
+
+<p>也许不少人会觉着Sublime Text 70刀的价格太贵，但相比它的功能和带来的效率提升，70刀真的不值一提，如果你不方便使用Paypal付款可以邮件联系我，你支付宝给我打款然后我帮你付款，价格按当日汇率折算（450元左右）。</p>
+
+<p><img src="http://i.imgur.com/gWt2eLA.jpg" alt="购买之后" /></p>
+
+<h2>概览（Tour）</h2>
+
+<h3>基本概念（Basic Concepts）</h3>
+
+<p>Sublime Text的界面如下：</p>
+
+<p><img src="http://i.imgur.com/XrUYmH8.jpg" alt="Sublime Text" /></p>
+
+<ul>
+<li>标签（Tab）：无需介绍。</li>
+<li>编辑区（Editing Area）：无需介绍。</li>
+<li>侧栏（Side Bar）：包含当前打开的文件以及文件夹视图。</li>
+<li>缩略图（Minimap）：如其名。</li>
+<li>命令板（Command Palette）：Sublime Text的操作中心，它使得我们基本可以脱离鼠标和菜单栏进行操作。</li>
+<li>控制台（Console）：使用`Ctrl + &#8220;调出，它既是一个标准的Python REPL，也可以直接对Sublime Text进行配置。</li>
+<li>状态栏（Status Bar）：显示当前行号、当前语言和Tab格式等信息。</li>
+</ul>
+
+
+<h3>配置（Settings）</h3>
+
+<p>与其他GUI环境下的编辑器不同，Sublime Text并没有一个专门的配置界面，与之相反，Sublime Text使用JSON配置文件，例如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>  "font_size": 12,
+</span><span class='line'>  "highlight_line": true,
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>会将默认字体大小调整为12，并高亮当前行。</p>
+
+<p>JSON配置文件的引入简化了Sublime Text的界面，但也使得配置变的复杂，一般我会到<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/settings.html">这里</a>查看可用的Sublime Text配置。</p>
+
+<h2>编辑（Editing）</h2>
+
+<p>Sublime Text的编辑十分人性化——它不像Vim那样反人类（尽管我也用Vim但我还是要说Vim的快捷键设定绝壁连代谢产物都不如），少量的快捷键就可以完成绝大多数编辑任务。</p>
+
+<h3>基本编辑（Basic Editing）</h3>
+
+<p><code>↑↓←→</code>就是<code>↑↓←→</code>，不是<code>KJHL</code>，（没错我就是在吐槽Vim，尼玛设成<code>WSAD</code>也比这个强啊），粘贴剪切复制均和系统一致。</p>
+
+<p><code>Ctrl + Enter</code>在当前行下面新增一行然后跳至该行；<code>Ctrl + Shift + Enter</code>在当前行上面增加一行并跳至该行。</p>
+
+<p><img src="http://i.imgur.com/rvzS9Ok.gif" alt="演示新增行" /></p>
+
+<p><code>Ctrl + ←/→</code>进行逐词移动，相应的，<code>Ctrl + Shift + ←/→</code>进行逐词选择。</p>
+
+<p><img src="http://i.imgur.com/jFnTDl3.gif" alt="演示逐词移动及选择" /></p>
+
+<p><code>Ctrl + ↑/↓</code>移动当前显示区域，<code>Ctrl + Shift + ↑/↓</code>移动当前行。</p>
+
+<p><img src="http://i.imgur.com/v31pd3k.gif" alt="演示移动当前行" /></p>
+
+<h3>选择（Selecting）</h3>
+
+<p>Sublime Text的一大亮点是支持多重选择——同时选择多个区域，然后同时进行编辑。</p>
+
+<p><code>Ctrl + D</code>选择当前光标所在的词并高亮该词所有出现的位置，再次<code>Ctrl + D</code>选择该词出现的下一个位置，在多重选词的过程中，使用<code>Ctrl + K</code>进行跳过，使用<code>Ctrl + U</code>进行回退，使用<code>Esc</code>退出多重编辑。</p>
+
+<p>多重选词的一大应用场景就是重命名——从而使得代码更加整洁。尽管Sublime Text无法像IDE（例如Eclipse）那样进行自动重命名，但我们可以通过多重选词+多重编辑进行直观且便捷的重命名：</p>
+
+<p><img src="http://i.imgur.com/IRVbUTJ.gif" alt="利用多重选词进行重命名" /></p>
+
+<p>有时我们需要对一片区域的所有行进行同时编辑，<code>Ctrl + Shift + L</code>可以将当前选中区域打散，然后进行同时编辑：</p>
+
+<p><img src="http://i.imgur.com/0NHpXFl.gif" alt="利用打散为列表套上引号" /></p>
+
+<p>有打散自然就有合并，<code>Ctrl + J</code>可以把当前选中区域合并为一行：</p>
+
+<p><img src="http://i.imgur.com/hfRAyiy.gif" alt="合并选中行" /></p>
+
+<h3>查找&amp;替换（Finding&amp;Replacing）</h3>
+
+<p>Sublime Text提供了强大的查找（和替换）功能，为了提供一个清晰的介绍，我将Sublime Text的查找功能分为<strong>快速查找</strong>、<strong>标准查找</strong>和<strong>多文件查找</strong>三种类型。</p>
+
+<h4>快速查找&amp;替换</h4>
+
+<p>多数情况下，我们需要查找文中某个关键字出现的其它位置，这时并不需要重新将该关键字重新输入一遍然后搜索，我们只需要使用<code>Shift + ←/→</code>或<code>Ctrl + D</code>选中关键字，然后<code>F3</code>跳到其下一个出现位置，<code>Shift + F3</code>跳到其上一个出现位置，此外还可以用<code>Alt + F3</code>选中其出现的所有位置（之后可以进行多重编辑，也就是快速替换）。</p>
+
+<p><img src="http://i.imgur.com/gcaHacI.gif" alt="使用快速替换" /></p>
+
+<h4>标准查找&amp;替换</h4>
+
+<p>另一种常见的使用场景是搜索某个已知但不在当前显示区域的关键字，这时可以使用<code>Ctrl + F</code>调出搜索框进行搜索：</p>
+
+<p><img src="http://i.imgur.com/6AaBiRS.jpg" alt="Sublime Text的搜索框" /></p>
+
+<p>以及使用<code>Ctrl + H</code>进行替换：</p>
+
+<p><img src="http://i.imgur.com/4NnE9SN.jpg" alt="Sublime Text的替换框" /></p>
+
+<h5>关键字查找&amp;替换</h5>
+
+<p>对于普通用户来说，常规的关键字搜索就可以满足其需求：在搜索框输入关键字后<code>Enter</code>跳至关键字当前光标的下一个位置，<code>Shift + Enter</code>跳至上一个位置，<code>Alt + Enter</code>选中其出现的所有位置（同样的，接下来可以进行快速替换）。</p>
+
+<p>Sublime Text的查找有不同的模式：<code>Alt + C</code>切换大小写敏感（Case-sensitive）模式，<code>Alt + W</code>切换整字匹配（Whole matching）模式，除此之外Sublime Text还支持在选中范围内搜索（Search in selection），这个功能没有对应的快捷键，但可以通过以下配置项自动开启。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"auto_find_in_selection": true</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样之后在选中文本的状态下范围内搜索就会自动开启，配合这个功能，局部重命名（Local Renaming）变的非常方便：</p>
+
+<p><img src="http://i.imgur.com/QRIsDra.gif" alt="使用范围搜索进行局部重命名" /></p>
+
+<p>使用<code>Ctrl + H</code>进行标准替换，输入替换内容后，使用<code>Ctrl + Shift + H</code>替换当前关键字，<code>Ctrl + Alt + H</code>替换所有匹配关键字。</p>
+
+<h5>正则表达式查找&amp;替换</h5>
+
+<p><a href="http://en.wikipedia.org/wiki/Regular_expression">正则表达式</a>是非常强大的文本查找&amp;替换工具，Sublime Text中使用<code>Alt + R</code>切换正则匹配模式的开启/关闭。Sublime Text的使用<a href="http://www.boost.org/doc/libs/1_44_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html">Boost里的Perl正则表达式风格</a>。</p>
+
+<p>出于篇幅原因，本文不会对正则表达式进行详细介绍，<a href="http://regex.info/">Mastering Regex</a>（中译本：<a href="http://book.douban.com/subject/2154713/">精通正则表达式</a>）对正则表达式的原理和各语言下的使用进行了详细介绍。此外网上有大量正则表达式的优秀教程（<a href="http://deerchao.net/tutorials/regex/regex.htm">“正则表达式30分钟入门教程”</a>和<a href="http://msdn.microsoft.com/zh-cn/library/ae5bf541(v=vs.90">MSDN正则表达式教程</a>.aspx)），以及在线测试工具（<a href="http://regexpal.com/">regexpal</a>和<a href="http://www.regexr.com/">regexer</a>）。</p>
+
+<h4>多文件搜索&amp;替换</h4>
+
+<p>使用<code>Ctrl + Shift + F</code>开启多文件搜索&amp;替换（注意此快捷键和搜狗输入法的简繁切换快捷键有冲突）：</p>
+
+<p><img src="http://i.imgur.com/05Fchle.jpg" alt="多文件搜索界面" /></p>
+
+<p>多文件搜索&amp;替换默认在当前打开的文件和文件夹进行搜索/替换，我们也可以指定文件/文件夹进行搜索/替换。</p>
+
+<h3>跳转（Jumping）</h3>
+
+<p>Sublime Text提供了强大的跳转功能使得我们可以在不同的文件/方法/函数中无缝切换。就我的使用经验而言，目前还没有哪一款编辑器可以在这个方面超越Sublime Text。</p>
+
+<h4>跳转到文件</h4>
+
+<p><code>Ctrl + P</code>会列出当前打开的文件（或者是当前文件夹的文件），输入文件名然后<code>Enter</code>跳转至该文件。</p>
+
+<p>需要注意的是，Sublime Text使用模糊字符串匹配（Fuzzy String Matching），这也就意味着你可以通过文件名的前缀、首字母或是某部分进行匹配：例如，<code>EIS</code>、<code>Eclip</code>和<code>Stupid</code>都可以匹配<code>EclipseIsStupid.java</code>。</p>
+
+<p><img src="http://i.imgur.com/db15c5n.gif" alt="跳转到文件" /></p>
+
+<h4>跳转到符号</h4>
+
+<p>尽管是一个文本编辑器，Sublime Text能够对代码符号进行一定程度的索引。<code>Ctrl + R</code>会列出当前文件中的符号（例如类名和函数名，但无法深入到变量名），输入符号名称<code>Enter</code>即可以跳转到该处。此外，还可以使用<code>F12</code>快速跳转到当前光标所在符号的定义处（Jump to Definition）。</p>
+
+<p><img src="http://i.imgur.com/D2rGDck.gif" alt="跳转到符号" /></p>
+
+<p>比较有意思的是，对于Markdown，<code>Ctrl + R</code>会列出其大纲，非常实用。</p>
+
+<p><img src="http://i.imgur.com/qDnjcNn.jpg" alt="Markdown大纲" /></p>
+
+<h4>跳转到某行</h4>
+
+<p><code>Ctrl + G</code>然后输入行号以跳转到指定行：</p>
+
+<p><img src="http://i.imgur.com/F5BLsae.gif" alt="跳转到某行" /></p>
+
+<h4>组合跳转</h4>
+
+<p>在<code>Ctrl + P</code>匹配到文件后，我们可以进行后续输入以跳转到更精确的位置：</p>
+
+<ul>
+<li><code>@</code> 符号跳转：输入<code>@symbol</code>跳转到<code>symbol</code>符号所在的位置</li>
+<li><code>#</code> 关键字跳转：输入<code>#keyword</code>跳转到<code>keyword</code>所在的位置</li>
+<li><code>:</code> 行号跳转：输入<code>:12</code>跳转到文件的第12行。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/3y9MG88.gif" alt="组合跳转演示" /></p>
+
+<p>所以Sublime Text把<code>Ctrl + P</code>称之为<strong>“Go To Anything”</strong>，这个功能如此好用，以至于我认为没有其它编辑器能够超越它。</p>
+
+<h3>中文输入法的问题</h3>
+
+<p>从Sublime Text的初版（1.0）到现在（3.0 3065），中文输入法（包括日文输入法）都有一个问题：输入框不跟随。</p>
+
+<p><img src="http://i.imgur.com/VQQ87Rr.jpg" alt="输入框不跟随" /></p>
+
+<p>目前官方还没有修复这个bug，解决方法是安装<code>IMESupport</code>插件，之后重启Sublime Text问题就解决了。</p>
+
+<p><img src="http://i.imgur.com/ErbK7wH.jpg" alt="修复之后输入框跟随" /></p>
+
+<h3>文件夹（Folders）</h3>
+
+<p>Sublime Text支持以文件夹做为单位进行编辑，这在编辑一个文件夹下的代码时尤其有用。在<code>File</code>下<code>Open Folder</code>：</p>
+
+<p><img src="http://i.imgur.com/xS9Nriz.jpg" alt="文件夹视图" /></p>
+
+<p>你会发现右边多了一个侧栏，这个侧栏列出了当前打开的文件和文件夹的文件，使用<code>Ctrl + K, Ctrl + B</code>显示或隐藏侧栏，使用<code>Ctrl + P</code>快速跳转到文件夹里的文件。</p>
+
+<h2>窗口&amp;标签（Windows &amp; Tabs）</h2>
+
+<p>Sublime Text是一个多窗口多标签编辑器：我们既可以开多个Sublime Text窗口，也可以在一个Sublime Text窗口内开多个标签。</p>
+
+<h3>窗口（Window）</h3>
+
+<p>使用<code>Ctrl + Shift + N</code>创建一个新窗口（该快捷键再次和搜狗输入法快捷键冲突，个人建议禁用所有搜狗输入法快捷键）。</p>
+
+<p>当窗口内没有标签时，使用<code>Ctrl + W</code>关闭该窗口。</p>
+
+<h3>标签（Tab）</h3>
+
+<p>使用<code>Ctrl + N</code>在当前窗口创建一个新标签，<code>Ctrl + W</code>关闭当前标签，<code>Ctrl + Shift + T</code>恢复刚刚关闭的标签。</p>
+
+<p>编辑代码时我们经常会开多个窗口，所以分屏很重要。<code>Alt + Shift + 2</code>进行左右分屏，<code>Alt + Shift + 8</code>进行上下分屏，<code>Alt + Shift + 5</code>进行上下左右分屏（即分为四屏）。</p>
+
+<p><img src="http://i.imgur.com/lAvhuX6.gif" alt="各种分屏" /></p>
+
+<p>分屏之后，使用<code>Ctrl + 数字键</code>跳转到指定屏，使用<code>Ctrl + Shift + 数字键</code>将当前屏移动到指定屏。例如，<code>Ctrl + 1</code>会跳转到1屏，而<code>Ctrl + Shift + 2</code>会将当前屏移动到2屏。</p>
+
+<h3>全屏（Full Screen）</h3>
+
+<p>Sublime Text有两种全屏模式：普通全屏和无干扰全屏。</p>
+
+<p>个人强烈建议在开启全屏前关闭菜单栏（Toggle Menu），否则全屏效果会大打折扣。</p>
+
+<p><code>F11</code>切换普通全屏：</p>
+
+<p><img src="http://i.imgur.com/Kdj9eEX.jpg" alt="普通全屏" /></p>
+
+<p><code>Shift + F11</code>切换无干扰全屏：</p>
+
+<p><img src="http://i.imgur.com/mnTIFQk.jpg" alt="无干扰全屏" /></p>
+
+<h2>风格（Styles）</h2>
+
+<p>风格对于任何软件都很重要，对编辑器也是如此，尤其是GUI环境下的编辑器。作为一个程序员，我希望我的编辑器足够简洁且足够个性。</p>
+
+<p>Notepad++默认界面</p>
+
+<p><img src="http://i.imgur.com/MZb7AsV.png" alt="Notepad++" /></p>
+
+<p>Sublime Text默认界面</p>
+
+<p><img src="http://i.imgur.com/ZzwQ0sI.png" alt="Sublime Text" /></p>
+
+<p>所以在用过Sublime Text之后，我立刻就卸掉了Notepad++。</p>
+
+<p>Sublime Text自带的风格是我喜欢的深色风格（也可以调成浅色），默认主题是<code>Monokai Bright</code>，这两者的搭配已经很不错了，不过我们还可以做得更好：接下来我将会展示如何通过设置偏好项和添加自定义风格/主题使得Sublime Text更加Stylish。</p>
+
+<h3>一些设置（Miscellaneous Settings）</h3>
+
+<p>下面是我个人使用的设置项。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// 设置Sans-serif（无衬线）等宽字体，以便阅读
+</span><span class='line'>"font_face": "YaHei Consolas Hybrid",
+</span><span class='line'>"font_size": 12,
+</span><span class='line'>// 使光标闪动更加柔和
+</span><span class='line'>"caret_style": "phase",
+</span><span class='line'>// 高亮当前行
+</span><span class='line'>"highlight_line": true,
+</span><span class='line'>// 高亮有修改的标签
+</span><span class='line'>"highlight_modified_tabs": true,</span></code></pre></td></tr></table></div></figure>
+
+
+<p>设置之后的效果如下：</p>
+
+<p><img src="http://i.imgur.com/MkyHff5.jpg" alt="设置效果" /></p>
+
+<h3>主题（Themes）</h3>
+
+<p>Sublime Text有大量第三方主题：[<a href="https://sublime.wbond.net/browse/labels/theme">https://sublime.wbond.net/browse/labels/theme</a>]，这里我给出几个个人感觉不错的主题：</p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Soda">Soda Light</a></h4>
+
+<p><img src="http://i.imgur.com/exxgbm1.png" alt="浅色版" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Soda">Soda Dark</a></h4>
+
+<p><img src="http://i.imgur.com/YsrCJMe.png" alt="深色版" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Nexus">Nexus</a></h4>
+
+<p><img src="http://i.imgur.com/ECLGEWD.png" alt="Nexus" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Flatland">Flatland</a></h4>
+
+<p><img src="http://i.imgur.com/LT0AyhR.png" alt="Flatland" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Spacegray">Spacegray Light</a></h4>
+
+<p><img src="http://i.imgur.com/j0hJqeV.png" alt="浅色版" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Spacegray">Spacegray Dark</a></h4>
+
+<p><img src="http://i.imgur.com/CJJhvTj.png" alt="深色版" /></p>
+
+<h3>配色（Color）</h3>
+
+<p><a href="http://colorsublime.com/">colorsublime</a>包含了大量Sublime Text配色方案，并支持在线预览，配色方案的安装教程在<a href="http://colorsublime.com/how-to-install-a-theme">这里</a>，恕不赘述。</p>
+
+<p>我个人使用的是<a href="https://sublime.wbond.net/packages/Theme%20-%20Nexus">Nexus</a>主题和<a href="https://sublime.wbond.net/packages/Theme%20-%20Flatland">Flatland Dark</a>配色，配置如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"theme": "Nexus.sublime-theme",
+</span><span class='line'>"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",</span></code></pre></td></tr></table></div></figure>
+
+
+<p>效果如下：</p>
+
+<p><img src="http://i.imgur.com/gCxTGii.jpg" alt="Nexus+Flatland" /></p>
+
+<h2>编码（Coding）</h2>
+
+<p>优秀的编辑器使编码变的更加容易，所以Sublime Text提供了一系列功能以提高开发效率。</p>
+
+<h3>良好实践（Good Practices）</h3>
+
+<p>良好的代码应该是规范的，所以Google为每一门主流语言都设置了其代码规范（Code Style Guideline）。我自己通过下面的设置使以规范化自己的代码。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// 设置tab的大小为2
+</span><span class='line'>"tab_size": 2,
+</span><span class='line'>// 使用空格代替tab
+</span><span class='line'>"translate_tabs_to_spaces": true,
+</span><span class='line'>// 添加行宽标尺
+</span><span class='line'>"rulers": [80, 100],
+</span><span class='line'>// 显示空白字符
+</span><span class='line'>"draw_white_space": "all",
+</span><span class='line'>// 保存时自动去除行末空白
+</span><span class='line'>"trim_trailing_white_space_on_save": true,
+</span><span class='line'>// 保存时自动增加文件末尾换行
+</span><span class='line'>"ensure_newline_at_eof_on_save": true,</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>代码段（Code Snippets）</h3>
+
+<p>Sublime Text支持代码段（Code Snippet），输入代码段名称后<code>Tab</code>即可生成代码段。</p>
+
+<p><img src="http://i.imgur.com/EQc1zNX.gif" alt="代码段效果" /></p>
+
+<p>你可以通过Package Control安装第三方代码段，也可以自己创建代码段，参考<a href="http://www.hongkiat.com/blog/sublime-code-snippets/">这里</a>。</p>
+
+<h3>格式化（Formatting）</h3>
+
+<p>Sublime Text基本的手动格式化操作包括：<code>Ctrl + [</code>向左缩进，<code>Ctrl + ]</code>向右缩进，此外<code>Ctrl + Shift + V</code>可以以当前缩进粘贴代码（非常实用）。</p>
+
+<p>除了手动格式化，我们也可以通过安装插件实现自动缩进和智能对齐：</p>
+
+<ul>
+<li><a href="https://sublime.wbond.net/packages/HTMLBeautify">HTMLBeautify</a>：格式化HTML。</li>
+<li><a href="https://sublime.wbond.net/packages/AutoPEP8">AutoPEP8</a>：格式化Python代码。</li>
+<li><a href="https://sublime.wbond.net/packages/Alignment">Alignment</a>：进行智能对齐。</li>
+</ul>
+
+
+<h3>自动完成（Auto Completion）</h3>
+
+<p>Sublime Text 支持一定的自动完成，按<code>Tab</code>自动补全。</p>
+
+<p><img src="http://i.imgur.com/cqBI3NW.jpg" alt="自动完成" /></p>
+
+<h3>括号（Brackets）</h3>
+
+<p>编写代码时会碰到大量的括号，利用<code>Ctrl + M</code>可以快速的在起始括号和结尾括号间切换，<code>Ctrl + Shift + M</code>则可以快速选择括号间的内容，对于缩进型语言（例如Python）则可以使用<code>Ctrl + Shift + J</code>。</p>
+
+<p><img src="http://i.imgur.com/oxWjAo9.gif" alt="括号演示" /></p>
+
+<p>此外，我使用<a href="https://sublime.wbond.net/packages/BracketHighlighter">BracketHighlighter</a>插件以高亮显示配对括号以及当前光标所在区域，效果如下：</p>
+
+<p><img src="http://i.imgur.com/QQpG99h.gif" alt="插件演示" /></p>
+
+<h3>命令行（Command Line）</h3>
+
+<p>尽管提供了Python控制台，但Sublime Text的控制台仅支持单行输入，十分不方便，所以我使用<a href="https://sublime.wbond.net/packages/SublimeREPL">Sublime​REPL</a>以进行一些编码实验（Experiments）。</p>
+
+<p><img src="http://i.imgur.com/dZgi8QZ.gif" alt="SublimeREPL演示" /></p>
+
+<h2>其它（Miscellaneous）</h2>
+
+<p>尽管我试图在本文包含尽可能多的Sublime Text实用技能，但受限于篇幅和我的个人经验，本文仍不免有所遗漏，欢迎在评论里指出本文的错误及遗漏。</p>
+
+<p>下面是一些可能有用但我很少用到的功能：</p>
+
+<ul>
+<li>宏（Macro）：Sublime Text支持<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/extensibility/macros.html">录制宏</a>，但我在实际工作中并未发现宏有多大用处。</li>
+<li>其它平台（Other Platforms）：本文只介绍了Windows平台上Sublime Text的使用，不过Linux和OS X上Sublime Text的使用方式和Windows差别不大，只是在快捷键上有所差异，请参考<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_win.html">Windows/Linux快捷键</a>和<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_osx.html">OS X快捷键</a>。</li>
+<li>项目（Projects）：Sublime Text支持简单的<a href="http://www.sublimetext.com/docs/3/projects.html">项目管理</a>，但我一般只用到文件夹。</li>
+<li>Vim模式（Vintage）：Sublime Text自带<a href="http://www.sublimetext.com/docs/3/vintage.html">Vim模式</a>。</li>
+<li>构建（Build）：通过配置，Sublime Text可以进行<a href="http://docs.sublimetext.info/en/latest/file_processing/build_systems.html">源码构建</a>。</li>
+<li>调试（Debug）：通过安装<a href="https://sublime.wbond.net/search/debug">插件</a>，Sublime Text可以对代码进行调试。</li>
+</ul>
+
+
+<h2>快捷键列表（Shortcuts Cheatsheet）</h2>
+
+<p>我把本文出现的Sublime Text按其类型整理在这里，以便查阅。</p>
+
+<h3>通用（General）</h3>
+
+<ul>
+<li><code>↑↓←→</code>：上下左右移动光标，注意不是不是<code>KJHL</code>！</li>
+<li><code>Alt</code>：调出菜单</li>
+<li><code>Ctrl + Shift + P</code>：调出命令板（Command Palette）</li>
+<li>`Ctrl + &#8220;：调出控制台</li>
+</ul>
+
+
+<h3>编辑（Editing）</h3>
+
+<ul>
+<li><code>Ctrl + Enter</code>：在当前行下面新增一行然后跳至该行</li>
+<li><code>Ctrl + Shift + Enter</code>：在当前行上面增加一行并跳至该行</li>
+<li><code>Ctrl + ←/→</code>：进行逐词移动</li>
+<li><code>Ctrl + Shift + ←/→</code>进行逐词选择</li>
+<li><code>Ctrl + ↑/↓</code>移动当前显示区域</li>
+<li><code>Ctrl + Shift + ↑/↓</code>移动当前行</li>
+</ul>
+
+
+<h3>选择（Selecting）</h3>
+
+<ul>
+<li><code>Ctrl + D</code>：选择当前光标所在的词并高亮该词所有出现的位置，再次<code>Ctrl + D</code>选择该词出现的下一个位置，在多重选词的过程中，使用<code>Ctrl + K</code>进行跳过，使用<code>Ctrl + U</code>进行回退，使用<code>Esc</code>退出多重编辑</li>
+<li><code>Ctrl + Shift + L</code>：将当前选中区域打散</li>
+<li><code>Ctrl + J</code>：把当前选中区域合并为一行</li>
+<li><code>Ctrl + M</code>：在起始括号和结尾括号间切换</li>
+<li><code>Ctrl + Shift + M</code>：快速选择括号间的内容</li>
+<li><code>Ctrl + Shift + J</code>：快速选择同缩进的内容</li>
+<li><code>Ctrl + Shift + Space</code>：快速选择当前作用域（Scope）的内容</li>
+</ul>
+
+
+<h3>查找&amp;替换（Finding&amp;Replacing）</h3>
+
+<ul>
+<li><code>F3</code>：跳至当前关键字下一个位置</li>
+<li><code>Shift + F3</code>：跳到当前关键字上一个位置</li>
+<li><code>Alt + F3</code>：选中当前关键字出现的所有位置</li>
+<li><code>Ctrl + F/H</code>：进行标准查找/替换，之后：
+
+<ul>
+<li><code>Alt + C</code>：切换大小写敏感（Case-sensitive）模式</li>
+<li><code>Alt + W</code>：切换整字匹配（Whole matching）模式</li>
+<li><code>Alt + R</code>：切换正则匹配（Regex matching）模式</li>
+<li><code>Ctrl + Shift + H</code>：替换当前关键字</li>
+<li><code>Ctrl + Alt + H</code>：替换所有关键字匹配</li>
+</ul>
+</li>
+<li><code>Ctrl + Shift + F</code>：多文件搜索&amp;替换</li>
+</ul>
+
+
+<h3>跳转（Jumping）</h3>
+
+<ul>
+<li><code>Ctrl + P</code>：跳转到指定文件，输入文件名后可以：
+
+<ul>
+<li><code>@</code> 符号跳转：输入<code>@symbol</code>跳转到<code>symbol</code>符号所在的位置</li>
+<li><code>#</code> 关键字跳转：输入<code>#keyword</code>跳转到<code>keyword</code>所在的位置</li>
+<li><code>:</code> 行号跳转：输入<code>:12</code>跳转到文件的第12行。</li>
+</ul>
+</li>
+<li><code>Ctrl + R</code>：跳转到指定符号</li>
+<li><code>Ctrl + G</code>：跳转到指定行号</li>
+</ul>
+
+
+<h3>窗口（Window）</h3>
+
+<ul>
+<li><code>Ctrl + Shift + N</code>：创建一个新窗口</li>
+<li><code>Ctrl + N</code>：在当前窗口创建一个新标签</li>
+<li><code>Ctrl + W</code>：关闭当前标签，当窗口内没有标签时会关闭该窗口</li>
+<li><code>Ctrl + Shift + T</code>：恢复刚刚关闭的标签</li>
+</ul>
+
+
+<h3>屏幕（Screen）</h3>
+
+<ul>
+<li><code>F11</code>：切换普通全屏</li>
+<li><code>Shift + F11</code>：切换无干扰全屏</li>
+<li><code>Alt + Shift + 2</code>：进行左右分屏</li>
+<li><code>Alt + Shift + 8</code>：进行上下分屏</li>
+<li><code>Alt + Shift + 5</code>：进行上下左右分屏</li>
+<li>分屏之后，使用<code>Ctrl + 数字键</code>跳转到指定屏，使用<code>Ctrl + Shift + 数字键</code>将当前屏移动到指定屏</li>
+</ul>
+
+
+<h2>延伸阅读（Further Reading）</h2>
+
+<h3>书籍（Books）</h3>
+
+<ul>
+<li><a href="http://www.amazon.com/Mastering-Sublime-Community-Experience-Distilled/dp/1849698422/">Mastering Sublime Text</a>：我读过的唯一一本关于Sublime Text的书籍，书中介绍的插件很实用，但对编辑技巧介绍不全。</li>
+<li><a href="http://www.amazon.com/Instant-Sublime-Text-Starter-Haughee/dp/1849693927/">Instant Sublime Text Starter</a>：另外一本关于Sublime Text的书，我没有读过。</li>
+</ul>
+
+
+<h3>链接（Links）</h3>
+
+<ul>
+<li>官方文档：<a href="http://www.sublimetext.com/docs/3/">http://www.sublimetext.com/docs/3/</a></li>
+<li>官方论坛：<a href="http://www.sublimetext.com/forum/">http://www.sublimetext.com/forum/</a></li>
+<li>Stack Overflow的Sublime Text频道：
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/tagged/sublimetext">http://stackoverflow.com/questions/tagged/sublimetext</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/sublimetext2">http://stackoverflow.com/questions/tagged/sublimetext2</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/sublimetext3">http://stackoverflow.com/questions/tagged/sublimetext3</a></li>
+</ul>
+</li>
+<li>非官方文档：<a href="http://sublime-text-unofficial-documentation.readthedocs.org/">http://sublime-text-unofficial-documentation.readthedocs.org/</a> 甚至比官方文档还要全面！</li>
+<li>Package Control：<a href="https://sublime.wbond.net/">https://sublime.wbond.net/</a> 大量的Sublime Text插件和主题。</li>
+</ul>
+
+
+<h3>视频（Videos）</h3>
+
+<ul>
+<li>Getting Started with SublimeText：<a href="https://www.youtube.com/watch?v=04gKiTiRlq8">https://www.youtube.com/watch?v=04gKiTiRlq8</a></li>
+<li>Sublime Text Pefect Workflow：<a href="https://www.youtube.com/watch?v=bpEp0ePIOEM&amp;list=PLuwqxbvf3olpLsnFvo06gbrkcEB5o7K0g">https://www.youtube.com/watch?v=bpEp0ePIOEM&amp;list=PLuwqxbvf3olpLsnFvo06gbrkcEB5o7K0g</a></li>
+</ul>
+
+
+<h2>关于作者（About Me）</h2>
+
+<p><a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/sublime-text-complete-guide/">http://zh.lucida.me/blog/sublime-text-complete-guide/</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<p>正在尽量努力成为一名靠谱的软件工程师 :&ndash;|</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[设计中的设计——1. Horror Vacui]]></title>
@@ -6995,74 +7679,6 @@
 <p><img src="http://www.decathlon.co.uk/media/819/8194140/big_800PX_65269548.jpg" alt="Decathlon IRON GYM+" /></p>
 
 <p>试用了下，还是很结实的，不过现在一个引体向上也做不起来-_&ndash; 不过还好有凳子的辅助。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[关于中国合伙人]]></title>
-    <link href="http://zh.lucida.me/blog/about-movie-chinese-dream/"/>
-    <updated>2014-01-11T12:06:29+00:00</updated>
-    <id>http://zh.lucida.me/blog/about-movie-chinese-dream</id>
-    <content type="html"><![CDATA[<h2>About</h2>
-
-<p>之前就想写一篇关于中国合伙人的评论了，为此重新看了一遍，小结下细节和感受。</p>
-
-<h3>色情杂志</h3>
-
-<p>成东青收到孟晓骏寄来的色情杂志仔细研读，如果观察仔细的话会发现成的裤腰带解开，下身膨胀——以至于苏梅回来时惊慌的拿了一本杂志盖在下体上面。</p>
-
-<p><img src="http://imgur.com/nOTfcbu.jpg" title="看黄色杂志被发现" alt="看黄色杂志被发现" /></p>
-
-<h3>转变</h3>
-
-<p>成东青的教学风格从照本宣科昏昏欲睡到妙趣横生引人入胜，发生在他得知自己被学校开除的那一刻，他失去了学校的工作，但得到了学生的尊敬。</p>
-
-<p>之前我认为这一段是影片的一个败笔——一个人怎么可能如此快的从这一个极端走到另一个极端，在这一遍观看时我明白了——成失去学校的铁饭碗，但也卸下了学校的铁担子，成作为大学教师有太多的taboo，以至于只能通过照本宣科的方式教学；而作为私人教师则不需要顾忌那么多传统，可以用自己的方式，提高学生学习的兴趣，<strong>缓解</strong>学生学习的不适。</p>
-
-<!-- more -->
-
-
-<p>这也是&#8221;新梦想&#8221;能够在某些方面胜出传统教育的原因——&#8221;新梦想&#8221;通过幽默的语言和夸张的肢体动作缓解学习时的痛苦，使得一些忍耐力低的学生可以持续的学习，所&#8221;新梦想&#8221;可以提高平庸学生的成绩。但&#8221;新梦想&#8221;无法培养出卓越的学生——there is only a hard way to excellence。</p>
-
-<p>任何教育就其本质而言都是填鸭式教育，&#8221;新梦想&#8221;在做的不过是在填鸭时加一点料让这件事不那么痛苦而已，这种事周星星在<strong>国产凌凌漆</strong>早就玩过：</p>
-
-<blockquote><p>&ldquo;古時有關雲長全神貫注捉象棋刮骨療毒，今日有我凌凌漆聚精會神睇鹹帶鑿骨攞彈頭&rdquo;</p></blockquote>
-
-<p><img src="http://i.imgur.com/9ga1qcg.jpg" alt="挖骨取弹头" /></p>
-
-<h3>国营工厂</h3>
-
-<p>将一个新兴的教育企业建立在破败的国营工厂里，这正是90年代的写照——国营工厂的破败，私人企业的兴起，而且有相当的私人企业是发源自破败的国营企业的，比如<a href="http://zh.wikipedia.org/wiki/%E6%B5%B7%E5%B0%94">海尔</a>。</p>
-
-<h3>办公楼与北大</h3>
-
-<p>电影开头王阳在两座未建成的&#8221;新梦想&#8221;办公楼面前讲课，这两座楼其实就是新东方在中关村的两座办公楼，这两座楼屹立在中关村，也就是北大的北面，骄傲的俯视着曾经把自己逐出校园的对方。</p>
-
-<p><img src="http://i.imgur.com/mbsCVVd.jpg" title="新梦想" alt="新梦想" /></p>
-
-<h3>Lucy的离开</h3>
-
-<p>这个细节十分隐晦，Lucy的离开正处在1988年到1993年中间——也就是敏感的<strong>1989</strong>，这一年发生的八八事件使得中国政府在国际社会上的声望一落千丈，将中国与西方国家的关系降到了最低点，一些国内的外国人也由于此次事件离开。</p>
-
-<p>八八事件戳破了国内充满理想的年轻人——尤其是大学生的理想，用残酷的事实告诉他们中国的现状，王阳在Lucy离开剪发剃须痛哭青春破灭不只是因为Lucy，而是因为时代。</p>
-
-<p><img src="http://imgur.com/akYME1S.jpg" title="梦想破灭" alt="梦想破灭" /></p>
-
-<h3>苏梅</h3>
-
-<p>国内上映的中国合伙人有一段被剪辑了——苏梅在对成东青说分手之前是一段和外国人在草地上打炮的戏。</p>
-
-<h3>Bug</h3>
-
-<p>成东青为了反对公司上市将公司股权稀释到每个人身上，孟晓骏愤怒的说</p>
-
-<blockquote><p>资治通鉴，釜底抽薪，绝对的明朝万历年间的事。</p></blockquote>
-
-<p>不过资治通鉴里面哪来的明朝 &ndash;_&ndash;</p>
-
-<h3>小结</h3>
-
-<p>导演很牛逼，可以在不触犯政府敏感地带的前提下将一个跨越80年到05年的影片拍出如此的真实感，而且在商业和声誉上取得双赢，国内恐怕没有几个导演可以做到。</p>
 ]]></content>
   </entry>
   

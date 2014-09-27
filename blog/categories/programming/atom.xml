@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-07-27T00:21:20+01:00</updated>
+  <updated>2014-09-27T22:16:00+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,665 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime Text 全程指南]]></title>
+    <link href="http://zh.lucida.me/blog/sublime-text-complete-guide/"/>
+    <updated>2014-09-27T21:57:15+01:00</updated>
+    <id>http://zh.lucida.me/blog/sublime-text-complete-guide</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/sublime-text-complete-guide/">http://zh.lucida.me/blog/sublime-text-complete-guide/</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<h2>摘要（Abstract）</h2>
+
+<p>本文系统全面的介绍了Sublime Text，旨在成为最优秀的Sublime Text中文教程。</p>
+
+<h2>前言（Prologue）</h2>
+
+<p>Sublime Text是一款跨平台代码编辑器（Code Editor），从最初的Sublime Text 1.0，到现在的Sublime Text 3.0，Sublime Text从一个不知名的编辑器演变到现在几乎是各平台首选的GUI编辑器。而这样优秀的编辑器却没有一个靠谱的中文教程，所以我试图通过本文弥补这个缺陷。</p>
+
+<h3>编辑器的选择（Editor Choices）</h3>
+
+<p>从初学编程到现在，我用过的编辑器有EditPlus、UltraEdit、Notepad++、Vim、TextMate和Sublime Text，如果让我从中推荐，我会毫不犹豫的推荐Vim和Sublime Text，原因有下面几点：</p>
+
+<!-- more -->
+
+
+<ol>
+<li><strong>跨平台</strong>：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。作为一个程序员，切换系统是常有的事情，为了减少重复学习，使用一个跨平台的编辑器是很有必要的。</li>
+<li><strong>可扩展</strong>：Vim和Sublime Text都是可扩展的（Extensible），并包含大量实用插件，我们可以通过安装自己领域的插件来成倍提高工作效率。</li>
+<li><strong>互补</strong>：Vim和Sublime Text分别是命令行环境（CLI）和图形界面环境（GUI）下的最佳选择，同时使用两者会大大提高工作效率。</li>
+</ol>
+
+
+<h3>个人背景（Personal Background）</h3>
+
+<p>我是一名非常典型的程序员：平时工作主要在Linux环境下使用Java和Python，偶尔会用HTML+CSS+JavaScript编写网页；业余时会在Windows环境编写一些C#程序（包括控制台程序（Console Application）和移动应用（Mobile App），也会玩一些非主流语言（比如Haskell，ML和Ruby等）以拓展见识。</p>
+
+<p>所以这篇文章会我的个人工作内容为主要使用场景（Scenario），尽管无法覆盖到所有的使用场景，但我认为依然可以覆盖到绝大部分，如果您认为我遗漏了什么内容，请在文章下面回复，我会尽量更新。</p>
+
+<h3>本文风格（Writing Style）</h3>
+
+<p>受益于<a href="http://en.wikipedia.org/wiki/The_C_Programming_Language">K&amp;R C</a>的写作风格，我倾向于以实际案例来讲解Sublime Text的功能，所以本文中的例子均源于我在实际开发时遇到的问题。</p>
+
+<p>此外，把本文会使用大量动画（GIF）演示Sublime Text的编辑功能，因为我发现图片难以演示完整的编辑流程（Workflow），而视频又过于重量级。本文的GIF动画均使用<a href="http://screentogif.codeplex.com/">ScreenToGif</a>进行录制。</p>
+
+<h3>编辑器（Editor） vs 集成开发环境（Integrated Development Environment，下文简称IDE）</h3>
+
+<p>我经常看到一些程序员拿编辑器和IDE进行比较，诸如Vim比Eclipse强大或是Visual Studio太慢不如Notepad++好使之类的讨论比比皆是，个人认为这些讨论没有意义，因为编辑器和IDE根本是面向两种不同使用场景的工具：</p>
+
+<ul>
+<li>编辑器面向无语义的纯文本，不涉及领域逻辑，因此速度快体积小，适合编写单独的配置文件和动态语言脚本（Shell、Python和Ruby等）。</li>
+<li>IDE面向有语义的代码，会涉及到大量领域逻辑，因此速度偏慢体积庞大，适合编写静态语言项目（Java、C++和C#等）。</li>
+</ul>
+
+
+<p>我认为应当使用正确的工具去做有价值的事情，并把效率最大化，所以我会用Eclipse编写Java项目，用Vim编写Shell，用Sublime Text编写JavaScript/HTML/Python，用Visual Studio编写C#。</p>
+
+<p>前言到此结束，下面进入正题。</p>
+
+<h2>安装（Installation）</h2>
+
+<p>Sublime Text<a href="http://www.sublimetext.com/">官方网站</a>提供了Sublime Text各系统各版本的下载，目前Sublime Text的最新版本是<a href="http://www.sublimetext.com/3">Sublime Text 3</a>。这里以Windows版本的Sublime Text安装为例。</p>
+
+<p>注意在安装时勾选<strong>Add to explorer context menu</strong>，这样在右键单击文件时就可以直接使用Sublime Text打开。</p>
+
+<p><img src="http://i.imgur.com/zVtiXNP.jpg" alt="右键打开" /></p>
+
+<h3>添加Sublime Text到环境变量</h3>
+
+<p>使用<code>Win + R</code>运行<code>sysdm.cpl</code>打开“系统属性”。</p>
+
+<p><img src="http://i.imgur.com/ysZe1BH.jpg" alt="sysdm.cpl" /></p>
+
+<p>然后在“高级”选项卡里选择“环境变量”，编辑“Path”，增加Sublime Text的安装目录（例如<code>D:\Program Files\Sublime Text 3</code>）。</p>
+
+<p><img src="http://i.imgur.com/dY5EaZX.jpg" alt="添加环境变量" /></p>
+
+<p>接下来你就可以在命令行里面利用<code>subl</code>命令直接使用Sublime Text了：</p>
+
+<p><code>
+subl file    :: 使用Sublime Text打开file文件
+subl folder  :: 使用Sublime Text打开folder文件夹
+subl .       :: 使用Sublime Text当前文件夹
+</code></p>
+
+<h3>安装Package Control</h3>
+
+<p>前文提到Sublime Text支持大量插件，如何找到并管理这些插件就成了一个问题，Package Control正是为了解决这个问题而出现的，利用它我们可以很方便的浏览、安装和卸载Sublime Text中的插件。</p>
+
+<p>进入Package Control的<a href="https://sublime.wbond.net/">官网</a>，里面有详细的<a href="https://sublime.wbond.net/installation">安装教程</a>。Package Control支持Sublime Text 2和3，本文只给出3的安装流程：</p>
+
+<ul>
+<li>使用`Ctrl + ``打开Sublime Text控制台。</li>
+<li>将下面的代码粘贴到控制台里：</li>
+</ul>
+
+
+<p><code>
+import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+</code></p>
+
+<ul>
+<li>等待Package Control安装完成。之后使用<code>Ctrl + Shift + P</code>打开命令板，输入<code>PC</code>应出现Package Control：</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/fgnl2Qj.jpg" alt="Package Control安装成功" /></p>
+
+<p>成功安装Package Control之后，我们就可以方便的安装使用Sublime Text的各种插件：</p>
+
+<p><img src="http://i.imgur.com/pnuar4c.gif" alt="使用Package Control安装插件" /></p>
+
+<h2>购买（Purchase）</h2>
+
+<p>Sublime Text是一个收费闭源软件，这在一定程度上成为了我支持Sublime Text的理由（我心中的软件靠谱程度：免费开源 &lt;&lt; 免费闭源 &lt; 收费开源 &lt; 收费闭源）：在<a href="https://www.sublimetext.com/buy">这里</a>购买。</p>
+
+<p>不过不购买Sublime Text也可以“正常”使用它，只是Sublime Text会时不时的弹出一个对话框提醒你购买，此外窗口处会有一个很屌丝很low逼的<strong>(UNREGISTERED)</strong>。（在高频操作下，一般20分钟提示一次，个人认为算是很厚道了）</p>
+
+<p><img src="http://i.imgur.com/hPNqz66.jpg" alt="提示注册" /></p>
+
+<p>也许不少人会觉着Sublime Text 70刀的价格太贵，但相比它的功能和带来的效率提升，70刀真的不值一提，如果你不方便使用Paypal付款可以邮件联系我，你支付宝给我打款然后我帮你付款，价格按当日汇率折算（450元左右）。</p>
+
+<p><img src="http://i.imgur.com/gWt2eLA.jpg" alt="购买之后" /></p>
+
+<h2>概览（Tour）</h2>
+
+<h3>基本概念（Basic Concepts）</h3>
+
+<p>Sublime Text的界面如下：</p>
+
+<p><img src="http://i.imgur.com/XrUYmH8.jpg" alt="Sublime Text" /></p>
+
+<ul>
+<li>标签（Tab）：无需介绍。</li>
+<li>编辑区（Editing Area）：无需介绍。</li>
+<li>侧栏（Side Bar）：包含当前打开的文件以及文件夹视图。</li>
+<li>缩略图（Minimap）：如其名。</li>
+<li>命令板（Command Palette）：Sublime Text的操作中心，它使得我们基本可以脱离鼠标和菜单栏进行操作。</li>
+<li>控制台（Console）：使用`Ctrl + ``调出，它既是一个标准的Python REPL，也可以直接对Sublime Text进行配置。</li>
+<li>状态栏（Status Bar）：显示当前行号、当前语言和Tab格式等信息。</li>
+</ul>
+
+
+<h3>配置（Settings）</h3>
+
+<p>与其他GUI环境下的编辑器不同，Sublime Text并没有一个专门的配置界面，与之相反，Sublime Text使用JSON配置文件，例如：</p>
+
+<p><code>
+{
+  "font_size": 12,
+  "highlight_line": true,
+}
+</code></p>
+
+<p>会将默认字体大小调整为12，并高亮当前行。</p>
+
+<p>JSON配置文件的引入简化了Sublime Text的界面，但也使得配置变的复杂，一般我会到<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/settings.html">这里</a>查看可用的Sublime Text配置。</p>
+
+<h2>编辑（Editing）</h2>
+
+<p>Sublime Text的编辑十分人性化——它不像Vim那样反人类（尽管我也用Vim但我还是要说Vim的快捷键设定绝壁连代谢产物都不如），少量的快捷键就可以完成绝大多数编辑任务。</p>
+
+<h3>基本编辑（Basic Editing）</h3>
+
+<p><code>↑↓←→</code>就是<code>↑↓←→</code>，不是<code>KJHL</code>，（没错我就是在吐槽Vim，尼玛设成<code>WSAD</code>也比这个强啊），粘贴剪切复制均和系统一致。</p>
+
+<p><code>Ctrl + Enter</code>在当前行下面新增一行然后跳至该行；<code>Ctrl + Shift + Enter</code>在当前行上面增加一行并跳至该行。</p>
+
+<p><img src="http://i.imgur.com/rvzS9Ok.gif" alt="演示新增行" /></p>
+
+<p><code>Ctrl + ←/→</code>进行逐词移动，相应的，<code>Ctrl + Shift + ←/→</code>进行逐词选择。</p>
+
+<p><img src="http://i.imgur.com/jFnTDl3.gif" alt="演示逐词移动及选择" /></p>
+
+<p><code>Ctrl + ↑/↓</code>移动当前显示区域，<code>Ctrl + Shift + ↑/↓</code>移动当前行。</p>
+
+<p><img src="http://i.imgur.com/v31pd3k.gif" alt="演示移动当前行" /></p>
+
+<h3>选择（Selecting）</h3>
+
+<p>Sublime Text的一大亮点是支持多重选择——同时选择多个区域，然后同时进行编辑。</p>
+
+<p><code>Ctrl + D</code>选择当前光标所在的词并高亮该词所有出现的位置，再次<code>Ctrl + D</code>选择该词出现的下一个位置，在多重选词的过程中，使用<code>Ctrl + K</code>进行跳过，使用<code>Ctrl + U</code>进行回退，使用<code>Esc</code>退出多重编辑。</p>
+
+<p>多重选词的一大应用场景就是重命名——从而使得代码更加整洁。尽管Sublime Text无法像IDE（例如Eclipse）那样进行自动重命名，但我们可以通过多重选词+多重编辑进行直观且便捷的重命名：</p>
+
+<p><img src="http://i.imgur.com/IRVbUTJ.gif" alt="利用多重选词进行重命名" /></p>
+
+<p>有时我们需要对一片区域的所有行进行同时编辑，<code>Ctrl + Shift + L</code>可以将当前选中区域打散，然后进行同时编辑：</p>
+
+<p><img src="http://i.imgur.com/0NHpXFl.gif" alt="利用打散为列表套上引号" /></p>
+
+<p>有打散自然就有合并，<code>Ctrl + J</code>可以把当前选中区域合并为一行：</p>
+
+<p><img src="http://i.imgur.com/hfRAyiy.gif" alt="合并选中行" /></p>
+
+<h3>查找&amp;替换（Finding&amp;Replacing）</h3>
+
+<p>Sublime Text提供了强大的查找（和替换）功能，为了提供一个清晰的介绍，我将Sublime Text的查找功能分为<strong>快速查找</strong>、<strong>标准查找</strong>和<strong>多文件查找</strong>三种类型。</p>
+
+<h4>快速查找&amp;替换</h4>
+
+<p>多数情况下，我们需要查找文中某个关键字出现的其它位置，这时并不需要重新将该关键字重新输入一遍然后搜索，我们只需要使用<code>Shift + ←/→</code>或<code>Ctrl + D</code>选中关键字，然后<code>F3</code>跳到其下一个出现位置，<code>Shift + F3</code>跳到其上一个出现位置，此外还可以用<code>Alt + F3</code>选中其出现的所有位置（之后可以进行多重编辑，也就是快速替换）。</p>
+
+<p><img src="http://i.imgur.com/gcaHacI.gif" alt="使用快速替换" /></p>
+
+<h4>标准查找&amp;替换</h4>
+
+<p>另一种常见的使用场景是搜索某个已知但不在当前显示区域的关键字，这时可以使用<code>Ctrl + F</code>调出搜索框进行搜索：</p>
+
+<p><img src="http://i.imgur.com/6AaBiRS.jpg" alt="Sublime Text的搜索框" /></p>
+
+<p>以及使用<code>Ctrl + H</code>进行替换：</p>
+
+<p><img src="http://i.imgur.com/4NnE9SN.jpg" alt="Sublime Text的替换框" /></p>
+
+<h5>关键字查找&amp;替换</h5>
+
+<p>对于普通用户来说，常规的关键字搜索就可以满足其需求：在搜索框输入关键字后<code>Enter</code>跳至关键字当前光标的下一个位置，<code>Shift + Enter</code>跳至上一个位置，<code>Alt + Enter</code>选中其出现的所有位置（同样的，接下来可以进行快速替换）。</p>
+
+<p>Sublime Text的查找有不同的模式：<code>Alt + C</code>切换大小写敏感（Case-sensitive）模式，<code>Alt + W</code>切换整字匹配（Whole matching）模式，除此之外Sublime Text还支持在选中范围内搜索（Search in selection），这个功能没有对应的快捷键，但可以通过以下配置项自动开启。</p>
+
+<p><code>
+"auto_find_in_selection": true
+</code></p>
+
+<p>这样之后在选中文本的状态下范围内搜索就会自动开启，配合这个功能，局部重命名（Local Renaming）变的非常方便：</p>
+
+<p><img src="http://i.imgur.com/QRIsDra.gif" alt="使用范围搜索进行局部重命名" /></p>
+
+<p>使用<code>Ctrl + H</code>进行标准替换，输入替换内容后，使用<code>Ctrl + Shift + H</code>替换当前关键字，<code>Ctrl + Alt + H</code>替换所有匹配关键字。</p>
+
+<h5>正则表达式查找&amp;替换</h5>
+
+<p><a href="http://en.wikipedia.org/wiki/Regular_expression">正则表达式</a>是非常强大的文本查找&amp;替换工具，Sublime Text中使用<code>Alt + R</code>切换正则匹配模式的开启/关闭。Sublime Text的使用<a href="http://www.boost.org/doc/libs/1_44_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html">Boost里的Perl正则表达式风格</a>。</p>
+
+<p>出于篇幅原因，本文不会对正则表达式进行详细介绍，<a href="http://regex.info/">Mastering Regex</a>（中译本：<a href="http://book.douban.com/subject/2154713/">精通正则表达式</a>）对正则表达式的原理和各语言下的使用进行了详细介绍。此外网上有大量正则表达式的优秀教程（<a href="http://deerchao.net/tutorials/regex/regex.htm">“正则表达式30分钟入门教程”</a>和<a href="http://msdn.microsoft.com/zh-cn/library/ae5bf541(v=vs.90">MSDN正则表达式教程</a>.aspx)），以及在线测试工具（<a href="http://regexpal.com/">regexpal</a>和<a href="http://www.regexr.com/">regexer</a>）。</p>
+
+<h4>多文件搜索&amp;替换</h4>
+
+<p>使用<code>Ctrl + Shift + F</code>开启多文件搜索&amp;替换（注意此快捷键和搜狗输入法的简繁切换快捷键有冲突）：</p>
+
+<p><img src="http://i.imgur.com/05Fchle.jpg" alt="多文件搜索界面" /></p>
+
+<p>多文件搜索&amp;替换默认在当前打开的文件和文件夹进行搜索/替换，我们也可以指定文件/文件夹进行搜索/替换。</p>
+
+<h3>跳转（Jumping）</h3>
+
+<p>Sublime Text提供了强大的跳转功能使得我们可以在不同的文件/方法/函数中无缝切换。就我的使用经验而言，目前还没有哪一款编辑器可以在这个方面超越Sublime Text。</p>
+
+<h4>跳转到文件</h4>
+
+<p><code>Ctrl + P</code>会列出当前打开的文件（或者是当前文件夹的文件），输入文件名然后<code>Enter</code>跳转至该文件。</p>
+
+<p>需要注意的是，Sublime Text使用模糊字符串匹配（Fuzzy String Matching），这也就意味着你可以通过文件名的前缀、首字母或是某部分进行匹配：例如，<code>EIS</code>、<code>Eclip</code>和<code>Stupid</code>都可以匹配<code>EclipseIsStupid.java</code>。</p>
+
+<p><img src="http://i.imgur.com/db15c5n.gif" alt="跳转到文件" /></p>
+
+<h4>跳转到符号</h4>
+
+<p>尽管是一个文本编辑器，Sublime Text能够对代码符号进行一定程度的索引。<code>Ctrl + R</code>会列出当前文件中的符号（例如类名和函数名，但无法深入到变量名），输入符号名称<code>Enter</code>即可以跳转到该处。此外，还可以使用<code>F12</code>快速跳转到当前光标所在符号的定义处（Jump to Definition）。</p>
+
+<p><img src="http://i.imgur.com/D2rGDck.gif" alt="跳转到符号" /></p>
+
+<p>比较有意思的是，对于Markdown，<code>Ctrl + R</code>会列出其大纲，非常实用。</p>
+
+<p><img src="http://i.imgur.com/qDnjcNn.jpg" alt="Markdown大纲" /></p>
+
+<h4>跳转到某行</h4>
+
+<p><code>Ctrl + G</code>然后输入行号以跳转到指定行：</p>
+
+<p><img src="http://i.imgur.com/F5BLsae.gif" alt="跳转到某行" /></p>
+
+<h4>组合跳转</h4>
+
+<p>在<code>Ctrl + P</code>匹配到文件后，我们可以进行后续输入以跳转到更精确的位置：</p>
+
+<ul>
+<li><code>@</code> 符号跳转：输入<code>@symbol</code>跳转到<code>symbol</code>符号所在的位置</li>
+<li><code>#</code> 关键字跳转：输入<code>#keyword</code>跳转到<code>keyword</code>所在的位置</li>
+<li><code>:</code> 行号跳转：输入<code>:12</code>跳转到文件的第12行。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/3y9MG88.gif" alt="组合跳转演示" /></p>
+
+<p>所以Sublime Text把<code>Ctrl + P</code>称之为<strong>“Go To Anything”</strong>，这个功能如此好用，以至于我认为没有其它编辑器能够超越它。</p>
+
+<h3>中文输入法的问题</h3>
+
+<p>从Sublime Text的初版（1.0）到现在（3.0 3065），中文输入法（包括日文输入法）都有一个问题：输入框不跟随。</p>
+
+<p><img src="http://i.imgur.com/VQQ87Rr.jpg" alt="输入框不跟随" /></p>
+
+<p>目前官方还没有修复这个bug，解决方法是安装<code>IMESupport</code>插件，之后重启Sublime Text问题就解决了。</p>
+
+<p><img src="http://i.imgur.com/ErbK7wH.jpg" alt="修复之后输入框跟随" /></p>
+
+<h3>文件夹（Folders）</h3>
+
+<p>Sublime Text支持以文件夹做为单位进行编辑，这在编辑一个文件夹下的代码时尤其有用。在<code>File</code>下<code>Open Folder</code>：</p>
+
+<p><img src="http://i.imgur.com/xS9Nriz.jpg" alt="文件夹视图" /></p>
+
+<p>你会发现右边多了一个侧栏，这个侧栏列出了当前打开的文件和文件夹的文件，使用<code>Ctrl + K, Ctrl + B</code>显示或隐藏侧栏，使用<code>Ctrl + P</code>快速跳转到文件夹里的文件。</p>
+
+<h2>窗口&amp;标签（Windows &amp; Tabs）</h2>
+
+<p>Sublime Text是一个多窗口多标签编辑器：我们既可以开多个Sublime Text窗口，也可以在一个Sublime Text窗口内开多个标签。</p>
+
+<h3>窗口（Window）</h3>
+
+<p>使用<code>Ctrl + Shift + N</code>创建一个新窗口（该快捷键再次和搜狗输入法快捷键冲突，个人建议禁用所有搜狗输入法快捷键）。</p>
+
+<p>当窗口内没有标签时，使用<code>Ctrl + W</code>关闭该窗口。</p>
+
+<h3>标签（Tab）</h3>
+
+<p>使用<code>Ctrl + N</code>在当前窗口创建一个新标签，<code>Ctrl + W</code>关闭当前标签，<code>Ctrl + Shift + T</code>恢复刚刚关闭的标签。</p>
+
+<p>编辑代码时我们经常会开多个窗口，所以分屏很重要。<code>Alt + Shift + 2</code>进行左右分屏，<code>Alt + Shift + 8</code>进行上下分屏，<code>Alt + Shift + 5</code>进行上下左右分屏（即分为四屏）。</p>
+
+<p><img src="http://i.imgur.com/lAvhuX6.gif" alt="各种分屏" /></p>
+
+<p>分屏之后，使用<code>Ctrl + 数字键</code>跳转到指定屏，使用<code>Ctrl + Shift + 数字键</code>将当前屏移动到指定屏。例如，<code>Ctrl + 1</code>会跳转到1屏，而<code>Ctrl + Shift + 2</code>会将当前屏移动到2屏。</p>
+
+<h3>全屏（Full Screen）</h3>
+
+<p>Sublime Text有两种全屏模式：普通全屏和无干扰全屏。</p>
+
+<p>个人强烈建议在开启全屏前关闭菜单栏（Toggle Menu），否则全屏效果会大打折扣。</p>
+
+<p><code>F11</code>切换普通全屏：</p>
+
+<p><img src="http://i.imgur.com/Kdj9eEX.jpg" alt="普通全屏" /></p>
+
+<p><code>Shift + F11</code>切换无干扰全屏：</p>
+
+<p><img src="http://i.imgur.com/mnTIFQk.jpg" alt="无干扰全屏" /></p>
+
+<h2>风格（Styles）</h2>
+
+<p>风格对于任何软件都很重要，对编辑器也是如此，尤其是GUI环境下的编辑器。作为一个程序员，我希望我的编辑器足够简洁且足够个性。</p>
+
+<p>Notepad++默认界面</p>
+
+<p><img src="http://i.imgur.com/MZb7AsV.png" alt="Notepad++" /></p>
+
+<p>Sublime Text默认界面</p>
+
+<p><img src="http://i.imgur.com/ZzwQ0sI.png" alt="Sublime Text" /></p>
+
+<p>所以在用过Sublime Text之后，我立刻就卸掉了Notepad++。</p>
+
+<p>Sublime Text自带的风格是我喜欢的深色风格（也可以调成浅色），默认主题是<code>Monokai Bright</code>，这两者的搭配已经很不错了，不过我们还可以做得更好：接下来我将会展示如何通过设置偏好项和添加自定义风格/主题使得Sublime Text更加Stylish。</p>
+
+<h3>一些设置（Miscellaneous Settings）</h3>
+
+<p>下面是我个人使用的设置项。</p>
+
+<p><code>
+// 设置Sans-serif（无衬线）等宽字体，以便阅读
+"font_face": "YaHei Consolas Hybrid",
+"font_size": 12,
+// 使光标闪动更加柔和
+"caret_style": "phase",
+// 高亮当前行
+"highlight_line": true,
+// 高亮有修改的标签
+"highlight_modified_tabs": true,
+</code></p>
+
+<p>设置之后的效果如下：</p>
+
+<p><img src="http://i.imgur.com/MkyHff5.jpg" alt="设置效果" /></p>
+
+<h3>主题（Themes）</h3>
+
+<p>Sublime Text有大量第三方主题：[<a href="https://sublime.wbond.net/browse/labels/theme">https://sublime.wbond.net/browse/labels/theme</a>]，这里我给出几个个人感觉不错的主题：</p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Soda">Soda Light</a></h4>
+
+<p><img src="http://i.imgur.com/exxgbm1.png" alt="浅色版" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Soda">Soda Dark</a></h4>
+
+<p><img src="http://i.imgur.com/YsrCJMe.png" alt="深色版" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Nexus">Nexus</a></h4>
+
+<p><img src="http://i.imgur.com/ECLGEWD.png" alt="Nexus" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Flatland">Flatland</a></h4>
+
+<p><img src="http://i.imgur.com/LT0AyhR.png" alt="Flatland" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Spacegray">Spacegray Light</a></h4>
+
+<p><img src="http://i.imgur.com/j0hJqeV.png" alt="浅色版" /></p>
+
+<h4><a href="https://sublime.wbond.net/packages/Theme%20-%20Spacegray">Spacegray Dark</a></h4>
+
+<p><img src="http://i.imgur.com/CJJhvTj.png" alt="深色版" /></p>
+
+<h3>配色（Color）</h3>
+
+<p><a href="http://colorsublime.com/">colorsublime</a>包含了大量Sublime Text配色方案，并支持在线预览，配色方案的安装教程在<a href="http://colorsublime.com/how-to-install-a-theme">这里</a>，恕不赘述。</p>
+
+<p>我个人使用的是<a href="https://sublime.wbond.net/packages/Theme%20-%20Nexus">Nexus</a>主题和<a href="https://sublime.wbond.net/packages/Theme%20-%20Flatland">Flatland Dark</a>配色，配置如下：</p>
+
+<p><code>
+"theme": "Nexus.sublime-theme",
+"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
+</code></p>
+
+<p>效果如下：</p>
+
+<p><img src="http://i.imgur.com/gCxTGii.jpg" alt="Nexus+Flatland" /></p>
+
+<h2>编码（Coding）</h2>
+
+<p>优秀的编辑器使编码变的更加容易，所以Sublime Text提供了一系列功能以提高开发效率。</p>
+
+<h3>良好实践（Good Practices）</h3>
+
+<p>良好的代码应该是规范的，所以Google为每一门主流语言都设置了其代码规范（Code Style Guideline）。我自己通过下面的设置使以规范化自己的代码。</p>
+
+<p><code>
+// 设置tab的大小为2
+"tab_size": 2,
+// 使用空格代替tab
+"translate_tabs_to_spaces": true,
+// 添加行宽标尺
+"rulers": [80, 100],
+// 显示空白字符
+"draw_white_space": "all",
+// 保存时自动去除行末空白
+"trim_trailing_white_space_on_save": true,
+// 保存时自动增加文件末尾换行
+"ensure_newline_at_eof_on_save": true,
+</code></p>
+
+<h3>代码段（Code Snippets）</h3>
+
+<p>Sublime Text支持代码段（Code Snippet），输入代码段名称后<code>Tab</code>即可生成代码段。</p>
+
+<p><img src="http://i.imgur.com/EQc1zNX.gif" alt="代码段效果" /></p>
+
+<p>你可以通过Package Control安装第三方代码段，也可以自己创建代码段，参考<a href="http://www.hongkiat.com/blog/sublime-code-snippets/">这里</a>。</p>
+
+<h3>格式化（Formatting）</h3>
+
+<p>Sublime Text基本的手动格式化操作包括：<code>Ctrl + [</code>向左缩进，<code>Ctrl + ]</code>向右缩进，此外<code>Ctrl + Shift + V</code>可以以当前缩进粘贴代码（非常实用）。</p>
+
+<p>除了手动格式化，我们也可以通过安装插件实现自动缩进和智能对齐：</p>
+
+<ul>
+<li><a href="https://sublime.wbond.net/packages/HTMLBeautify">HTMLBeautify</a>：格式化HTML。</li>
+<li><a href="https://sublime.wbond.net/packages/AutoPEP8">AutoPEP8</a>：格式化Python代码。</li>
+<li><a href="https://sublime.wbond.net/packages/Alignment">Alignment</a>：进行智能对齐。</li>
+</ul>
+
+
+<h3>自动完成（Auto Completion）</h3>
+
+<p>Sublime Text 支持一定的自动完成，按<code>Tab</code>自动补全。</p>
+
+<p><img src="http://i.imgur.com/cqBI3NW.jpg" alt="自动完成" /></p>
+
+<h3>括号（Brackets）</h3>
+
+<p>编写代码时会碰到大量的括号，利用<code>Ctrl + M</code>可以快速的在起始括号和结尾括号间切换，<code>Ctrl + Shift + M</code>则可以快速选择括号间的内容，对于缩进型语言（例如Python）则可以使用<code>Ctrl + Shift + J</code>。</p>
+
+<p><img src="http://i.imgur.com/oxWjAo9.gif" alt="括号演示" /></p>
+
+<p>此外，我使用<a href="https://sublime.wbond.net/packages/BracketHighlighter">BracketHighlighter</a>插件以高亮显示配对括号以及当前光标所在区域，效果如下：</p>
+
+<p><img src="http://i.imgur.com/QQpG99h.gif" alt="插件演示" /></p>
+
+<h3>命令行（Command Line）</h3>
+
+<p>尽管提供了Python控制台，但Sublime Text的控制台仅支持单行输入，十分不方便，所以我使用<a href="https://sublime.wbond.net/packages/SublimeREPL">Sublime​REPL</a>以进行一些编码实验（Experiments）。</p>
+
+<p><img src="http://i.imgur.com/dZgi8QZ.gif" alt="SublimeREPL演示" /></p>
+
+<h2>其它（Miscellaneous）</h2>
+
+<p>尽管我试图在本文包含尽可能多的Sublime Text实用技能，但受限于篇幅和我的个人经验，本文仍不免有所遗漏，欢迎在评论里指出本文的错误及遗漏。</p>
+
+<p>下面是一些可能有用但我很少用到的功能：</p>
+
+<ul>
+<li>宏（Macro）：Sublime Text支持<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/extensibility/macros.html">录制宏</a>，但我在实际工作中并未发现宏有多大用处。</li>
+<li>其它平台（Other Platforms）：本文只介绍了Windows平台上Sublime Text的使用，不过Linux和OS X上Sublime Text的使用方式和Windows差别不大，只是在快捷键上有所差异，请参考<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_win.html">Windows/Linux快捷键</a>和<a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_osx.html">OS X快捷键</a>。</li>
+<li>项目（Projects）：Sublime Text支持简单的<a href="http://www.sublimetext.com/docs/3/projects.html">项目管理</a>，但我一般只用到文件夹。</li>
+<li>Vim模式（Vintage）：Sublime Text自带<a href="http://www.sublimetext.com/docs/3/vintage.html">Vim模式</a>。</li>
+<li>构建（Build）：通过配置，Sublime Text可以进行<a href="http://docs.sublimetext.info/en/latest/file_processing/build_systems.html">源码构建</a>。</li>
+<li>调试（Debug）：通过安装<a href="https://sublime.wbond.net/search/debug">插件</a>，Sublime Text可以对代码进行调试。</li>
+</ul>
+
+
+<h2>快捷键列表（Shortcuts Cheatsheet）</h2>
+
+<p>我把本文出现的Sublime Text按其类型整理在这里，以便查阅。</p>
+
+<h3>通用（General）</h3>
+
+<ul>
+<li><code>↑↓←→</code>：上下左右移动光标，注意不是不是<code>KJHL</code>！</li>
+<li><code>Alt</code>：调出菜单</li>
+<li><code>Ctrl + Shift + P</code>：调出命令板（Command Palette）</li>
+<li>`Ctrl + ``：调出控制台</li>
+</ul>
+
+
+<h3>编辑（Editing）</h3>
+
+<ul>
+<li><code>Ctrl + Enter</code>：在当前行下面新增一行然后跳至该行</li>
+<li><code>Ctrl + Shift + Enter</code>：在当前行上面增加一行并跳至该行</li>
+<li><code>Ctrl + ←/→</code>：进行逐词移动</li>
+<li><code>Ctrl + Shift + ←/→</code>进行逐词选择</li>
+<li><code>Ctrl + ↑/↓</code>移动当前显示区域</li>
+<li><code>Ctrl + Shift + ↑/↓</code>移动当前行</li>
+</ul>
+
+
+<h3>选择（Selecting）</h3>
+
+<ul>
+<li><code>Ctrl + D</code>：选择当前光标所在的词并高亮该词所有出现的位置，再次<code>Ctrl + D</code>选择该词出现的下一个位置，在多重选词的过程中，使用<code>Ctrl + K</code>进行跳过，使用<code>Ctrl + U</code>进行回退，使用<code>Esc</code>退出多重编辑</li>
+<li><code>Ctrl + Shift + L</code>：将当前选中区域打散</li>
+<li><code>Ctrl + J</code>：把当前选中区域合并为一行</li>
+<li><code>Ctrl + M</code>：在起始括号和结尾括号间切换</li>
+<li><code>Ctrl + Shift + M</code>：快速选择括号间的内容</li>
+<li><code>Ctrl + Shift + J</code>：快速选择同缩进的内容</li>
+<li><code>Ctrl + Shift + Space</code>：快速选择当前作用域（Scope）的内容</li>
+</ul>
+
+
+<h3>查找&amp;替换（Finding&amp;Replacing）</h3>
+
+<ul>
+<li><code>F3</code>：跳至当前关键字下一个位置</li>
+<li><code>Shift + F3</code>：跳到当前关键字上一个位置</li>
+<li><code>Alt + F3</code>：选中当前关键字出现的所有位置</li>
+<li><code>Ctrl + F/H</code>：进行标准查找/替换，之后：
+
+<ul>
+<li><code>Alt + C</code>：切换大小写敏感（Case-sensitive）模式</li>
+<li><code>Alt + W</code>：切换整字匹配（Whole matching）模式</li>
+<li><code>Alt + R</code>：切换正则匹配（Regex matching）模式</li>
+<li><code>Ctrl + Shift + H</code>：替换当前关键字</li>
+<li><code>Ctrl + Alt + H</code>：替换所有关键字匹配</li>
+</ul>
+</li>
+<li><code>Ctrl + Shift + F</code>：多文件搜索&amp;替换</li>
+</ul>
+
+
+<h3>跳转（Jumping）</h3>
+
+<ul>
+<li><code>Ctrl + P</code>：跳转到指定文件，输入文件名后可以：
+
+<ul>
+<li><code>@</code> 符号跳转：输入<code>@symbol</code>跳转到<code>symbol</code>符号所在的位置</li>
+<li><code>#</code> 关键字跳转：输入<code>#keyword</code>跳转到<code>keyword</code>所在的位置</li>
+<li><code>:</code> 行号跳转：输入<code>:12</code>跳转到文件的第12行。</li>
+</ul>
+</li>
+<li><code>Ctrl + R</code>：跳转到指定符号</li>
+<li><code>Ctrl + G</code>：跳转到指定行号</li>
+</ul>
+
+
+<h3>窗口（Window）</h3>
+
+<ul>
+<li><code>Ctrl + Shift + N</code>：创建一个新窗口</li>
+<li><code>Ctrl + N</code>：在当前窗口创建一个新标签</li>
+<li><code>Ctrl + W</code>：关闭当前标签，当窗口内没有标签时会关闭该窗口</li>
+<li><code>Ctrl + Shift + T</code>：恢复刚刚关闭的标签</li>
+</ul>
+
+
+<h3>屏幕（Screen）</h3>
+
+<ul>
+<li><code>F11</code>：切换普通全屏</li>
+<li><code>Shift + F11</code>：切换无干扰全屏</li>
+<li><code>Alt + Shift + 2</code>：进行左右分屏</li>
+<li><code>Alt + Shift + 8</code>：进行上下分屏</li>
+<li><code>Alt + Shift + 5</code>：进行上下左右分屏</li>
+<li>分屏之后，使用<code>Ctrl + 数字键</code>跳转到指定屏，使用<code>Ctrl + Shift + 数字键</code>将当前屏移动到指定屏</li>
+</ul>
+
+
+<h2>延伸阅读（Further Reading）</h2>
+
+<h3>书籍（Books）</h3>
+
+<ul>
+<li><a href="http://www.amazon.com/Mastering-Sublime-Community-Experience-Distilled/dp/1849698422/">Mastering Sublime Text</a>：我读过的唯一一本关于Sublime Text的书籍，书中介绍的插件很实用，但对编辑技巧介绍不全。</li>
+<li><a href="http://www.amazon.com/Instant-Sublime-Text-Starter-Haughee/dp/1849693927/">Instant Sublime Text Starter</a>：另外一本关于Sublime Text的书，我没有读过。</li>
+</ul>
+
+
+<h3>链接（Links）</h3>
+
+<ul>
+<li>官方文档：<a href="http://www.sublimetext.com/docs/3/">http://www.sublimetext.com/docs/3/</a></li>
+<li>官方论坛：<a href="http://www.sublimetext.com/forum/">http://www.sublimetext.com/forum/</a></li>
+<li>Stack Overflow的Sublime Text频道：
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/tagged/sublimetext">http://stackoverflow.com/questions/tagged/sublimetext</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/sublimetext2">http://stackoverflow.com/questions/tagged/sublimetext2</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/sublimetext3">http://stackoverflow.com/questions/tagged/sublimetext3</a></li>
+</ul>
+</li>
+<li>非官方文档：<a href="http://sublime-text-unofficial-documentation.readthedocs.org/">http://sublime-text-unofficial-documentation.readthedocs.org/</a> 甚至比官方文档还要全面！</li>
+<li>Package Control：<a href="https://sublime.wbond.net/">https://sublime.wbond.net/</a> 大量的Sublime Text插件和主题。</li>
+</ul>
+
+
+<h3>视频（Videos）</h3>
+
+<ul>
+<li>Getting Started with SublimeText：<a href="https://www.youtube.com/watch?v=04gKiTiRlq8">https://www.youtube.com/watch?v=04gKiTiRlq8</a></li>
+<li>Sublime Text Pefect Workflow：<a href="https://www.youtube.com/watch?v=bpEp0ePIOEM&amp;list=PLuwqxbvf3olpLsnFvo06gbrkcEB5o7K0g">https://www.youtube.com/watch?v=bpEp0ePIOEM&amp;list=PLuwqxbvf3olpLsnFvo06gbrkcEB5o7K0g</a></li>
+</ul>
+
+
+<h2>关于作者（About Me）</h2>
+
+<p><a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/sublime-text-complete-guide/">http://zh.lucida.me/blog/sublime-text-complete-guide/</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<p>正在尽量努力成为一名靠谱的软件工程师 :&ndash;|</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于编程错误的思考——2. Blunders, Typos, Mismatches, and Language Liability]]></title>
@@ -1632,318 +2291,6 @@ anyCommonElements([1, 2, 3], [3])
 
 
 <p>转载前请保留出处链接，谢谢。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[我的算法学习之路]]></title>
-    <link href="http://zh.lucida.me/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T21:43:42+01:00</updated>
-    <id>http://zh.lucida.me/blog/on-learning-algorithms</id>
-    <content type="html"><![CDATA[<h2>关于</h2>
-
-<p>严格来说，本文题目应该是<strong>我的数据结构和算法学习之路</strong>，但这个写法实在太绕口——况且CS中的算法往往暗指数据结构和算法（例如<strong>算法导论</strong>指的实际上是<strong>数据结构和算法导论</strong>），所以我认为本文题目是合理的。</p>
-
-<p>原文链接：<a href="http://zh.lucida.me/blog/on-learning-algorithms/">http://zh.lucida.me/blog/on-learning-algorithms/</a></p>
-
-<p>原文作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<h3>这篇文章讲了什么？</h3>
-
-<ul>
-<li>我这些年学习数据结构和算法的总结。</li>
-<li>一些不错的算法书籍和教程。</li>
-<li>算法的重要性。</li>
-</ul>
-
-
-<h2>初学</h2>
-
-<p>第一次接触数据结构是在大二下学期的数据结构课程。然而这门课程并没有让我入门——当时自己正忙于倒卖各种MP3和耳机，对于这些课程根本就不屑一顾——反正最后考试划个重点也能过，于是这门整个计算机专业本科最重要的课程就被傻逼的我直接忽略过去了。</p>
-
-<p>直到大三我才反应过来以后还要找工作——而且大二的折腾证明了我并没有什么商业才能，以后还是得靠码代码混饭吃，我当时惊恐的发现自己对编程序几乎一无所知，于是我给自己制订了一个类似于建国初期五年计划的读书成长计划，其中包括C语言基础、数据结构以及计算机网络等方面的书籍。</p>
-
-<p>读书计划的第一步是选择书籍，我曾向当时我觉得很牛的"学长"和"大神"请教应该读哪些算法书籍，"学长"们均推荐算法导论，还有几个"大神"推荐计算机程序设计艺术（现在我疑心他们是否翻过这些书），草草的翻了下这两本书发现实在看不懂，但幸运的是我在无意中发现了<a href="http://www.douban.com/">豆瓣</a>这个神奇的网站，里面有很多质量不错的书评，于是我就把评价很高而且看上去不那么吓人的计算机书籍都买了下来——事实证明豆瓣要比这些"学长"或是"大神"靠谱的多得多。</p>
-
-<!-- more -->
-
-
-<h3>数据结构与算法分析——C语言描述</h3>
-
-<p><img src="http://img3.douban.com/lpic/s1106991.jpg" alt="数据结构与算法分析——C语言描述" /></p>
-
-<p><a href="http://book.douban.com/subject/1139426/">数据结构与算法分析——C语言描述</a>是我学习数据结构的第一本书：当时有很多地方看不懂，于是做记号反复看；代码看不明白，于是抄到本子上反复研读；一些算法想不通，就把它所有的中间状态全画出来然后反复推演。事实证明尽管这种学习方法看起来傻逼而且效率很低，但对于当时同样傻逼的我却效果不错——傻人用傻办法嘛，而且这本书的课后题大多都是经典的面试题目，以至于日后我看到<a href="http://book.douban.com/subject/3004255/">编程之美</a>的第一反应就是这货的题目不全是抄别人的么。</p>
-
-<p>至今记得，这本书为了说明算法是多么重要，在开篇就拿最大子序列和作为例子，一路把复杂度从O(N<sup>3</sup>)杀到O(N<sup>2</sup>)再到O(NlgN)最后到O(N)，当时内心真的是景仰之情=如滔滔江水连绵不绝，尼玛为何可以这么屌，</p>
-
-<p>此外，我当时还把这本书里图算法之前的数据结构全手打了一遍，后来找实习还颇为自得的把这件事放到简历里，现在想想真是傻逼无极限。</p>
-
-<p>凭借这个读书成长计划中学到的知识，我总算比较顺利的找到了一份实习工作，这是后话。</p>
-
-<h2>入门</h2>
-
-<p>我的实习并没有用到什么算法（现在看来就是不停的堆砌已有的API，编写一堆自己都不知道对不对的代码而已），在发现身边的人工作了几年却还在和我做同样的事情之后，我开始越来越不安。尽管当时我对自己没什么规划，但我清楚这绝壁不是我想做的工作。</p>
-
-<h3>微软的梦工厂</h3>
-
-<p><img src="http://img3.douban.com/lpic/s3322643.jpg" alt="微软的梦工厂" /></p>
-
-<p>在这个摇摆不定的时刻，<a href="http://book.douban.com/subject/3238803/">微软的梦工场</a>成了压倒骆驼的最后一支稻草，这本书对微软亚洲研究院的描写让我下定了"找工作就要这样的公司"的决心，然而我又悲观的发现无论是以我当时的能力还是文凭，都无法达到微软亚研院的要求，矛盾之下，我彻底推翻了自己"毕业就工作"的想法，辞掉实习，准备考研。</p>
-
-<p>考研的细节无需赘述，但至今仍清楚的记得自己在复试时惊奇且激动的发现北航宿舍对面就是微软西格玛大厦，那种离理想又进了一步的感觉简直爽到爆。</p>
-
-<h3>算法设计与分析</h3>
-
-<p>我的研究生生涯绝对是一个反面典型——翘课，实习，写水论文，做水研究，但有一点我颇为自得——从头到尾认真听了韩军教授的算法设计与分析课程。</p>
-
-<p>韩军给我印象最深的有两点：课堂休息时跑到外面和几个学生借火抽烟；讲解算法时的犀利和毫不含糊。</p>
-
-<p><img src="http://img3.douban.com/lpic/s2019521.jpg" alt="算法设计与分析基础" /></p>
-
-<p>尽管韩军从来没有主动提及，但我敢肯定<a href="http://book.douban.com/subject/1968704/">算法设计与分析基础</a>就是他算法课程事实上的（de-facto）教材，因为他的课程结构几乎和这本书的组织结构一模一样。</p>
-
-<p>如果<a href="http://book.douban.com/subject/1139426/">数据结构与算法分析——C语言描述</a>是我的数据结构启蒙，那么韩军的课程和<a href="http://book.douban.com/subject/1968704/">算法设计与分析基础</a>就是我的算法启蒙，结合课程和书籍，我一一理解并掌握了复杂度分析、分治、减治、变治、动态规划和回溯这些简单但强大的算法工具。</p>
-
-<h3>算法引论</h3>
-
-<p><img src="http://img5.douban.com/lpic/s4230097.jpg" alt="算法引论" /></p>
-
-<p><a href="http://book.douban.com/subject/4178907/">算法引论</a>是我这时无意中读到的另一本算法书，和普通的算法书不同，这本书从创造性的角度出发——如果说算法导论讲的是有哪些算法，那么算法引论讲的就是如何创造算法。结合前面的<a href="http://img3.douban.com/lpic/s2019521.jpg">算法设计与分析基础</a>，这本书把我能解决的算法问题数量扩大了一个数量级。</p>
-
-<p>之后，在机缘巧合下，我进入微软亚洲工程院实习，离理想又近了一步，自我感觉无限牛逼。</p>
-
-<h2>巩固</h2>
-
-<p>在微软工程院的实习是我研究生阶段的一个非常非常非常重要的转折点：</p>
-
-<ol>
-<li>做出了一个还说的过去的小项目。</li>
-<li>期间百度实习面试受挫，痛定思痛之下阅读了大量的程序设计书。</li>
-<li>微软的实习经历成为了我之后简历上为数不多的亮点之一（本屌一没成绩，二没论文，三没ACM）。</li>
-</ol>
-
-
-<p>这里就不说1和3了（和本文题目不搭边），重点说说2。</p>
-
-<p>由于当时组内没有特别多的项目，我负责的那一小块又提前搞定了，mentor便很慷慨的扔给我一个Kinect和一部Windows Phone让我研究，研究嘛，自然就没有什么deadline，于是我就很鸡贼的把时间三七开：七分倒腾Windows Phone，三分看书&amp;经典论文。</p>
-
-<p>然而一件事打断了这段安逸的生活——</p>
-
-<h3>百度实习面试</h3>
-
-<p>基友在人人发百度实习内推贴，当时自我感觉牛逼闪闪放光芒，于是就抱着看看国内IT环境+虐虐面试官的变态心理投了简历，结果在第一面就自己的师兄爆出翔：他让我写一个<code>stof</code>（字符串转浮点数），我磨磨唧唧半天也没写出完整实现，之后回到宿舍赶快写了一个版本发到师兄的邮箱，结果对方压根没鸟我。</p>
-
-<p>这件事对我产生了很大的震动——</p>
-
-<ul>
-<li>原来自己连百度实习面试都过不去。</li>
-<li>原来自己还是一个编程弱逼。</li>
-<li>原来自己还是一个算法菜逼。</li>
-</ul>
-
-
-<p>痛定思痛，我开始了第二个"五年计划"，三七开的时间分配变成了七三开：七分看书，三分WP。而这一阶段的重点从原理（Principle）变成了实现（Implementation）——Talk is cheap, show me the code.</p>
-
-<h3>Elements of Programming</h3>
-
-<p><img src="http://img5.douban.com/lpic/s4243636.jpg" alt="Elements of Programming" /></p>
-
-<p>由于一直觉得名字里带"Elements of"的都是酷炫叼炸天的书，所以我几乎是毫不犹豫的买了这本<a href="http://book.douban.com/subject/3802826/">Elements of Programming</a>，事实上这本书里的代码（或者说STL的代码）确实是：快，狠，准，古龙高手三要素全齐。</p>
-
-<h3>C Interfaces and Implementation</h3>
-
-<p><img src="http://img5.douban.com/lpic/s1686769.jpg" alt="C Interfaces and Implementation" /></p>
-
-<p>百度面试被爆出翔的经历让我意识到另一个问题，绝大多数公司面试时都需要在纸上写C代码，而我自己却很少用C（多数情况用C#），考虑到自己还没牛逼到能让公司改变面试流程的地步，我需要提升自己编写C代码的能力（哪怕只是为了面试）。一顿Google之后，我锁定了<a href="http://book.douban.com/subject/1826292/">C Interfaces and Implementation</a>——另一本关于如何写出狂炫酷帅叼炸天的C代码的奇书，这里套用下Amazon的<a href="http://www.amazon.com/review/RMXKDJNH8UOPU/">评论</a>：Probably the best advanced C book in existance。</p>
-
-<p>严格来说上面两本书都不是传统的算法书，因为它们侧重的都不是算法，而是经典算法的具体实现（Implementation），然而这正是我所需要的：因为算法的原理我能说明白，但要给出优雅正确简练的实现我就傻逼了，哪怕是<code>stof</code>这种简单到爆的"算法"。</p>
-
-<p>依然是以前的傻逼学习方法：反复研读+一遍又一遍的把代码抄写到本子上，艰难的完成了这两本书后，又读了相当数量的编程实践（Programming Practice）书籍，自我感觉编程能力又大幅提升，此外获得新技能——<strong>纸上编码</strong>。这也成为了我之后找工作面试的三板斧之一。</p>
-
-<h2>应用</h2>
-
-<p>说老实话，自从本科实习之后，我就一直觉得算法除了面试时能用用，其它基本用不上，甚至还写了一篇当时颇为自得现在读起来极为傻逼的<a href="http://book.douban.com/review/3733680/">文章</a>来黑那些动不动就"基础"或"内功"的所谓"大牛"们，这里摘取一段现在看起来很傻逼但当时却觉得是真理的文字：</p>
-
-<blockquote><p>所以那些动则就扯什么算法啊基础啊内功啊所谓的大牛们，请闭上你的嘴，条条大道通罗马。算法并不是编程的前提条件，数学也不会阻碍一个人成为优秀的程序员。至少在我看来，什么算法基础内功都是唬人的玩意，多编点能用的实用的程序才是王道，当然如果你是一个pure theorist的话就当我什么都没说好了。</p></blockquote>
-
-<p>然而有意思的是，写了这篇<a href="http://book.douban.com/review/3733680/">文章</a>没多久，鼓吹算法无用论的我自己做的几个大大小小的项目全部用到了算法——我疑心是上天在有意抽我的脸。</p>
-
-<h3>LL(k)</h3>
-
-<p>我在微软实习的第一个项目做的是<a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A2%BC%E8%A6%86%E8%93%8B">代码覆盖率</a>分析——计算T-SQL存储过程的代码覆盖率。</p>
-
-<p>简单的看了下SQL Server相关的文档，我很快发现SQL Reporting Service可以记录T-SQL的执行语句及行号，于是行覆盖（line coverage）搞定，但老大说行覆盖太naive，我们需要更实际的块覆盖（block coverage）。</p>
-
-<p>阅读了块覆盖的定义后，我发现我需要对T-SQL进行语法分析，在没有找到一个好用的T-SQL Parser的情况下，只能自己动手搞一个：</p>
-
-<p><img src="http://img5.douban.com/lpic/s24921197.jpg" alt="Language Implementation Patterns" /></p>
-
-<p>比较奇诡的是，做这个项目时当时我刚好把<a href="http://www.antlr.org/">ANTLR</a>作者的<a href="http://book.douban.com/subject/4030327/">Language Implementation Patterns</a>看了一半，什么LL(k)啊Packrat啊AST Walker的概念啊正热乎着呢。</p>
-
-<p>于是，自己自己就照着T-SQL的官方EBNF，三下五除二撸了一个T-SQL存储过程的LL(k) Parser，把代码转换成AST，然后用一个External AST Walker生成代码块覆盖的HTML报表，全部过程一周不到。</p>
-
-<p>老大自然是很满意——我疑心他的原计划是花两三个月来完成这个项目，因为这个项目之后的两个月我都没什么活干，天天悠哉游哉。</p>
-
-<h3>拼音索引</h3>
-
-<p>拼音索引是我接的一个手机应用私活里的小模块，用户期待在手机文本框可以根据输入给出智能提示：</p>
-
-<p>比如说输入中国：</p>
-
-<p><img src="http://i.imgur.com/tjKjyzN.png" alt="智能提示" /></p>
-
-<p>同样，输入拼音也应给出提示：</p>
-
-<p><img src="http://i.imgur.com/zTjEBik.png" alt="智能提示" /></p>
-
-<p>中文匹配这个简单，但拼音匹配就得花时间想想了——懒得造轮子的我第一时间找到了微软的拼音库，但接下来我就发现微软这个鸟库在手机上跑不动，研究了下发现WP7对Dictionary的items数量有限制，貌似是7000还是8000个item就会崩盘，而标准汉字则有两万多个，尼玛。</p>
-
-<p>痛骂MS坑爹+汉字坑爹之余，还是得自己撸一个库出来：</p>
-
-<ol>
-<li>首先把那两万个汉字搞了出来，排序，然后弄成一个超长的字符串。</li>
-<li>接下来用<code>Int16</code>索引了汉字所有的拼音（貌似500多个）。</li>
-<li>再接下来用<code>Int64</code>建立汉字和拼音的关联——汉字有多音字，所以需要把多个拼音pack到一个<code>Int64</code>里，这个简单，位操作就搞定。</li>
-<li>最后用二分+位移Unpack，直接做到从汉字到拼音的检索。</li>
-<li>后来小测了下性能，速度是MS原来那个库的五十倍有余，而代码量只有336行。</li>
-</ol>
-
-
-<p>用户很happy——因为我捎带把他没想到的多音字都搞定了，而且流畅的一逼。</p>
-
-<p>我也很happy，因为没想到自己写的库居然比MS的还要快几十倍，同时小十几倍。</p>
-
-<p>从这个事情之后我变得特别理解那些造轮子的人——你要想想，<strong>如果你需要一个飞机轮子但市场上只有自行车轮子而且老板还催着你交工，你能怎么搞</strong>。</p>
-
-<h3>快速字符串匹配</h3>
-
-<p>前面提到在微软实习时老大扔给我一个Windows Phone让我研究下，我当时玩了玩就觉着不太对劲，找联系人太麻烦。</p>
-
-<p>比如说找"张晓明"，WP只支持定位到Z分类下——这意味着我需要在Z分类下的七十多个联系人（姓张的姓赵的姓钟的等等）里面线性寻找，每次我都需要滑动四五秒才能找到这个张姓少年。</p>
-
-<p><img src="http://i.imgur.com/R3JalOH.jpg" alt="E51" /></p>
-
-<p>这TMD也太傻逼了，本屌三年前的老破NOKIA都支持首字母定位，996->ZXM->张晓明，直接搞定，尼玛一个新时代Windows Phone居然会弱到这个程度。</p>
-
-<p>搜了一下发现没有好用的拨号程序，于是本屌就直接撸了一个支持首字母匹配的拨号程序出来扔到WP论坛里。</p>
-
-<p>结果马上就有各种问题出现——最主要的反映是速度太慢，一些用户甚至反馈按键有时要半秒才有反应。本屌问了下他的通讯录大小：大概3000多人。</p>
-
-<p><img src="http://i.imgur.com/Pfff0e9.jpg" alt="Cry" /></p>
-
-<p>吐槽怎么会有这么奇葩的通讯录之余，我意识到自己的字符串匹配算法存在严重的性能问题：读取所有人的姓名计算出拼音，然后一个个的匹配——结果如果联系人数量太多的话，速度必然拙计。</p>
-
-<p>于是我就开始苦思冥想有没有一个能够同时搜索多个字符串的高端算法，以至于那两天坐地铁都在嘟囔怎么才能把这个应用搞的快一些。</p>
-
-<p><img src="http://img3.douban.com/lpic/s8978030.jpg" alt="Algorithms on Strings, Trees and Sequences" /></p>
-
-<p>最终还是在<a href="http://book.douban.com/subject/1765938/">Algorithms on Strings, Trees and Sequences</a>里找到了答案——确实有能够同时搜索多个字符串的方法：Tries，而且这本书还用足足一章来讲怎么弄Multiple string comparison，看得我当时高潮迭起，直呼过瘾。</p>
-
-<p>具体细节不多说，总之换了算法之后，匹配速度快了大约九十多倍，而且代码还短了几十行。哪怕是有10000个联系人，也能在0.1秒内搞定，速度瓶颈就这样愉快的被算法搞定。</p>
-
-<h3>Writing Efficient Programs</h3>
-
-<p>之后又做了若干个项目，多多少少都用到了"自制"的算法或数据结构，最奇诡的一次是写一个电子书阅读器里的分页，我照着模拟退火（Simulated Annealing）的原理写了一个快速分页算法，事实上这个算法确实很快——但问题是我都不知道为啥它会这么快。</p>
-
-<p>总之，算法是一种<strong>将有限计算资源发挥到极致</strong>的武器，当计算资源很富余时算法确实没大用，但一旦到了效率瓶颈算法绝壁是开山第一刀（因为算法不要钱嘛！要不还得换CPU买SSD升级RAM，肉疼啊！！）。一些人会认为这种说法是有问题，因为编写新算法的人力成本有时比增加硬件的成本还要高——但别忘了增加硬件提升效率也是建立在算法是Scalable的基础上——说白了还是得撸算法。</p>
-
-<p><img src="http://img3.douban.com/lpic/s3780111.jpg" alt="Writing Efficient Programs" /></p>
-
-<p>说到优化这里顺带提一下<a href="http://book.douban.com/subject/1768600/">Writing Efficient Programs</a>——很难找到一本讲代码优化的书（我疑心是自从Knuth说了<strong>过早优化是万恶之源</strong>之后没人敢写，万恶之源嘛，写它干毛），注意这本书讲的是代码优化——在不改变架构、算法以及硬件的前提之下进行的优化。尽管书中的一些诸如变量复用或是循环展开的trick已经过时，但总体仍不失为一本好书。</p>
-
-<h2>提高</h2>
-
-<p>实习实习着就到了研二暑假，接下来就是求职季。</p>
-
-<p>求职季时我有一种莫名的复仇感——尼玛之前百度实习面试老子被你们黑的漫天飞翔，这回求职老子要把你们一个个黑回来，尼玛。</p>
-
-<p>现在回想当时的心理实属傻逼+幼稚，但这种黑暗心理也起了一定的积极作用：我丝毫不敢有任何怠慢，以至于在5月份底我就开始准备求职笔试面试，比身边的同学早了两个月不止。</p>
-
-<p>我没有像身边的同学那般刷题——而是继续看书抄代码学算法，因为我认为那些难得离谱的题面试官也不会问——事实上也是如此。</p>
-
-<h3>Algorithm Design Manual</h3>
-
-<p><img src="http://img3.douban.com/lpic/s10347625.jpg" alt="Algorithm Design Manual" /></p>
-
-<p>因为很多Coding Interview的论坛都提到这本<a href="http://book.douban.com/subject/3072383/">红皮书</a>，我也跟风搞了一本。事实证明，仅仅是关于Backtrack Template那部分的描述就足以值回书价，更不用说它的Heuristics和课后题。</p>
-
-<h3>编程珠玑&amp;更多的编程珠玑</h3>
-
-<p><img src="http://img3.douban.com/lpic/s2712842.jpg" alt="Programming Pearls" /></p>
-
-<p><img src="http://img3.douban.com/lpic/s7073511.jpg" alt="More Programming Pearls" /></p>
-
-<p>这两本书就不用多介绍，<a href="http://book.douban.com/subject/1484451/">编程珠玑</a>和<a href="http://book.douban.com/subject/1944826/">更多的编程珠玑</a>，没听说过这两本书请自行面壁。前者偏算法理论，后者偏算法轶事，前者提升能力，后者增长谈资，都值得一读。</p>
-
-<h3>The Science of Programming</h3>
-
-<p><img src="http://img5.douban.com/lpic/s2812798.jpg" alt="The Science of Programming" /></p>
-
-<p>读到<a href="http://book.douban.com/subject/1484451/">编程珠玑</a>里面关于Binary Search的正确性证明时我大呼过瘾，原来程序的正确性也是可以推导的，然后我就在那一章的引用里发现David Gries的<a href="http://book.douban.com/subject/2350559/">The Science of Programming</a>。看名字就觉得很厉害，直接搞了一本开撸。</p>
-
-<p>不愧为<a href="http://book.douban.com/subject/1484451/">编程珠玑</a>引用的书籍，撸完<a href="http://book.douban.com/subject/2350559/">The Science of Programming</a>之后，本屌获得了<strong>证明简单代码段的正确性</strong>这个技能——求职面试三板斧之二。</p>
-
-<p><strong>证明简单代码段的正确性</strong>是一个很神奇的技能——因为面试时大多数公司都会要求在纸上写一段代码，然后面试官检查这段代码，如果你能够自己证明自己写的代码是正确的，面试官还能挑剔什么呢？</p>
-
-<p>之后就是各种面试，详情见之前的<a href="http://www.cnblogs.com/figure9/archive/2013/01/09/2853649.html">博客</a>，总之就是<strong>项目经历</strong>、<strong>纸上代码</strong>加<strong>正确性证明</strong>这三板斧，摧枯拉朽。</p>
-
-<h2>进化</h2>
-
-<p>求职毕业季之后就是各种Happy，Happy过后本屌发现即将面临另一个问题：算法能力不足。</p>
-
-<p>因为据说以后的同事大多是ACM选手，而本屌从来没搞过算法竞赛，而且知道的算法和数据结构都极为基础：像那些元胞自动机、斐波那契堆或是线段树这些高端数据结构压根只是能把它们的英文名称<strong>拼写</strong>出来，连用都没用过，所以心理忐忑的一逼。</p>
-
-<p>为了不至于到时入职被鄙视的太惨烈，加上自己一贯的算法自卑症，本屌强制自己再次学习算法：</p>
-
-<h3>Algorithms 4th</h3>
-
-<p><img src="http://img5.douban.com/lpic/s8938479.jpg" alt="Algorithms" /></p>
-
-<p><a href="http://book.douban.com/subject/10432347/">Algorithms</a>是我重温算法的第一本书，尽管它实际就是一本<a href="http://book.douban.com/review/5348372/">数据结构的入门书</a>，但它确实适合当时已经快把算法忘光的本屌——不为学习，只为重温。</p>
-
-<p>这本书最大的亮点在于它把Visualization和Formatting做到了极致——也许它不是最好的数据结构入门书，但它绝壁是我读过的排版最好的书，阅读体验爽的一逼；当然这本书的内容也不错，尤其是红黑树那一部分，我想不会有什么书会比此书讲的更明白。</p>
-
-<h3>6.851 Advanced Data Structures</h3>
-
-<p><img src="http://courses.csail.mit.edu/6.851/spring12/illus.png" alt="Advanced Data Structures" /></p>
-
-<p><a href="http://courses.csail.mit.edu/6.851/">Advanced Data Structures</a>是MIT的高级数据结构教程，为什么会找到这个教程呢？因为Google <strong>Advanced Data Structures</strong>第一个出来的就是这货。</p>
-
-<p>这门课包含各种让本屌世界观崩坏的奇诡数据结构和算法，它们包括但不限于：</p>
-
-<ul>
-<li>带"记忆"的数据结构（Data Structure with Persistence）。</li>
-<li>van Emde Boas（逆天的插入，删除，前驱和后继时间复杂度）。</li>
-<li>o(1)时间复杂度的的LCA、RMQ和LA解法。</li>
-<li>奇幻的o(n)时间复杂度的Suffix Tree构建方法。</li>
-<li>o(lglgn)的BST。</li>
-<li>&hellip;</li>
-</ul>
-
-
-<p>总之高潮迭起，分分高能，唯一的不足就是没有把它们实现一圈。以后本屌一定找时间把它们一个个撸一遍。</p>
-
-<h2>总结</h2>
-
-<p>从接触算法到现在，大概七年：初学时推崇算法牛逼论，实习后鼓吹算法无用论，读研后再被现实打回算法牛逼论。</p>
-
-<p>怎么这么像辩证法里的肯定到否定再到否定之否定。</p>
-
-<p>现在来看，相当数量的鼓吹算法牛逼论的人其实不懂算法的重要性——如果你连用算法解决<strong>实际</strong>问题的经历都没有，那你如何可以证明算法很有用？而绝大多数鼓吹算法无用论的人不过是低水平码农的无病呻吟——他们从未碰到过需要用算法解决的难题，自然不知道算法有多重要。</p>
-
-<p><a href="http://norvig.com/">Peter Norvig</a>曾经写过一篇非常精彩的<a href="http://www.amazon.com/review/R403HR4VL71K8/">SICP书评</a>，我认为这里把SICP换成算法依然适用：</p>
-
-<blockquote><p>To use an analogy, if algorithms were about automobiles, it would be for the person who wants to know how cars work, how they are built, and how one might design fuel-efficient, safe, reliable vehicles for the 21st century. The people who hate algorithms are the ones who just want to know how to drive their car on the highway, just like everyone else.</p></blockquote>
-
-<p>MIT教授<a href="http://erikdemaine.org/">Erik Demaine</a>则更为直接：</p>
-
-<blockquote><p>If you want to become a good programmer, you can spend 10 years programming, or spend 2 years programming and learning algorithms.</p></blockquote>
-
-<p>总而言之，如果你想成为一个码农或是熟练工（Code Monkey），你大可以不学算法，因为算法对你确实没有用；但如果你想成为一个优秀的开发者（Developer），扎实的算法必不可少，因为你会不断的掉进一些只能借助算法才能爬出去的坑里。</p>
-
-<p>以上。</p>
-
-<p>By <a href="http://zh.lucida.me">Lucida</a></p>
 ]]></content>
   </entry>
   
