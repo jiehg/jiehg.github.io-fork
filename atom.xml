@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-09-27T22:16:00+01:00</updated>
+  <updated>2014-09-28T11:30:07+01:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -33,6 +33,20 @@
 <h2>摘要（Abstract）</h2>
 
 <p>本文系统全面的介绍了Sublime Text，旨在成为最优秀的Sublime Text中文教程。</p>
+
+<h3>更新记录</h3>
+
+<ol>
+<li>2014/09/27：完成初稿</li>
+<li>2014/09/28：
+
+<ul>
+<li>更正打开控制台的快捷键为<code>Ctrl + `</code></li>
+<li>更正全局替换的快捷键为<code>Ctrl + Alt + Enter</code></li>
+</ul>
+</li>
+</ol>
+
 
 <h2>前言（Prologue）</h2>
 
@@ -113,7 +127,7 @@
 <p>进入Package Control的<a href="https://sublime.wbond.net/">官网</a>，里面有详细的<a href="https://sublime.wbond.net/installation">安装教程</a>。Package Control支持Sublime Text 2和3，本文只给出3的安装流程：</p>
 
 <ul>
-<li>使用`Ctrl + &#8220;打开Sublime Text控制台。</li>
+<li>使用<code>Ctrl + `</code>打开Sublime Text控制台。</li>
 <li>将下面的代码粘贴到控制台里：</li>
 </ul>
 
@@ -159,7 +173,7 @@
 <li>侧栏（Side Bar）：包含当前打开的文件以及文件夹视图。</li>
 <li>缩略图（Minimap）：如其名。</li>
 <li>命令板（Command Palette）：Sublime Text的操作中心，它使得我们基本可以脱离鼠标和菜单栏进行操作。</li>
-<li>控制台（Console）：使用`Ctrl + &#8220;调出，它既是一个标准的Python REPL，也可以直接对Sublime Text进行配置。</li>
+<li>控制台（Console）：使用<code>Ctrl + `</code>调出，它既是一个标准的Python REPL，也可以直接对Sublime Text进行配置。</li>
 <li>状态栏（Status Bar）：显示当前行号、当前语言和Tab格式等信息。</li>
 </ul>
 
@@ -254,7 +268,7 @@
 
 <p><img src="http://i.imgur.com/QRIsDra.gif" alt="使用范围搜索进行局部重命名" /></p>
 
-<p>使用<code>Ctrl + H</code>进行标准替换，输入替换内容后，使用<code>Ctrl + Shift + H</code>替换当前关键字，<code>Ctrl + Alt + H</code>替换所有匹配关键字。</p>
+<p>使用<code>Ctrl + H</code>进行标准替换，输入替换内容后，使用<code>Ctrl + Shift + H</code>替换当前关键字，<code>Ctrl + Alt + Enter</code>替换所有匹配关键字。</p>
 
 <h5>正则表达式查找&amp;替换</h5>
 
@@ -556,7 +570,7 @@
 <li><code>↑↓←→</code>：上下左右移动光标，注意不是不是<code>KJHL</code>！</li>
 <li><code>Alt</code>：调出菜单</li>
 <li><code>Ctrl + Shift + P</code>：调出命令板（Command Palette）</li>
-<li>`Ctrl + &#8220;：调出控制台</li>
+<li><code>Ctrl + `</code>：调出控制台</li>
 </ul>
 
 
@@ -598,7 +612,7 @@
 <li><code>Alt + W</code>：切换整字匹配（Whole matching）模式</li>
 <li><code>Alt + R</code>：切换正则匹配（Regex matching）模式</li>
 <li><code>Ctrl + Shift + H</code>：替换当前关键字</li>
-<li><code>Ctrl + Alt + H</code>：替换所有关键字匹配</li>
+<li><code>Ctrl + Alt + Enter</code>：替换所有关键字匹配</li>
 </ul>
 </li>
 <li><code>Ctrl + Shift + F</code>：多文件搜索&amp;替换</li>
