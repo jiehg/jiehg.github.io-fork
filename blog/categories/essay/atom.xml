@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-09-28T11:30:07+01:00</updated>
+  <updated>2014-10-15T00:02:30-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,135 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Top Coder算法题目浏览器]]></title>
+    <link href="http://zh.lucida.me/blog/top-code-offline-browser/"/>
+    <updated>2014-10-14T23:37:29-07:00</updated>
+    <id>http://zh.lucida.me/blog/top-code-offline-browser</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/top-code-offline-browser/">http://zh.lucida.me/blog/top-code-offline-browser/</a></p>
+
+<h2>关于</h2>
+
+<p><a href="http://weibo.com/haoel">左耳朵耗子</a>在最近发了一条关于leetcode的微博：</p>
+
+<p><img src="http://i.imgur.com/alUuOmx.jpg" alt="微博截图" /></p>
+
+<p>佩服之余，想起自己两年前找工作时随手写的一个小程序：Top Coder算法题目浏览器，硬盘里翻了翻没找到，于是找师弟要了一份copy，截了几张图放到微博上。</p>
+
+<p><img src="http://i.imgur.com/bIiXNR4.jpg" alt="微博截图" /></p>
+
+<p>没想到不少人表示很感兴趣，还有些同学留下邮箱索要这个算法题目浏览器——我是懒的一个个发邮箱，所以干脆放到博客上，顺便提高下访问量 :)</p>
+
+<!-- more -->
+
+
+<h2>介绍</h2>
+
+<h3>TC Browser</h3>
+
+<p><strong>TC Browser</strong>：全称<strong>Top Coder offline Browser</strong>，是我为了方便自己练习算法题目而花一下午制作的Windows小程序。</p>
+
+<p><strong>TC Browser</strong>内置2933道算法题目，这些算法题目覆盖动态规划（Dynamic Programming）、递归（Recursion）、迭代（Iteration）、暴力（Brute Force）和图论（Graph Theory）等17个分类，并按照级别（Level）不同和难度（Success Rate）不同进行分类，以便从简单到复杂逐步练习。</p>
+
+<h4>TC Browser可以</h4>
+
+<ul>
+<li>离线浏览算法题目 &ndash;_&ndash;</li>
+<li>按照算法、级别和难度过滤题目，以便逐步提高水平。</li>
+<li>随机出题 &ndash;_&ndash;</li>
+</ul>
+
+
+<h4>TC Browser不可以</h4>
+
+<ul>
+<li>评判（Judge）题目，如它的名字，TC Browser只是一个题目浏览器，而非一个完整的OJ（Online Judge）。不过好在TC题目的Sample Input/Output比较全。</li>
+<li>提供答案（Answer），嗯，这些题目都没有答案，所以对于初学者可能不合适。</li>
+</ul>
+
+
+<h3>为什么选择<a href="http://www.topcoder.com/">Top Coder</a>？</h3>
+
+<ol>
+<li>大量的算法题目：<strong>TC Browser</strong>是我两年半前写的，当时有2933道题目，现在的题目只会更多。</li>
+<li>题目具有良好的分类：Top Coder里的每道算法题目都有明确的分类：类型（Category）、级别（Level）、难度（Success Rate）。</li>
+<li>良好的题目陈述（Problem Statement）：Top Coder的题目陈述非常清晰，并且都带有若干组示例输入/输出（Sample Input/Output）。</li>
+<li>题目相对实际（Practical）：相对于一些OJ的纯算法题目，Top Coder里面的题目更加实际——更接近与实际的编程而非单纯的算法演练，对于非算法竞赛出身的我非常合适。</li>
+<li>Top Coder在线不稳定：也许是我的网络原因，我经常登陆不进Top Coder，这也是我编写离线版TC的原因之一。</li>
+</ol>
+
+
+<h2>使用</h2>
+
+<h3>Top Coder术语</h3>
+
+<p>如果你玩过Top Coder，请跳过本节 :&ndash;)</p>
+
+<p>Top Coder的题目分为两个区（Division，简称D），每个区又分为三个级别（Level，简称L），每道题目有其通过率（Success Rate）。D1难度小于D2，L1难度小于L2小于L3，通过率越高难度越低。</p>
+
+<p>举例来说，一道D1L1SR50的题目适合初学者练习，一道D2L2SR30的题目就可能需要相当的算法水准才能搞定。</p>
+
+<h3>我如何使用TC Browser</h3>
+
+<p>在找工作初期，我的算法水平非常拙计，于是我所练习的题目大多都是D1L2和D1L3，SR>40的题目，同时根据往届师兄师姐的面试经验，我会重点练习动态规划、递归、字符串操作和搜索这几个类型的题目。</p>
+
+<p><img src="http://i.imgur.com/mOUMwlo.jpg" alt="截图" /></p>
+
+<p>到了中后期，随着经验的累计，我开始练习D1L3的题目，并尝试一些D2L1的题目。</p>
+
+<p><img src="http://i.imgur.com/yHE02Qi.jpg" alt="截图" /></p>
+
+<p>到了最后，就开始使用Random模式——从D2L1和D2L2中随机出一道题目然后思考解决思路，想出来之后再随机下一道。</p>
+
+<p>为了练习方便，我为TC Browser加了一个做题模式——其实就是把题目选择区隐藏，这样就可以方便的双窗口操作。</p>
+
+<h4>浏览模式：</h4>
+
+<p><img src="http://i.imgur.com/mOUMwlo.jpg" alt="浏览模式" /></p>
+
+<h4>做题模式：</h4>
+
+<p><img src="http://i.imgur.com/gNn58vt.jpg" alt="做题模式" /></p>
+
+<p>顺便提一句，TC Browser左上角的Config、Switch Mode和About三个按钮只有Switch Mode能用——一个按钮，三倍情怀。</p>
+
+<h3>面试有多难？</h3>
+
+<p>就我的面试经验来说，D2L1的题目已经相当够用了——绝大多数的编程题目都没有超过D1L3的难度，要知道面试只有45分钟，搞那些惊天地泣鬼神的算法题目面试官和面试者谁都受不了。</p>
+
+<p>但也要注意，我没有算法竞赛背景，所以面试官不会问太难的题目，但对于那些算法竞赛选手就是另一种情况了——面试官需要用更难的题目来确认你是一个合格的算法选手，正所谓道高一尺，魔高一丈。</p>
+
+<h2>下载地址</h2>
+
+<p>所以下载地址在这里：<a href="http://pan.baidu.com/s/1fGX5c">网盘地址</a></p>
+
+<p>解压密码是宇宙的终极答案（The ultimate anwser to the universe）。</p>
+
+<p>谢谢试用，至于代码可以自行反编译阅读（写的翔一般还是不读为好），恕不赘述。</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/top-code-offline-browser/">http://zh.lucida.me/blog/top-code-offline-browser/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Sublime Text 全程指南]]></title>
     <link href="http://zh.lucida.me/blog/sublime-text-complete-guide/"/>
-    <updated>2014-09-27T21:57:15+01:00</updated>
+    <updated>2014-09-27T13:57:15-07:00</updated>
     <id>http://zh.lucida.me/blog/sublime-text-complete-guide</id>
     <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -689,7 +815,7 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
   <entry>
     <title type="html"><![CDATA[设计中的设计——1. Horror Vacui]]></title>
     <link href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/"/>
-    <updated>2014-07-27T00:10:03+01:00</updated>
+    <updated>2014-07-26T16:10:03-07:00</updated>
     <id>http://zh.lucida.me/blog/design-of-design-1-horror-vacui</id>
     <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -812,7 +938,7 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
   <entry>
     <title type="html"><![CDATA[我们都爱黑巴西——德国神虐巴西之后]]></title>
     <link href="http://zh.lucida.me/blog/after-germany-screwed-brazil/"/>
-    <updated>2014-07-09T23:02:44+01:00</updated>
+    <updated>2014-07-09T15:02:44-07:00</updated>
     <id>http://zh.lucida.me/blog/after-germany-screwed-brazil</id>
     <content type="html"><![CDATA[<p>比赛的结果大家都知道——世界杯史上最惨烈的半决赛，巴西国家队生生的被德国打成了中国少先队。</p>
 
@@ -898,7 +1024,7 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
   <entry>
     <title type="html"><![CDATA[逗逼足球——Xorb Football]]></title>
     <link href="http://zh.lucida.me/blog/xorb-football/"/>
-    <updated>2014-06-29T22:58:09+01:00</updated>
+    <updated>2014-06-29T14:58:09-07:00</updated>
     <id>http://zh.lucida.me/blog/xorb-football</id>
     <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -1014,399 +1140,6 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 
 
 <p><a href="http://zh.lucida.me/blog/xorb-football/">原文链接</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[关于编程错误的思考——2. Blunders, Typos, Mismatches, and Language Liability]]></title>
-    <link href="http://zh.lucida.me/blog/on-programming-errors-2/"/>
-    <updated>2014-06-27T23:46:53+01:00</updated>
-    <id>http://zh.lucida.me/blog/on-programming-errors-2</id>
-    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/on-programming-errors-2/">原文链接</a></p>
-
-<h2>概要</h2>
-
-<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
-
-<ol>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-2/">Blunders, Typos, Mismatches, and Language Liability</a></li>
-<li>Algorithm + Data Structures &ndash;> Programming</li>
-<li>Robustness and Surprise</li>
-<li>On Enhancing Existing Systems</li>
-<li>Epilogue</li>
-</ol>
-
-
-<h2>对编程错误的分析</h2>
-
-<p>上篇文章（<a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a>）介绍了Knuth对编程错误的分类，基于Knuth的分类和我自己的编程经验，从这篇文章开始我将会给出各类编程错误的<strong>案例</strong>、<strong>诱因</strong>和<strong>对策</strong>。</p>
-
-<p>按照复杂程度的不同，Knuth将编程错误分为三大类，这篇文章介绍第一类错误——简单的错误：</p>
-
-<ul>
-<li><strong>粗心大意</strong>：敲错了代码。</li>
-<li><strong>鬼使神差</strong>：敲串了代码。</li>
-<li><strong>丢三落四</strong>：忘敲了代码。</li>
-<li><strong>言非所指</strong>：踩语言的坑。</li>
-<li><strong>事与愿违</strong>：中自己的坑。</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h2>粗心大意（a trivial typo）</h2>
-
-<blockquote><p>Sometimes I did&rsquo;t type the right thing when I entered the program into the computer, although my original pencil draft was correct.</p>
-
-<p>我在打字时会犯一些小错，以至我纸上的草稿是对的，但敲进去的是错的。</p></blockquote>
-
-<p><strong>粗心大意</strong>这类差错源自于Knuth奇葩的开发方式——先把程序在纸上写好然后再"誊写"到计算机中，而在"誊写"时可能会敲错几个字符，从而导致程序出错。</p>
-
-<p>除去面试时的白板编码，我认为现代程序开发不可能在纸上进行——从而也不可能产生这种差错，所以不加赘述。</p>
-
-<h2>鬼使神差（a blunder or botch）</h2>
-
-<blockquote><p>Here I knew what I ought to do, but I wrote something else that was syntactically correct&mdash;sort of a mental typo.</p>
-
-<p>我知道这段代码该怎么写，但我糊里糊涂写了另外一段出来而且还能通过编译。</p></blockquote>
-
-<h3>案例</h3>
-
-<p>Knuth在<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>中提到一个低级Bug：TEX代码里有两个变量<code>new_line</code>和<code>next_line</code>：<code>new_line</code>用于表示程序当前的状态，而<code>next_line</code>则指代换行符。然而开发过程中Knuth混淆了这两个变量的用途——由于这两个变量属于同一类型所以编译器无法检测出这个问题，这个Bug直到后来程序运行了一段时间才被发现。</p>
-
-<h3>诱因</h3>
-
-<ul>
-<li>变量名含糊不清：导致之后的误用。</li>
-<li>编程语言过分宽容：某些编程语言对代码特别宽容——比如动态编程语言会将静态编程语言在编译时做的类型检查拖到运行时，尽管获得了灵活性，但却损失了精确性。从而导致<strong>鬼使神差</strong>这类静态语言编译期就能检查到的错误直到运行时才会被发现。</li>
-<li>加班超负荷工作：从而导致写出翔一般的代码。</li>
-</ul>
-
-
-<h3>对策</h3>
-
-<ol>
-<li>使用精准的名字：
-
-<ul>
-<li>作用域越长的变量的名字越要精确。</li>
-<li>使用精准的英文词汇描述变量。</li>
-<li>更多关于命名的信息请参考<a href="http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/">Code Complete</a>中<strong>The Power of Variable Names</strong>一节。</li>
-</ul>
-</li>
-<li>严格控制全局变量：
-
-<ul>
-<li>能不用则不用。</li>
-<li>如果不得不使用，使用明确的名字，进行详细的注释，并注明不得不使用全局变量的原因。。</li>
-</ul>
-</li>
-<li>优先使用强类型：例如对于内置强类型枚举（Enum）的语言（例如Java，C#，和C++），使用枚举类型表示状态（State），而非整数类型。</li>
-<li>将编译器警告调到最高级：然后清除代码中所有的Warning。</li>
-<li>单元测试：编写单元测试，保证代码覆盖，确保一段代码都按期望的方式执行。</li>
-<li>单步（Step Into）自己的代码：编写新代码后进行单步调试——你脑中的代码和实际可能不一样。</li>
-<li>进行代码审查：可以参考<a href="http://coolshell.cn/articles/11432.html">这篇文章</a>。</li>
-<li>不要在混沌状态提交代码。</li>
-</ol>
-
-
-<h2>丢三落四（a forgotten function）</h2>
-
-<blockquote><p>Here I didn&rsquo;t remember to do everything I had intended, when I actually got around to writing a particular part of the code.</p>
-
-<p>我忘记了一些本应完成的事情，比如说我知道这段代码应该写但我忘了写。</p></blockquote>
-
-<h3>案例</h3>
-
-<h4>烫烫烫烫烫</h4>
-
-<p>C语言中忘记初始化数组，从而输出喜闻乐见的“烫烫烫烫烫烫烫烫烫烫烫烫”。</p>
-
-<p><img src="http://i.imgur.com/9RcLu2x.png" alt="烫烫烫烫烫烫" /></p>
-
-<p>对于需要手动管理内存的语言（C/C++），忘记释放内存或忘记初始化内存都会导致各种奇诡的问题。</p>
-
-<h4>过早优化</h4>
-
-<p>在开发TEX时，Knuth试图去优化<code>get_next</code>这个被频繁调用的函数。经过一番思考，Knuth认为<code>cur_cs = 0</code>这段代码是不必要的，于是他将这段代码删除，代码依然"正常"运行。然而过了一段时间后Knuth发现TEX在处理对齐（Alignment）时有时会出现问题——经过一番调试，Knuth发现原来那段被删除的代码是必要的（necessary）。</p>
-
-<p>郁闷之余，Knuth援引了那句著名的话（Hoare&rsquo;s dictum）——过早优化是万恶之源（Premature optimization is the root of all evil in programming），很多书都以为这句话是Knuth说的，实际上它属于<a href="http://en.wikipedia.org/wiki/C._A._R._Hoare">Tony Hoare</a>。</p>
-
-<h3>诱因</h3>
-
-<h4>远距离操作</h4>
-
-<p>远距离操作指那些间隔特别长的操作，例如下面的代码：</p>
-
-<p><code>
-obj.Init()
-obj.DoSomething()
-// Hundred of lines
-obj.DoSomething()
-obj.Close()
-</code></p>
-
-<p>从<code>Init</code>到<code>Close</code>的距离过远，在编写了几十甚至上百行其它代码之后，很容易漏掉<code>obj.Close()</code>从而导致资源泄漏。</p>
-
-<h4>贸然修改代码</h4>
-
-<p>我个人认为Knuth所犯的错误不在于过早优化，而在于他在对代码理解不充分的情况下就去贸然修改——这往往会带来各种问题。</p>
-
-<h3>应对</h3>
-
-<ul>
-<li>避免远距离操作：
-
-<ul>
-<li>对于内存管理：C++提供了智能指针。</li>
-<li>多数编程语言提供了上下文管理器（Context Manager）：例如Java 7的<code>try</code>，C#的<code>using</code>，以及Python的<code>with</code>，利用这些机制，可以有效的减少远距离操作，比如前文的代码用Python可以这么写：</li>
-</ul>
-</li>
-</ul>
-
-
-<p><code>python
-with Obj.Init() as obj:
-  obj.DoSomething()
-  // Hundred of lines
-  obj.DoSomething()
-</code></p>
-
-<ul>
-<li> 整理代码段落，避免复杂交织的逻辑，这里可以参考<a href="http://www.amazon.com/The-Readable-Code-Theory-Practice/dp/0596802293">The Art of Readable Code</a>对Aesthetics的定义。</li>
-</ul>
-
-
-<p><img class="right <a" src="href="http://i.imgur.com/Mvr8zx2.jpg">http://i.imgur.com/Mvr8zx2.jpg</a>" width="180" height="250" title="Working Effectively with Legacy Code" ></p>
-
-<ul>
-<li><p>不要贸然修改代码：</p>
-
-<ul>
-<li>修改代码前要确保充分理解代码的原理，以及修改会带来的影响（Effect Analysis）。</li>
-<li>修改代码后要保证被修改的部分得到测试，<a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/">Working Effectively with Legacy Code</a>提供了很多优秀的修改实践。</li>
-</ul>
-</li>
-<li><p>代码审查：代码审查可以有效的控制编程差错。</p></li>
-<li>不要在混沌状态提交代码。</li>
-</ul>
-
-
-<h2>言非所指（a language liability）</h2>
-
-<blockquote><p>Here I misused or misunderstood the programming language or system hardware I was working with.</p>
-
-<p>我对编程语言（或是系统硬件）理解有误，从而造成错误。</p></blockquote>
-
-<h3>案例</h3>
-
-<h4>JavaScript</h4>
-
-<p>下面是JavaScript的真值表（源自Douglas Crockford）：</p>
-
-<p><code>js
-''        ==   '0'           // false
-0         ==   ''            // true
-0         ==   '0'           // true
-false     ==   'false'       // false
-false     ==   '0'           // true
-false     ==   undefined     // false
-false     ==   null          // false
-null      ==   undefined     // true
-" \t\r\n" ==   0             // true
-</code></p>
-
-<p>此外还有下面这个对比：</p>
-
-<p><img src="http://i.imgur.com/5RCkNLK.jpg" alt="JavaScript the Good Parts" /></p>
-
-<p>对于这种翔一样的语言，想不掉进坑里是非常困难的。</p>
-
-<p>（讽刺的是，JavaScript统治了浏览器端，而且它还试图染指服务器端。）</p>
-
-<h4>操作符优先级</h4>
-
-<p><img class="right <a" src="href="http://i.imgur.com/5WjUpyd.jpg">http://i.imgur.com/5WjUpyd.jpg</a>" width="160" height="200" title="the Practice of Programming" ></p>
-
-<p>[Brian Kernighan]曾在在<a href="http://cm.bell-labs.com/cm/cs/tpop/index.html">the Practice of Programming</a>中提到<code>if (x &amp; MASK == BITS)</code>这个例子：</p>
-
-<p>我们一般会把<code>if (x &amp; MASK == BITS)</code>理解为<code>if ((x &amp; MASK) == BITS)</code>；</p>
-
-<p>但实际上<code>if (x &amp; MASK == BITS)</code>和<code>if (x &amp; (MASK == BITS))</code>等价，而这显然不是我们想要的结果。</p>
-
-<h3>诱因</h3>
-
-<ul>
-<li>对编程语言不够了解。</li>
-<li>编程语言本身设计有问题。</li>
-<li>对操作符优先级理解不足。</li>
-</ul>
-
-
-<h5>应对</h5>
-
-<ul>
-<li>深入理解编程语言——知道哪有坑：
-
-<ul>
-<li>学习编程语言不只是学它的语法——还要学习它的用法（Usages），最佳实践（Best Practices），误区（Traps），惯例（Conventions）和风格（Styles）等等，阅读<em>Effective</em>、<em>More Effective</em>、<em>Exceptional</em>、<em>More Exceptional</em>、<em>Pitfalls/Traps</em>和<em>the Good Parts</em>等系列的编程书籍以了解这些内容。</li>
-<li><a href="http://joearms.github.io/">Joe Armstrong</a>在<a href="http://codersatwork.com/">Coders at work</a>的访谈中提到学习编程语言最好的方式是实现它（“The best way to learn a programming language is to implement it yourself”），我尝试用这种方法学习JavaScript，效果还不错。</li>
-</ul>
-</li>
-<li>使用且仅使用语言的良子集——避开那些坑：
-
-<ul>
-<li><a href="http://crockford.com/">Douglas Crockford</a>在<a href="http://www.amazon.com/exec/obidos/ASIN/0596517742/">JavaScript: the Good Parts</a>中仅仅摘取了一个很小的JavaScript良子集进行编程，Kernighan和Plauger在<a href="http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/">Software Tools</a>则扩展了Fortran的一个良子集进行编程。语言提供的特性不代表你必须要使用它，容易产生错误（Error Prone）的语言特性应当被禁用。</li>
-</ul>
-</li>
-<li>使用括号明确（Explicitify）操作符优先级——哪怕你能一眼看出<code>return true || true &amp;&amp; false</code>的返回值。</li>
-<li>谨慎使用宏（macro）。</li>
-<li>代码审查：提交代码之前至少需要一个该精通语言的人的审查，以免踩进语言的坑里。</li>
-</ul>
-
-
-<h2>事与愿违（a mismatch between modules）</h2>
-
-<blockquote><p>Here I forgot the conventions I had built into a subroutine when I actually got around to using that subroutine.</p>
-
-<p>我忘了我自己编写的例程（或函数）的正确用法，以至于调用它们时出现问题。</p></blockquote>
-
-<h3>案例</h3>
-
-<h4>火星探测器坠毁</h4>
-
-<p>史上最贵的<strong>事与愿违</strong>的Bug出现在1998年的NASA火星探测器中，这个Bug直接导致火星探测器坠毁，损失高达<a href="http://www.computerworld.com/s/article/9183580/Epic_failures_11_infamous_software_bugs">3.27亿美元</a>。</p>
-
-<p>而这个Bug的成因在我们看来实际很可笑——Lockheed Martin公司在<a href="http://www.jpl.nasa.gov/news/releases/99/mcoloss1.html">调查</a>后发现，由于不同开发团队使用的计量单位不同——一个团队使用英制单位（英寸，英尺或英镑等），而其它开发团队使用公制（厘米或公斤等），从而导致系统运算错误，最终导致探测器坠毁。</p>
-
-<h4>愚蠢的API设计</h4>
-
-<p>以前在Microsoft实习时，我曾经编写过一个动画方法，用于移动屏幕上某个控件，这个方法大概是下面这个样子：</p>
-
-<p>```csharp
-// Returns a DoubleAnimation which moves control from (x1, y1) to (x2, y2).
-public DoubleAnimation CreateAnimation(Control control, int x1, int y1, int x2, int y2, double duration) {</p>
-
-<pre><code>// Some code...
-</code></pre>
-
-<p>}
-```</p>
-
-<p><code>CreateAnimation</code>用于创建一个<code>DoubleAnimation</code>，把某个控件从<code>(x1, y1)</code>移动到<code>(x2, y2)</code>，移动耗时<code>duration</code>毫秒。</p>
-
-<p>之后就出现了下面一系列翔一般的代码：</p>
-
-<p><code>csharp
-var gridAnimation1 = CreateAnimation(grid1, grid1.X, grid1.Y, 480, 0, 500);
-var gridAnimation2 = CreateAnimation(grid2, grid2.X, grid2.Y, 0, 0, 500);
-var popUpAnimation = CreateAnimation(popUp, 0, -320, 0, 320, 500);
-</code></p>
-
-<p>以及误用（组员（包括我自己）把<code>duration</code>当成秒来用）：</p>
-
-<p><code>csharp
-var gridAnimation1 = CreateAnimation(grid1, 480, 800, 480, 0, 0.5);
-</code></p>
-
-<p>这个方法如同<strong>病毒</strong>一般，既使得调用代码变的丑陋不堪，同时带来了各种Bug，导致后来的维护者叫苦不迭，</p>
-
-<p>现在回想下，我肯定不会把它设计成这副模样——一种方法是使用<a href="http://en.wikipedia.org/wiki/Fluent_interface">Fluent Interface</a>，例如：</p>
-
-<p><code>csharp
-var gridAnimation = grid.FromCurrentPosition().MoveTo(x: 0, y: 0).InMilliSeconds(500);
-var popUpAnimation = popUp.From(x: 0, y: -320).MoveTo(x: 0, y: 320).InMilliSeconds(500);
-</code></p>
-
-<p>从而使代码简洁明确。</p>
-
-<h3>诱因</h3>
-
-<p><strong>事与愿违</strong>源于糟糕的设计——人会犯错误，而糟糕的设计会大大加剧错误几率。</p>
-
-<p><img class="right <a" src="href="http://i.imgur.com/jdeK9F0.jpg">http://i.imgur.com/jdeK9F0.jpg</a>" width="270" height="270" title="Tony Hoare" ></p>
-
-<p>然而良好的设计非常困难——<a href="http://en.wikipedia.org/wiki/C._A._R._Hoare">Tony Hoare</a>曾在他的图灵奖获奖感言（<a href="http://zoo.cs.yale.edu/classes/cs422/2014/bib/hoare81emperor.pdf">The Emperor&rsquo;s Old Clothes</a>）中指出：</p>
-
-<blockquote><p>There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.</p></blockquote>
-
-<h3>应对</h3>
-
-<p>尽管Knuth把<strong>事与愿违</strong>归类为简单的差错，但我并不这么认为。<strong>事与愿违</strong>源于错误的设计，解决<strong>事与愿违</strong>的关键不在于修复其造成的差错，而在于处理造成<strong>事与愿违</strong>原因。修复<strong>事与愿违</strong>的错误很简单，但处理<strong>事与愿违</strong>的原因就复杂多了。</p>
-
-<p><img class="right <a" src="href="http://i.imgur.com/tll1S89.jpg">http://i.imgur.com/tll1S89.jpg</a>" width="180" height="240" title="Awaken the Giant Within" ></p>
-
-<p><a href="http://www.tonyrobbins.com/">Tony Robbins</a>曾在<a href="http://www.amazon.com/Awaken-Giant-Within-Immediate-Emotional/dp/0671791540/">Awaken the Giant Within</a>一书中讲了这样一个故事：</p>
-
-<blockquote><p>一个医生在河边发现有一个人溺水，然后她跳进河里，把溺水者救上岸进行抢救。然而没过多久她又听到呼救声，她继续跳进河里，把溺水者救上岸抢救，然后她又听到求救，于是她又跳进河里…… 不幸的是，这名医生忙于抢救眼前的溺水者，而没有时间去上游查看是谁把这些人扔到水里的。</p></blockquote>
-
-<p><img class="right <a" src="href="http://i.imgur.com/t5zjiGY.jpg">http://i.imgur.com/t5zjiGY.jpg</a>" width="180" height="240" title="Stream Analysis" ></p>
-
-<p><a href="http://www.jerryporras.com/">Jerry Porras</a>也在<a href="http://www.amazon.com/Stream-Analysis-Organizational-Addison-Wesley-Organization/dp/0201056933/">Stream Analysis</a>中提到：</p>
-
-<blockquote><p>People, especially people in organizations, tend to work on getting rid of symptoms, rather than solving the real problems.</p></blockquote>
-
-<p>因此，处理<strong>事与愿违</strong>要从设计着手（Solving the real problems），这里从设计者和使用者两个角度出发：</p>
-
-<h4>设计者</h4>
-
-<ol>
-<li>谨慎设计API：
-
-<ul>
-<li>API应该由经验丰富的人设计。</li>
-<li>API设计应遵循一定的原则，<a href="http://en.wikipedia.org/wiki/Joshua_Bloch">Josha Bloch</a>曾在Google做过一个非常出色的关于API设计的演讲：<a href="https://www.youtube.com/watch?v=aAb7hSCtvGw">How To Design A Good API and Why it Matters</a>。</li>
-<li>API在投入使用前应进行可用性测试——糟糕的API不仅会降低开发效率，还会像病毒一般引入各种各样的差错。</li>
-</ul>
-</li>
-<li>利用类型系统：
-
-<ul>
-<li>避免基本类型（Primitive Type）：对于有意义的数据，使用其类型而非基本类型。例如：使用<code>Money</code>表示金钱，而非使用<code>double</code>。</li>
-<li>避免使用动态语言（例如Python和Ruby）构建大型系统：动态语言的作用仅限于快速开发原型系统，在我看来，动态语言像是纸和胶水，可以用它们快速构建一些玩具模型（原型系统），但用它们建造摩天大厦（大型系统）就太离谱了。</li>
-</ul>
-</li>
-<li>设计文档+审查：软件设计在实现前应有详细的设计文档（Design Document），并至少通过两名以上经验丰富的开发者的审查。</li>
-</ol>
-
-
-<h4>使用者</h4>
-
-<p><img class="right <a" src="href="http://i.imgur.com/3vIYjeg.jpg">http://i.imgur.com/3vIYjeg.jpg</a>" width="180" height="240" title="Debugging" ></p>
-
-<ol>
-<li>仔细阅读文档——Read the manual, and read everything, cover to cover，参见<a href="http://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578/">Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems</a>里的第一条调试原则——<strong>Understand the system</strong>。</li>
-<li>调用API时仔细阅读其样例代码（Sample Code）和文档说明，不要想当然。</li>
-<li>对于已有（Existing）的糟糕API，考虑对其进行封装（Wrapping），以免接下来的误用。</li>
-<li>单元测试：编写单元测试，保证代码覆盖，确保一段代码都按期望的方式执行。</li>
-<li>代码审查：代码审查可以有效的控制编程差错。</li>
-</ol>
-
-
-<p>关于"简单"的编程差错就介绍到这里，下篇将介绍源自算法和数据结构的错误——Algorithm + Data Structures &ndash;> Programming。</p>
-
-<p>——未完待续</p>
-
-<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/on-programming-errors-2/">原文链接</a></p>
 ]]></content>
   </entry>
   

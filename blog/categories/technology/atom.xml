@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/technology/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-09-28T11:30:07+01:00</updated>
+  <updated>2014-10-15T00:02:30-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[来自苹果的编程语言——Swift简介]]></title>
     <link href="http://zh.lucida.me/blog/an-introduction-to-swift/"/>
-    <updated>2014-06-03T02:22:19+01:00</updated>
+    <updated>2014-06-02T18:22:19-07:00</updated>
     <id>http://zh.lucida.me/blog/an-introduction-to-swift</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -898,7 +898,7 @@ anyCommonElements([1, 2, 3], [3])
   <entry>
     <title type="html"><![CDATA[关于锤子手机和锤子手机发布会]]></title>
     <link href="http://zh.lucida.me/blog/on-the-keynote-of-t-one/"/>
-    <updated>2014-05-24T09:33:38+01:00</updated>
+    <updated>2014-05-24T01:33:38-07:00</updated>
     <id>http://zh.lucida.me/blog/on-the-keynote-of-t-one</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -1050,7 +1050,7 @@ anyCommonElements([1, 2, 3], [3])
   <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://zh.lucida.me/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T21:43:42+01:00</updated>
+    <updated>2014-05-04T13:43:42-07:00</updated>
     <id>http://zh.lucida.me/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
@@ -1362,7 +1362,7 @@ anyCommonElements([1, 2, 3], [3])
   <entry>
     <title type="html"><![CDATA[学习&使用技术的四种层次]]></title>
     <link href="http://zh.lucida.me/blog/levels-on-learning-and-using-technologies/"/>
-    <updated>2014-04-13T01:53:21+01:00</updated>
+    <updated>2014-04-12T17:53:21-07:00</updated>
     <id>http://zh.lucida.me/blog/levels-on-learning-and-using-technologies</id>
     <content type="html"><![CDATA[<h2>关键字</h2>
 
@@ -1618,7 +1618,7 @@ anyCommonElements([1, 2, 3], [3])
   <entry>
     <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
     <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T23:24:33+01:00</updated>
+    <updated>2014-04-06T15:24:33-07:00</updated>
     <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
     <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
 

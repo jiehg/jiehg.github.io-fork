@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-09-28T11:30:07+01:00</updated>
+  <updated>2014-10-15T00:02:30-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -14,9 +14,135 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Top Coder算法题目浏览器]]></title>
+    <link href="http://zh.lucida.me/blog/top-code-offline-browser/"/>
+    <updated>2014-10-14T23:37:29-07:00</updated>
+    <id>http://zh.lucida.me/blog/top-code-offline-browser</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/top-code-offline-browser/">http://zh.lucida.me/blog/top-code-offline-browser/</a></p>
+
+<h2>关于</h2>
+
+<p><a href="http://weibo.com/haoel">左耳朵耗子</a>在最近发了一条关于leetcode的微博：</p>
+
+<p><img src="http://i.imgur.com/alUuOmx.jpg" alt="微博截图" /></p>
+
+<p>佩服之余，想起自己两年前找工作时随手写的一个小程序：Top Coder算法题目浏览器，硬盘里翻了翻没找到，于是找师弟要了一份copy，截了几张图放到微博上。</p>
+
+<p><img src="http://i.imgur.com/bIiXNR4.jpg" alt="微博截图" /></p>
+
+<p>没想到不少人表示很感兴趣，还有些同学留下邮箱索要这个算法题目浏览器——我是懒的一个个发邮箱，所以干脆放到博客上，顺便提高下访问量 :)</p>
+
+<!-- more -->
+
+
+<h2>介绍</h2>
+
+<h3>TC Browser</h3>
+
+<p><strong>TC Browser</strong>：全称<strong>Top Coder offline Browser</strong>，是我为了方便自己练习算法题目而花一下午制作的Windows小程序。</p>
+
+<p><strong>TC Browser</strong>内置2933道算法题目，这些算法题目覆盖动态规划（Dynamic Programming）、递归（Recursion）、迭代（Iteration）、暴力（Brute Force）和图论（Graph Theory）等17个分类，并按照级别（Level）不同和难度（Success Rate）不同进行分类，以便从简单到复杂逐步练习。</p>
+
+<h4>TC Browser可以</h4>
+
+<ul>
+<li>离线浏览算法题目 &ndash;_&ndash;</li>
+<li>按照算法、级别和难度过滤题目，以便逐步提高水平。</li>
+<li>随机出题 &ndash;_&ndash;</li>
+</ul>
+
+
+<h4>TC Browser不可以</h4>
+
+<ul>
+<li>评判（Judge）题目，如它的名字，TC Browser只是一个题目浏览器，而非一个完整的OJ（Online Judge）。不过好在TC题目的Sample Input/Output比较全。</li>
+<li>提供答案（Answer），嗯，这些题目都没有答案，所以对于初学者可能不合适。</li>
+</ul>
+
+
+<h3>为什么选择<a href="http://www.topcoder.com/">Top Coder</a>？</h3>
+
+<ol>
+<li>大量的算法题目：<strong>TC Browser</strong>是我两年半前写的，当时有2933道题目，现在的题目只会更多。</li>
+<li>题目具有良好的分类：Top Coder里的每道算法题目都有明确的分类：类型（Category）、级别（Level）、难度（Success Rate）。</li>
+<li>良好的题目陈述（Problem Statement）：Top Coder的题目陈述非常清晰，并且都带有若干组示例输入/输出（Sample Input/Output）。</li>
+<li>题目相对实际（Practical）：相对于一些OJ的纯算法题目，Top Coder里面的题目更加实际——更接近与实际的编程而非单纯的算法演练，对于非算法竞赛出身的我非常合适。</li>
+<li>Top Coder在线不稳定：也许是我的网络原因，我经常登陆不进Top Coder，这也是我编写离线版TC的原因之一。</li>
+</ol>
+
+
+<h2>使用</h2>
+
+<h3>Top Coder术语</h3>
+
+<p>如果你玩过Top Coder，请跳过本节 :&ndash;)</p>
+
+<p>Top Coder的题目分为两个区（Division，简称D），每个区又分为三个级别（Level，简称L），每道题目有其通过率（Success Rate）。D1难度小于D2，L1难度小于L2小于L3，通过率越高难度越低。</p>
+
+<p>举例来说，一道D1L1SR50的题目适合初学者练习，一道D2L2SR30的题目就可能需要相当的算法水准才能搞定。</p>
+
+<h3>我如何使用TC Browser</h3>
+
+<p>在找工作初期，我的算法水平非常拙计，于是我所练习的题目大多都是D1L2和D1L3，SR>40的题目，同时根据往届师兄师姐的面试经验，我会重点练习动态规划、递归、字符串操作和搜索这几个类型的题目。</p>
+
+<p><img src="http://i.imgur.com/mOUMwlo.jpg" alt="截图" /></p>
+
+<p>到了中后期，随着经验的累计，我开始练习D1L3的题目，并尝试一些D2L1的题目。</p>
+
+<p><img src="http://i.imgur.com/yHE02Qi.jpg" alt="截图" /></p>
+
+<p>到了最后，就开始使用Random模式——从D2L1和D2L2中随机出一道题目然后思考解决思路，想出来之后再随机下一道。</p>
+
+<p>为了练习方便，我为TC Browser加了一个做题模式——其实就是把题目选择区隐藏，这样就可以方便的双窗口操作。</p>
+
+<h4>浏览模式：</h4>
+
+<p><img src="http://i.imgur.com/mOUMwlo.jpg" alt="浏览模式" /></p>
+
+<h4>做题模式：</h4>
+
+<p><img src="http://i.imgur.com/gNn58vt.jpg" alt="做题模式" /></p>
+
+<p>顺便提一句，TC Browser左上角的Config、Switch Mode和About三个按钮只有Switch Mode能用——一个按钮，三倍情怀。</p>
+
+<h3>面试有多难？</h3>
+
+<p>就我的面试经验来说，D2L1的题目已经相当够用了——绝大多数的编程题目都没有超过D1L3的难度，要知道面试只有45分钟，搞那些惊天地泣鬼神的算法题目面试官和面试者谁都受不了。</p>
+
+<p>但也要注意，我没有算法竞赛背景，所以面试官不会问太难的题目，但对于那些算法竞赛选手就是另一种情况了——面试官需要用更难的题目来确认你是一个合格的算法选手，正所谓道高一尺，魔高一丈。</p>
+
+<h2>下载地址</h2>
+
+<p>所以下载地址在这里：<a href="http://pan.baidu.com/s/1fGX5c">网盘地址</a></p>
+
+<p>解压密码是宇宙的终极答案（The ultimate anwser to the universe）。</p>
+
+<p>谢谢试用，至于代码可以自行反编译阅读（写的翔一般还是不读为好），恕不赘述。</p>
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/top-code-offline-browser/">http://zh.lucida.me/blog/top-code-offline-browser/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[我的算法学习之路]]></title>
     <link href="http://zh.lucida.me/blog/on-learning-algorithms/"/>
-    <updated>2014-05-04T21:43:42+01:00</updated>
+    <updated>2014-05-04T13:43:42-07:00</updated>
     <id>http://zh.lucida.me/blog/on-learning-algorithms</id>
     <content type="html"><![CDATA[<h2>关于</h2>
 
