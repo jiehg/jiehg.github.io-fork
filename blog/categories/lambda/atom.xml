@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Lambda | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/lambda/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-10-24T00:11:59-07:00</updated>
+  <updated>2014-10-24T00:13:57-07:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -31,7 +31,7 @@
 <p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
 
 <ol>
-<li><a href="http://zh.lucida.me/java-8-lambdas-insideout-language-features">深入理解Java 8 Lambda（语言篇——lambda，方法引用，目标类型和默认方法）</a></li>
+<li><a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features">深入理解Java 8 Lambda（语言篇——lambda，方法引用，目标类型和默认方法）</a></li>
 <li>深入理解Java 8 Lambda（类库篇——Streams API，Collector和并行）</li>
 <li>深入理解Java 8 Lambda（原理篇——Java编译器如何处理lambda）</li>
 </ol>
@@ -747,7 +747,7 @@ people.sort(comparing(Person::getLastName).reversed());;
 </ul>
 
 
-<p>原文链接：<a href="http://zh.lucida.me/java-8-lambdas-insideout-language-features">http://zh.lucida.me/java-8-lambdas-insideout-language-features</a></p>
+<p>原文链接：<a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features">http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features</a></p>
 
 <p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
 ]]></content>
