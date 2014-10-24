@@ -10,7 +10,7 @@
   <meta name="author" content="Lucida">
 
   
-  <meta name="description" content="摘要 这篇文章从如何阅读书籍出发，简单讨论了如何选择书籍、是否阅读原版和阅读数量这几个常见问题，然后自己的阅读问题进行了分析和总结。 注意 “如何阅读”指“What to read”而非“How to read”，Mortimer J. Adler的怎样阅读一本书对How to &hellip;">
+  <meta name="description" content="关键字 解释器, C#, Scheme, 函数式编程 本文链接：http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/ 关于 本文介绍了如何使用C#实现一个简化Scheme——iScheme及其解释器。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,81 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/how-to-implement-an-interpreter-in-csharp/">90分钟实现一门编程语言——极简解释器教程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-23T12:08:35-07:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time>
+        
+           | <a href="/blog/how-to-implement-an-interpreter-in-csharp/#disqus_thread"
+             data-disqus-identifier="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>关键字</h2>
+
+<p>解释器, C#, Scheme, 函数式编程</p>
+
+<p>本文链接：<a href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/">http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/</a></p>
+
+<h2>关于</h2>
+
+<p>本文介绍了如何使用C#实现一个简化Scheme——iScheme及其解释器。</p>
+
+<p>如果你对下面的内容感兴趣：</p>
+
+<ul>
+<li>实现基本的词法分析，语法分析并生成抽象语法树。</li>
+<li>实现嵌套作用域和函数调用。</li>
+<li>解释器的基本原理。</li>
+<li>以及一些C#编程技巧。</li>
+</ul>
+
+
+<p>那么请继续阅读。</p>
+
+<p>如果你对以下内容感兴趣：</p>
+
+<ul>
+<li>高级的词法/语法分析技术。</li>
+<li>类型推导/分析。</li>
+<li>目标代码优化。</li>
+</ul>
+
+
+<p>本文则过于初级，你可以跳过本文，但欢迎指出本文的错误 :&ndash;)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/how-to-implement-an-interpreter-in-csharp/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -573,6 +648,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/java-8-lambdas-insideout-language-features/">深入理解Java 8 Lambda（语言篇——lambda，方法引用，目标类型和默认方法）</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/top-code-offline-browser/">Top Coder算法题目浏览器</a>
       </li>
     
@@ -600,15 +679,11 @@
         <a href="/blog/on-programming-errors-1/">关于编程错误的思考——1. A Taxonomy of Programming Errors</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/on-programming-errors-0/">关于编程错误的思考——0. Knuth, Tex, and the Errors of TEX</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (18)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (8)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (7)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (19)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (9)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (7)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
 </section>
   
 </aside>
