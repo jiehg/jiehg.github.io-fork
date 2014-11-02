@@ -11,7 +11,8 @@
 
   
   <meta name="description" content="作者：Lucida 微博
-豆瓣 原文链接 概要 关于编程错误的思考是一个博文系列，我试图通过结合the Errors of TEX对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。 原本我计划在一篇文章完成所有内容，然而随着写作的深入， &hellip;">
+豆瓣 原文链接 概要 关于编程错误的思考是一个博文系列，我试图通过结合the Errors of TEX对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。 Knuth, TEX, and the Errors of TEX
+A &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +69,89 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/on-programming-errors-1/">关于编程错误的思考——1. A Taxonomy of Programming Errors</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T15:32:12-07:00" pubdate data-updated="true">Jun 24<span>th</span>, 2014</time>
+        
+           | <a href="/blog/on-programming-errors-1/#disqus_thread"
+             data-disqus-identifier="http://zh.lucida.me/blog/on-programming-errors-1/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li><a href="http://www.weibo.com/pegong/">微博</a></li>
+<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
+</ul>
+
+
+<p><a href="http://zh.lucida.me/blog/on-programming-errors-1/">原文链接</a></p>
+
+<h2>概要</h2>
+
+<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
+<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
+<li>Blunders, Typos, Mismatches, and Language Liability</li>
+<li>Algorithm + Data Structures &ndash;> Programming</li>
+<li>Robustness and Surprise</li>
+<li>On Enhancing Existing Systems</li>
+<li>Epilogue</li>
+</ol>
+
+
+<h2>编程错误的分类</h2>
+
+<p>前文讲到Knuth在开发TEX的过程中遇到了各式各样的差错，为了理解并控制编程错误，Knuth将这些错误整理到<a href="http://texdoc.net/texmf-dist/doc/generic/knuth/errata/errorlog.pdf">记录日志</a>，并将这些差错分为15类。为了引用方便，我将它们翻译成中文。</p>
+
+<p>注意：</p>
+
+<ol>
+<li>为了引用方便，Knuth使用英文首字母指代各个编程错误的分类，出于同样的原因，我将这些分类一一翻译为成语。</li>
+<li>保留原文，以便读者理解，以免信息丢失。</li>
+<li>原文中的&#8221;my&#8221;和&#8221;I&#8221;以及译文中的&#8221;我&#8221;均指Knuth本人。</li>
+<li>如果认为翻译不靠谱请在评论中指出 :)</li>
+</ol>
+
+
+<p>下面是Knuth对TEX错误的分类：</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/on-programming-errors-1/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -566,150 +650,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/summary-of-march-2014/">三月小结（暨TARQIE——一种量化成长的方法（下））</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-06T15:24:33-07:00" pubdate data-updated="true">Apr 6<span>th</span>, 2014</time>
-        
-           | <a href="/blog/summary-of-march-2014/#disqus_thread"
-             data-disqus-identifier="http://zh.lucida.me/blog/summary-of-march-2014/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>目标实际完成情况</h2>
-
-<h3>Tarqie-J</h3>
-
-<ol>
-<li>目标
-
-<ul>
-<li>高效完成Q1 OKR。 &ndash;> 1.0
-
-<ul>
-<li>搞定，超出Manager和Mentor的预期。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>量化
-
-<ul>
-<li>成功迁移124个Test。 &ndash;> 1.0
-
-<ul>
-<li>搞定，并且构建了持续测试环境。</li>
-</ul>
-</li>
-<li>为这些Test配置一个可稳定运行的环境。 &ndash;> 0.8
-
-<ul>
-<li>基本搞定，但仍存在少量（每天1~2次）的不稳定状况。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>改进
-
-<ul>
-<li>恬着脸皮向不同的同事请教。 &ndash;> 1.0
-
-<ul>
-<li>达成——基本每个同事都被我骚扰了一遍 &ndash;_&ndash;</li>
-</ul>
-</li>
-<li>理解当前Test的架构和流程。 &ndash;> 1.0
-
-<ul>
-<li>重建测试框架的过程中了解</li>
-</ul>
-</li>
-<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。 &ndash;> 0.7
-
-<ul>
-<li>部分完成，阅读Google Guice Book，了解了Guice运作机制。</li>
-</ul>
-</li>
-<li>阅读Java Best Practices和Effective Java。 &ndash;> 0.8
-
-<ul>
-<li>部分完成，重新阅读了JBP，但Effective Java只看了一多半。</li>
-</ul>
-</li>
-<li>阅读Java Performance，了解JVM。 &ndash;> 0.7
-
-<ul>
-<li>部分完成，阅读了国产的<a href="http://book.douban.com/subject/24722612/">《深入理解Java虚拟机》</a>，了解Java内存管理/回收，字节码生成等内容。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>验证
-
-<ul>
-<li>每周与mentor交流，进行进度控制/难点求助。 &ndash;> 0.6
-
-<ul>
-<li>由于mentor结婚度蜜月所以没有达成。</li>
-</ul>
-</li>
-<li>Test的数量不断增加。 &ndash;> 1.0
-
-<ul>
-<li>达成——事实上全部搞定。</li>
-</ul>
-</li>
-<li>CL中review的数量持续降低。 &ndash;> 1.0
-
-<ul>
-<li>搞定，成功的从每次提交代码20余个review降至小于6个。</li>
-</ul>
-</li>
-<li>逐步理解项目代码背后的机理。 &ndash;> 0.6
-
-<ul>
-<li>部分搞定，对项目测试框架已经相当了解了（毕竟自己重新搭建了整个框架），但对整个项目的各个模块，交互流程还是一头雾水。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-
-<p>综上所述，得分 0.85</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/summary-of-march-2014/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; 较旧的文章</a>
@@ -734,6 +674,10 @@
 </section><section>
   <h1>最近的博文</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/lean-technical-resume/">精益技术简历之道——改善技术简历的47条原则</a>
+      </li>
     
       <li class="post">
         <a href="/blog/java-8-lambdas-insideout-language-features/">深入理解Java 8 Lambda（语言篇——lambda，方法引用，目标类型和默认方法）</a>
@@ -763,15 +707,11 @@
         <a href="/blog/on-programming-errors-2/">关于编程错误的思考——2. Blunders, Typos, Mismatches, and Language Liability</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/on-programming-errors-1/">关于编程错误的思考——1. A Taxonomy of Programming Errors</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (19)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (9)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (7)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (20)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (10)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
 </section>
   
 </aside>
