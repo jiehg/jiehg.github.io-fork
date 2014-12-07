@@ -160,27 +160,27 @@
 
 <p>结合实际需求，我写下了如下使用场景：</p>
 
-<h4>1. 得到汉字的拼音</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>得到汉字的拼音</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>String[] pinyins = '曾'.GetPinyins();
-</span><span class='line'>// pinyins == ["CENG", "ZENG"]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">String</span><span class="p">[]</span> <span class="n">pinyins</span> <span class="p">=</span> <span class="sc">&#39;曾&#39;</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// pinyins == [&quot;CENG&quot;, &quot;ZENG&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>2. 得到汉字词汇的拼音</h4>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'><figcaption><span>得到中文词汇的拼音</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>String value = "中华人民";
-</span><span class='line'>String[] pinyinOfValue = s.Select(c =&gt; c.GetPinyins()[0]).ToArray();
-</span><span class='line'>// pinyinOfValue == ["ZHONG", "HUA", "REN", "MIN"]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="s">&quot;中华人民&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="n">String</span><span class="p">[]</span> <span class="n">pinyinOfValue</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">()[</span><span class="m">0</span><span class="p">]).</span><span class="n">ToArray</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// pinyinOfValue == [&quot;ZHONG&quot;, &quot;HUA&quot;, &quot;REN&quot;, &quot;MIN&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>3. 得到混合词汇的首字母缩写</h4>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'><figcaption><span>得到得到混合词汇的首字母缩写</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -191,17 +191,18 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>String mixed = "IBM中国有限公司";
-</span><span class='line'>String initialOfMixed = String.Join("", mixed.Select(c =&gt; {
-</span><span class='line'>  if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ".Contains(c.ToUpper())) {
-</span><span class='line'>    return c.ToUpper();
-</span><span class='line'>  } else if (c.IsChinese()) {
-</span><span class='line'>    return c.GetPinyins()[0][0];
-</span><span class='line'>  } else {
-</span><span class='line'>    return "";
-</span><span class='line'>  }
-</span><span class='line'>}));
-</span><span class='line'>// initialOfMixed == ["IBMZGYXGS"]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">String</span> <span class="n">mixed</span> <span class="p">=</span> <span class="s">&quot;IBM中国有限公司&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="n">String</span> <span class="n">initialOfMixed</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">mixed</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">()))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">c</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">IsChinese</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">c</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">()[</span><span class="m">0</span><span class="p">][</span><span class="m">0</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}));</span>
+</span><span class='line'><span class="c1">// initialOfMixed == [&quot;IBMZGYXGS&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>不难看出<code>GetPinyins</code>和<code>IsChinese</code>是Lucida拼音库的关键操作。</p>
@@ -210,7 +211,7 @@
 
 <p>根据前面的使用场景，不难得到下面的API：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Lucida拼音库API</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -222,18 +223,19 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public static class ChineseCharExtensions {
-</span><span class='line'>  /// &lt;summary&gt;
-</span><span class='line'>  /// Gets an array of Pinyin from the given character.
-</span><span class='line'>  /// &lt;/summary&gt;
-</span><span class='line'>  /// &lt;exception cref="ArgumentOutOfRangeException"&gt;Throws when the given character is not a Chinese character.&lt;/exception&gt;
-</span><span class='line'>  public static String[] GetPinyins(this Char chr) ;
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">ChineseCharExtensions</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">/// &lt;summary&gt;</span>
+</span><span class='line'>  <span class="c1">/// Gets an array of Pinyin from the given character.</span>
+</span><span class='line'>  <span class="c1">/// &lt;/summary&gt;</span>
+</span><span class='line'>  <span class="c1">/// &lt;exception cref=&quot;ArgumentOutOfRangeException&quot;&gt;Throws when the given character is not a Chinese character.&lt;/exception&gt;</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">static</span> <span class="n">String</span><span class="p">[]</span> <span class="nf">GetPinyins</span><span class="p">(</span><span class="k">this</span> <span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>  /// &lt;summary&gt;
-</span><span class='line'>  /// Indicates whether the given character is a Chinese character.
-</span><span class='line'>  /// &lt;/summary&gt;
-</span><span class='line'>  public static Boolean IsChinese(this Char chr) ;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>  <span class="c1">/// &lt;summary&gt;</span>
+</span><span class='line'>  <span class="c1">/// Indicates whether the given character is a Chinese character.</span>
+</span><span class='line'>  <span class="c1">/// &lt;/summary&gt;</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">static</span> <span class="n">Boolean</span> <span class="nf">IsChinese</span><span class="p">(</span><span class="k">this</span> <span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><code>ChineseCharExtensions</code>是一个扩展类，它为<code>Char</code>提供<code>GetPinyins</code>和<code>IsChinese</code>这两个<a href="http://msdn.microsoft.com/en-us/library/bb383977.aspx">扩展方法</a>，从而允许我们直接在<code>Char</code>类型上调用这两个方法，非常方便。</p>
@@ -261,23 +263,25 @@
 
 <p>这个问题并不难解决，我们可以把两万多个汉字拼接成一个字符串，然后对这个字符串进行排序，接下来用二分搜索查找汉字。我们可以把这个大号字符串（两万多个汉字）放在代码里，从而省去排序时间：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>private static Char[] ChineseCharacters = "〇一丁丂七丄丅...".ToArray();</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">Char</span><span class="p">[]</span> <span class="n">ChineseCharacters</span> <span class="p">=</span> <span class="s">&quot;〇一丁丂七丄丅...&quot;</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>接下来我们可以用二分搜索查找汉字：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>private static Int32 FindCharacter(Char chr) {
-</span><span class='line'>  return Array.BinarySearch(ChineseCharacters, chr);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">Int32</span> <span class="nf">FindCharacter</span><span class="p">(</span><span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">Array</span><span class="p">.</span><span class="n">BinarySearch</span><span class="p">(</span><span class="n">ChineseCharacters</span><span class="p">,</span> <span class="n">chr</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>但是转念一想，为什么要二分搜索呢？就像C标准库里的<code>isupper</code>和<code>islower</code>一样，我可以使用一个位图（Bit-map）来查找汉字，从而把速度从o(logN)降到o(1)：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -288,40 +292,43 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/// &lt;summary&gt;
-</span><span class='line'>/// The minimum integer value of a valid Chinese character.
-</span><span class='line'>/// &lt;/summary&gt;
-</span><span class='line'>private static readonly Int32 MinValue = 12295;
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="c1">/// &lt;summary&gt;</span>
+</span><span class='line'><span class="c1">/// The minimum integer value of a valid Chinese character.</span>
+</span><span class='line'><span class="c1">/// &lt;/summary&gt;</span>
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">Int32</span> <span class="n">MinValue</span> <span class="p">=</span> <span class="m">12295</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>/// &lt;summary&gt;
-</span><span class='line'>/// The maximum integer value of a valid Chinese character.
-</span><span class='line'>/// &lt;/summary&gt;
-</span><span class='line'>private static readonly Int32 MaxValue = 59491;
+</span><span class='line'><span class="c1">/// &lt;summary&gt;</span>
+</span><span class='line'><span class="c1">/// The maximum integer value of a valid Chinese character.</span>
+</span><span class='line'><span class="c1">/// &lt;/summary&gt;</span>
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">Int32</span> <span class="n">MaxValue</span> <span class="p">=</span> <span class="m">59491</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>private static Boolean[] ChineseCharactersTruthTable = { true, false, ... };</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">Boolean</span><span class="p">[]</span> <span class="n">ChineseCharactersTruthTable</span> <span class="p">=</span> <span class="p">{</span> <span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="p">...</span> <span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>有了<code>ChineseCharactersTruthTable</code>，我们可以很容易的实现<code>IsChinese</code>：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public static Boolean IsChinese(this Char chr) {
-</span><span class='line'>  return MinValue &lt;= chr && chr &lt;= MaxValue && ChineseCharactersTruthTable[chr - MinValue];
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="n">Boolean</span> <span class="nf">IsChinese</span><span class="p">(</span><span class="k">this</span> <span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">MinValue</span> <span class="p">&lt;=</span> <span class="n">chr</span> <span class="p">&amp;&amp;</span> <span class="n">chr</span> <span class="p">&lt;=</span> <span class="n">MaxValue</span> <span class="p">&amp;&amp;</span> <span class="n">ChineseCharactersTruthTable</span><span class="p">[</span><span class="n">chr</span> <span class="p">-</span> <span class="n">MinValue</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>如何表示拼音</h3>
 
 <p>最直接的表示拼音的方式是使用<code>String[][]</code>，它按照<code>ChineseCharacters</code>中的汉字顺序保存着每个汉字的拼音：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>private static String[][] PinyinsTable = { new String[] {"LING"}, new String[] {"YI"}, ... };</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">String</span><span class="p">[][]</span> <span class="n">PinyinsTable</span> <span class="p">=</span> <span class="p">{</span> <span class="k">new</span> <span class="n">String</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;LING&quot;</span><span class="p">},</span> <span class="k">new</span> <span class="n">String</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;YI&quot;</span><span class="p">},</span> <span class="p">...</span> <span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>然后利用它和<code>FindCharacter</code>实现<code>GetPinyins</code>：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -329,14 +336,15 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public static String[] GetPinyins(this Char chr) {
-</span><span class='line'>  Int32 index = FindCharacter(chr);
-</span><span class='line'>  if (index != -1) {
-</span><span class='line'>    return PinyinsTable[index];
-</span><span class='line'>  } else {
-</span><span class='line'>    throw new ArgumentOutOfRangeException("chr", chr, "Expect a Chinese character.");
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="n">String</span><span class="p">[]</span> <span class="nf">GetPinyins</span><span class="p">(</span><span class="k">this</span> <span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">Int32</span> <span class="n">index</span> <span class="p">=</span> <span class="n">FindCharacter</span><span class="p">(</span><span class="n">chr</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="p">!=</span> <span class="p">-</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">PinyinsTable</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">&quot;chr&quot;</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="s">&quot;Expect a Chinese character.&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>但用多维数组表示<code>PinyinTable</code>存在很多问题：</p>
@@ -358,7 +366,7 @@
 
 <p>为了验证我的猜想，我编写了一段代码用来计算汉字的拼音数量：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>计算汉字拼音有多少种</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -368,21 +376,22 @@
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Console.WriteLine(ChineseCharacters
-</span><span class='line'>    .Select(c =&gt; new ChineseChar(c).Pinyins)
-</span><span class='line'>    .Aggregate(new HashSet&lt;String&gt;(), (hashSet, pinyins) =&gt; {
-</span><span class='line'>      foreach (String pinyin in pinyins.Where(p =&gt; p != null)) {
-</span><span class='line'>        hashSet.Add(pinyin.Substring(0, pinyin.Length - 1));
-</span><span class='line'>      }
-</span><span class='line'>      return hashSet;
-</span><span class='line'>    }).Count);
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ChineseCharacters</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">ChineseChar</span><span class="p">(</span><span class="n">c</span><span class="p">).</span><span class="n">Pinyins</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">Aggregate</span><span class="p">(</span><span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;(),</span> <span class="p">(</span><span class="n">hashSet</span><span class="p">,</span> <span class="n">pinyins</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">foreach</span> <span class="p">(</span><span class="n">String</span> <span class="n">pinyin</span> <span class="k">in</span> <span class="n">pinyins</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span> <span class="p">!=</span> <span class="k">null</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">hashSet</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">pinyin</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">pinyin</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">));</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">hashSet</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}).</span><span class="n">Count</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'>// -&gt; 403</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="c1">// -&gt; 403</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>所以汉字拼音一共有<strong>403</strong>种——然后我用一段代码来算一个汉字最多能有多少拼音：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>计算一个汉字最多能有几种拼音</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -391,20 +400,21 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var chr = Pinyin.HanziArray
-</span><span class='line'>    .Select(c =&gt; new {
-</span><span class='line'>      Value = c,
-</span><span class='line'>      Pinyins = new ChineseChar(c).Pinyins.Where(p =&gt; p != null).ToArray()
-</span><span class='line'>    })
-</span><span class='line'>    .Aggregate((a, b) =&gt; a.Pinyins.Length &gt; b.Pinyins.Length ? a : b);
-</span><span class='line'>Console.WriteLine(chr.Value + ": " + String.Join(", ", chr.Pinyins));
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">chr</span> <span class="p">=</span> <span class="n">Pinyin</span><span class="p">.</span><span class="n">HanziArray</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">Value</span> <span class="p">=</span> <span class="n">c</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">Pinyins</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ChineseChar</span><span class="p">(</span><span class="n">c</span><span class="p">).</span><span class="n">Pinyins</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span> <span class="p">!=</span> <span class="k">null</span><span class="p">).</span><span class="n">ToArray</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">})</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">Aggregate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Pinyins</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Pinyins</span><span class="p">.</span><span class="n">Length</span> <span class="p">?</span> <span class="n">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">);</span>
+</span><span class='line'><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">chr</span><span class="p">.</span><span class="n">Value</span> <span class="p">+</span> <span class="s">&quot;: &quot;</span> <span class="p">+</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span> <span class="n">chr</span><span class="p">.</span><span class="n">Pinyins</span><span class="p">));</span>
 </span><span class='line'>
-</span><span class='line'>// -&gt; 差: CHA1, CHA4, CHA5, CHAI1, CHAI4, CHAI5, CI1, CI5</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="c1">// -&gt; 差: CHA1, CHA4, CHA5, CHAI1, CHAI4, CHAI5, CI1, CI5</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>好吧<em>差</em>有8种拼音，不过由于我们不考虑音调，所以再算一遍：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>计算一个汉字最多能有几种拼音（不考虑音调）</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -416,18 +426,19 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var chr = Pinyin.HanziArray
-</span><span class='line'>  .Select(c =&gt; new {
-</span><span class='line'>    Value = c,
-</span><span class='line'>    Pinyins = new HashSet&lt;String&gt;(
-</span><span class='line'>        new ChineseChar(c).Pinyins
-</span><span class='line'>          .Where(p =&gt; p != null)
-</span><span class='line'>          .Select(s =&gt; s.Substring(0, s.Length - 1)))
-</span><span class='line'>  })
-</span><span class='line'>  .Aggregate((a, b) =&gt; a.Pinyins.Count &gt; b.Pinyins.Count ? a : b);
-</span><span class='line'>Console.WriteLine(chr.Value + ": " + String.Join(", ", chr.Pinyins));
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">var</span> <span class="n">chr</span> <span class="p">=</span> <span class="n">Pinyin</span><span class="p">.</span><span class="n">HanziArray</span>
+</span><span class='line'>  <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">Value</span> <span class="p">=</span> <span class="n">c</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">Pinyins</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;(</span>
+</span><span class='line'>        <span class="k">new</span> <span class="nf">ChineseChar</span><span class="p">(</span><span class="n">c</span><span class="p">).</span><span class="n">Pinyins</span>
+</span><span class='line'>          <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>          <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">)))</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'>  <span class="p">.</span><span class="n">Aggregate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Pinyins</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Pinyins</span><span class="p">.</span><span class="n">Count</span> <span class="p">?</span> <span class="n">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">);</span>
+</span><span class='line'><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">chr</span><span class="p">.</span><span class="n">Value</span> <span class="p">+</span> <span class="s">&quot;: &quot;</span> <span class="p">+</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span> <span class="n">chr</span><span class="p">.</span><span class="n">Pinyins</span><span class="p">));</span>
 </span><span class='line'>
-</span><span class='line'>// -&gt; 轧: GA, YA, YAI, ZHA</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="c1">// -&gt; 轧: GA, YA, YAI, ZHA</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>这证明了我的猜想：一个汉字最多有4种拼音（不考虑音调），拼音一共有403种。所以我们可以用9位（Bit）表示一个拼音，从而最多使用36位。也就是说<code>Int64</code>可以被用来表示一个汉字的拼音，以<code>差</code>为例，它有CHA、CHAI和CI三种发音：</p>
@@ -436,23 +447,25 @@
 
 <p>所以，我们可以用<code>Int64[]</code>来代替前面的<code>String[][]</code>，每一个<code>Int64</code>代表一个汉字的拼音：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>private static Int64[] PinyinCodes = { 175, 357, 196677, 186002, 246, ... }</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">Int64</span><span class="p">[]</span> <span class="n">PinyinCodes</span> <span class="p">=</span> <span class="p">{</span> <span class="m">175</span><span class="p">,</span> <span class="m">357</span><span class="p">,</span> <span class="m">196677</span><span class="p">,</span> <span class="m">186002</span><span class="p">,</span> <span class="m">246</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><code>PinyinCodes</code>的引入使得<code>ChineseCharactersTruthTable</code>变的多余，因为现在可以通过检查<code>PinyinCodes</code>的值来判断一个字符是否为汉字：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public static Boolean IsChinese(Char chr) {
-</span><span class='line'>  return MinValue &lt;= chr && chr &lt;= MaxValue && PinyinCodes[chr - MinValue] != 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="n">Boolean</span> <span class="nf">IsChinese</span><span class="p">(</span><span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">MinValue</span> <span class="p">&lt;=</span> <span class="n">chr</span> <span class="p">&amp;&amp;</span> <span class="n">chr</span> <span class="p">&lt;=</span> <span class="n">MaxValue</span> <span class="p">&amp;&amp;</span> <span class="n">PinyinCodes</span><span class="p">[</span><span class="n">chr</span> <span class="p">-</span> <span class="n">MinValue</span><span class="p">]</span> <span class="p">!=</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>此外我们需要编写额外一个方法用来把<code>Int64</code>解码（Decode）为对应的拼音，并增加一个类型为<code>String[]</code>的<code>PinyinTable</code>保存汉字中所有的拼音：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -463,35 +476,37 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>private static String[] PinyinTable = { "A", "AI", "AN", "ANG", "AO", "BA", ... };
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">String</span><span class="p">[]</span> <span class="n">PinyinTable</span> <span class="p">=</span> <span class="p">{</span> <span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;AI&quot;</span><span class="p">,</span> <span class="s">&quot;AN&quot;</span><span class="p">,</span> <span class="s">&quot;ANG&quot;</span><span class="p">,</span> <span class="s">&quot;AO&quot;</span><span class="p">,</span> <span class="s">&quot;BA&quot;</span><span class="p">,</span> <span class="p">...</span> <span class="p">};</span>
 </span><span class='line'>
-</span><span class='line'>private static String[] DecodePinyins(Int64 pinyinCode) {
-</span><span class='line'>  Int16 count = 0;
-</span><span class='line'>  for (Int64 tmp = count; tmp &gt; 0; count += 1, tmp &gt;&gt;= 9) ;
-</span><span class='line'>  String[] pinyins = new String[count];
-</span><span class='line'>  for (Int16 i = 0; pinyinCode &gt; 0; i += 1, pinyinCode &gt;&gt;= 9) {
-</span><span class='line'>    pinyins[i] = PinyinTable[(pinyinCode & 511) - 1];
-</span><span class='line'>  }
-</span><span class='line'>  return pinyins;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">String</span><span class="p">[]</span> <span class="nf">DecodePinyins</span><span class="p">(</span><span class="n">Int64</span> <span class="n">pinyinCode</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">Int16</span> <span class="n">count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="n">Int64</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">count</span><span class="p">;</span> <span class="n">tmp</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span> <span class="n">count</span> <span class="p">+=</span> <span class="m">1</span><span class="p">,</span> <span class="n">tmp</span> <span class="p">&gt;&gt;=</span> <span class="m">9</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'>  <span class="n">String</span><span class="p">[]</span> <span class="n">pinyins</span> <span class="p">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">[</span><span class="n">count</span><span class="p">];</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="n">Int16</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">pinyinCode</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">+=</span> <span class="m">1</span><span class="p">,</span> <span class="n">pinyinCode</span> <span class="p">&gt;&gt;=</span> <span class="m">9</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">pinyins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">PinyinTable</span><span class="p">[(</span><span class="n">pinyinCode</span> <span class="p">&amp;</span> <span class="m">511</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">pinyins</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>然后利用它们来实现<code>GetPinyins</code>：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public static String[] GetPinyins(this Char chr) {
-</span><span class='line'>  if (IsChinese(chr)) {
-</span><span class='line'>    return DecodePinyins(PinyinCodes[chr - MinValue]);
-</span><span class='line'>  } else {
-</span><span class='line'>    throw new ArgumentOutOfRangeException("chr", chr, "Expect a Chinese character.");
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">public</span> <span class="k">static</span> <span class="n">String</span><span class="p">[]</span> <span class="nf">GetPinyins</span><span class="p">(</span><span class="k">this</span> <span class="n">Char</span> <span class="n">chr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="n">IsChinese</span><span class="p">(</span><span class="n">chr</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nf">DecodePinyins</span><span class="p">(</span><span class="n">PinyinCodes</span><span class="p">[</span><span class="n">chr</span> <span class="p">-</span> <span class="n">MinValue</span><span class="p">]);</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">&quot;chr&quot;</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="s">&quot;Expect a Chinese character.&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>实现了<code>IsChinese</code>和<code>GetPinyins</code>，Lucida拼音库的实现就基本完成了，接下来是测试。</p>
@@ -502,7 +517,7 @@
 
 <p>测试代码非常简单直接：遍历所有的字符（<code>Char</code>），检查Lucida拼音库是否和微软拼音库具有一致的行为。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>等价性测试</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -543,47 +558,48 @@
 <span class='line-number'>39</span>
 <span class='line-number'>40</span>
 <span class='line-number'>41</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[TestClass]
-</span><span class='line'>public class ChineseCharExtensionsTest {
-</span><span class='line'>  [TestMethod]
-</span><span class='line'>  public void TestIsChinese() {
-</span><span class='line'>    var invalidCases = AllChars()
-</span><span class='line'>        .Where(c =&gt; c.IsChinese() != ChineseChar.IsValidChar(c))
-</span><span class='line'>        .Select(c =&gt; new {
-</span><span class='line'>          Value = c,
-</span><span class='line'>          Expected = ChineseChar.IsValidChar(c),
-</span><span class='line'>          Actual = c.IsChinese()
-</span><span class='line'>        });
-</span><span class='line'>    Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
-</span><span class='line'>  }
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="na">[TestClass]</span>
+</span><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ChineseCharExtensionsTest</span> <span class="p">{</span>
+</span><span class='line'><span class="na">  [TestMethod]</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">TestIsChinese</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">var</span> <span class="n">invalidCases</span> <span class="p">=</span> <span class="n">AllChars</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">IsChinese</span><span class="p">()</span> <span class="p">!=</span> <span class="n">ChineseChar</span><span class="p">.</span><span class="n">IsValidChar</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">Value</span> <span class="p">=</span> <span class="n">c</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">Expected</span> <span class="p">=</span> <span class="n">ChineseChar</span><span class="p">.</span><span class="n">IsValidChar</span><span class="p">(</span><span class="n">c</span><span class="p">),</span>
+</span><span class='line'>          <span class="n">Actual</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="n">IsChinese</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>    <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="n">invalidCases</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  [TestMethod]
-</span><span class='line'>  public void TestGetPinyins() {
-</span><span class='line'>    var invalidCases = AllChars()
-</span><span class='line'>        .Where(c =&gt; ChineseChar.IsValidChar(c))
-</span><span class='line'>        .Select(c =&gt; new {
-</span><span class='line'>          Value = c,
-</span><span class='line'>          Expected = new HashSet&lt;String&gt;(
-</span><span class='line'>              new ChineseChar(c).Pinyins
-</span><span class='line'>                  .Where(p =&gt; p != null)
-</span><span class='line'>                  .Select(p =&gt; p.Substring(0, p.Length - 1))),
-</span><span class='line'>          Actual = new HashSet&lt;String&gt;(c.GetPinyins())
-</span><span class='line'>        })
-</span><span class='line'>        .Where(o =&gt; !o.Expected.SetEquals(o.Actual))
-</span><span class='line'>        .Select(o =&gt; new {
-</span><span class='line'>          Value = o.Value,
-</span><span class='line'>          Expected = String.Join(", ", o.Expected),
-</span><span class='line'>          Actual = String.Join(",", o.Actual)
-</span><span class='line'>        });
-</span><span class='line'>    Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
-</span><span class='line'>  }
+</span><span class='line'><span class="na">  [TestMethod]</span>
+</span><span class='line'>  <span class="k">public</span> <span class="k">void</span> <span class="nf">TestGetPinyins</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kt">var</span> <span class="n">invalidCases</span> <span class="p">=</span> <span class="n">AllChars</span><span class="p">()</span>
+</span><span class='line'>        <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">ChineseChar</span><span class="p">.</span><span class="n">IsValidChar</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">Value</span> <span class="p">=</span> <span class="n">c</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">Expected</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;(</span>
+</span><span class='line'>              <span class="k">new</span> <span class="nf">ChineseChar</span><span class="p">(</span><span class="n">c</span><span class="p">).</span><span class="n">Pinyins</span>
+</span><span class='line'>                  <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>                  <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">))),</span>
+</span><span class='line'>          <span class="n">Actual</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;(</span><span class="n">c</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">())</span>
+</span><span class='line'>        <span class="p">})</span>
+</span><span class='line'>        <span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">o</span> <span class="p">=&gt;</span> <span class="p">!</span><span class="n">o</span><span class="p">.</span><span class="n">Expected</span><span class="p">.</span><span class="n">SetEquals</span><span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="n">Actual</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">o</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">Value</span> <span class="p">=</span> <span class="n">o</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">Expected</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span> <span class="n">o</span><span class="p">.</span><span class="n">Expected</span><span class="p">),</span>
+</span><span class='line'>          <span class="n">Actual</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">o</span><span class="p">.</span><span class="n">Actual</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>    <span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">,</span> <span class="n">invalidCases</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  private static IEnumerable&lt;Char&gt; AllChars() {
-</span><span class='line'>    for (Char value = Char.MinValue; value != Char.MaxValue; value += (Char)1) {
-</span><span class='line'>      yield return value;
-</span><span class='line'>    }
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>  <span class="k">private</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Char</span><span class="p">&gt;</span> <span class="n">AllChars</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="n">Char</span> <span class="k">value</span> <span class="p">=</span> <span class="n">Char</span><span class="p">.</span><span class="n">MinValue</span><span class="p">;</span> <span class="k">value</span> <span class="p">!=</span> <span class="n">Char</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">;</span> <span class="k">value</span> <span class="p">+=</span> <span class="p">(</span><span class="n">Char</span><span class="p">)</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">yield</span> <span class="k">return</span> <span class="k">value</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>然后测试就通过了 &ndash;_&ndash;# 我甚至手动改了下代码让测试失败再改回来让测试通过以确定测试是有效的。</p>
@@ -594,7 +610,7 @@
 
 <p>度量程序如下。我使用一短（30个字符）一长（22047个字符）两个字符串作为测试数据，然后使用<code>ByMsLibrary</code>和<code>ByLucLibrary</code>分别用微软拼音库和我的拼音查询库将这两个字符串转化成对应的拼音：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量用例</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -608,32 +624,32 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>private static Char[] shortText = "前面三辆囚车中分别监禁的是三个男子，都作书生打扮，一个是白发".ToArray();
-</span><span class='line'>  var longText = File.ReadAllText(@"sample_text.txt").ToArray();
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">Char</span><span class="p">[]</span> <span class="n">shortText</span> <span class="p">=</span> <span class="s">&quot;前面三辆囚车中分别监禁的是三个男子，都作书生打扮，一个是白发&quot;</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+</span><span class='line'>  <span class="kt">var</span> <span class="n">longText</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">@&quot;sample_text.txt&quot;</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'>private static Char[] longText = File.ReadAllText(@"sample_text.txt").ToArray();
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">Char</span><span class="p">[]</span> <span class="n">longText</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">@&quot;sample_text.txt&quot;</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'>private static String ByMsLibrary(Char[] chrArray) {
-</span><span class='line'>  return String.Join(" ",
-</span><span class='line'>      chrArray.Where(ch =&gt; ChineseChar.IsValidChar(ch)).Select(ch =&gt; new ChineseChar(ch).Pinyins[0]));
-</span><span class='line'>}
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">ByMsLibrary</span><span class="p">(</span><span class="n">Char</span><span class="p">[]</span> <span class="n">chrArray</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">chrArray</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">ch</span> <span class="p">=&gt;</span> <span class="n">ChineseChar</span><span class="p">.</span><span class="n">IsValidChar</span><span class="p">(</span><span class="n">ch</span><span class="p">)).</span><span class="n">Select</span><span class="p">(</span><span class="n">ch</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="n">ChineseChar</span><span class="p">(</span><span class="n">ch</span><span class="p">).</span><span class="n">Pinyins</span><span class="p">[</span><span class="m">0</span><span class="p">]));</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>private static String ByLucLibrary(Char[] chrArray) {
-</span><span class='line'>  return String.Join(" ",
-</span><span class='line'>      chrArray.Where(ch =&gt; ch.IsChinese()).Select(ch =&gt; ch.GetPinyins()[0]));
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">ByLucLibrary</span><span class="p">(</span><span class="n">Char</span><span class="p">[]</span> <span class="n">chrArray</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">chrArray</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">ch</span> <span class="p">=&gt;</span> <span class="n">ch</span><span class="p">.</span><span class="n">IsChinese</span><span class="p">()).</span><span class="n">Select</span><span class="p">(</span><span class="n">ch</span> <span class="p">=&gt;</span> <span class="n">ch</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">()[</span><span class="m">0</span><span class="p">]));</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>时间度量（Timing Profiling）</h3>
 
 <h4>短字符串</h4>
 
-<p>度量代码如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  String value1 = ByMsLibrary(shortText);
-</span><span class='line'>  String value2 = ByLucLibrary(shortText);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="n">value1</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">String</span> <span class="n">value2</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><img src="http://i.imgur.com/IPHln3j.png" alt="短字符串时间度量" /></p>
@@ -642,12 +658,11 @@
 
 <h4>长字符串</h4>
 
-<p>度量代码如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  String value1 = ByMsLibrary(longText);
-</span><span class='line'>  String value2 = ByLucLibrary(longText);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="n">value1</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">String</span> <span class="n">value2</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><img src="http://i.imgur.com/AfU1pCX.png" alt="长字符串时间度量" /></p>
@@ -658,10 +673,9 @@
 
 <h4>微软拼音库 + 短字符串</h4>
 
-<p>度量代码如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByMsLibrary(shortText);</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><img src="http://i.imgur.com/fvohazD.png" alt="微软拼音库 + 短字符串" /></p>
@@ -670,10 +684,9 @@
 
 <h4>Lucida拼音库 + 短字符串</h4>
 
-<p>度量代码如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByLucLibrary(shortText);</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><img src="http://i.imgur.com/RFOzRJ8.png" alt="Lucida拼音库 + 短字符串" /></p>
@@ -682,10 +695,9 @@
 
 <h4>微软拼音库 + 长字符串</h4>
 
-<p>度量代码如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByMsLibrary(longText);</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><img src="http://i.imgur.com/fpcDFbt.png" alt="微软拼音库 + 长字符串" /></p>
@@ -694,10 +706,9 @@
 
 <h4>Lucida拼音库 + 长字符串</h4>
 
-<p>度量代码如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByLucLibrary(longText);</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><img src="http://i.imgur.com/tH0KIiR.png" alt="Lucida拼音库 + 长字符串" /></p>
@@ -716,19 +727,20 @@
 
 <p>我猜测汉字编码应该是连续的——就像英文字母的ASCII表示一样。于是我编写了一小段代码来观察汉字编码分布，实验证明：尽管汉字编码是不连续，但它们只集中在<code>[12295, 12295]</code>、<code>[19968, 40869]</code>和<code>[59418, 59491]</code>这三个区间，也就是说可以用大小总和不到<code>21000</code>的三个数组来存储拼音编码，从而节省了一多半空间。</p>
 
-<p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量，效果如下：</p>
+<p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
-</span><span class='line'>短字符串         3毫秒            6毫秒             392KB             182KB
-</span><span class='line'>长字符串         7毫秒            10毫秒           1354KB             857KB</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>              <span class="err">优化前时间</span>       <span class="err">优化后时间</span>       <span class="err">优化前内存占用</span>     <span class="err">优化后内存占用</span>
+</span><span class='line'><span class="err">短字符串</span>         <span class="m">3</span><span class="err">毫秒</span>            <span class="m">6</span><span class="err">毫秒</span>             <span class="m">392</span><span class="n">KB</span>             <span class="m">182</span><span class="n">KB</span>
+</span><span class='line'><span class="err">长字符串</span>         <span class="m">7</span><span class="err">毫秒</span>            <span class="m">10</span><span class="err">毫秒</span>           <span class="m">1354</span><span class="n">KB</span>             <span class="m">857</span><span class="n">KB</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>和我的估计差不多：由于分支判断增多导致运行时间增加了3毫秒，但内存占用则少了很多。</p>
 
-<h3>编码拼音（Encode Pinyin）</h3>
+<h3>拼音编码（Pinyin Encoding）</h3>
 
 <p>我之前的代码存在另外一个问题：汉字拼音有403种，一个汉字最多有4种拼音，于是我使用4个9位，也就是36位，来表示一个汉字的拼音。</p>
 
@@ -740,24 +752,26 @@
 
 <p>完成修改之后，我再次进行了性能和内存度量，效果如下：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
-</span><span class='line'>短字符串         6毫秒           12毫秒             182KB            127KB
-</span><span class='line'>长字符串        10毫秒           15毫秒             857KB           1643KB</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>              <span class="err">优化前时间</span>       <span class="err">优化后时间</span>       <span class="err">优化前内存占用</span>     <span class="err">优化后内存占用</span>
+</span><span class='line'><span class="err">短字符串</span>         <span class="m">6</span><span class="err">毫秒</span>           <span class="m">12</span><span class="err">毫秒</span>             <span class="m">182</span><span class="n">KB</span>            <span class="m">127</span><span class="n">KB</span>
+</span><span class='line'><span class="err">长字符串</span>        <span class="m">10</span><span class="err">毫秒</span>           <span class="m">15</span><span class="err">毫秒</span>             <span class="m">857</span><span class="n">KB</span>           <span class="m">1643</span><span class="n">KB</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>令我吃惊的是这个&#8221;优化&#8221;并没有得到预想的效果：改变编码后的拼音库仅仅在短字符输入时节省了60KB内存，而在处理长字符时内存占用反而增加了一倍，经过进一步度量我发现<code>GetPinyins</code>在调用<code>String#Split</code>时消耗了大量内存。</p>
 
 <p>于是我使用了另一种方法——去除<code>String#Split</code>，但保留<code>Int16</code>编码，然后通过一个大小为2163的<code>Int64</code>数组来保存原来的<code>Int64</code>拼音编码。然后我再次进行了性能和内存度量，效果如下：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
-</span><span class='line'>短字符串        12毫秒            3毫秒             127KB             74KB
-</span><span class='line'>长字符串        15毫秒            7毫秒             857KB            776KB</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>              <span class="err">优化前时间</span>       <span class="err">优化后时间</span>       <span class="err">优化前内存占用</span>     <span class="err">优化后内存占用</span>
+</span><span class='line'><span class="err">短字符串</span>        <span class="m">12</span><span class="err">毫秒</span>            <span class="m">3</span><span class="err">毫秒</span>             <span class="m">127</span><span class="n">KB</span>             <span class="m">74</span><span class="n">KB</span>
+</span><span class='line'><span class="err">长字符串</span>        <span class="m">15</span><span class="err">毫秒</span>            <span class="m">7</span><span class="err">毫秒</span>             <span class="m">857</span><span class="n">KB</span>            <span class="m">776</span><span class="n">KB</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>度量结果显示速度得到了提升——恢复到了优化内存之前的水平，而内存占用被进一步缩小。</p>
@@ -778,38 +792,40 @@
 
 <h3>回顾（Review）</h3>
 
-<p>下面是对整个优化过程的回顾。</p>
+<p>下面是对整个优化过程的回顾：</p>
 
-<p>以长字符串（22047个字符）作为基准：</p>
+<p>以长字符串（22047个字符）作为基准</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>                           时间           内存占用
-</span><span class='line'>0. 微软拼音库              1603毫秒          6229KB
-</span><span class='line'>1. 去除字典                 21毫秒          1471KB
-</span><span class='line'>2. 使用位图代替二分搜索         7毫秒          1354KB
-</span><span class='line'>3. 使用稀疏数组              10毫秒           857KB
-</span><span class='line'>4. 使用紧凑表示               7毫秒           776KB</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>                           <span class="err">时间</span>           <span class="err">内存占用</span>
+</span><span class='line'><span class="m">0.</span> <span class="err">微软拼音库</span>              <span class="m">1603</span><span class="err">毫秒</span>          <span class="m">6229</span><span class="n">KB</span>
+</span><span class='line'><span class="m">1.</span> <span class="err">去除字典</span>                 <span class="m">21</span><span class="err">毫秒</span>          <span class="m">1471</span><span class="n">KB</span>
+</span><span class='line'><span class="m">2.</span> <span class="err">使用位图代替二分搜索</span>         <span class="m">7</span><span class="err">毫秒</span>          <span class="m">1354</span><span class="n">KB</span>
+</span><span class='line'><span class="m">3.</span> <span class="err">使用稀疏数组</span>              <span class="m">10</span><span class="err">毫秒</span>           <span class="m">857</span><span class="n">KB</span>
+</span><span class='line'><span class="m">4.</span> <span class="err">使用紧凑表示</span>               <span class="m">7</span><span class="err">毫秒</span>           <span class="m">776</span><span class="n">KB</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>以短字符串（30个字符）作为基准：</p>
+<p>以短字符串（30个字符）作为基准</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>                           时间          内存占用
-</span><span class='line'>0. 微软拼音库                48毫秒          1633KB
-</span><span class='line'>1. 去除字典                   7毫秒           536KB
-</span><span class='line'>2. 使用位图代替二分搜索         3毫秒           392KB
-</span><span class='line'>3. 使用稀疏数组               6毫秒           182KB
-</span><span class='line'>4. 使用紧凑表示               3毫秒            74KB</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'>                           <span class="err">时间</span>          <span class="err">内存占用</span>
+</span><span class='line'><span class="m">0.</span> <span class="err">微软拼音库</span>                <span class="m">48</span><span class="err">毫秒</span>          <span class="m">1633</span><span class="n">KB</span>
+</span><span class='line'><span class="m">1.</span> <span class="err">去除字典</span>                   <span class="m">7</span><span class="err">毫秒</span>           <span class="m">536</span><span class="n">KB</span>
+</span><span class='line'><span class="m">2.</span> <span class="err">使用位图代替二分搜索</span>         <span class="m">3</span><span class="err">毫秒</span>           <span class="m">392</span><span class="n">KB</span>
+</span><span class='line'><span class="m">3.</span> <span class="err">使用稀疏数组</span>               <span class="m">6</span><span class="err">毫秒</span>           <span class="m">182</span><span class="n">KB</span>
+</span><span class='line'><span class="m">4.</span> <span class="err">使用紧凑表示</span>               <span class="m">3</span><span class="err">毫秒</span>            <span class="m">74</span><span class="n">KB</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>得到的经验（Lessons Learned）</h3>

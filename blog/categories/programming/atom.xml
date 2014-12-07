@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-07T01:02:21-08:00</updated>
+  <updated>2014-12-07T01:25:24-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -82,24 +82,18 @@
 
 <p>结合实际需求，我写下了如下使用场景：</p>
 
-<h4>1. 得到汉字的拼音</h4>
-
-<p><code>
+<p><code>csharp 得到汉字的拼音
 String[] pinyins = '曾'.GetPinyins();
 // pinyins == ["CENG", "ZENG"]
 </code></p>
 
-<h4>2. 得到汉字词汇的拼音</h4>
-
-<p><code>
+<p><code>csharp 得到中文词汇的拼音
 String value = "中华人民";
 String[] pinyinOfValue = s.Select(c =&gt; c.GetPinyins()[0]).ToArray();
 // pinyinOfValue == ["ZHONG", "HUA", "REN", "MIN"]
 </code></p>
 
-<h4>3. 得到混合词汇的首字母缩写</h4>
-
-<p>```
+<p>```csharp 得到得到混合词汇的首字母缩写
 String mixed = &ldquo;IBM中国有限公司&rdquo;;
 String initialOfMixed = String.Join(&ldquo;&rdquo;, mixed.Select(c => {
   if (&ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;.Contains(c.ToUpper())) {</p>
@@ -128,7 +122,7 @@ String initialOfMixed = String.Join(&ldquo;&rdquo;, mixed.Select(c => {
 
 <p>根据前面的使用场景，不难得到下面的API：</p>
 
-<p>```
+<p>```csharp Lucida拼音库API
 public static class ChineseCharExtensions {
   /// <summary>
   /// Gets an array of Pinyin from the given character.
@@ -168,13 +162,13 @@ public static class ChineseCharExtensions {
 
 <p>这个问题并不难解决，我们可以把两万多个汉字拼接成一个字符串，然后对这个字符串进行排序，接下来用二分搜索查找汉字。我们可以把这个大号字符串（两万多个汉字）放在代码里，从而省去排序时间：</p>
 
-<p><code>
+<p><code>csharp
 private static Char[] ChineseCharacters = "〇一丁丂七丄丅...".ToArray();
 </code></p>
 
 <p>接下来我们可以用二分搜索查找汉字：</p>
 
-<p><code>
+<p><code>csharp
 private static Int32 FindCharacter(Char chr) {
   return Array.BinarySearch(ChineseCharacters, chr);
 }
@@ -182,7 +176,7 @@ private static Int32 FindCharacter(Char chr) {
 
 <p>但是转念一想，为什么要二分搜索呢？就像C标准库里的<code>isupper</code>和<code>islower</code>一样，我可以使用一个位图（Bit-map）来查找汉字，从而把速度从o(logN)降到o(1)：</p>
 
-<p>```
+<p>```csharp
 /// <summary>
 /// The minimum integer value of a valid Chinese character.
 /// </summary>
@@ -198,7 +192,7 @@ private static readonly Int32 MaxValue = 59491;</p>
 
 <p>有了<code>ChineseCharactersTruthTable</code>，我们可以很容易的实现<code>IsChinese</code>：</p>
 
-<p><code>
+<p><code>csharp
 public static Boolean IsChinese(this Char chr) {
   return MinValue &lt;= chr &amp;&amp; chr &lt;= MaxValue &amp;&amp; ChineseCharactersTruthTable[chr - MinValue];
 }
@@ -208,13 +202,13 @@ public static Boolean IsChinese(this Char chr) {
 
 <p>最直接的表示拼音的方式是使用<code>String[][]</code>，它按照<code>ChineseCharacters</code>中的汉字顺序保存着每个汉字的拼音：</p>
 
-<p><code>
+<p><code>csharp
 private static String[][] PinyinsTable = { new String[] {"LING"}, new String[] {"YI"}, ... };
 </code></p>
 
 <p>然后利用它和<code>FindCharacter</code>实现<code>GetPinyins</code>：</p>
 
-<p>```
+<p>```csharp
 public static String[] GetPinyins(this Char chr) {
   Int32 index = FindCharacter(chr);
   if (index != -1) {</p>
@@ -250,7 +244,7 @@ public static String[] GetPinyins(this Char chr) {
 
 <p>为了验证我的猜想，我编写了一段代码用来计算汉字的拼音数量：</p>
 
-<p>```
+<p>```csharp 计算汉字拼音有多少种
 Console.WriteLine(ChineseCharacters</p>
 
 <pre><code>.Select(c =&gt; new ChineseChar(c).Pinyins)
@@ -267,7 +261,7 @@ Console.WriteLine(ChineseCharacters</p>
 
 <p>所以汉字拼音一共有<strong>403</strong>种——然后我用一段代码来算一个汉字最多能有多少拼音：</p>
 
-<p>```
+<p>```csharp 计算一个汉字最多能有几种拼音
 var chr = Pinyin.HanziArray</p>
 
 <pre><code>.Select(c =&gt; new {
@@ -284,7 +278,7 @@ var chr = Pinyin.HanziArray</p>
 
 <p>好吧<em>差</em>有8种拼音，不过由于我们不考虑音调，所以再算一遍：</p>
 
-<p>```
+<p>```csharp 计算一个汉字最多能有几种拼音（不考虑音调）
 var chr = Pinyin.HanziArray
   .Select(c => new {</p>
 
@@ -308,13 +302,13 @@ Console.WriteLine(chr.Value + &ldquo;: &rdquo; + String.Join(&ldquo;, &rdquo;, c
 
 <p>所以，我们可以用<code>Int64[]</code>来代替前面的<code>String[][]</code>，每一个<code>Int64</code>代表一个汉字的拼音：</p>
 
-<p><code>
+<p><code>csharp
 private static Int64[] PinyinCodes = { 175, 357, 196677, 186002, 246, ... }
 </code></p>
 
 <p><code>PinyinCodes</code>的引入使得<code>ChineseCharactersTruthTable</code>变的多余，因为现在可以通过检查<code>PinyinCodes</code>的值来判断一个字符是否为汉字：</p>
 
-<p><code>
+<p><code>csharp
 public static Boolean IsChinese(Char chr) {
   return MinValue &lt;= chr &amp;&amp; chr &lt;= MaxValue &amp;&amp; PinyinCodes[chr - MinValue] != 0;
 }
@@ -322,7 +316,7 @@ public static Boolean IsChinese(Char chr) {
 
 <p>此外我们需要编写额外一个方法用来把<code>Int64</code>解码（Decode）为对应的拼音，并增加一个类型为<code>String[]</code>的<code>PinyinTable</code>保存汉字中所有的拼音：</p>
 
-<p>```
+<p>```csharp
 private static String[] PinyinTable = { &ldquo;A&rdquo;, &ldquo;AI&rdquo;, &ldquo;AN&rdquo;, &ldquo;ANG&rdquo;, &ldquo;AO&rdquo;, &ldquo;BA&rdquo;, &hellip; };</p>
 
 <p>private static String[] DecodePinyins(Int64 pinyinCode) {
@@ -341,7 +335,7 @@ private static String[] PinyinTable = { &ldquo;A&rdquo;, &ldquo;AI&rdquo;, &ldqu
 
 <p>然后利用它们来实现<code>GetPinyins</code>：</p>
 
-<p>```
+<p>```csharp
 public static String[] GetPinyins(this Char chr) {
   if (IsChinese(chr)) {</p>
 
@@ -365,7 +359,7 @@ public static String[] GetPinyins(this Char chr) {
 
 <p>测试代码非常简单直接：遍历所有的字符（<code>Char</code>），检查Lucida拼音库是否和微软拼音库具有一致的行为。</p>
 
-<p>```
+<p>```csharp 等价性测试
 [TestClass]
 public class ChineseCharExtensionsTest {
   [TestMethod]
@@ -426,7 +420,7 @@ Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
 
 <p>度量程序如下。我使用一短（30个字符）一长（22047个字符）两个字符串作为测试数据，然后使用<code>ByMsLibrary</code>和<code>ByLucLibrary</code>分别用微软拼音库和我的拼音查询库将这两个字符串转化成对应的拼音：</p>
 
-<p>```
+<p>```csharp 度量用例
 private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是三个男子，都作书生打扮，一个是白发&rdquo;.ToArray();
   var longText = File.ReadAllText(@&ldquo;sample_text.txt&rdquo;).ToArray();</p>
 
@@ -453,9 +447,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>短字符串</h4>
 
-<p>度量代码如下：</p>
-
-<p><code>
+<p><code>csharp 度量代码
   String value1 = ByMsLibrary(shortText);
   String value2 = ByLucLibrary(shortText);
 </code></p>
@@ -466,9 +458,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>长字符串</h4>
 
-<p>度量代码如下：</p>
-
-<p><code>
+<p><code>csharp 度量代码
   String value1 = ByMsLibrary(longText);
   String value2 = ByLucLibrary(longText);
 </code></p>
@@ -481,9 +471,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>微软拼音库 + 短字符串</h4>
 
-<p>度量代码如下：</p>
-
-<p><code>
+<p><code>csharp 度量代码
   String value = ByMsLibrary(shortText);
 </code></p>
 
@@ -493,9 +481,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>Lucida拼音库 + 短字符串</h4>
 
-<p>度量代码如下：</p>
-
-<p><code>
+<p><code>csharp 度量代码
   String value = ByLucLibrary(shortText);
 </code></p>
 
@@ -505,9 +491,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>微软拼音库 + 长字符串</h4>
 
-<p>度量代码如下：</p>
-
-<p><code>
+<p><code>csharp 度量代码
   String value = ByMsLibrary(longText);
 </code></p>
 
@@ -517,9 +501,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>Lucida拼音库 + 长字符串</h4>
 
-<p>度量代码如下：</p>
-
-<p><code>
+<p><code>csharp 度量代码
   String value = ByLucLibrary(longText);
 </code></p>
 
@@ -539,7 +521,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <p>我猜测汉字编码应该是连续的——就像英文字母的ASCII表示一样。于是我编写了一小段代码来观察汉字编码分布，实验证明：尽管汉字编码是不连续，但它们只集中在<code>[12295, 12295]</code>、<code>[19968, 40869]</code>和<code>[59418, 59491]</code>这三个区间，也就是说可以用大小总和不到<code>21000</code>的三个数组来存储拼音编码，从而节省了一多半空间。</p>
 
-<p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量，效果如下：</p>
+<p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量：</p>
 
 <p>```</p>
 
@@ -552,7 +534,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <p>和我的估计差不多：由于分支判断增多导致运行时间增加了3毫秒，但内存占用则少了很多。</p>
 
-<h3>编码拼音（Encode Pinyin）</h3>
+<h3>拼音编码（Pinyin Encoding）</h3>
 
 <p>我之前的代码存在另外一个问题：汉字拼音有403种，一个汉字最多有4种拼音，于是我使用4个9位，也就是36位，来表示一个汉字的拼音。</p>
 
@@ -604,9 +586,9 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h3>回顾（Review）</h3>
 
-<p>下面是对整个优化过程的回顾。</p>
+<p>下面是对整个优化过程的回顾：</p>
 
-<p>以长字符串（22047个字符）作为基准：</p>
+<p>以长字符串（22047个字符）作为基准</p>
 
 <p>```</p>
 
@@ -623,7 +605,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 </ol>
 
 
-<p>以短字符串（30个字符）作为基准：</p>
+<p>以短字符串（30个字符）作为基准</p>
 
 <p>```</p>
 
@@ -860,7 +842,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x6d;&#121;&#109;&#97;&#x69;&#x6c;&#x40;&#103;&#103;&#103;&#x2e;&#x63;&#x6f;&#109;">&#109;&#121;&#x6d;&#97;&#105;&#108;&#64;&#x67;&#103;&#x67;&#x2e;&#x63;&#111;&#109;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x6d;&#x79;&#x6d;&#97;&#105;&#108;&#x40;&#103;&#x67;&#x67;&#46;&#99;&#x6f;&#x6d;">&#x6d;&#x79;&#109;&#x61;&#105;&#108;&#64;&#103;&#x67;&#103;&#x2e;&#x63;&#x6f;&#109;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
