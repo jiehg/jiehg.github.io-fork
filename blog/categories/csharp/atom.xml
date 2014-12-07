@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CSharp | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/csharp/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-07T01:25:24-08:00</updated>
+  <updated>2014-12-07T01:42:14-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -447,7 +447,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>短字符串</h4>
 
-<p><code>csharp 度量代码
+<p><code>csharp
   String value1 = ByMsLibrary(shortText);
   String value2 = ByLucLibrary(shortText);
 </code></p>
@@ -458,7 +458,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>长字符串</h4>
 
-<p><code>csharp 度量代码
+<p><code>csharp
   String value1 = ByMsLibrary(longText);
   String value2 = ByLucLibrary(longText);
 </code></p>
@@ -471,7 +471,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>微软拼音库 + 短字符串</h4>
 
-<p><code>csharp 度量代码
+<p><code>csharp
   String value = ByMsLibrary(shortText);
 </code></p>
 
@@ -481,7 +481,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>Lucida拼音库 + 短字符串</h4>
 
-<p><code>csharp 度量代码
+<p><code>csharp
   String value = ByLucLibrary(shortText);
 </code></p>
 
@@ -491,7 +491,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>微软拼音库 + 长字符串</h4>
 
-<p><code>csharp 度量代码
+<p><code>csharp
   String value = ByMsLibrary(longText);
 </code></p>
 
@@ -501,7 +501,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <h4>Lucida拼音库 + 长字符串</h4>
 
-<p><code>csharp 度量代码
+<p><code>csharp
   String value = ByLucLibrary(longText);
 </code></p>
 
@@ -523,7 +523,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量：</p>
 
-<p>```</p>
+<p>```text</p>
 
 <pre><code>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
 </code></pre>

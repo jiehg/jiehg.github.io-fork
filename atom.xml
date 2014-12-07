@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-07T01:25:24-08:00</updated>
+  <updated>2014-12-07T01:42:14-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -567,7 +567,7 @@
 
 <h4>短字符串</h4>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="n">value1</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
 </span><span class='line'>  <span class="n">String</span> <span class="n">value2</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
@@ -580,7 +580,7 @@
 
 <h4>长字符串</h4>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="n">value1</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
 </span><span class='line'>  <span class="n">String</span> <span class="n">value2</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
@@ -595,7 +595,7 @@
 
 <h4>微软拼音库 + 短字符串</h4>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -606,7 +606,7 @@
 
 <h4>Lucida拼音库 + 短字符串</h4>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">shortText</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -617,7 +617,7 @@
 
 <h4>微软拼音库 + 长字符串</h4>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByMsLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -628,7 +628,7 @@
 
 <h4>Lucida拼音库 + 长字符串</h4>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'>  <span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="n">ByLucLibrary</span><span class="p">(</span><span class="n">longText</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -651,12 +651,12 @@
 
 <p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量：</p>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>              <span class="err">优化前时间</span>       <span class="err">优化后时间</span>       <span class="err">优化前内存占用</span>     <span class="err">优化后内存占用</span>
-</span><span class='line'><span class="err">短字符串</span>         <span class="m">3</span><span class="err">毫秒</span>            <span class="m">6</span><span class="err">毫秒</span>             <span class="m">392</span><span class="n">KB</span>             <span class="m">182</span><span class="n">KB</span>
-</span><span class='line'><span class="err">长字符串</span>         <span class="m">7</span><span class="err">毫秒</span>            <span class="m">10</span><span class="err">毫秒</span>           <span class="m">1354</span><span class="n">KB</span>             <span class="m">857</span><span class="n">KB</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</span><span class='line'>短字符串         3毫秒            6毫秒             392KB             182KB
+</span><span class='line'>长字符串         7毫秒            10毫秒           1354KB             857KB
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -674,12 +674,12 @@
 
 <p>完成修改之后，我再次进行了性能和内存度量，效果如下：</p>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>              <span class="err">优化前时间</span>       <span class="err">优化后时间</span>       <span class="err">优化前内存占用</span>     <span class="err">优化后内存占用</span>
-</span><span class='line'><span class="err">短字符串</span>         <span class="m">6</span><span class="err">毫秒</span>           <span class="m">12</span><span class="err">毫秒</span>             <span class="m">182</span><span class="n">KB</span>            <span class="m">127</span><span class="n">KB</span>
-</span><span class='line'><span class="err">长字符串</span>        <span class="m">10</span><span class="err">毫秒</span>           <span class="m">15</span><span class="err">毫秒</span>             <span class="m">857</span><span class="n">KB</span>           <span class="m">1643</span><span class="n">KB</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</span><span class='line'>短字符串         6毫秒           12毫秒             182KB            127KB
+</span><span class='line'>长字符串        10毫秒           15毫秒             857KB           1643KB
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -687,12 +687,12 @@
 
 <p>于是我使用了另一种方法——去除<code>String#Split</code>，但保留<code>Int16</code>编码，然后通过一个大小为2163的<code>Int64</code>数组来保存原来的<code>Int64</code>拼音编码。然后我再次进行了性能和内存度量，效果如下：</p>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>              <span class="err">优化前时间</span>       <span class="err">优化后时间</span>       <span class="err">优化前内存占用</span>     <span class="err">优化后内存占用</span>
-</span><span class='line'><span class="err">短字符串</span>        <span class="m">12</span><span class="err">毫秒</span>            <span class="m">3</span><span class="err">毫秒</span>             <span class="m">127</span><span class="n">KB</span>             <span class="m">74</span><span class="n">KB</span>
-</span><span class='line'><span class="err">长字符串</span>        <span class="m">15</span><span class="err">毫秒</span>            <span class="m">7</span><span class="err">毫秒</span>             <span class="m">857</span><span class="n">KB</span>            <span class="m">776</span><span class="n">KB</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</span><span class='line'>短字符串        12毫秒            3毫秒             127KB             74KB
+</span><span class='line'>长字符串        15毫秒            7毫秒             857KB            776KB
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -718,35 +718,35 @@
 
 <p>以长字符串（22047个字符）作为基准</p>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>                           <span class="err">时间</span>           <span class="err">内存占用</span>
-</span><span class='line'><span class="m">0.</span> <span class="err">微软拼音库</span>              <span class="m">1603</span><span class="err">毫秒</span>          <span class="m">6229</span><span class="n">KB</span>
-</span><span class='line'><span class="m">1.</span> <span class="err">去除字典</span>                 <span class="m">21</span><span class="err">毫秒</span>          <span class="m">1471</span><span class="n">KB</span>
-</span><span class='line'><span class="m">2.</span> <span class="err">使用位图代替二分搜索</span>         <span class="m">7</span><span class="err">毫秒</span>          <span class="m">1354</span><span class="n">KB</span>
-</span><span class='line'><span class="m">3.</span> <span class="err">使用稀疏数组</span>              <span class="m">10</span><span class="err">毫秒</span>           <span class="m">857</span><span class="n">KB</span>
-</span><span class='line'><span class="m">4.</span> <span class="err">使用紧凑表示</span>               <span class="m">7</span><span class="err">毫秒</span>           <span class="m">776</span><span class="n">KB</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>                           时间           内存占用
+</span><span class='line'>0. 微软拼音库              1603毫秒          6229KB
+</span><span class='line'>1. 去除字典                 21毫秒          1471KB
+</span><span class='line'>2. 使用位图代替二分搜索         7毫秒          1354KB
+</span><span class='line'>3. 使用稀疏数组              10毫秒           857KB
+</span><span class='line'>4. 使用紧凑表示               7毫秒           776KB
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>以短字符串（30个字符）作为基准</p>
 
-<figure class='code'><figcaption><span>度量代码</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='csharp'><span class='line'>                           <span class="err">时间</span>          <span class="err">内存占用</span>
-</span><span class='line'><span class="m">0.</span> <span class="err">微软拼音库</span>                <span class="m">48</span><span class="err">毫秒</span>          <span class="m">1633</span><span class="n">KB</span>
-</span><span class='line'><span class="m">1.</span> <span class="err">去除字典</span>                   <span class="m">7</span><span class="err">毫秒</span>           <span class="m">536</span><span class="n">KB</span>
-</span><span class='line'><span class="m">2.</span> <span class="err">使用位图代替二分搜索</span>         <span class="m">3</span><span class="err">毫秒</span>           <span class="m">392</span><span class="n">KB</span>
-</span><span class='line'><span class="m">3.</span> <span class="err">使用稀疏数组</span>               <span class="m">6</span><span class="err">毫秒</span>           <span class="m">182</span><span class="n">KB</span>
-</span><span class='line'><span class="m">4.</span> <span class="err">使用紧凑表示</span>               <span class="m">3</span><span class="err">毫秒</span>            <span class="m">74</span><span class="n">KB</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>                           时间          内存占用
+</span><span class='line'>0. 微软拼音库                48毫秒          1633KB
+</span><span class='line'>1. 去除字典                   7毫秒           536KB
+</span><span class='line'>2. 使用位图代替二分搜索         3毫秒           392KB
+</span><span class='line'>3. 使用稀疏数组               6毫秒           182KB
+</span><span class='line'>4. 使用紧凑表示               3毫秒            74KB
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -970,7 +970,7 @@
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x6d;&#x79;&#109;&#97;&#105;&#x6c;&#x40;&#103;&#x67;&#103;&#46;&#99;&#111;&#x6d;">&#109;&#x79;&#109;&#x61;&#x69;&#x6c;&#64;&#x67;&#103;&#103;&#x2e;&#99;&#111;&#x6d;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x6d;&#121;&#x6d;&#x61;&#105;&#x6c;&#x40;&#103;&#x67;&#103;&#46;&#x63;&#x6f;&#x6d;">&#109;&#121;&#x6d;&#x61;&#105;&#x6c;&#64;&#x67;&#103;&#x67;&#x2e;&#99;&#111;&#x6d;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
