@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-11-02T00:25:25-07:00</updated>
+  <updated>2014-12-07T01:00:52-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,683 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[从2000毫秒到10毫秒——Lucida拼音库的设计与实现]]></title>
+    <link href="http://zh.lucida.me/blog/lucida-pinyin-converter/"/>
+    <updated>2014-12-07T00:27:17-08:00</updated>
+    <id>http://zh.lucida.me/blog/lucida-pinyin-converter</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/lucida-pinyin-converter">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<hr />
+
+<h2>关于</h2>
+
+<p>本文介绍了Lucida拼音库的设计、实现以及优化过程。Lucida拼音库以微软拼音库为基础，能够快速的把汉字转化为对应的拼音，它比微软拼音库快200多倍，同时占用内存不到微软拼音库的八分之一。</p>
+
+<h2>背景</h2>
+
+<p>Lucida拼音库是我三年前编写<a href="http://www.windowsphone.com/zh-cn/store/app/%E4%B8%AD%E6%96%87%E6%8B%A8%E5%8F%B7%E5%8A%A9%E6%89%8B/3e4f73b2-c70e-40dd-b3b8-1d2135e9af56">拨号助手</a>时自行设计并实现的一个工具类（Utility Class）。它可以把中文转化成汉语拼音，并可以在Windows Phone 7上使用。</p>
+
+<p>我曾经在<a href="http://zh.lucida.me/blog/on-learning-algorithms/">我的算法学习之路</a>里面提到过我为什么需要这个工具类（用户期望根据拼音给出智能提示），以及为什么需要自己动手编写，而不是使用现成的代码（<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=15251">微软拼音库</a>）。有兴趣的同学可以阅读<a href="http://zh.lucida.me/blog/on-learning-algorithms/">那篇文章</a>了解背景。</p>
+
+<p>我个人习惯使用自上而下（Top-Down）的方式设计类，Lucida拼音库也不例外：</p>
+
+<ol>
+<li>API设计；</li>
+<li>具体实现；</li>
+<li>测试；</li>
+<li>度量->优化->度量->优化&hellip;</li>
+</ol>
+
+
+<p>接下来我将按照这个步骤一一介绍Lucida拼音库从设计到实现的过程。</p>
+
+<!-- more -->
+
+
+<h2>API设计（API Design）</h2>
+
+<p>API设计<a href="http://www.newt.com/java/GoodApiDesign-JoshBloch.pdf">至关重要</a>——结合<a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Framework Design Guidelines</a>和<a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Joshua Bloch</a>关于如何设计API的<a href="https://www.youtube.com/watch?v=aAb7hSCtvGw">演讲</a>，我在设计API时会遵循以下步骤：</p>
+
+<ol>
+<li>确认功能需求；</li>
+<li>确认至少三个不同的使用场景；</li>
+<li>确认API。</li>
+</ol>
+
+
+<h3>功能需求</h3>
+
+<p>Lucida拼音库将汉字转化为拼音——但为了编码，我们需要更加细化的需求：</p>
+
+<ol>
+<li>能够得到给定汉字的拼音；（<code>'中' -&gt; "ZHONG"</code>）</li>
+<li>能够得到给定多音汉字的所有拼音；（<code>'曾' -&gt; ["CENG", "ZENG"]</code>）</li>
+<li>能够判断一个给定字符是否是汉字；（<code>'中' -&gt; true; 'A' -&gt; false</code>）</li>
+<li><strong>只</strong>需要拼音，<strong>不</strong>需要音调。</li>
+</ol>
+
+
+<h3>使用场景</h3>
+
+<p>结合实际需求，我写下了如下使用场景：</p>
+
+<h4>1. 得到汉字的拼音</h4>
+
+<p><code>
+String[] pinyins = '曾'.GetPinyins();
+// pinyins == ["CENG", "ZENG"]
+</code></p>
+
+<h4>2. 得到汉字词汇的拼音</h4>
+
+<p><code>
+String value = "中华人民";
+String[] pinyinOfValue = s.Select(c =&gt; c.GetPinyins()[0]).ToArray();
+// pinyinOfValue == ["ZHONG", "HUA", "REN", "MIN"]
+</code></p>
+
+<h4>3. 得到混合词汇的首字母缩写</h4>
+
+<p>```
+String mixed = &ldquo;IBM中国有限公司&rdquo;;
+String initialOfMixed = String.Join(&ldquo;&rdquo;, mixed.Select(c => {
+  if (&ldquo;ABCDEFGHIJKLMNOPQRSTUVWXYZ&rdquo;.Contains(c.ToUpper())) {</p>
+
+<pre><code>return c.ToUpper();
+</code></pre>
+
+<p>  } else if (c.IsChinese()) {</p>
+
+<pre><code>return c.GetPinyins()[0][0];
+</code></pre>
+
+<p>  } else {</p>
+
+<pre><code>return "";
+</code></pre>
+
+<p>  }
+}));
+// initialOfMixed == [&ldquo;IBMZGYXGS&rdquo;]
+```</p>
+
+<p>不难看出<code>GetPinyins</code>和<code>IsChinese</code>是Lucida拼音库的关键操作。</p>
+
+<h3>API设计</h3>
+
+<p>根据前面的使用场景，不难得到下面的API：</p>
+
+<p>```
+public static class ChineseCharExtensions {
+  /// <summary>
+  /// Gets an array of Pinyin from the given character.
+  /// </summary>
+  /// <exception cref="ArgumentOutOfRangeException">Throws when the given character is not a Chinese character.</exception>
+  public static String[] GetPinyins(this Char chr) ;</p>
+
+<p>  /// <summary>
+  /// Indicates whether the given character is a Chinese character.
+  /// </summary>
+  public static Boolean IsChinese(this Char chr) ;
+}
+```</p>
+
+<p><code>ChineseCharExtensions</code>是一个扩展类，它为<code>Char</code>提供<code>GetPinyins</code>和<code>IsChinese</code>这两个<a href="http://msdn.microsoft.com/en-us/library/bb383977.aspx">扩展方法</a>，从而允许我们直接在<code>Char</code>类型上调用这两个方法，非常方便。</p>
+
+<p>可能有人会问为什么不引入<code>GetFirstPinyin</code>或<code>GetInitial</code>这样的辅助方法。我的答案是：<strong>一个类应该提供少量正交的（Orthogonal）高性能方法，调用者根据需求进行进一步抽象。</strong></p>
+
+<h2>实现（Implementation）</h2>
+
+<blockquote><p>问：把大象放进冰箱需要几步？
+答：三步：1. 打开冰箱门；2. 把大象放进去；3. 关上冰箱。</p></blockquote>
+
+<p>API设计告诉我们做什么（What to do），接下来我们需要确定怎么做（How to do），也就是代码实现。</p>
+
+<p>Windows Phone 7不支持大容量<code>Dictionary</code>（这也是微软拼音库无法在Windows Phone 7上正常运行的原因），所以我们不能直接使用.Net自带的字典数据结构。但拼音转换需要一个字典结构——对于给定的字符返回其拼音——也就是说我们要<strong>自己实现</strong>一个类似<code>Dictionary&lt;Char, String[]&gt;</code>的数据结构，但又不能直接使用<code>Dictionary</code>。从性能方面考虑，这个数据结构应该尽可能使用<code>Int32</code>、<code>String</code>和<code>String[]</code>这些低开销基本类型，而<strong>不</strong>使用<code>List&lt;String&gt;</code>或<code>Dictionary&lt;Char, String[]&gt;</code>这些高开销类型。</p>
+
+<p>为了实现<code>汉字 -&gt; 拼音</code>这个字典结构，我们需要解决下面这两个问题：</p>
+
+<ol>
+<li>如何在不使用<code>Dictionary</code>的前提下查找汉字？</li>
+<li>如何尽可能紧凑的表示拼音？我们可以为每个汉字用<code>String</code>数组表示拼音，但两万多个<code>String</code>数组无疑是不小的开销。</li>
+</ol>
+
+
+<h3>如何查找汉字</h3>
+
+<p>这个问题并不难解决，我们可以把两万多个汉字拼接成一个字符串，然后对这个字符串进行排序，接下来用二分搜索查找汉字。我们可以把这个大号字符串（两万多个汉字）放在代码里，从而省去排序时间：</p>
+
+<p><code>
+private static Char[] ChineseCharacters = "〇一丁丂七丄丅...".ToArray();
+</code></p>
+
+<p>接下来我们可以用二分搜索查找汉字：</p>
+
+<p><code>
+private static Int32 FindCharacter(Char chr) {
+  return Array.BinarySearch(ChineseCharacters, chr);
+}
+</code></p>
+
+<p>但是转念一想，为什么要二分搜索呢？就像C标准库里的<code>isupper</code>和<code>islower</code>一样，我可以使用一个位图（Bit-map）来查找汉字，从而把速度从o(logN)降到o(1)：</p>
+
+<p>```
+/// <summary>
+/// The minimum integer value of a valid Chinese character.
+/// </summary>
+private static readonly Int32 MinValue = 12295;</p>
+
+<p>/// <summary>
+/// The maximum integer value of a valid Chinese character.
+/// </summary>
+private static readonly Int32 MaxValue = 59491;</p>
+
+<p>private static Boolean[] ChineseCharactersTruthTable = { true, false, &hellip; };
+```</p>
+
+<p>有了<code>ChineseCharactersTruthTable</code>，我们可以很容易的实现<code>IsChinese</code>：</p>
+
+<p><code>
+public static Boolean IsChinese(this Char chr) {
+  return MinValue &lt;= chr &amp;&amp; chr &lt;= MaxValue &amp;&amp; ChineseCharactersTruthTable[chr - MinValue];
+}
+</code></p>
+
+<h3>如何表示拼音</h3>
+
+<p>最直接的表示拼音的方式是使用<code>String[][]</code>，它按照<code>ChineseCharacters</code>中的汉字顺序保存着每个汉字的拼音：</p>
+
+<p><code>
+private static String[][] PinyinsTable = { new String[] {"LING"}, new String[] {"YI"}, ... };
+</code></p>
+
+<p>然后利用它和<code>FindCharacter</code>实现<code>GetPinyins</code>：</p>
+
+<p>```
+public static String[] GetPinyins(this Char chr) {
+  Int32 index = FindCharacter(chr);
+  if (index != -1) {</p>
+
+<pre><code>return PinyinsTable[index];
+</code></pre>
+
+<p>  } else {</p>
+
+<pre><code>throw new ArgumentOutOfRangeException("chr", chr, "Expect a Chinese character.");
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>但用多维数组表示<code>PinyinTable</code>存在很多问题：</p>
+
+<ol>
+<li><code>PinyinTable</code>是一个由两万多个数组组成的多维数组——构造它可是不小的开销；</li>
+<li><code>GetPinyins</code>会直接返回<code>PinyinTable</code>里的子数组引用，如果用户修改了子数组那么原始数组<code>PinyinTable</code>也会遭到修改。（是的，我们可以返回一个拷贝，然而这又造成了性能开销）</li>
+</ol>
+
+
+<p>出于这两个原因，我们不会使用<code>String[][]</code>。我们应该使用一种紧凑的方式表达拼音，这时我的第一反应就是用<code>Int64</code>表示拼音，我的理由如下：</p>
+
+<ol>
+<li>尽管汉字有多音字，但我估计每个多音字的发音不会超过8种；</li>
+<li>我估计汉字的拼音应该不会超过500种，也就是说可以用9位（Bit）表示一个拼音；</li>
+<li>所以<code>Int64</code>可以容纳7个拼音（64 > 7 * 9），我认为这足够了。</li>
+</ol>
+
+
+<p>为了验证我的猜想，我编写了一段代码用来计算汉字的拼音数量：</p>
+
+<p>```
+Console.WriteLine(ChineseCharacters</p>
+
+<pre><code>.Select(c =&gt; new ChineseChar(c).Pinyins)
+.Aggregate(new HashSet&lt;String&gt;(), (hashSet, pinyins) =&gt; {
+  foreach (String pinyin in pinyins.Where(p =&gt; p != null)) {
+    hashSet.Add(pinyin.Substring(0, pinyin.Length - 1));
+  }
+  return hashSet;
+}).Count);
+</code></pre>
+
+<p>// &ndash;> 403
+```</p>
+
+<p>所以汉字拼音一共有<strong>403</strong>种——然后我用一段代码来算一个汉字最多能有多少拼音：</p>
+
+<p>```
+var chr = Pinyin.HanziArray</p>
+
+<pre><code>.Select(c =&gt; new {
+  Value = c,
+  Pinyins = new ChineseChar(c).Pinyins.Where(p =&gt; p != null).ToArray()
+})
+.Aggregate((a, b) =&gt; a.Pinyins.Length &gt; b.Pinyins.Length ? a : b);
+</code></pre>
+
+<p>Console.WriteLine(chr.Value + &ldquo;: &rdquo; + String.Join(&ldquo;, &rdquo;, chr.Pinyins));</p>
+
+<p>// &ndash;> 差: CHA1, CHA4, CHA5, CHAI1, CHAI4, CHAI5, CI1, CI5
+```</p>
+
+<p>好吧<em>差</em>有8种拼音，不过由于我们不考虑音调，所以再算一遍：</p>
+
+<p>```
+var chr = Pinyin.HanziArray
+  .Select(c => new {</p>
+
+<pre><code>Value = c,
+Pinyins = new HashSet&lt;String&gt;(
+    new ChineseChar(c).Pinyins
+      .Where(p =&gt; p != null)
+      .Select(s =&gt; s.Substring(0, s.Length - 1)))
+</code></pre>
+
+<p>  })
+  .Aggregate((a, b) => a.Pinyins.Count > b.Pinyins.Count ? a : b);
+Console.WriteLine(chr.Value + &ldquo;: &rdquo; + String.Join(&ldquo;, &rdquo;, chr.Pinyins));</p>
+
+<p>// &ndash;> 轧: GA, YA, YAI, ZHA
+```</p>
+
+<p>这证明了我的猜想：一个汉字最多有4种拼音（不考虑音调），拼音一共有403种。所以我们可以用9位（Bit）表示一个拼音，从而最多使用36位。也就是说<code>Int64</code>可以被用来表示一个汉字的拼音，以<code>差</code>为例，它有CHA、CHAI和CI三种发音：</p>
+
+<p><img src="http://i.imgur.com/1IKzPu2.png" alt="图解差的拼音表示" /></p>
+
+<p>所以，我们可以用<code>Int64[]</code>来代替前面的<code>String[][]</code>，每一个<code>Int64</code>代表一个汉字的拼音：</p>
+
+<p><code>
+private static Int64[] PinyinCodes = { 175, 357, 196677, 186002, 246, ... }
+</code></p>
+
+<p><code>PinyinCodes</code>的引入使得<code>ChineseCharactersTruthTable</code>变的多余，因为现在可以通过检查<code>PinyinCodes</code>的值来判断一个字符是否为汉字：</p>
+
+<p><code>
+public static Boolean IsChinese(Char chr) {
+  return MinValue &lt;= chr &amp;&amp; chr &lt;= MaxValue &amp;&amp; PinyinCodes[chr - MinValue] != 0;
+}
+</code></p>
+
+<p>此外我们需要编写额外一个方法用来把<code>Int64</code>解码（Decode）为对应的拼音，并增加一个类型为<code>String[]</code>的<code>PinyinTable</code>保存汉字中所有的拼音：</p>
+
+<p>```
+private static String[] PinyinTable = { &ldquo;A&rdquo;, &ldquo;AI&rdquo;, &ldquo;AN&rdquo;, &ldquo;ANG&rdquo;, &ldquo;AO&rdquo;, &ldquo;BA&rdquo;, &hellip; };</p>
+
+<p>private static String[] DecodePinyins(Int64 pinyinCode) {
+  Int16 count = 0;
+  for (Int64 tmp = count; tmp > 0; count += 1, tmp >>= 9) ;
+  String[] pinyins = new String[count];
+  for (Int16 i = 0; pinyinCode > 0; i += 1, pinyinCode >>= 9) {</p>
+
+<pre><code>pinyins[i] = PinyinTable[(pinyinCode &amp; 511) - 1];
+</code></pre>
+
+<p>  }
+  return pinyins;
+}
+```</p>
+
+<p>然后利用它们来实现<code>GetPinyins</code>：</p>
+
+<p>```
+public static String[] GetPinyins(this Char chr) {
+  if (IsChinese(chr)) {</p>
+
+<pre><code>return DecodePinyins(PinyinCodes[chr - MinValue]);
+</code></pre>
+
+<p>  } else {</p>
+
+<pre><code>throw new ArgumentOutOfRangeException("chr", chr, "Expect a Chinese character.");
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>实现了<code>IsChinese</code>和<code>GetPinyins</code>，Lucida拼音库的实现就基本完成了，接下来是测试。</p>
+
+<h2>测试（Test）</h2>
+
+<p>我的测试思路很简单：我假设微软拼音库是正确的，如果Lucida拼音库和微软拼音库具有一致的行为（Behavior），那么Lucida拼音库就是正确的。</p>
+
+<p>测试代码非常简单直接：遍历所有的字符（<code>Char</code>），检查Lucida拼音库是否和微软拼音库具有一致的行为。</p>
+
+<p>```
+[TestClass]
+public class ChineseCharExtensionsTest {
+  [TestMethod]
+  public void TestIsChinese() {</p>
+
+<pre><code>var invalidCases = AllChars()
+    .Where(c =&gt; c.IsChinese() != ChineseChar.IsValidChar(c))
+    .Select(c =&gt; new {
+      Value = c,
+      Expected = ChineseChar.IsValidChar(c),
+      Actual = c.IsChinese()
+    });
+Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
+</code></pre>
+
+<p>  }</p>
+
+<p>  [TestMethod]
+  public void TestGetPinyins() {</p>
+
+<pre><code>var invalidCases = AllChars()
+    .Where(c =&gt; ChineseChar.IsValidChar(c))
+    .Select(c =&gt; new {
+      Value = c,
+      Expected = new HashSet&lt;String&gt;(
+          new ChineseChar(c).Pinyins
+              .Where(p =&gt; p != null)
+              .Select(p =&gt; p.Substring(0, p.Length - 1))),
+      Actual = new HashSet&lt;String&gt;(c.GetPinyins())
+    })
+    .Where(o =&gt; !o.Expected.SetEquals(o.Actual))
+    .Select(o =&gt; new {
+      Value = o.Value,
+      Expected = String.Join(", ", o.Expected),
+      Actual = String.Join(",", o.Actual)
+    });
+Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
+</code></pre>
+
+<p>  }</p>
+
+<p>  private static IEnumerable<Char> AllChars() {</p>
+
+<pre><code>for (Char value = Char.MinValue; value != Char.MaxValue; value += (Char)1) {
+  yield return value;
+}
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>然后测试就通过了 &ndash;_&ndash;# 我甚至手动改了下代码让测试失败再改回来让测试通过以确定测试是有效的。</p>
+
+<h2>度量（Profiling）</h2>
+
+<p>理论上来说我的拼音库要比微软拼音库速度快，而且占用空间小。但是理论归理论，我们需要度量（Profile）程序来验证它。我在这里使用Visual Studio 2013自带的性能分析工具（Performance and Diagnostics）进行时间度量和内存度量。</p>
+
+<p>度量程序如下。我使用一短（30个字符）一长（22047个字符）两个字符串作为测试数据，然后使用<code>ByMsLibrary</code>和<code>ByLucLibrary</code>分别用微软拼音库和我的拼音查询库将这两个字符串转化成对应的拼音：</p>
+
+<p>```
+private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是三个男子，都作书生打扮，一个是白发&rdquo;.ToArray();
+  var longText = File.ReadAllText(@&ldquo;sample_text.txt&rdquo;).ToArray();</p>
+
+<p>private static Char[] longText = File.ReadAllText(@&ldquo;sample_text.txt&rdquo;).ToArray();</p>
+
+<p>private static String ByMsLibrary(Char[] chrArray) {
+  return String.Join(&ldquo; &rdquo;,</p>
+
+<pre><code>  chrArray.Where(ch =&gt; ChineseChar.IsValidChar(ch)).Select(ch =&gt; new ChineseChar(ch).Pinyins[0]));
+</code></pre>
+
+<p>}</p>
+
+<p>private static String ByLucLibrary(Char[] chrArray) {
+  return String.Join(&ldquo; &rdquo;,</p>
+
+<pre><code>  chrArray.Where(ch =&gt; ch.IsChinese()).Select(ch =&gt; ch.GetPinyins()[0]));
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>时间度量（Timing Profiling）</h3>
+
+<h4>短字符串</h4>
+
+<p>度量代码如下：</p>
+
+<p><code>
+  String value1 = ByMsLibrary(shortText);
+  String value2 = ByLucLibrary(shortText);
+</code></p>
+
+<p><img src="http://i.imgur.com/IPHln3j.png" alt="短字符串时间度量" /></p>
+
+<p>对于短字符串（30个字符），Lucida拼音库的性能优势并不明显（3毫秒对48毫秒，尽管也快了16倍），值得一提的是，微软拼音库花了30毫秒用于初始化，而我的拼音查询库只用了不到2毫秒。</p>
+
+<h4>长字符串</h4>
+
+<p>度量代码如下：</p>
+
+<p><code>
+  String value1 = ByMsLibrary(longText);
+  String value2 = ByLucLibrary(longText);
+</code></p>
+
+<p><img src="http://i.imgur.com/AfU1pCX.png" alt="长字符串时间度量" /></p>
+
+<p>对于长字符串（22047个字符），我的拼音查询库的性能优势得到了展现：微软拼音库用了1603毫秒，而我的拼音查询库只用了7毫秒——比微软拼音库快200多倍。</p>
+
+<h3>内存度量（Memory Profiling）</h3>
+
+<h4>微软拼音库 + 短字符串</h4>
+
+<p>度量代码如下：</p>
+
+<p><code>
+  String value = ByMsLibrary(shortText);
+</code></p>
+
+<p><img src="http://i.imgur.com/fvohazD.png" alt="微软拼音库 + 短字符串" /></p>
+
+<p>微软拼音库使用了1633KB内存：内存大量被花费在反序列化拼音信息（<code>CharUnit.Deserialize</code>）、读取资源（<code>ResourceReader.GetResourceData</code>）和初始化列表（<code>List.Add</code>）上。</p>
+
+<h4>Lucida拼音库 + 短字符串</h4>
+
+<p>度量代码如下：</p>
+
+<p><code>
+  String value = ByLucLibrary(shortText);
+</code></p>
+
+<p><img src="http://i.imgur.com/RFOzRJ8.png" alt="Lucida拼音库 + 短字符串" /></p>
+
+<p>Lucida拼音库使用了392KB内存——大约是微软拼音库的四分之一，几乎所有的内存都被花费在初始化拼音编码数组上。</p>
+
+<h4>微软拼音库 + 长字符串</h4>
+
+<p>度量代码如下：</p>
+
+<p><code>
+  String value = ByMsLibrary(longText);
+</code></p>
+
+<p><img src="http://i.imgur.com/fpcDFbt.png" alt="微软拼音库 + 长字符串" /></p>
+
+<p>微软拼音库使用了6229KB内存，这时<code>CharUnit</code>对象的获取和初始化成为了内存占用的主力。</p>
+
+<h4>Lucida拼音库 + 长字符串</h4>
+
+<p>度量代码如下：</p>
+
+<p><code>
+  String value = ByLucLibrary(longText);
+</code></p>
+
+<p><img src="http://i.imgur.com/tH0KIiR.png" alt="Lucida拼音库 + 长字符串" /></p>
+
+<p>Lucida拼音库使用了1354KB内存——依然不到微软拼音库的四分之一，初始化拼音编码数组仍占据了接近三成，可以注意到获取拼音时生成的字符串数组（<code>String[]</code>）占据了大量的内存。</p>
+
+<h2>优化（Optimization）</h2>
+
+<p>上面的代码是我三年前写下的，尽管它已经足够快足够紧凑——速度比微软拼音库快200多倍，初始化时间不到微软拼音库的三十分之一，占用内存不到微软拼音库的四分之一，但我认为它可以被继续优化——毕竟我当时在实现它时为了赶进度没有进行进一步的优化。</p>
+
+<p>由于汉字查询的时间复杂度已是o(1)，而且内存度量显示Lucida拼音库在初始化时消耗了相当内存——所以接下来的优化主要从空间复杂度着手：</p>
+
+<h3>稀疏数组（Sparse Array）</h3>
+
+<p>汉字的最小编码是<code>12295</code>，最大编码是<code>59491</code>，为了简便，我直接开了一个大小为<code>47197</code>（<code>59491 - 12295 + 1</code>）的<code>Int64</code>数组用来存储拼音编码。但汉字实际上是<code>20591</code>个，这意味着有一多半的空间都被浪费了。</p>
+
+<p>我猜测汉字编码应该是连续的——就像英文字母的ASCII表示一样。于是我编写了一小段代码来观察汉字编码分布，实验证明：尽管汉字编码是不连续，但它们只集中在<code>[12295, 12295]</code>、<code>[19968, 40869]</code>和<code>[59418, 59491]</code>这三个区间，也就是说可以用大小总和不到<code>21000</code>的三个数组来存储拼音编码，从而节省了一多半空间。</p>
+
+<p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量，效果如下：</p>
+
+<p>```</p>
+
+<pre><code>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</code></pre>
+
+<p>短字符串         3毫秒            6毫秒             392KB             182KB
+长字符串         7毫秒            10毫秒           1354KB             857KB
+```</p>
+
+<p>和我的估计差不多：由于分支判断增多导致运行时间增加了3毫秒，但内存占用则少了很多。</p>
+
+<h3>编码拼音（Encode Pinyin）</h3>
+
+<p>我之前的代码存在另外一个问题：汉字拼音有403种，一个汉字最多有4种拼音，于是我使用4个9位，也就是36位，来表示一个汉字的拼音。</p>
+
+<p>这个方法看似合理，但存在一个问题：太多的空间被浪费掉了。</p>
+
+<p>为什么我会这么说呢？是的，汉字是有很多多音字，但不会有那么多多音字。我的方案考虑了所有可能的拼音组合，也就是<code>403 + 403 * 402 + 403 * 402 * 401 + 403 * 402 * 401 * 400 = 26,050,889,215</code>种，而汉字只有20591个，所以我原来的方案至少浪费了99.9999%以上的空间。</p>
+
+<p>我估计所有可能的拼音组合不到一万种，为了印证我的猜想，我编写了另外一段代码计算汉字拼音有多少种组合——答案是<code>2163</code>。也就是说，我完全可以使用<code>Int16</code>来编码汉字拼音。每个编码对应一种拼音组合（例如<code>'差'</code>对应<code>"CA;CHA;CI"</code>），然后使用<code>String#Split</code>得到拼音，这样连移位操作也可以省略。</p>
+
+<p>完成修改之后，我再次进行了性能和内存度量，效果如下：</p>
+
+<p>```</p>
+
+<pre><code>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</code></pre>
+
+<p>短字符串         6毫秒           12毫秒             182KB            127KB
+长字符串        10毫秒           15毫秒             857KB           1643KB
+```</p>
+
+<p>令我吃惊的是这个"优化"并没有得到预想的效果：改变编码后的拼音库仅仅在短字符输入时节省了60KB内存，而在处理长字符时内存占用反而增加了一倍，经过进一步度量我发现<code>GetPinyins</code>在调用<code>String#Split</code>时消耗了大量内存。</p>
+
+<p>于是我使用了另一种方法——去除<code>String#Split</code>，但保留<code>Int16</code>编码，然后通过一个大小为2163的<code>Int64</code>数组来保存原来的<code>Int64</code>拼音编码。然后我再次进行了性能和内存度量，效果如下：</p>
+
+<p>```</p>
+
+<pre><code>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</code></pre>
+
+<p>短字符串        12毫秒            3毫秒             127KB             74KB
+长字符串        15毫秒            7毫秒             857KB            776KB
+```</p>
+
+<p>度量结果显示速度得到了提升——恢复到了优化内存之前的水平，而内存占用被进一步缩小。</p>
+
+<h2>总结（Summary）</h2>
+
+<p>通过空间换时间（Time-Space Trade Off）、紧凑表示（Compact Representation）、减少抽象层级（Reduce Abstract Level）以及时间/内存度量（Timing/Memory Profiling）等优化策略。我在微软拼音库的基础上实现了更加短小迅速的Lucida拼音库：</p>
+
+<ul>
+<li>查询速度比微软拼音库快200倍以上；</li>
+<li>占用内存不到微软拼音库的八分之一；</li>
+<li>启动速度比微软拼音库快30倍以上；</li>
+<li>库的大小不到微软拼音库的五分之一。</li>
+</ul>
+
+
+<p>这个比较并不公平——因为微软拼音库支持音调和笔画，而Lucida拼音库只支持汉字到拼音，但我认为这并不是产生性能差距的主要原因——如果让我设计一个和微软拼音库功能一模一样的拼音库，我相信我至少可以把速度提升50倍，并把内存占用降低至原来的三分之一。</p>
+
+<h3>回顾（Review）</h3>
+
+<p>下面是对整个优化过程的回顾。</p>
+
+<p>以长字符串（22047个字符）作为基准：</p>
+
+<p>```</p>
+
+<pre><code>                           时间           内存占用
+</code></pre>
+
+<ol>
+<li>微软拼音库              1603毫秒          6229KB</li>
+<li>去除字典                 21毫秒          1471KB</li>
+<li>使用位图代替二分搜索         7毫秒          1354KB</li>
+<li>使用稀疏数组              10毫秒           857KB</li>
+<li>使用紧凑表示               7毫秒           776KB
+```</li>
+</ol>
+
+
+<p>以短字符串（30个字符）作为基准：</p>
+
+<p>```</p>
+
+<pre><code>                           时间          内存占用
+</code></pre>
+
+<ol>
+<li>微软拼音库                48毫秒          1633KB</li>
+<li>去除字典                   7毫秒           536KB</li>
+<li>使用位图代替二分搜索         3毫秒           392KB</li>
+<li>使用稀疏数组               6毫秒           182KB</li>
+<li>使用紧凑表示               3毫秒            74KB
+```</li>
+</ol>
+
+
+<h3>得到的经验（Lessons Learned）</h3>
+
+<ol>
+<li>转移所有不必要的运行时计算到代码时（Move all unnecessary runtime computations to coding-time）：Lucida拼音库大量使用了这个技巧，例如汉字拼音编码都是手动编码生成，从而避免运行时计算；</li>
+<li>如果追求性能，尽可能使用基本类型构建数据结构：Lucida拼音库没有使用任何.Net自带的<code>List</code>或是<code>Dictionary</code>类型；</li>
+<li>通过实验验证猜想：我在编写Lucida拼音库时进行了很多假设（例如汉字编码是连续的和汉字拼音的组合是有限的等等），这些假设需要通过实验证明；</li>
+<li>时间和空间不一定是矛盾的：Lucida拼音库就是一个很好的例子——200倍以上的速度提升——八分之一以下的内存占用；</li>
+<li>通过度量进行优化，而非猜测：我曾经认为<code>String#Split</code>不会造成太大的性能损耗，事实恰恰相反；</li>
+<li>如果可能，使用o(1)的算法；</li>
+<li><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">Make it run, make it correct, make it fast</a>；</li>
+<li>代码优化会牺牲可读性：我不认为会有人能直接读懂Lucida拼音库的代码：</li>
+</ol>
+
+
+<p><img src="http://i.imgur.com/lT8SHBY.png" alt="Lucida拼音库部分代码" /></p>
+
+<p>事实上它的大部分都是我通过另外一个程序生成，而另外一个程序则是通过另外一个程序生成 &ndash;_&ndash;#</p>
+
+<h2>引用（References）</h2>
+
+<ol>
+<li><a href="http://www.amazon.com/Writing-Efficient-Programs-Prentice-Hall-Software/dp/013970244X/">Writing Efficient Programs</a>;</li>
+<li><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">Make it run, make it correct, make it fast</a>;</li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms182398.aspx">Profiling in Visual Studio 2013</a>;</li>
+<li><a href="http://java.bizhat.com/~cs134/Resources/Reading/Articles/Bentley/p1087-bentley.pdf">Perspective on Performance</a></li>
+<li><a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Framework Design Guidelines</a>;</li>
+<li><a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Joshua Bloch</a>关于如何设计API的<a href="https://www.youtube.com/watch?v=aAb7hSCtvGw">演讲</a>;</li>
+<li><a href="http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html">Hints for Computer System Design</a>;</li>
+<li><a href="http://zh.lucida.me/blog/on-learning-algorithms/">我的算法学习之路</a>.</li>
+</ol>
+
+
+<hr />
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/lucida-pinyin-converter">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[精益技术简历之道——改善技术简历的47条原则]]></title>
@@ -185,7 +862,7 @@
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x6d;&#121;&#109;&#97;&#105;&#x6c;&#64;&#103;&#103;&#103;&#46;&#99;&#x6f;&#x6d;">&#x6d;&#121;&#x6d;&#97;&#x69;&#x6c;&#x40;&#103;&#x67;&#103;&#46;&#x63;&#111;&#109;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x6d;&#x79;&#109;&#x61;&#x69;&#108;&#x40;&#103;&#103;&#103;&#46;&#x63;&#x6f;&#109;">&#x6d;&#121;&#109;&#x61;&#x69;&#108;&#x40;&#103;&#x67;&#x67;&#46;&#99;&#x6f;&#109;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
@@ -2396,129 +3073,6 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 <p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
 
 <p>正在尽量努力成为一名靠谱的软件工程师 :&ndash;|</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[设计中的设计——1. Horror Vacui]]></title>
-    <link href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/"/>
-    <updated>2014-07-26T16:10:03-07:00</updated>
-    <id>http://zh.lucida.me/blog/design-of-design-1-horror-vacui</id>
-    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">原文链接</a></p>
-
-<h2>关于</h2>
-
-<p>“设计中的设计”是一个博文系列，我打算在这个系列记录我所见过的优秀设计和优秀设计原则，并推荐一些（我认为）不错的设计书籍。</p>
-
-<p>在“<strong>设计</strong>中的<strong>设计</strong>”里，第一个<strong>设计</strong>指具有杰出设计的优秀产品，而第二个<em>设计</em>指优秀产品具有的杰出设计。</p>
-
-<ol>
-<li><a href="http://zh.lucida.me/blog/design-of-design-0-horror-prologue/">设计中的设计——0. Prologue</a></li>
-<li><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">设计中的设计——1. Horror Vacui</a></li>
-</ol>
-
-
-<h2>Horror Vacui</h2>
-
-<blockquote><p>Horror Vacui——a Latin expression meaning &ldquo;fear of emptiness"——regards the desire to fill empty spaces with information of objects.</p></blockquote>
-
-<p><strong><a href="http://en.wikipedia.org/wiki/Horror_vacui">Horror Vacui</a></strong>源自人对空旷空间的畏惧感——它是一种要将空间填满的心理，也是一种不留任何空白空间的艺术风格，这种风格的代表设计师包括David Carson和Vaughan Oliver，有兴趣的童鞋请自行Google他们的代表作品。</p>
-
-<p>不过这篇文章讨论的并不是<strong>Horror Vacui</strong>艺术风格，而是<strong>Horror Vacui</strong>心理。</p>
-
-<!-- more -->
-
-
-<p>研究表明，<strong>Horror Vacui</strong>和<strong>价值感知（Value Perception）</strong>间存在反比关系——随着<strong>Horror Vacui</strong>的升高，价值感知随之下降。简单的来说——同样的空间，放的东西越多，给人的廉价感越强烈，反之亦然（vice versa）。</p>
-
-<p>以服装店店面的设计为例：</p>
-
-<p><img src="http://i.imgur.com/FFblJhS.png" alt="Horror Vacui" /></p>
-
-<p>研究者做了一个调查，对于上面的店面设计风格，从左到右的空间利用率越来越低，然而给人的价值感知正好相反——几乎所有被调查者都认为最左的廉价感最强，而最右的高端感最强。</p>
-
-<p>再来几个现实例子：</p>
-
-<h3>店铺</h3>
-
-<p><img class="<a" src="href="http://i.imgur.com/5LsZvER.jpg">http://i.imgur.com/5LsZvER.jpg</a>" width="600" height="400" title="西单某服装店" ></p>
-
-<p><img class="<a" src="href="http://i.imgur.com/CtXZzWw.jpg">http://i.imgur.com/CtXZzWw.jpg</a>" width="600" height="400" title="优衣库" ></p>
-
-<p><img class="<a" src="href="http://i.imgur.com/CUwAJDd.jpg">http://i.imgur.com/CUwAJDd.jpg</a>" width="600" height="400" title="Burberry" ></p>
-
-<p>你觉得哪一个店更贵？</p>
-
-<h3>食物</h3>
-
-<p><img class="<a" src="href="http://i.imgur.com/YwI3YGU.jpg">http://i.imgur.com/YwI3YGU.jpg</a>" width="600" height="400" title="东北乱炖" ></p>
-
-<p><img class="<a" src="href="http://i.imgur.com/pw8iVAa.jpg">http://i.imgur.com/pw8iVAa.jpg</a>" width="600" height="400" title="法式食物" ></p>
-
-<p>你认为哪道菜更贵？</p>
-
-<h2>Horror Vacui vs Minimalism</h2>
-
-<p>Horror Vacui设计是Minimalism设计的反面，<a href="http://www.amazon.co.uk/Universal-Principles-Design-Revised-Updated/dp/1592535879">Universal Principles of Design</a>在介绍Horror Vacui时给出了下面刻薄但又实用的建议：</p>
-
-<blockquote><p>To promote associations of high value, favor minimalism for affluent and well-educated audiences and horror vacui for poorer and less-educated audiences, and vice versa.</p></blockquote>
-
-<p>简单来说：</p>
-
-<ul>
-<li>对于教育程度高或富有的用户，使用minimalism（极简）设计以带来高价值认知。</li>
-<li>对于教育程度低或较穷的用户，使用horror vacui设计以带来高性价比认知。</li>
-</ul>
-
-
-<p>反之也一样：</p>
-
-<ul>
-<li>对于教育程度低或较穷的用户，minimalism设计会让他们认为这货性价比太低，不值得。</li>
-<li>对于教育程度高或富有的用户，horror vacui设计会让他们认为这货太廉价，没必要。</li>
-</ul>
-
-
-<p>总之，不用给矮矬穷营造高大上，也不要给高帅富灌输便宜大碗，会有反效果。</p>
-
-<h2>Universal Principles of Design</h2>
-
-<p><img src="http://i.imgur.com/EEueKvz.jpg" alt="Universal Principles of Design" /></p>
-
-<p>我在之前的<a href="http://zh.lucida.me/blog/on-reading-books/">如何阅读书籍</a>中提到利用结论型/指南型书籍精炼阅读专业周边书籍，<a href="http://www.amazon.co.uk/Universal-Principles-Design-Revised-Updated/dp/1592535879">Universal Principles of Design</a>就是设计中结论型书籍的代表作：</p>
-
-<ol>
-<li>包含一百多种实用设计原则，这些原则涵盖了改善可用性（Enhance usability）、影响感知（Infuluence Perception）、提升吸引力（Increase Appeal）、做出更好的设计决策（Make Better Design Decisions）以及设计教学（Teach through Design）这五大方面。</li>
-<li>全书按照字母顺序（Alphabetical Order）组织，同时也包含按类别组织的目录，既方便查阅，也方便针对性阅读。</li>
-<li>每一种设计原则都配有详细的文字介绍、图解、案例以及参考文献。</li>
-</ol>
-
-
-<p><img src="http://i.imgur.com/eqTjTqK.jpg" alt="样章" /></p>
-
-<p>总之，这本书对于专业设计师可能比较初级，但对于设计入门者是绝好的书籍。任何涉及到制作最终用户产品的人员（包括开发、测试和产品等）都应该阅读此书，从而了解基本设计原则（principle）和术语（terminology），以便与设计师进行交流，做出令用户满意的高价值设计。</p>
-
-<p>这本书有<a href="http://www.amazon.cn/%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%B3%95%E5%88%99-%E5%A8%81%E5%BB%89%E2%80%A2%E7%AB%8B%E5%BE%B7%E5%A8%81%E5%B0%94/dp/B00ES8JL8W/">中文译版</a>，但个人强烈推荐<a href="http://www.amazon.cn/Universal-Principles-of-Design-Lidwell-William/dp/1592535879/">原版</a>：因为这类书籍翻译过来会损失相当多的信息（注意并非否认翻译水平），此外原版价格也相当实惠。</p>
-
-<p>（未完待续）</p>
-
-<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/design-of-design-1-horror-vacui/">原文链接</a></p>
 ]]></content>
   </entry>
   

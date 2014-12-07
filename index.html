@@ -11,7 +11,7 @@
 
   
   <meta name="description" content="作者：Lucida 微博：@peng_gong
-豆瓣：@figure9 原文链接：精益技术简历之道, http://zh.lucida.me/blog/lean-technical-resume 本文谢绝转载，如需转载需征得作者本人同意，谢谢。 关于 这篇文章围绕着技术简历这个话题，从版式、 &hellip;">
+豆瓣：@figure9 原文链接：从2000毫秒到10毫秒——Lucida拼音库的设计与实现 本文谢绝转载，如需转载需征得作者本人同意，谢谢。 关于 本文介绍了Lucida拼音库的设计、实现以及优化过程。Lucida拼音库以微软拼音库为基础， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/lucida-pinyin-converter/">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-07T00:27:17-08:00" pubdate data-updated="true">Dec 7<span>th</span>, 2014</time>
+        
+           | <a href="/blog/lucida-pinyin-converter/#disqus_thread"
+             data-disqus-identifier="http://zh.lucida.me/blog/lucida-pinyin-converter/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/lucida-pinyin-converter">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<hr />
+
+<h2>关于</h2>
+
+<p>本文介绍了Lucida拼音库的设计、实现以及优化过程。Lucida拼音库以微软拼音库为基础，能够快速的把汉字转化为对应的拼音，它比微软拼音库快200多倍，同时占用内存不到微软拼音库的八分之一。</p>
+
+<h2>背景</h2>
+
+<p>Lucida拼音库是我三年前编写<a href="http://www.windowsphone.com/zh-cn/store/app/%E4%B8%AD%E6%96%87%E6%8B%A8%E5%8F%B7%E5%8A%A9%E6%89%8B/3e4f73b2-c70e-40dd-b3b8-1d2135e9af56">拨号助手</a>时自行设计并实现的一个工具类（Utility Class）。它可以把中文转化成汉语拼音，并可以在Windows Phone 7上使用。</p>
+
+<p>我曾经在<a href="http://zh.lucida.me/blog/on-learning-algorithms/">我的算法学习之路</a>里面提到过我为什么需要这个工具类（用户期望根据拼音给出智能提示），以及为什么需要自己动手编写，而不是使用现成的代码（<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=15251">微软拼音库</a>）。有兴趣的同学可以阅读<a href="http://zh.lucida.me/blog/on-learning-algorithms/">那篇文章</a>了解背景。</p>
+
+<p>我个人习惯使用自上而下（Top-Down）的方式设计类，Lucida拼音库也不例外：</p>
+
+<ol>
+<li>API设计；</li>
+<li>具体实现；</li>
+<li>测试；</li>
+<li>度量->优化->度量->优化&hellip;</li>
+</ol>
+
+
+<p>接下来我将按照这个步骤一一介绍Lucida拼音库从设计到实现的过程。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/lucida-pinyin-converter/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -569,88 +647,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/on-programming-errors-2/">关于编程错误的思考——2. Blunders, Typos, Mismatches, and Language Liability</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-27T15:46:53-07:00" pubdate data-updated="true">Jun 27<span>th</span>, 2014</time>
-        
-           | <a href="/blog/on-programming-errors-2/#disqus_thread"
-             data-disqus-identifier="http://zh.lucida.me/blog/on-programming-errors-2/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/on-programming-errors-2/">原文链接</a></p>
-
-<h2>概要</h2>
-
-<p><strong>关于编程错误的思考</strong>是一个博文系列，我试图通过结合<a href="http://dl.acm.org/citation.cfm?id=66416">the Errors of TEX</a>对编程错误的分类以及自己的编程经验，对常见的编程错误、以及如何控制和预防这些错误进行介绍。</p>
-
-<ol>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-0/">Knuth, TEX, and the Errors of TEX</a></li>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a></li>
-<li><a href="http://zh.lucida.me/blog/on-programming-errors-2/">Blunders, Typos, Mismatches, and Language Liability</a></li>
-<li>Algorithm + Data Structures &ndash;> Programming</li>
-<li>Robustness and Surprise</li>
-<li>On Enhancing Existing Systems</li>
-<li>Epilogue</li>
-</ol>
-
-
-<h2>对编程错误的分析</h2>
-
-<p>上篇文章（<a href="http://zh.lucida.me/blog/on-programming-errors-1/">A Taxonomy of Programming Errors</a>）介绍了Knuth对编程错误的分类，基于Knuth的分类和我自己的编程经验，从这篇文章开始我将会给出各类编程错误的<strong>案例</strong>、<strong>诱因</strong>和<strong>对策</strong>。</p>
-
-<p>按照复杂程度的不同，Knuth将编程错误分为三大类，这篇文章介绍第一类错误——简单的错误：</p>
-
-<ul>
-<li><strong>粗心大意</strong>：敲错了代码。</li>
-<li><strong>鬼使神差</strong>：敲串了代码。</li>
-<li><strong>丢三落四</strong>：忘敲了代码。</li>
-<li><strong>言非所指</strong>：踩语言的坑。</li>
-<li><strong>事与愿违</strong>：中自己的坑。</li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/on-programming-errors-2/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; 较旧的文章</a>
@@ -673,6 +669,10 @@
 </section><section>
   <h1>最近的博文</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/lucida-pinyin-converter/">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a>
+      </li>
     
       <li class="post">
         <a href="/blog/lean-technical-resume/">精益技术简历之道——改善技术简历的47条原则</a>
@@ -702,15 +702,11 @@
         <a href="/blog/xorb-football/">逗逼足球——Xorb Football</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/on-programming-errors-2/">关于编程错误的思考——2. Blunders, Typos, Mismatches, and Language Liability</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (20)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/programming'>Programming (10)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/csharp'>CSharp (1)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (21)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/optimization'>Optimization (1)</a></li><li><a href='/blog/categories/programming'>Programming (11)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
 </section>
   
 </aside>

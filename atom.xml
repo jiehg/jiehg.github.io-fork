@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-11-02T00:25:25-07:00</updated>
+  <updated>2014-12-07T01:00:52-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,777 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[从2000毫秒到10毫秒——Lucida拼音库的设计与实现]]></title>
+    <link href="http://zh.lucida.me/blog/lucida-pinyin-converter/"/>
+    <updated>2014-12-07T00:27:17-08:00</updated>
+    <id>http://zh.lucida.me/blog/lucida-pinyin-converter</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/lucida-pinyin-converter">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<hr />
+
+<h2>关于</h2>
+
+<p>本文介绍了Lucida拼音库的设计、实现以及优化过程。Lucida拼音库以微软拼音库为基础，能够快速的把汉字转化为对应的拼音，它比微软拼音库快200多倍，同时占用内存不到微软拼音库的八分之一。</p>
+
+<h2>背景</h2>
+
+<p>Lucida拼音库是我三年前编写<a href="http://www.windowsphone.com/zh-cn/store/app/%E4%B8%AD%E6%96%87%E6%8B%A8%E5%8F%B7%E5%8A%A9%E6%89%8B/3e4f73b2-c70e-40dd-b3b8-1d2135e9af56">拨号助手</a>时自行设计并实现的一个工具类（Utility Class）。它可以把中文转化成汉语拼音，并可以在Windows Phone 7上使用。</p>
+
+<p>我曾经在<a href="http://zh.lucida.me/blog/on-learning-algorithms/">我的算法学习之路</a>里面提到过我为什么需要这个工具类（用户期望根据拼音给出智能提示），以及为什么需要自己动手编写，而不是使用现成的代码（<a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=15251">微软拼音库</a>）。有兴趣的同学可以阅读<a href="http://zh.lucida.me/blog/on-learning-algorithms/">那篇文章</a>了解背景。</p>
+
+<p>我个人习惯使用自上而下（Top-Down）的方式设计类，Lucida拼音库也不例外：</p>
+
+<ol>
+<li>API设计；</li>
+<li>具体实现；</li>
+<li>测试；</li>
+<li>度量->优化->度量->优化&hellip;</li>
+</ol>
+
+
+<p>接下来我将按照这个步骤一一介绍Lucida拼音库从设计到实现的过程。</p>
+
+<!-- more -->
+
+
+<h2>API设计（API Design）</h2>
+
+<p>API设计<a href="http://www.newt.com/java/GoodApiDesign-JoshBloch.pdf">至关重要</a>——结合<a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Framework Design Guidelines</a>和<a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Joshua Bloch</a>关于如何设计API的<a href="https://www.youtube.com/watch?v=aAb7hSCtvGw">演讲</a>，我在设计API时会遵循以下步骤：</p>
+
+<ol>
+<li>确认功能需求；</li>
+<li>确认至少三个不同的使用场景；</li>
+<li>确认API。</li>
+</ol>
+
+
+<h3>功能需求</h3>
+
+<p>Lucida拼音库将汉字转化为拼音——但为了编码，我们需要更加细化的需求：</p>
+
+<ol>
+<li>能够得到给定汉字的拼音；（<code>'中' -&gt; "ZHONG"</code>）</li>
+<li>能够得到给定多音汉字的所有拼音；（<code>'曾' -&gt; ["CENG", "ZENG"]</code>）</li>
+<li>能够判断一个给定字符是否是汉字；（<code>'中' -&gt; true; 'A' -&gt; false</code>）</li>
+<li><strong>只</strong>需要拼音，<strong>不</strong>需要音调。</li>
+</ol>
+
+
+<h3>使用场景</h3>
+
+<p>结合实际需求，我写下了如下使用场景：</p>
+
+<h4>1. 得到汉字的拼音</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>String[] pinyins = '曾'.GetPinyins();
+</span><span class='line'>// pinyins == ["CENG", "ZENG"]</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2. 得到汉字词汇的拼音</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>String value = "中华人民";
+</span><span class='line'>String[] pinyinOfValue = s.Select(c =&gt; c.GetPinyins()[0]).ToArray();
+</span><span class='line'>// pinyinOfValue == ["ZHONG", "HUA", "REN", "MIN"]</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>3. 得到混合词汇的首字母缩写</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>String mixed = "IBM中国有限公司";
+</span><span class='line'>String initialOfMixed = String.Join("", mixed.Select(c =&gt; {
+</span><span class='line'>  if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ".Contains(c.ToUpper())) {
+</span><span class='line'>    return c.ToUpper();
+</span><span class='line'>  } else if (c.IsChinese()) {
+</span><span class='line'>    return c.GetPinyins()[0][0];
+</span><span class='line'>  } else {
+</span><span class='line'>    return "";
+</span><span class='line'>  }
+</span><span class='line'>}));
+</span><span class='line'>// initialOfMixed == ["IBMZGYXGS"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>不难看出<code>GetPinyins</code>和<code>IsChinese</code>是Lucida拼音库的关键操作。</p>
+
+<h3>API设计</h3>
+
+<p>根据前面的使用场景，不难得到下面的API：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public static class ChineseCharExtensions {
+</span><span class='line'>  /// &lt;summary&gt;
+</span><span class='line'>  /// Gets an array of Pinyin from the given character.
+</span><span class='line'>  /// &lt;/summary&gt;
+</span><span class='line'>  /// &lt;exception cref="ArgumentOutOfRangeException"&gt;Throws when the given character is not a Chinese character.&lt;/exception&gt;
+</span><span class='line'>  public static String[] GetPinyins(this Char chr) ;
+</span><span class='line'>
+</span><span class='line'>  /// &lt;summary&gt;
+</span><span class='line'>  /// Indicates whether the given character is a Chinese character.
+</span><span class='line'>  /// &lt;/summary&gt;
+</span><span class='line'>  public static Boolean IsChinese(this Char chr) ;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>ChineseCharExtensions</code>是一个扩展类，它为<code>Char</code>提供<code>GetPinyins</code>和<code>IsChinese</code>这两个<a href="http://msdn.microsoft.com/en-us/library/bb383977.aspx">扩展方法</a>，从而允许我们直接在<code>Char</code>类型上调用这两个方法，非常方便。</p>
+
+<p>可能有人会问为什么不引入<code>GetFirstPinyin</code>或<code>GetInitial</code>这样的辅助方法。我的答案是：<strong>一个类应该提供少量正交的（Orthogonal）高性能方法，调用者根据需求进行进一步抽象。</strong></p>
+
+<h2>实现（Implementation）</h2>
+
+<blockquote><p>问：把大象放进冰箱需要几步？
+答：三步：1. 打开冰箱门；2. 把大象放进去；3. 关上冰箱。</p></blockquote>
+
+<p>API设计告诉我们做什么（What to do），接下来我们需要确定怎么做（How to do），也就是代码实现。</p>
+
+<p>Windows Phone 7不支持大容量<code>Dictionary</code>（这也是微软拼音库无法在Windows Phone 7上正常运行的原因），所以我们不能直接使用.Net自带的字典数据结构。但拼音转换需要一个字典结构——对于给定的字符返回其拼音——也就是说我们要<strong>自己实现</strong>一个类似<code>Dictionary&lt;Char, String[]&gt;</code>的数据结构，但又不能直接使用<code>Dictionary</code>。从性能方面考虑，这个数据结构应该尽可能使用<code>Int32</code>、<code>String</code>和<code>String[]</code>这些低开销基本类型，而<strong>不</strong>使用<code>List&lt;String&gt;</code>或<code>Dictionary&lt;Char, String[]&gt;</code>这些高开销类型。</p>
+
+<p>为了实现<code>汉字 -&gt; 拼音</code>这个字典结构，我们需要解决下面这两个问题：</p>
+
+<ol>
+<li>如何在不使用<code>Dictionary</code>的前提下查找汉字？</li>
+<li>如何尽可能紧凑的表示拼音？我们可以为每个汉字用<code>String</code>数组表示拼音，但两万多个<code>String</code>数组无疑是不小的开销。</li>
+</ol>
+
+
+<h3>如何查找汉字</h3>
+
+<p>这个问题并不难解决，我们可以把两万多个汉字拼接成一个字符串，然后对这个字符串进行排序，接下来用二分搜索查找汉字。我们可以把这个大号字符串（两万多个汉字）放在代码里，从而省去排序时间：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>private static Char[] ChineseCharacters = "〇一丁丂七丄丅...".ToArray();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下来我们可以用二分搜索查找汉字：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>private static Int32 FindCharacter(Char chr) {
+</span><span class='line'>  return Array.BinarySearch(ChineseCharacters, chr);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是转念一想，为什么要二分搜索呢？就像C标准库里的<code>isupper</code>和<code>islower</code>一样，我可以使用一个位图（Bit-map）来查找汉字，从而把速度从o(logN)降到o(1)：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/// &lt;summary&gt;
+</span><span class='line'>/// The minimum integer value of a valid Chinese character.
+</span><span class='line'>/// &lt;/summary&gt;
+</span><span class='line'>private static readonly Int32 MinValue = 12295;
+</span><span class='line'>
+</span><span class='line'>/// &lt;summary&gt;
+</span><span class='line'>/// The maximum integer value of a valid Chinese character.
+</span><span class='line'>/// &lt;/summary&gt;
+</span><span class='line'>private static readonly Int32 MaxValue = 59491;
+</span><span class='line'>
+</span><span class='line'>private static Boolean[] ChineseCharactersTruthTable = { true, false, ... };</span></code></pre></td></tr></table></div></figure>
+
+
+<p>有了<code>ChineseCharactersTruthTable</code>，我们可以很容易的实现<code>IsChinese</code>：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public static Boolean IsChinese(this Char chr) {
+</span><span class='line'>  return MinValue &lt;= chr && chr &lt;= MaxValue && ChineseCharactersTruthTable[chr - MinValue];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>如何表示拼音</h3>
+
+<p>最直接的表示拼音的方式是使用<code>String[][]</code>，它按照<code>ChineseCharacters</code>中的汉字顺序保存着每个汉字的拼音：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>private static String[][] PinyinsTable = { new String[] {"LING"}, new String[] {"YI"}, ... };</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后利用它和<code>FindCharacter</code>实现<code>GetPinyins</code>：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public static String[] GetPinyins(this Char chr) {
+</span><span class='line'>  Int32 index = FindCharacter(chr);
+</span><span class='line'>  if (index != -1) {
+</span><span class='line'>    return PinyinsTable[index];
+</span><span class='line'>  } else {
+</span><span class='line'>    throw new ArgumentOutOfRangeException("chr", chr, "Expect a Chinese character.");
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但用多维数组表示<code>PinyinTable</code>存在很多问题：</p>
+
+<ol>
+<li><code>PinyinTable</code>是一个由两万多个数组组成的多维数组——构造它可是不小的开销；</li>
+<li><code>GetPinyins</code>会直接返回<code>PinyinTable</code>里的子数组引用，如果用户修改了子数组那么原始数组<code>PinyinTable</code>也会遭到修改。（是的，我们可以返回一个拷贝，然而这又造成了性能开销）</li>
+</ol>
+
+
+<p>出于这两个原因，我们不会使用<code>String[][]</code>。我们应该使用一种紧凑的方式表达拼音，这时我的第一反应就是用<code>Int64</code>表示拼音，我的理由如下：</p>
+
+<ol>
+<li>尽管汉字有多音字，但我估计每个多音字的发音不会超过8种；</li>
+<li>我估计汉字的拼音应该不会超过500种，也就是说可以用9位（Bit）表示一个拼音；</li>
+<li>所以<code>Int64</code>可以容纳7个拼音（64 > 7 * 9），我认为这足够了。</li>
+</ol>
+
+
+<p>为了验证我的猜想，我编写了一段代码用来计算汉字的拼音数量：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Console.WriteLine(ChineseCharacters
+</span><span class='line'>    .Select(c =&gt; new ChineseChar(c).Pinyins)
+</span><span class='line'>    .Aggregate(new HashSet&lt;String&gt;(), (hashSet, pinyins) =&gt; {
+</span><span class='line'>      foreach (String pinyin in pinyins.Where(p =&gt; p != null)) {
+</span><span class='line'>        hashSet.Add(pinyin.Substring(0, pinyin.Length - 1));
+</span><span class='line'>      }
+</span><span class='line'>      return hashSet;
+</span><span class='line'>    }).Count);
+</span><span class='line'>
+</span><span class='line'>// -&gt; 403</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以汉字拼音一共有<strong>403</strong>种——然后我用一段代码来算一个汉字最多能有多少拼音：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var chr = Pinyin.HanziArray
+</span><span class='line'>    .Select(c =&gt; new {
+</span><span class='line'>      Value = c,
+</span><span class='line'>      Pinyins = new ChineseChar(c).Pinyins.Where(p =&gt; p != null).ToArray()
+</span><span class='line'>    })
+</span><span class='line'>    .Aggregate((a, b) =&gt; a.Pinyins.Length &gt; b.Pinyins.Length ? a : b);
+</span><span class='line'>Console.WriteLine(chr.Value + ": " + String.Join(", ", chr.Pinyins));
+</span><span class='line'>
+</span><span class='line'>// -&gt; 差: CHA1, CHA4, CHA5, CHAI1, CHAI4, CHAI5, CI1, CI5</span></code></pre></td></tr></table></div></figure>
+
+
+<p>好吧<em>差</em>有8种拼音，不过由于我们不考虑音调，所以再算一遍：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var chr = Pinyin.HanziArray
+</span><span class='line'>  .Select(c =&gt; new {
+</span><span class='line'>    Value = c,
+</span><span class='line'>    Pinyins = new HashSet&lt;String&gt;(
+</span><span class='line'>        new ChineseChar(c).Pinyins
+</span><span class='line'>          .Where(p =&gt; p != null)
+</span><span class='line'>          .Select(s =&gt; s.Substring(0, s.Length - 1)))
+</span><span class='line'>  })
+</span><span class='line'>  .Aggregate((a, b) =&gt; a.Pinyins.Count &gt; b.Pinyins.Count ? a : b);
+</span><span class='line'>Console.WriteLine(chr.Value + ": " + String.Join(", ", chr.Pinyins));
+</span><span class='line'>
+</span><span class='line'>// -&gt; 轧: GA, YA, YAI, ZHA</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这证明了我的猜想：一个汉字最多有4种拼音（不考虑音调），拼音一共有403种。所以我们可以用9位（Bit）表示一个拼音，从而最多使用36位。也就是说<code>Int64</code>可以被用来表示一个汉字的拼音，以<code>差</code>为例，它有CHA、CHAI和CI三种发音：</p>
+
+<p><img src="http://i.imgur.com/1IKzPu2.png" alt="图解差的拼音表示" /></p>
+
+<p>所以，我们可以用<code>Int64[]</code>来代替前面的<code>String[][]</code>，每一个<code>Int64</code>代表一个汉字的拼音：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>private static Int64[] PinyinCodes = { 175, 357, 196677, 186002, 246, ... }</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>PinyinCodes</code>的引入使得<code>ChineseCharactersTruthTable</code>变的多余，因为现在可以通过检查<code>PinyinCodes</code>的值来判断一个字符是否为汉字：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public static Boolean IsChinese(Char chr) {
+</span><span class='line'>  return MinValue &lt;= chr && chr &lt;= MaxValue && PinyinCodes[chr - MinValue] != 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>此外我们需要编写额外一个方法用来把<code>Int64</code>解码（Decode）为对应的拼音，并增加一个类型为<code>String[]</code>的<code>PinyinTable</code>保存汉字中所有的拼音：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>private static String[] PinyinTable = { "A", "AI", "AN", "ANG", "AO", "BA", ... };
+</span><span class='line'>
+</span><span class='line'>private static String[] DecodePinyins(Int64 pinyinCode) {
+</span><span class='line'>  Int16 count = 0;
+</span><span class='line'>  for (Int64 tmp = count; tmp &gt; 0; count += 1, tmp &gt;&gt;= 9) ;
+</span><span class='line'>  String[] pinyins = new String[count];
+</span><span class='line'>  for (Int16 i = 0; pinyinCode &gt; 0; i += 1, pinyinCode &gt;&gt;= 9) {
+</span><span class='line'>    pinyins[i] = PinyinTable[(pinyinCode & 511) - 1];
+</span><span class='line'>  }
+</span><span class='line'>  return pinyins;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后利用它们来实现<code>GetPinyins</code>：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public static String[] GetPinyins(this Char chr) {
+</span><span class='line'>  if (IsChinese(chr)) {
+</span><span class='line'>    return DecodePinyins(PinyinCodes[chr - MinValue]);
+</span><span class='line'>  } else {
+</span><span class='line'>    throw new ArgumentOutOfRangeException("chr", chr, "Expect a Chinese character.");
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>实现了<code>IsChinese</code>和<code>GetPinyins</code>，Lucida拼音库的实现就基本完成了，接下来是测试。</p>
+
+<h2>测试（Test）</h2>
+
+<p>我的测试思路很简单：我假设微软拼音库是正确的，如果Lucida拼音库和微软拼音库具有一致的行为（Behavior），那么Lucida拼音库就是正确的。</p>
+
+<p>测试代码非常简单直接：遍历所有的字符（<code>Char</code>），检查Lucida拼音库是否和微软拼音库具有一致的行为。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[TestClass]
+</span><span class='line'>public class ChineseCharExtensionsTest {
+</span><span class='line'>  [TestMethod]
+</span><span class='line'>  public void TestIsChinese() {
+</span><span class='line'>    var invalidCases = AllChars()
+</span><span class='line'>        .Where(c =&gt; c.IsChinese() != ChineseChar.IsValidChar(c))
+</span><span class='line'>        .Select(c =&gt; new {
+</span><span class='line'>          Value = c,
+</span><span class='line'>          Expected = ChineseChar.IsValidChar(c),
+</span><span class='line'>          Actual = c.IsChinese()
+</span><span class='line'>        });
+</span><span class='line'>    Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  [TestMethod]
+</span><span class='line'>  public void TestGetPinyins() {
+</span><span class='line'>    var invalidCases = AllChars()
+</span><span class='line'>        .Where(c =&gt; ChineseChar.IsValidChar(c))
+</span><span class='line'>        .Select(c =&gt; new {
+</span><span class='line'>          Value = c,
+</span><span class='line'>          Expected = new HashSet&lt;String&gt;(
+</span><span class='line'>              new ChineseChar(c).Pinyins
+</span><span class='line'>                  .Where(p =&gt; p != null)
+</span><span class='line'>                  .Select(p =&gt; p.Substring(0, p.Length - 1))),
+</span><span class='line'>          Actual = new HashSet&lt;String&gt;(c.GetPinyins())
+</span><span class='line'>        })
+</span><span class='line'>        .Where(o =&gt; !o.Expected.SetEquals(o.Actual))
+</span><span class='line'>        .Select(o =&gt; new {
+</span><span class='line'>          Value = o.Value,
+</span><span class='line'>          Expected = String.Join(", ", o.Expected),
+</span><span class='line'>          Actual = String.Join(",", o.Actual)
+</span><span class='line'>        });
+</span><span class='line'>    Assert.AreEqual(String.Empty, String.Join("\n", invalidCases));
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  private static IEnumerable&lt;Char&gt; AllChars() {
+</span><span class='line'>    for (Char value = Char.MinValue; value != Char.MaxValue; value += (Char)1) {
+</span><span class='line'>      yield return value;
+</span><span class='line'>    }
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后测试就通过了 &ndash;_&ndash;# 我甚至手动改了下代码让测试失败再改回来让测试通过以确定测试是有效的。</p>
+
+<h2>度量（Profiling）</h2>
+
+<p>理论上来说我的拼音库要比微软拼音库速度快，而且占用空间小。但是理论归理论，我们需要度量（Profile）程序来验证它。我在这里使用Visual Studio 2013自带的性能分析工具（Performance and Diagnostics）进行时间度量和内存度量。</p>
+
+<p>度量程序如下。我使用一短（30个字符）一长（22047个字符）两个字符串作为测试数据，然后使用<code>ByMsLibrary</code>和<code>ByLucLibrary</code>分别用微软拼音库和我的拼音查询库将这两个字符串转化成对应的拼音：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>private static Char[] shortText = "前面三辆囚车中分别监禁的是三个男子，都作书生打扮，一个是白发".ToArray();
+</span><span class='line'>  var longText = File.ReadAllText(@"sample_text.txt").ToArray();
+</span><span class='line'>
+</span><span class='line'>private static Char[] longText = File.ReadAllText(@"sample_text.txt").ToArray();
+</span><span class='line'>
+</span><span class='line'>private static String ByMsLibrary(Char[] chrArray) {
+</span><span class='line'>  return String.Join(" ",
+</span><span class='line'>      chrArray.Where(ch =&gt; ChineseChar.IsValidChar(ch)).Select(ch =&gt; new ChineseChar(ch).Pinyins[0]));
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>private static String ByLucLibrary(Char[] chrArray) {
+</span><span class='line'>  return String.Join(" ",
+</span><span class='line'>      chrArray.Where(ch =&gt; ch.IsChinese()).Select(ch =&gt; ch.GetPinyins()[0]));
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>时间度量（Timing Profiling）</h3>
+
+<h4>短字符串</h4>
+
+<p>度量代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  String value1 = ByMsLibrary(shortText);
+</span><span class='line'>  String value2 = ByLucLibrary(shortText);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/IPHln3j.png" alt="短字符串时间度量" /></p>
+
+<p>对于短字符串（30个字符），Lucida拼音库的性能优势并不明显（3毫秒对48毫秒，尽管也快了16倍），值得一提的是，微软拼音库花了30毫秒用于初始化，而我的拼音查询库只用了不到2毫秒。</p>
+
+<h4>长字符串</h4>
+
+<p>度量代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  String value1 = ByMsLibrary(longText);
+</span><span class='line'>  String value2 = ByLucLibrary(longText);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/AfU1pCX.png" alt="长字符串时间度量" /></p>
+
+<p>对于长字符串（22047个字符），我的拼音查询库的性能优势得到了展现：微软拼音库用了1603毫秒，而我的拼音查询库只用了7毫秒——比微软拼音库快200多倍。</p>
+
+<h3>内存度量（Memory Profiling）</h3>
+
+<h4>微软拼音库 + 短字符串</h4>
+
+<p>度量代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByMsLibrary(shortText);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/fvohazD.png" alt="微软拼音库 + 短字符串" /></p>
+
+<p>微软拼音库使用了1633KB内存：内存大量被花费在反序列化拼音信息（<code>CharUnit.Deserialize</code>）、读取资源（<code>ResourceReader.GetResourceData</code>）和初始化列表（<code>List.Add</code>）上。</p>
+
+<h4>Lucida拼音库 + 短字符串</h4>
+
+<p>度量代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByLucLibrary(shortText);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/RFOzRJ8.png" alt="Lucida拼音库 + 短字符串" /></p>
+
+<p>Lucida拼音库使用了392KB内存——大约是微软拼音库的四分之一，几乎所有的内存都被花费在初始化拼音编码数组上。</p>
+
+<h4>微软拼音库 + 长字符串</h4>
+
+<p>度量代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByMsLibrary(longText);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/fpcDFbt.png" alt="微软拼音库 + 长字符串" /></p>
+
+<p>微软拼音库使用了6229KB内存，这时<code>CharUnit</code>对象的获取和初始化成为了内存占用的主力。</p>
+
+<h4>Lucida拼音库 + 长字符串</h4>
+
+<p>度量代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  String value = ByLucLibrary(longText);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://i.imgur.com/tH0KIiR.png" alt="Lucida拼音库 + 长字符串" /></p>
+
+<p>Lucida拼音库使用了1354KB内存——依然不到微软拼音库的四分之一，初始化拼音编码数组仍占据了接近三成，可以注意到获取拼音时生成的字符串数组（<code>String[]</code>）占据了大量的内存。</p>
+
+<h2>优化（Optimization）</h2>
+
+<p>上面的代码是我三年前写下的，尽管它已经足够快足够紧凑——速度比微软拼音库快200多倍，初始化时间不到微软拼音库的三十分之一，占用内存不到微软拼音库的四分之一，但我认为它可以被继续优化——毕竟我当时在实现它时为了赶进度没有进行进一步的优化。</p>
+
+<p>由于汉字查询的时间复杂度已是o(1)，而且内存度量显示Lucida拼音库在初始化时消耗了相当内存——所以接下来的优化主要从空间复杂度着手：</p>
+
+<h3>稀疏数组（Sparse Array）</h3>
+
+<p>汉字的最小编码是<code>12295</code>，最大编码是<code>59491</code>，为了简便，我直接开了一个大小为<code>47197</code>（<code>59491 - 12295 + 1</code>）的<code>Int64</code>数组用来存储拼音编码。但汉字实际上是<code>20591</code>个，这意味着有一多半的空间都被浪费了。</p>
+
+<p>我猜测汉字编码应该是连续的——就像英文字母的ASCII表示一样。于是我编写了一小段代码来观察汉字编码分布，实验证明：尽管汉字编码是不连续，但它们只集中在<code>[12295, 12295]</code>、<code>[19968, 40869]</code>和<code>[59418, 59491]</code>这三个区间，也就是说可以用大小总和不到<code>21000</code>的三个数组来存储拼音编码，从而节省了一多半空间。</p>
+
+<p>于是我用三个数组代替了原来的<code>PinyinCodes</code>，代码变的有些复杂，但是有测试在我也不怕会搞出什么问题。修改完成之后，我重新进行了性能和内存度量，效果如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</span><span class='line'>短字符串         3毫秒            6毫秒             392KB             182KB
+</span><span class='line'>长字符串         7毫秒            10毫秒           1354KB             857KB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>和我的估计差不多：由于分支判断增多导致运行时间增加了3毫秒，但内存占用则少了很多。</p>
+
+<h3>编码拼音（Encode Pinyin）</h3>
+
+<p>我之前的代码存在另外一个问题：汉字拼音有403种，一个汉字最多有4种拼音，于是我使用4个9位，也就是36位，来表示一个汉字的拼音。</p>
+
+<p>这个方法看似合理，但存在一个问题：太多的空间被浪费掉了。</p>
+
+<p>为什么我会这么说呢？是的，汉字是有很多多音字，但不会有那么多多音字。我的方案考虑了所有可能的拼音组合，也就是<code>403 + 403 * 402 + 403 * 402 * 401 + 403 * 402 * 401 * 400 = 26,050,889,215</code>种，而汉字只有20591个，所以我原来的方案至少浪费了99.9999%以上的空间。</p>
+
+<p>我估计所有可能的拼音组合不到一万种，为了印证我的猜想，我编写了另外一段代码计算汉字拼音有多少种组合——答案是<code>2163</code>。也就是说，我完全可以使用<code>Int16</code>来编码汉字拼音。每个编码对应一种拼音组合（例如<code>'差'</code>对应<code>"CA;CHA;CI"</code>），然后使用<code>String#Split</code>得到拼音，这样连移位操作也可以省略。</p>
+
+<p>完成修改之后，我再次进行了性能和内存度量，效果如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</span><span class='line'>短字符串         6毫秒           12毫秒             182KB            127KB
+</span><span class='line'>长字符串        10毫秒           15毫秒             857KB           1643KB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>令我吃惊的是这个&#8221;优化&#8221;并没有得到预想的效果：改变编码后的拼音库仅仅在短字符输入时节省了60KB内存，而在处理长字符时内存占用反而增加了一倍，经过进一步度量我发现<code>GetPinyins</code>在调用<code>String#Split</code>时消耗了大量内存。</p>
+
+<p>于是我使用了另一种方法——去除<code>String#Split</code>，但保留<code>Int16</code>编码，然后通过一个大小为2163的<code>Int64</code>数组来保存原来的<code>Int64</code>拼音编码。然后我再次进行了性能和内存度量，效果如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>              优化前时间       优化后时间       优化前内存占用     优化后内存占用
+</span><span class='line'>短字符串        12毫秒            3毫秒             127KB             74KB
+</span><span class='line'>长字符串        15毫秒            7毫秒             857KB            776KB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>度量结果显示速度得到了提升——恢复到了优化内存之前的水平，而内存占用被进一步缩小。</p>
+
+<h2>总结（Summary）</h2>
+
+<p>通过空间换时间（Time-Space Trade Off）、紧凑表示（Compact Representation）、减少抽象层级（Reduce Abstract Level）以及时间/内存度量（Timing/Memory Profiling）等优化策略。我在微软拼音库的基础上实现了更加短小迅速的Lucida拼音库：</p>
+
+<ul>
+<li>查询速度比微软拼音库快200倍以上；</li>
+<li>占用内存不到微软拼音库的八分之一；</li>
+<li>启动速度比微软拼音库快30倍以上；</li>
+<li>库的大小不到微软拼音库的五分之一。</li>
+</ul>
+
+
+<p>这个比较并不公平——因为微软拼音库支持音调和笔画，而Lucida拼音库只支持汉字到拼音，但我认为这并不是产生性能差距的主要原因——如果让我设计一个和微软拼音库功能一模一样的拼音库，我相信我至少可以把速度提升50倍，并把内存占用降低至原来的三分之一。</p>
+
+<h3>回顾（Review）</h3>
+
+<p>下面是对整个优化过程的回顾。</p>
+
+<p>以长字符串（22047个字符）作为基准：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>                           时间           内存占用
+</span><span class='line'>0. 微软拼音库              1603毫秒          6229KB
+</span><span class='line'>1. 去除字典                 21毫秒          1471KB
+</span><span class='line'>2. 使用位图代替二分搜索         7毫秒          1354KB
+</span><span class='line'>3. 使用稀疏数组              10毫秒           857KB
+</span><span class='line'>4. 使用紧凑表示               7毫秒           776KB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以短字符串（30个字符）作为基准：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>                           时间          内存占用
+</span><span class='line'>0. 微软拼音库                48毫秒          1633KB
+</span><span class='line'>1. 去除字典                   7毫秒           536KB
+</span><span class='line'>2. 使用位图代替二分搜索         3毫秒           392KB
+</span><span class='line'>3. 使用稀疏数组               6毫秒           182KB
+</span><span class='line'>4. 使用紧凑表示               3毫秒            74KB</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>得到的经验（Lessons Learned）</h3>
+
+<ol>
+<li>转移所有不必要的运行时计算到代码时（Move all unnecessary runtime computations to coding-time）：Lucida拼音库大量使用了这个技巧，例如汉字拼音编码都是手动编码生成，从而避免运行时计算；</li>
+<li>如果追求性能，尽可能使用基本类型构建数据结构：Lucida拼音库没有使用任何.Net自带的<code>List</code>或是<code>Dictionary</code>类型；</li>
+<li>通过实验验证猜想：我在编写Lucida拼音库时进行了很多假设（例如汉字编码是连续的和汉字拼音的组合是有限的等等），这些假设需要通过实验证明；</li>
+<li>时间和空间不一定是矛盾的：Lucida拼音库就是一个很好的例子——200倍以上的速度提升——八分之一以下的内存占用；</li>
+<li>通过度量进行优化，而非猜测：我曾经认为<code>String#Split</code>不会造成太大的性能损耗，事实恰恰相反；</li>
+<li>如果可能，使用o(1)的算法；</li>
+<li><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">Make it run, make it correct, make it fast</a>；</li>
+<li>代码优化会牺牲可读性：我不认为会有人能直接读懂Lucida拼音库的代码：</li>
+</ol>
+
+
+<p><img src="http://i.imgur.com/lT8SHBY.png" alt="Lucida拼音库部分代码" /></p>
+
+<p>事实上它的大部分都是我通过另外一个程序生成，而另外一个程序则是通过另外一个程序生成 &ndash;_&ndash;#</p>
+
+<h2>引用（References）</h2>
+
+<ol>
+<li><a href="http://www.amazon.com/Writing-Efficient-Programs-Prentice-Hall-Software/dp/013970244X/">Writing Efficient Programs</a>;</li>
+<li><a href="http://c2.com/cgi/wiki?MakeItWorkMakeItRightMakeItFast">Make it run, make it correct, make it fast</a>;</li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms182398.aspx">Profiling in Visual Studio 2013</a>;</li>
+<li><a href="http://java.bizhat.com/~cs134/Resources/Reading/Articles/Bentley/p1087-bentley.pdf">Perspective on Performance</a></li>
+<li><a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Framework Design Guidelines</a>;</li>
+<li><a href="http://www.amazon.com/Framework-Design-Guidelines-Conventions-Libraries/dp/0321545613/">Joshua Bloch</a>关于如何设计API的<a href="https://www.youtube.com/watch?v=aAb7hSCtvGw">演讲</a>;</li>
+<li><a href="http://research.microsoft.com/en-us/um/people/blampson/33-hints/webpage.html">Hints for Computer System Design</a>;</li>
+<li><a href="http://zh.lucida.me/blog/on-learning-algorithms/">我的算法学习之路</a>.</li>
+</ol>
+
+
+<hr />
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/lucida-pinyin-converter">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[精益技术简历之道——改善技术简历的47条原则]]></title>
@@ -185,7 +956,7 @@
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x6d;&#x79;&#109;&#x61;&#105;&#108;&#64;&#103;&#x67;&#103;&#x2e;&#x63;&#x6f;&#109;">&#x6d;&#x79;&#x6d;&#x61;&#105;&#108;&#64;&#x67;&#x67;&#x67;&#46;&#x63;&#111;&#109;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x6d;&#121;&#109;&#97;&#105;&#108;&#64;&#x67;&#x67;&#x67;&#46;&#99;&#x6f;&#109;">&#x6d;&#121;&#x6d;&#x61;&#x69;&#108;&#x40;&#x67;&#x67;&#103;&#x2e;&#x63;&#111;&#109;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
@@ -8580,151 +9351,6 @@
 </ul>
 </li>
 </ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[网络上瘾及其解决方法]]></title>
-    <link href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/"/>
-    <updated>2014-03-09T10:14:28-07:00</updated>
-    <id>http://zh.lucida.me/blog/on-suppressing-the-internet-addiction</id>
-    <content type="html"><![CDATA[<h2>症状</h2>
-
-<h3>起床后</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人，大概20分钟。</p>
-
-<h3>工作中</h3>
-
-<p>大概每隔半小时刷一下微博或论坛，点进去看两分钟再切回来。</p>
-
-<h3>睡觉前</h3>
-
-<p>拿起手机，微博->论坛A->论坛B->知乎->人人->草榴（-_-），大概30分钟。</p>
-
-<h2>原因</h2>
-
-<h3>智能手机带来的极其便利的信息可访问性</h3>
-
-<p>平板和智能手机使互联网的可访问性（accessibility）提升了至少两个数量级——三年前我的NOKIA E51只能在WIFI环境下浏览简单的文字信息，而现在我的iPhone5可以无时无刻的阅读/观看互联网上几乎所有的信息，得益于4G，即便是包含大量图片甚至视频的信息也可以轻松阅读。</p>
-
-<h3>碎片化时间不知如何处理</h3>
-
-<p>无论是工作还是学习，都会有疲倦或无聊的时刻，大概10分钟左右。</p>
-
-<p>微博这种碎片化信息的出现正好填补了碎片化时间。但比较恶心的是这种东西会上瘾——慢慢的它会占据越来越多的时间：清晨，睡眠甚至路上和正常阅读的时间。</p>
-
-<h3>长时间从事同一种工作带来的无聊感</h3>
-
-<p>无论多么有激情有兴趣，长时间从事同一种工作总会无聊的，低智力门槛的社交网络就成了一个打发时间的好选择。</p>
-
-<p>然后时间就都耗里面了。-_&ndash;</p>
-
-<!-- more -->
-
-
-<h2>现实 V.S. 虚拟</h2>
-
-<p>人是社会性动物，社会性动物通过与其他对象建立联系来确定自己的存在感，也就是交流（Communication），现实和虚拟中都是如此。交流包括一对一交流和一对多交流：现实中，一对一交流通过谈话/电话/信件，一对多交流通过电视/广播；虚拟中，一对一交流通过IM（Instant Messenger），一对多交流通过微博/论坛/博客。</p>
-
-<h3>一对一交流：</h3>
-
-<ol>
-<li>现实中，一对一交流通过谈话/电话/信件，一对一交流通过IM（Instant Messenger）。</li>
-<li>现实的一对一交流大多无状态——双方的交流同时开始，同时结束。虚拟的一对一交流大多有状态——双方的交流可以从某一方开始，然后若干小时后另一方看到消息回复，然后如此继续。</li>
-<li>现实中的一对一交流需要考虑对方的状态——也就是交流需要建立在双方都有时间的基础上；虚拟的一对一交流无需考虑对方的状态，有意交流的一方可以随时给对方发送信息。</li>
-</ol>
-
-
-<p>虚拟带来的问题：</p>
-
-<ol>
-<li>任何人都可以与你交流，无论你愿意与否。</li>
-<li>你可以与任何人交流，无论是否值得。</li>
-<li>可能会陷入一种等待交流的焦虑中。</li>
-</ol>
-
-
-<h3>一对多交流：</h3>
-
-<ol>
-<li>现实的一对多交流需要大量人力物力（广播/电视/报纸），虚拟的一对多交流几乎零成本（微博/博客/社交网络）。</li>
-<li>现实的一对多交流需要信息审核/证伪，虚拟的一对多交流几乎没有信息审核。</li>
-<li>现实的一对多交流中接收方是完全被动的，虚拟的一对多交流接收方和广播方之间可以有交互。</li>
-</ol>
-
-
-<p>虚拟带来的问题：</p>
-
-<ol>
-<li>没有审核带来的大量低质量无意义信息（通常会以一种很有趣或是令人热血沸腾的形式出现）。</li>
-<li><a href="http://book.douban.com/subject/1012611/">乌合之众</a>，最热门的信息不是最有价值的，而是吵的最响（或是争议最多）的。</li>
-<li>与广播方（例如名人）的交流会带来成就感，也会使自己陷入等待回复的焦虑中。</li>
-<li>可能会陷入一种不断查看新信息（尽管这些信息毫无意义）的焦虑中。</li>
-</ol>
-
-
-<h2>解决方法</h2>
-
-<p>为此在豆瓣阅读买了一本<a href="http://book.douban.com/subject/24383461/">网络素养</a>，原版：<a href="http://www.amazon.com/Net-Smart-How-Thrive-Online/dp/0262526131/">Net Smart: How to thrive online</a>。</p>
-
-<p><img src="http://img5.douban.com/lpic/s26842036.jpg" title="网络素养" alt="网络素养" /></p>
-
-<p><img src="http://ecx.images-amazon.com/images/I/41LRFD-SVlL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_SX385_SY500_CR,0,0,385,500_SH20_OU02_.jpg" title="Net Smart" alt="Net Smart" /></p>
-
-<p>这本书废话极多，关键的两点：控制注意力，鉴别垃圾信息。</p>
-
-<h3>控制注意力</h3>
-
-<ul>
-<li>下意识的控制注意力，可以通过关注自己的呼吸来调节。</li>
-<li>即便忽略几条微博几条信息，也不会对生活造成多大影响。</li>
-<li>此外可以使用冥想提升自己的集中力（Focus）。</li>
-<li>番茄工作法（没看明白要点，25分钟休息一次是什么原理，如果这样岂不是更不靠谱）。</li>
-</ul>
-
-
-<h3>鉴别垃圾信息</h3>
-
-<ul>
-<li>冷静面对夸张的标题，此类信息一般有意断章取义，或是掩盖上下文。</li>
-<li>恰当的使用三点式验证争议信息：使用三个不同可信来源验证信息的有效性。</li>
-<li>选取可信/有效/有价值的信息来源，屏蔽哗众取宠/断章取义的信息源。</li>
-</ul>
-
-
-<h3>集中时间处理社交网络</h3>
-
-<ul>
-<li>在固定的时间段（例：12:40 &ndash; 13:10, 20:20 &ndash; 21:00）处理社交网络信息，而非随时随地的查看状态。</li>
-<li>如有特别需求，可以编写Crawler来发送Reminder邮件，替代人工轮询。</li>
-</ul>
-
-
-<h2>用不上瘾的行为填充碎片化时间</h2>
-
-<p>碎片化时间可以进行其它益智或体育活动，包括但不限于：</p>
-
-<ul>
-<li>拆解/还原九连环。</li>
-<li>单手还原魔方。</li>
-<li>背诵单词。</li>
-<li>绘画。</li>
-<li>乒乓。</li>
-<li>桌球。</li>
-</ul>
-
-
-<h2>尝试其它活动</h2>
-
-<p>为了得到新鲜感，包括但不限于：</p>
-
-<ul>
-<li>学习自己感兴趣但不了解的技术（例如ANTLR）或学科（例如经济/心理学）。</li>
-<li>尝试集体运动（例如攀岩，射箭）。</li>
-<li>尝试旅行（例如在周末去荷兰、芬兰或瑞典进行两日游）。</li>
-</ul>
 
 ]]></content>
   </entry>
