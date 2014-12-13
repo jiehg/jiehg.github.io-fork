@@ -11,7 +11,7 @@
 
   
   <meta name="description" content="作者：Lucida 微博：@peng_gong
-豆瓣：@figure9 原文链接：从2000毫秒到10毫秒——Lucida拼音库的设计与实现 本文谢绝转载，如需转载需征得作者本人同意，谢谢。 关于 本文介绍了Lucida拼音库的设计、实现以及优化过程。Lucida拼音库以微软拼音库为基础， &hellip;">
+豆瓣：@figure9 原文链接：http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features 本文谢绝转载，如需转载需征得作者本人同意，谢谢。 深入理解Java 8 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +68,79 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/java-8-lambdas-insideout-library-features/">深入理解Java 8 Lambda（类库篇——Streams API，Collectors和并行）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-12T22:23:36-08:00" pubdate data-updated="true">Dec 12<span>th</span>, 2014</time>
+        
+           | <a href="/blog/java-8-lambdas-insideout-library-features/#disqus_thread"
+             data-disqus-identifier="http://zh.lucida.me/blog/java-8-lambdas-insideout-library-features/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features">http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<ol>
+<li><a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features">深入理解Java 8 Lambda（语言篇——lambda，方法引用，目标类型和默认方法）</a></li>
+<li><a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-library-features">深入理解Java 8 Lambda（类库篇——Streams API，Collector和并行）</a></li>
+<li>深入理解Java 8 Lambda（原理篇——Java编译器如何处理lambda）</li>
+</ol>
+
+
+<p>本文是深入理解Java 8 Lambda系列的第二篇，主要介绍Java 8针对新增语言特性而新增的类库（例如Streams API、Collectors和并行）。</p>
+
+<p>本文是对<a href="http://www.oracle.com/us/technologies/java/briangoetzchief-188795.html">Brian Goetz</a>的<a href="http://cr.openjdk.java.net/~briangoetz/lambda/lambda-libraries-final.html">State of the Lambda: Libraries Edition</a>一文的翻译。</p>
+
+<h2><a name="about">关于</a></h2>
+
+<p>Java SE 8增加了新的语言特性（例如lambda表达式和默认方法），为此Java SE 8的类库也进行了很多改进，本文简要介绍了这些改进。在阅读本文前，你应该先阅读<a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features/">深入浅出Java 8 Lambda（语言篇）</a>，以便对Java SE 8的新增特性有一个全面了解。</p>
+
+<h2><a name="background">背景（Background）</a></h2>
+
+<p>自从lambda表达式成为Java语言的一部分之后，Java集合（Collections）API就面临着大幅变化。而<a href="https://jcp.org/en/jsr/detail?id=355">JSR 355</a>（规定了Java lambda表达式的标准）的正式启用更是使得Java集合API变的过时不堪。尽管我们可以从头实现一个新的集合框架（比如“Collection II”），但取代现有的集合框架是一项非常艰难的工作，因为集合接口渗透了Java生态系统的每个角落，将它们一一换成新类库需要相当长的时间。因此，我们决定采取演化的策略（而非推倒重来）以改进集合API：</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/java-8-lambdas-insideout-library-features/">继续阅读 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -581,70 +654,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/xorb-football/">逗逼足球——Xorb Football</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-29T14:58:09-07:00" pubdate data-updated="true">Jun 29<span>th</span>, 2014</time>
-        
-           | <a href="/blog/xorb-football/#disqus_thread"
-             data-disqus-identifier="http://zh.lucida.me/blog/xorb-football/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
-
-<ul>
-<li><a href="http://www.weibo.com/pegong/">微博</a></li>
-<li><a href="http://www.douban.com/people/figure9/">豆瓣</a></li>
-</ul>
-
-
-<p><a href="http://zh.lucida.me/blog/xorb-football/">原文链接</a></p>
-
-<h2>关于</h2>
-
-<p>我的Blog副标题是<strong>Tech</strong>, <strong>Life</strong>, <strong>Love</strong>，不过开博到现在几乎全是<strong>Tech</strong>相关的文章，<strong>Life</strong>相关的文章几乎没有（<a href="http://zh.lucida.me/blog/stories-of-masturbations/">打飞机故事集</a>那篇不算-_&ndash;#），更不要说<strong>Love</strong>。所以我决定改变一下这个局面。</p>
-
-<p>不知道为什么国内舆论总喜欢把程序员黑化，以至于程序员给人的感觉就像只会修电脑——极端一些，类似下面：</p>
-
-<p><img src="http://i.imgur.com/2suKYmO.jpg" alt="僵尸般的程序员" /></p>
-
-<p>但实际上并未如此，程序员也是正常人，甚至比其它职业更加多才多艺。</p>
-
-<p>以我为例，业余爱好包括<a href="http://en.wikipedia.org/wiki/Capoeira">Capoeira</a>（业余玩）、跆拳道（蓝带）、桌球、看书（对历史经济设计心理哲学等感兴趣）、收集耳机（到现在搞了接近20余副）等等，而这些爱好没有一项和计算机相关：</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/xorb-football/">继续阅读 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; 较旧的文章</a>
@@ -667,6 +676,10 @@
 </section><section>
   <h1>最近的博文</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/java-8-lambdas-insideout-library-features/">深入理解Java 8 Lambda（类库篇——Streams API，Collectors和并行）</a>
+      </li>
     
       <li class="post">
         <a href="/blog/lucida-pinyin-converter/">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a>
@@ -696,15 +709,11 @@
         <a href="/blog/after-germany-screwed-brazil/">我们都爱黑巴西——德国神虐巴西之后</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/xorb-football/">逗逼足球——Xorb Football</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/csharp'>CSharp (1)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (21)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/optimization'>Optimization (1)</a></li><li><a href='/blog/categories/programming'>Programming (11)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/csharp'>CSharp (1)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (22)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (2)</a></li><li><a href='/blog/categories/lambda'>Lambda (2)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/optimization'>Optimization (1)</a></li><li><a href='/blog/categories/programming'>Programming (12)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
 </section>
   
 </aside>

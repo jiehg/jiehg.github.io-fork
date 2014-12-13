@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CSharp | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/csharp/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-07T01:42:14-08:00</updated>
+  <updated>2014-12-12T22:40:24-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -89,7 +89,7 @@ String[] pinyins = '曾'.GetPinyins();
 
 <p><code>csharp 得到中文词汇的拼音
 String value = "中华人民";
-String[] pinyinOfValue = s.Select(c =&gt; c.GetPinyins()[0]).ToArray();
+String[] pinyinOfValue = value.Select(c =&gt; c.GetPinyins()[0]).ToArray();
 // pinyinOfValue == ["ZHONG", "HUA", "REN", "MIN"]
 </code></p>
 
@@ -321,7 +321,7 @@ private static String[] PinyinTable = { &ldquo;A&rdquo;, &ldquo;AI&rdquo;, &ldqu
 
 <p>private static String[] DecodePinyins(Int64 pinyinCode) {
   Int16 count = 0;
-  for (Int64 tmp = count; tmp > 0; count += 1, tmp >>= 9) ;
+  for (Int64 tmp = pinyinCode; tmp > 0; count += 1, tmp >>= 9) ;
   String[] pinyins = new String[count];
   for (Int16 i = 0; pinyinCode > 0; i += 1, pinyinCode >>= 9) {</p>
 

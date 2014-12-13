@@ -173,7 +173,7 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">String</span> <span class="k">value</span> <span class="p">=</span> <span class="s">&quot;中华人民&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="n">String</span><span class="p">[]</span> <span class="n">pinyinOfValue</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">()[</span><span class="m">0</span><span class="p">]).</span><span class="n">ToArray</span><span class="p">();</span>
+</span><span class='line'><span class="n">String</span><span class="p">[]</span> <span class="n">pinyinOfValue</span> <span class="p">=</span> <span class="k">value</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">GetPinyins</span><span class="p">()[</span><span class="m">0</span><span class="p">]).</span><span class="n">ToArray</span><span class="p">();</span>
 </span><span class='line'><span class="c1">// pinyinOfValue == [&quot;ZHONG&quot;, &quot;HUA&quot;, &quot;REN&quot;, &quot;MIN&quot;]</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -480,7 +480,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">String</span><span class="p">[]</span> <span class="nf">DecodePinyins</span><span class="p">(</span><span class="n">Int64</span> <span class="n">pinyinCode</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="n">Int16</span> <span class="n">count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="n">Int64</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">count</span><span class="p">;</span> <span class="n">tmp</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span> <span class="n">count</span> <span class="p">+=</span> <span class="m">1</span><span class="p">,</span> <span class="n">tmp</span> <span class="p">&gt;&gt;=</span> <span class="m">9</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="n">Int64</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">pinyinCode</span><span class="p">;</span> <span class="n">tmp</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span> <span class="n">count</span> <span class="p">+=</span> <span class="m">1</span><span class="p">,</span> <span class="n">tmp</span> <span class="p">&gt;&gt;=</span> <span class="m">9</span><span class="p">)</span> <span class="p">;</span>
 </span><span class='line'>  <span class="n">String</span><span class="p">[]</span> <span class="n">pinyins</span> <span class="p">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">[</span><span class="n">count</span><span class="p">];</span>
 </span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="n">Int16</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">pinyinCode</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">+=</span> <span class="m">1</span><span class="p">,</span> <span class="n">pinyinCode</span> <span class="p">&gt;&gt;=</span> <span class="m">9</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="n">pinyins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">PinyinTable</span><span class="p">[(</span><span class="n">pinyinCode</span> <span class="p">&amp;</span> <span class="m">511</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">];</span>
@@ -924,6 +924,8 @@
         <a class="basic-alignment left" href="/blog/lean-technical-resume/" title="Previous Post: 精益技术简历之道——改善技术简历的47条原则">&laquo; 精益技术简历之道——改善技术简历的47条原则</a>
       
       
+        <a class="basic-alignment right" href="/blog/java-8-lambdas-insideout-library-features/" title="Next Post: 深入理解Java 8 Lambda（类库篇——Streams API，Collectors和并行）">深入理解Java 8 Lambda（类库篇——Streams API，Collectors和并行） &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -950,6 +952,10 @@
 </section><section>
   <h1>最近的博文</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/java-8-lambdas-insideout-library-features/">深入理解Java 8 Lambda（类库篇——Streams API，Collectors和并行）</a>
+      </li>
     
       <li class="post">
         <a href="/blog/lucida-pinyin-converter/">从2000毫秒到10毫秒——Lucida拼音库的设计与实现</a>
@@ -979,15 +985,11 @@
         <a href="/blog/after-germany-screwed-brazil/">我们都爱黑巴西——德国神虐巴西之后</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/xorb-football/">逗逼足球——Xorb Football</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/csharp'>CSharp (1)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (21)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/lambda'>Lambda (1)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/optimization'>Optimization (1)</a></li><li><a href='/blog/categories/programming'>Programming (11)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/algorithm'>Algorithm (2)</a></li><li><a href='/blog/categories/bullshit'>Bullshit (2)</a></li><li><a href='/blog/categories/csharp'>CSharp (1)</a></li><li><a href='/blog/categories/design'>Design (2)</a></li><li><a href='/blog/categories/essay'>Essay (22)</a></li><li><a href='/blog/categories/interpreter'>Interpreter (1)</a></li><li><a href='/blog/categories/java'>Java (2)</a></li><li><a href='/blog/categories/lambda'>Lambda (2)</a></li><li><a href='/blog/categories/learning'>Learning (3)</a></li><li><a href='/blog/categories/life'>Life (4)</a></li><li><a href='/blog/categories/movie'>Movie (1)</a></li><li><a href='/blog/categories/optimization'>Optimization (1)</a></li><li><a href='/blog/categories/programming'>Programming (12)</a></li><li><a href='/blog/categories/reading'>Reading (1)</a></li><li><a href='/blog/categories/resume'>Resume (1)</a></li><li><a href='/blog/categories/retrospection'>Retrospection (12)</a></li><li><a href='/blog/categories/sport'>Sport (2)</a></li><li><a href='/blog/categories/technology'>Technology (8)</a></li><li><a href='/blog/categories/tools'>Tools (2)</a></li></ul>
 </section>
   
 </aside>
