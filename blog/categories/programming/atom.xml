@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Programming | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-12T22:40:24-08:00</updated>
+  <updated>2014-12-12T22:43:09-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -26,7 +26,7 @@
 </ul>
 
 
-<p>原文链接：<a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features">http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features</a></p>
+<p>原文链接：<a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-library-features">http://zh.lucida.me/blog/java-8-lambdas-insideout-library-features</a></p>
 
 <p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
 
@@ -512,11 +512,11 @@ Comparator<Person> c = Comparator.comparing(p &ndash;> p.getLastName())</p>
 
 <p>引入lambda表达式是Java语言的巨大进步，但这还不够——开发者每天都要使用核心类库，为了开发者能够尽可能方便的使用语言的新特性，语言的演化和类库的演化是不可分割的。<code>Stream</code>抽象作为新增类库特性的核心，提供了强大的数据集合操作功能，并被深入整合到现有的集合类和其它的JDK类型中。</p>
 
-<hr />
-
 <p>未完待续——</p>
 
 <p>下篇：深入理解Java 8 Lambda（原理篇——Java编译器如何处理lambda）</p>
+
+<hr />
 
 <p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
@@ -1361,7 +1361,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#109;&#121;&#109;&#97;&#105;&#108;&#x40;&#103;&#103;&#103;&#46;&#x63;&#x6f;&#109;">&#109;&#121;&#x6d;&#97;&#x69;&#x6c;&#64;&#x67;&#x67;&#x67;&#46;&#99;&#111;&#x6d;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#58;&#109;&#121;&#109;&#97;&#x69;&#x6c;&#x40;&#x67;&#x67;&#103;&#x2e;&#x63;&#111;&#x6d;">&#x6d;&#121;&#x6d;&#x61;&#105;&#108;&#64;&#103;&#103;&#x67;&#46;&#99;&#111;&#109;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
@@ -2756,11 +2756,11 @@ people.sort(comparing(Person::getLastName).reversed());;
 
 <p>Java SE 8提供的新语言特性并不算多——lambda表达式，方法引用，默认方法和静态接口方法，以及范围更广的类型推导。但是把它们结合在一起之后，开发者可以编写出更加清晰简洁的代码，类库编写者可以编写更加强大易用的并行类库。</p>
 
-<hr />
-
 <p>未完待续——</p>
 
 <p>下篇：<a href="http://zh.lucida.me/blog/java-8-lambdas-insideout-library-features">深入理解Java 8 Lambda（类库篇——Streams API，Collector和并行）</a></p>
+
+<hr />
 
 <p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
 
