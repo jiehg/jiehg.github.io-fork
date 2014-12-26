@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Essay | Lucida]]></title>
   <link href="http://zh.lucida.me/blog/categories/essay/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-26T15:03:03-08:00</updated>
+  <updated>2014-12-26T15:05:00-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -1361,7 +1361,7 @@ private static Char[] shortText = &ldquo;前面三辆囚车中分别监禁的是
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#109;&#121;&#109;&#97;&#x69;&#x6c;&#64;&#x67;&#x67;&#103;&#46;&#x63;&#x6f;&#109;">&#x6d;&#121;&#x6d;&#97;&#105;&#108;&#x40;&#103;&#x67;&#103;&#46;&#99;&#111;&#109;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#109;&#x79;&#x6d;&#97;&#105;&#x6c;&#x40;&#103;&#x67;&#103;&#x2e;&#x63;&#x6f;&#109;">&#x6d;&#121;&#x6d;&#97;&#105;&#x6c;&#64;&#x67;&#x67;&#103;&#46;&#x63;&#111;&#x6d;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
