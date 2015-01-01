@@ -4,7 +4,7 @@
   <title><![CDATA[Lucida]]></title>
   <link href="http://zh.lucida.me/atom.xml" rel="self"/>
   <link href="http://zh.lucida.me/"/>
-  <updated>2014-12-26T17:25:33-08:00</updated>
+  <updated>2015-01-01T00:14:30-08:00</updated>
   <id>http://zh.lucida.me/</id>
   <author>
     <name><![CDATA[Lucida]]></name>
@@ -12,6 +12,186 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[程序员英语学习指引]]></title>
+    <link href="http://zh.lucida.me/blog/english-for-programmers/"/>
+    <updated>2015-01-01T00:04:51-08:00</updated>
+    <id>http://zh.lucida.me/blog/english-for-programmers</id>
+    <content type="html"><![CDATA[<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/english-for-programmers/">http://zh.lucida.me/blog/english-for-programmers/</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+
+<h2>概要</h2>
+
+<p>这篇文章面向程序员，简要的介绍了一些学习计算机专业英语的步骤和经验。</p>
+
+<h2>关于</h2>
+
+<p>之前不少人曾站内我如何学习英语，我也曾试图写一篇如何学习英语的博文，但我现在的实力着实无法写出令人信服的文章：</p>
+
+<ol>
+<li>尽管阅读、写作和听力还可以，但口语很差——我指的是日常用语，即便出国一年，现在我和同事交流时仍然磕磕巴巴，不知道用什么词的情况经常出现；</li>
+<li>尽管读过大量外文资料，但它们绝大多是计算机专业书籍和论文，并不适用于通用的英语学习，也不适用于其它专业。</li>
+</ol>
+
+
+<p>所以这篇文章并不是一篇英语学习教程——而是一篇面向国内开发者的计算机专业（为了简便，接下来的“专业”均指“计算机专业”）英语学习指引，本文集中于如下问题：</p>
+
+<ul>
+<li><a href="#why_english">为什么要学习英语？</a></li>
+<li><a href="#how_to_read_from_scratch">如何从零开始阅读专业英文书籍？</a></li>
+<li><a href="#how_to_improve_reading_skills">如何提升专业英语阅读能力？</a></li>
+<li><a href="#how_to_improve_writing_skills">如何提升专业英语写作能力？</a></li>
+<li><a href="#how_to_improve_listening_skills">如何提升英语听力？</a></li>
+</ul>
+
+
+<p>此外，我把简短的问答放在<a href="#miscellaneous">杂项</a>之中，以便阅读。</p>
+
+<!-- more -->
+
+
+<h2><a name="why_english">为什么要学习英语？</a></h2>
+
+<p>这个问题很多人问过，也有很多人回答过，此外如果你在阅读这篇文章那么你应该已经意识到了学习英语的重要性。所以我不打算花太多篇幅在它上面，这里简略的总结下学习英语的好处：</p>
+
+<ol>
+<li>更多的高质量学习资源：首先，绝大多数高质量的计算机学习资源（书籍、论文、博文和视频等）都是英文；其次，高质量的中文计算机学习资源几乎为零；</li>
+<li>无需忍受翻译带来的问题：
+ 2.1. 信息损耗：任何知识从一种语言翻译到另一种语言一定会有信息损耗，更何况是英文和中文这两种差别巨大的语言；
+ 2.2. 时效损耗：翻译需要时间，如果你读的是翻译版那么你已经至少落后了半年；
+ 2.3. 翻译损耗：国内的计算机书籍翻译水平参差不齐，你需要拼人品；</li>
+<li>编写更好的代码：良好的英语水平是编写可读（Readable）代码的前提；</li>
+<li>翻墙：相对于其它专业，计算机专业出国工作要容易很多，但前提是你的英语要说的过去。</li>
+</ol>
+
+
+<h2><a name="how_to_read_from_scratch">如何从零开始阅读专业英文书籍？</a></h2>
+
+<p>注意这里的零基础指的是专业英文书籍阅读零基础——而不是英语零基础，英语零基础就没啥好说的了 &ndash;_&ndash;#</p>
+
+<p>刚开始阅读专业英文书籍时要记住一点：你的目标是<strong>提升计算机专业词汇量</strong>，而不是学习计算机专业知识。所以你要阅读的是计算机“通俗”读物或“科普”读物，我的计算机英文入门书籍是<a href="http://book.douban.com/subject/1880471/">计算机文化</a>（<a href="http://book.douban.com/subject/2376634/">New Perspectives on Computer Concepts</a>），这本书每年一版，现在已经出到<a href="http://www.amazon.com/Perspectives-Computer-Concepts-2014-Comprehensive/dp/1285096924/">第16版</a>：</p>
+
+<p><img src="http://i.imgur.com/Uhke7OQ.jpg" alt="New Perspectives on Computer Concepts" /></p>
+
+<p>这本书的好处在于它极其浅显易懂，并且包含大量计算机专业领域名词，所以读者可以专注于提升计算机专业词汇量，而不是一边查单词一边学新技术——同时搞两件事是很困难的。</p>
+
+<p>顺便提一下那篇<a href="http://blog.jobbole.com/45296/">老码农教你学英语</a>和那个老码农推荐的<a href="http://blog.jobbole.com/45795/">书目</a>，姑且不论他把Mythical Man-month拼写成Man Month Myth，我非常惊讶他居然称人月神话原版为白话书并且推荐初学者阅读，直到看到这里：</p>
+
+<p><img src="http://i.imgur.com/Scg0Egm.jpg" alt="WTF" /></p>
+
+<p>这句<em>“另外两本也很不错，我很久以前看的翻译版，一直也想找原版的来看看，可惜总是没空，这次你们就算替我看了吧”</em>着实让我很无语，没看过的书也可以随便推荐么 &ndash;_&ndash;# 难怪那么多人推荐计算机程序设计艺术呢。</p>
+
+<p>我在读研时从头至尾阅读了<a href="http://en.wikipedia.org/wiki/Fred_Brooks">Frederick Brooks</a>的<a href="http://en.wikipedia.org/wiki/The_Mythical_Man-Month">Mythical Man Month</a>以及他的几篇论文（No Silver Bullets和the Computer Scientist as Toolsmith），所以对Brooks的文风有一定了解——Brooks绝对是一位多才多艺的计算机科学大师——他的文字不仅涉及到计算机，还涉及到管理、人文、艺术、建筑和神学等学科。读他的书和文章，我查单词直接查到手抽，推荐初学者读这种书，你是要玩死初学者么 &ndash;_&ndash;#</p>
+
+<h2><a name="how_to_improve_reading_skills">如何提升专业英语阅读能力？</a></h2>
+
+<p>阅读<a href="http://www.amazon.com/Perspectives-Computer-Concepts-2014-Comprehensive/dp/1285096924/">New Perspectives on Computer Concepts</a>之后，你应该掌握了大量的计算机专业英文词汇，这时你可以尝试阅读一些语言浅显但主题相对深入的计算机科学基础书籍，个人力荐<a href="http://www.cs.princeton.edu/~bwk/">Brian W Kernighan</a>和<a href="http://www.cs.vu.nl/~ast/">Andrew S Tanenbaum</a>的作品，他们的著作不但本本经典，而且语言朴实：</p>
+
+<ul>
+<li><a href="http://www.amazon.com/The-Programming-Language-2nd-Edition/dp/0131103628/">The C Programming Language 2th</a>：不但是C语言的神作，而且为编程语言书籍的编写树立了新的标杆；</li>
+<li><a href="http://www.amazon.com/gp/product/013937681X/">The Unix Programming Environment</a>：覆盖了Unix的设计思想，简洁易懂的Unix入门手册；</li>
+<li><a href="http://www.amazon.com/Practice-Programming-Addison-Wesley-Professional-Computing/dp/020161586X/">The Practice of Programming</a>：两位Unix大师（<a href="http://en.wikipedia.org/wiki/Rob_Pike">Rob Pike</a>和<a href="http://www.cs.princeton.edu/~bwk/">Brian Kernighan</a>）近三十年的编程经验尽在此书之中；</li>
+<li><a href="http://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X/">Algorithms 4th</a>：数据结构与算法入门；</li>
+<li><a href="http://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X/">Modern Operating Systems 4th</a>：全面的操作系统概论；</li>
+<li><a href="http://www.amazon.com/Computer-Networks-5th-Andrew-Tanenbaum/dp/0132126958/">Computer Networks 5th</a>：全面的计算机网络概论。</li>
+</ul>
+
+
+<p>这些书读完之后，你应该可以做到脱离字典阅读绝大多数的计算机书籍——是的，可能还会有一些生词，但不会影响阅读。</p>
+
+<p>除了读书，阅读专业博客也是非常好的提升专业英语水平的途径。个人推荐下面几个网站：</p>
+
+<ul>
+<li><a href="https://news.ycombinator.com">Hacker News</a>：大量的技术资讯和博文；</li>
+<li><a href="http://www.reddit.com">Reddit</a>：非常的聚合站点，我一般去下面几个频道（subreddit）
+
+<ul>
+<li><a href="http://www.reddit.com/r/programming/">/programming</a>：聚合了大量的优秀程序设计博文（其实不少国内技术站点就是搬运它的内容）；</li>
+<li><a href="http://www.reddit.com/r/java/">/java</a>：大量的Java技术博文，质量不如<a href="http://www.reddit.com/r/programming/">/programming</a>，但也还说的过去；</li>
+<li><a href="http://www.reddit.com/r/shittyprogramming/">/shittyprogramming</a>：悠闲时的去处，不少段子来自这里；</li>
+</ul>
+</li>
+<li><a href="https://medium.com">Medium</a>：大量的高质量文章；</li>
+<li><a href="http://www.quora.com">Quora</a>：大量的高质量问答，有不少中国人在上面练习英语；</li>
+</ul>
+
+
+<h2><a name="how_to_improve_writing_skills">如何提升英语写作能力？</a></h2>
+
+<p>程序员学习英语不是为了写小说——而主要是如下场景：</p>
+
+<ol>
+<li>编写设计文档（Design Document）；</li>
+<li>收发邮件，进行交流；</li>
+<li>开发程序中的命名、注释等描述性内容。</li>
+</ol>
+
+
+<p>1和2需要Nonfiction Writing——言简意赅，层次分明。这方面的写作书籍我推荐：</p>
+
+<p><img src="http://i.imgur.com/9EjJ7Cx.jpg" alt="the Elements Of Style" /></p>
+
+<p><a href="http://www.amazon.com/Elements-Style-Fourth-William-Strunk/dp/020530902X/">the Elements Of Style</a>（这本书我应该推荐了无数次 &ndash;_&ndash;#</p>
+
+<p><img src="http://i.imgur.com/B8Qwfur.jpg" alt="On Writing Well" /></p>
+
+<p><a href="http://www.amazon.com/Writing-Well-30th-Anniversary-Nonfiction/dp/0060891548/">On Writing Well</a></p>
+
+<p><img src="http://i.imgur.com/uO9p3nw.jpg" alt="中式英语之鉴" /></p>
+
+<p>此外少不了<a href="http://book.douban.com/subject/1229822/">中式英语之鉴</a>，中式英语说说还成，写到纸面上就丢大发了。</p>
+
+<p>关于3的书籍很多，我个人推荐<a href="http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/">Code Complete</a>中关于命名（Naming）的一章，章名好像是the Power of Variable Names；以及<a href="http://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683/">Effective Java 2nd</a>的Item44——如何编写代码注释及文档。</p>
+
+<h2><a name="how_to_improve_listening_skills">如何提升听力？</a></h2>
+
+<p>阅读量达到一定程度听力也不会差，个人推荐<a href="http://channel9.msdn.com/">Channel 9</a>、<a href="https://www.youtube.com/user/GoogleTechTalks">Google Tech Talk</a>和<a href="https://www.coursera.org/">Coursera</a>，多看多听，此外务必不要中文字幕。</p>
+
+<h2><a name="miscellaneous">杂项</a></h2>
+
+<p>这里包含一些简短的问题，如果你有疑问也可以留言，我会把答案添加到这里。</p>
+
+<h3>是否一定需要阅读原版？</h3>
+
+<p>除非你阅读原版书籍和中文书籍一样顺畅，或者翻译书籍信息损失量太大，否则不需要刻意阅读原版。</p>
+
+<h3>开发者需要多少单词量？</h3>
+
+<p>没有标准答案。作为开发者，大词汇量不是必需，但一定要<strong>把词用对</strong>——尤其是动词。</p>
+
+<p>以方法/函数名中经常出现的<code>get</code>为例：我们需要知道何时应该使用<code>get</code>，以及何时使用<code>fetch</code>、<code>build</code>、<code>retrieve</code>、<code>compute</code>、<code>calculate</code>和<code>receive</code>这些<code>get</code>的同类词汇。</p>
+
+<h3>有没有好用的词典？</h3>
+
+<p>目前我还没有发现一个好用的词典应用，所以依然在使用6年前的CASIO V2800H电子辞典。（略土 &ndash;_&ndash;#</p>
+
+<p>以上。</p>
+
+<hr />
+
+<p>作者：<a href="http://zh.lucida.me/">Lucida</a></p>
+
+<ul>
+<li>微博：<a href="http://www.weibo.com/pegong/">@peng_gong</a></li>
+<li>豆瓣：<a href="http://www.douban.com/people/figure9/">@figure9</a></li>
+</ul>
+
+
+<p>原文链接：<a href="http://zh.lucida.me/blog/english-for-programmers/">http://zh.lucida.me/blog/english-for-programmers/</a></p>
+
+<p>本文谢绝转载，如需转载需征得作者本人同意，谢谢。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[回顾2014——还算不错的开端]]></title>
@@ -1925,7 +2105,7 @@
 
 <ul>
 <li>使用<a href="http://zh.lucida.me">http://zh.lucida.me</a>而非http<nolink>://zh.lucida.me</li>
-<li>使用<a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x6d;&#x79;&#109;&#x61;&#105;&#108;&#64;&#103;&#x67;&#103;&#x2e;&#99;&#111;&#x6d;">&#x6d;&#121;&#109;&#x61;&#x69;&#108;&#x40;&#x67;&#x67;&#103;&#46;&#99;&#x6f;&#109;</a>而非mymail<nolink>@ggg.com</li>
+<li>使用<a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x6d;&#x79;&#109;&#x61;&#x69;&#108;&#x40;&#103;&#103;&#x67;&#x2e;&#99;&#x6f;&#x6d;">&#109;&#x79;&#109;&#x61;&#105;&#108;&#64;&#x67;&#103;&#x67;&#x2e;&#99;&#x6f;&#x6d;</a>而非mymail<nolink>@ggg.com</li>
 </ul>
 
 
@@ -7477,357 +7657,6 @@
 
 
 <p>以上。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[三月小结（暨TARQIE——一种量化成长的方法（下））]]></title>
-    <link href="http://zh.lucida.me/blog/summary-of-march-2014/"/>
-    <updated>2014-04-06T15:24:33-07:00</updated>
-    <id>http://zh.lucida.me/blog/summary-of-march-2014</id>
-    <content type="html"><![CDATA[<h2>目标实际完成情况</h2>
-
-<h3>Tarqie-J</h3>
-
-<ol>
-<li>目标
-
-<ul>
-<li>高效完成Q1 OKR。 &ndash;> 1.0
-
-<ul>
-<li>搞定，超出Manager和Mentor的预期。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>量化
-
-<ul>
-<li>成功迁移124个Test。 &ndash;> 1.0
-
-<ul>
-<li>搞定，并且构建了持续测试环境。</li>
-</ul>
-</li>
-<li>为这些Test配置一个可稳定运行的环境。 &ndash;> 0.8
-
-<ul>
-<li>基本搞定，但仍存在少量（每天1~2次）的不稳定状况。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>改进
-
-<ul>
-<li>恬着脸皮向不同的同事请教。 &ndash;> 1.0
-
-<ul>
-<li>达成——基本每个同事都被我骚扰了一遍 &ndash;_&ndash;</li>
-</ul>
-</li>
-<li>理解当前Test的架构和流程。 &ndash;> 1.0
-
-<ul>
-<li>重建测试框架的过程中了解</li>
-</ul>
-</li>
-<li>阅读The Art Of Unit Test，Guice Book和GuiceBerry Manual，了解如何用Guice写良好的Test。 &ndash;> 0.7
-
-<ul>
-<li>部分完成，阅读Google Guice Book，了解了Guice运作机制。</li>
-</ul>
-</li>
-<li>阅读Java Best Practices和Effective Java。 &ndash;> 0.8
-
-<ul>
-<li>部分完成，重新阅读了JBP，但Effective Java只看了一多半。</li>
-</ul>
-</li>
-<li>阅读Java Performance，了解JVM。 &ndash;> 0.7
-
-<ul>
-<li>部分完成，阅读了国产的<a href="http://book.douban.com/subject/24722612/">《深入理解Java虚拟机》</a>，了解Java内存管理/回收，字节码生成等内容。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>验证
-
-<ul>
-<li>每周与mentor交流，进行进度控制/难点求助。 &ndash;> 0.6
-
-<ul>
-<li>由于mentor结婚度蜜月所以没有达成。</li>
-</ul>
-</li>
-<li>Test的数量不断增加。 &ndash;> 1.0
-
-<ul>
-<li>达成——事实上全部搞定。</li>
-</ul>
-</li>
-<li>CL中review的数量持续降低。 &ndash;> 1.0
-
-<ul>
-<li>搞定，成功的从每次提交代码20余个review降至小于6个。</li>
-</ul>
-</li>
-<li>逐步理解项目代码背后的机理。 &ndash;> 0.6
-
-<ul>
-<li>部分搞定，对项目测试框架已经相当了解了（毕竟自己重新搭建了整个框架），但对整个项目的各个模块，交互流程还是一头雾水。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-
-<p>综上所述，得分 0.85</p>
-
-<!-- more -->
-
-
-<h3>Tarqie-L</h3>
-
-<ol>
-<li>目标
-
-<ul>
-<li>提高精力，理解Python。 &ndash;> 0.8
-
-<ul>
-<li>精力小有提高，至于Python——实现机制不太了解，但Python语法和编程风格我现在有足够自信——毕竟写了一个程序解析合法的Python然后生成同等语义的Google风格的Python，再加上身边有一个Python Readability Reviewer，说自己现在达到中级Python开发者的水准应该不为过。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>量化
-
-<ul>
-<li>精力提高（自然醒，不赖床）。 &ndash;> 0.6
-
-<ul>
-<li>自然醒但依然赖床——-_&ndash;</li>
-</ul>
-</li>
-<li>熟悉Python及其实现。 &ndash;> 0.8
-
-<ul>
-<li>部分搞定，见上文。</li>
-</ul>
-</li>
-<li>理解4个开源项目的架构。 &ndash;> 1.0
-
-<ul>
-<li>搞定，见下文。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>改进
-
-<ul>
-<li>早睡早起（11:30 PM ~ 8:30 AM）+每天运动20分钟。 &ndash;> 0.7
-
-<ul>
-<li>早睡早起没做到，运动的频率两周一次。</li>
-</ul>
-</li>
-<li>阅读相关技术书籍（Python源码剖析，开源项目架构等）。 &ndash;> 0.6
-
-<ul>
-<li>部分完成，Python源码剖析只读了第一章，但开源项目架构每周一篇。</li>
-</ul>
-</li>
-<li>增强学习能力（阅读《Study Less, Learn More》） &ndash;> 1.0
-
-<ul>
-<li>完成。</li>
-</ul>
-</li>
-<li>控制手淫频率至两周一次。 &ndash;> 1.0 &ndash;_&ndash;
-
-<ul>
-<li>完成。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>验证
-
-<ul>
-<li>早睡早起+运动不间断。 &ndash;> 0.5
-
-<ul>
-<li>搞定一半。两天运动一次。</li>
-</ul>
-</li>
-<li>学习能力增强（+系统学习能力）。 &ndash;> 1.0
-
-<ul>
-<li>部分做到，但很难验证——不过用十天搞出了另外一个家伙搞了5个月的东西应该能说明部分问题。</li>
-</ul>
-</li>
-<li>逐步理解Python各个部分的实现（对象，语句，元组，列表，字典，控制流，异常，自定义类型，列表理解，生成器，模块，从源码了解其机制）。 &ndash;> 1.0
-
-<ul>
-<li>没有阅读代码，但完成了一个Python Formatter——把Python代码转换成AST再转换回等语义的<a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">Google Python Style</a>代码。</li>
-</ul>
-</li>
-<li>每周理解1个开源项目的架构。 &ndash;> 1.0
-
-<ul>
-<li>完成——阅读了<a href="http://aosabook.org/en/bash.html">Bash</a>, <a href="http://aosabook.org/en/selenium.html">Selenium WebDriver</a>, <a href="http://aosabook.org/en/posa/high-performance-networking-in-chrome.html">Chrome</a>和<a href="http://aosabook.org/en/posa/parsing-xml-at-the-speed-of-light.html">puginxml</a>。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-
-
-<p>综上所述，得分 0.8</p>
-
-<h3>成就</h3>
-
-<h4>工作</h4>
-
-<ol>
-<li>构建新的测试环境并迁移原有的测试用例。
-
-<ul>
-<li>各种神坑，Team/MailList/Group/ReadTheFuckingSource。</li>
-<li>manager一度问我是否需要support——想了想还是撑下来了，还好搞定了。</li>
-<li>神奇的发现自己第一次实习时做的也是migration，尼玛难道是轮回？</li>
-</ul>
-</li>
-<li>利用业余时间构建了pyfmt——基于AST的代码格式化工具，生成符合<a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">Google Python Style</a>的等语义代码。
-
-<ul>
-<li>速度是公司工具的6倍到50倍不等（已验证）。</li>
-<li>速度是<a href="https://github.com/hhatto/autopep8">autopep8</a>的3倍到30倍（已验证）。</li>
-<li>生成的代码质量基本等同（待验证）。</li>
-<li>代码量是<a href="https://github.com/hhatto/autopep8">autopep8</a>的二分之一。</li>
-<li>不依赖任何第三方库。</li>
-<li>不使用任何正则表达式——Never send a regex to do a parser&rsquo;s job.</li>
-</ul>
-</li>
-</ol>
-
-
-<h4>生活</h4>
-
-<ol>
-<li>重新实现了自己两年前写的Lucida。
-
-<ul>
-<li>重新设计类型系统，进行尾递归优化。然后完成<a href="http://zh.lucida.me/blog/how-to-implement-an-interpreter-in-csharp/">《90分钟实现一门编程语言——极简解释器教程》</a>，写作之余想通了之前很多迷惑的地方。</li>
-<li>功能基本等同，代码量是前一版的八分之一，运行速度是前一版的270倍（倒不是这一版效率有多高，主要是前一版写的太挫了）</li>
-</ul>
-</li>
-<li><a href="http://zh.lucida.me/blog/on-reading-books/">《如何阅读书籍》</a>和<a href="http://zh.lucida.me/blog/on-suppressing-the-internet-addiction/">《网络上瘾及其解决方法》</a>两篇议论型博客。</li>
-<li>完整的完成一个引体向上。</li>
-</ol>
-
-
-<h3>阅读列表</h3>
-
-<ul>
-<li><a href="http://book.douban.com/subject/3814402/">The Quick Python Book</a></li>
-<li><a href="http://book.douban.com/subject/25710862/">Getting Started with Google Guava</a></li>
-<li><a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a></li>
-<li><a href="http://book.douban.com/subject/24383461/">网络素养</a></li>
-<li><a href="http://book.douban.com/subject/25783654/">如何高效学习</a></li>
-<li><a href="http://book.douban.com/subject/3009235/">Google Guice</a></li>
-<li><a href="http://aosabook.org/en/index.html">The Architecture of Open Source Applications</a></li>
-</ul>
-
-
-<h3>一些体会</h3>
-
-<ol>
-<li>慢读慎写——读书不是靠页数，代码不是拼行数。</li>
-<li>精益求精——严肃认真对待自己的任何一个项目/作品，每一行代码，每一个细节都应有其意义。</li>
-<li>Don&rsquo;t <a href="http://en.wikipedia.org/wiki/Satisfice">satisfice</a>—— 在时间充裕的情况下，尽力寻找最优解，而不是找到一个答案就满足。</li>
-<li>Have a mentor/coach——无论学习什么，身边要有一个大师级人物，不要盲目相信自学能力——坑大多都是自己挖出来的。</li>
-<li>在合适的抽象层工作（Working at a proper abstraction layer），包括下面几点：
-
-<ul>
-<li>找到与目标最契合的层次：
-
-<ul>
-<li>如果层级过高就会造成性能损失和功能缺失。</li>
-<li>如果层次过低就会变成重造轮子。</li>
-</ul>
-</li>
-<li>总是在同一个层次工作——以避免上下文切换。</li>
-<li>将复杂度封装到各自对应的层次——以避免进行交互——<a href="http://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a></li>
-</ul>
-</li>
-</ol>
-
-
-<h3>发现的问题</h3>
-
-<ol>
-<li>3月目标制定的过于宏大——尽管完成度不错，但代价也很大——工作时间从每天8小时增加到10小时，到了后期的阅读时间几乎被缩减到零，接下来会相应的缩小计划目标。</li>
-<li>除了工作就是学习，导致略抑郁——尽管做出的东西带来了一点成就感。总之接下来需要更多的娱乐。</li>
-<li>猛然反应过来所谓的TARQIE其实就是OKR（<a href="http://en.wikipedia.org/wiki/OKR">Objective-Key-Results</a>）——所以接下来直接使用<a href="http://en.wikipedia.org/wiki/OKR">OKR</a>制定计划，更加简洁。</li>
-</ol>
-
-
-<h3>4月计划</h3>
-
-<h3>OKR-J</h3>
-
-<ul>
-<li>目标
-
-<ol>
-<li>完整迁移测试到原项目中。</li>
-<li>稳定+推广pyfmt。</li>
-</ol>
-</li>
-<li>关键结果
-
-<ol>
-<li>成功迁移124个Test到原项目。</li>
-<li>将测试的不稳定性控制在每天3次以下。</li>
-<li>pyfmt通过Python Readability。</li>
-<li>pyfmt有10个以上的用户。</li>
-<li>pyfmt从experimental进入devtools（略激进，但值得一试）。</li>
-</ol>
-</li>
-</ul>
-
-
-<h3>OKR-L</h3>
-
-<ul>
-<li>目标
-
-<ol>
-<li>正常作息，提高精力。</li>
-<li>结合pyfmt，深度理解Python。</li>
-<li>加深对Java &amp; JVM的理解。</li>
-</ol>
-</li>
-<li>关键结果
-
-<ol>
-<li>理解Python各个部分的实现，从源码了解其机制。</li>
-<li>阅读并理解两个以上的开源项目架构。</li>
-<li>完成<a href="http://book.douban.com/subject/24722612/">深入理解Java虚拟机：JVM高级特性与最佳实践</a>，阅读<a href="http://www.amazon.co.uk/Java-Performance-Addison-Wesley-Charlie-Hunt/dp/0137142528/">《Java Performance》</a>至50%。</li>
-<li>迁移测试的同时完成<a href="http://www.amazon.co.uk/Effective-Unit-Testing-guide-developers/dp/1935182579/">Effective Unit Testing: A guide for Java developers</a>的阅读。</li>
-<li>早睡<em>晚</em>起（8:40 ~ 23:50）</li>
-<li>控制手淫频率至两周一次。</li>
-<li>至少两天一次20分钟的运动。</li>
-</ol>
-</li>
-</ul>
-
 ]]></content>
   </entry>
   
